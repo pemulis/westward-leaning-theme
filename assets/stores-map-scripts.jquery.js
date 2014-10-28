@@ -1,0 +1,3 @@
+$.preloadImages = function() { for (var i = 0; i < arguments.length; i++) { $("<img />").attr("src", arguments[i]); } } $.preloadImages("{{ 'asia.png' | asset_url}}", "{{ 'europe.png' | asset_url}}", "{{ 'eastcoast.png' | asset_url}}", "{{ 'centralus.png' | asset_url}}", "{{ 'westcoast.png' | asset_url}}");
+$(document).ready(function(){ var images = new Array(); function preload() { for (i = 0; i < preload.arguments.length; i++) { images[i] = new Image(); images[i].src = preload.arguments[i]; } } preload("{{ 'asia.png' | asset_url}}", "{{ 'europe.png' | asset_url}}", "{{ 'eastcoast.png' | asset_url}}", "{{ 'centralus.png' | asset_url}}", "{{ 'westcoast.png' | asset_url}}") ;} );
+$(document).ready(function(e) { $('img[usemap]').rwdImageMaps(); });

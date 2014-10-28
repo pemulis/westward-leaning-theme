@@ -1,0 +1,66 @@
+<div id='homepage' class='fluid-container'>
+  
+  
+  <div class="spinner">
+    <div class="dot1"></div>
+    <div class="dot2"></div>
+  </div>
+  
+  
+  <!-- Mobile and desktop views hidden initially until window loads, along with all images, JS, DOM stuff, etc. -->
+  
+  <div id='mobile-view' class='hidden-md hidden-lg hidden-xl hidden'>
+    <a href="/collections">
+      <section id="middle-option-mobile">
+        <img src="{{ 'sunglasses-front.png' | asset_url }}" alt="Westward Leaning Sunglasses">
+        <h1>THE COLLECTION</h1>
+      </section>
+    </a>
+    <a href="/pages/our-story">
+      <section id="left-option-mobile">
+        <h1>THE CONCEPT</h1>
+      </section>
+    </a>
+    <a href="/pages/behind-the-scenes">
+      <section id="right-option-mobile">
+        <h1>THE CRAFTSMANSHIP</h1>
+      </section>
+    </a>
+  </div>
+  
+  
+  <div id='desktop-view' class='hidden-sm hidden-xs hidden'>
+  <a href="/pages/our-story">
+    <section id="left-option">
+      <div>
+        <h1>THE CONCEPT</h1>
+        <aside>WHY WE INCORPORATE UNIQUE MATERIALS SPECIFIC TO A MOMENT, PLACE, AND TIME</aside>
+        <div class='learn-more'>LEARN MORE</div>
+      </div>
+    </section>
+  </a>
+  <a href="/collections">
+    <section id="middle-option">
+      <div class='learn-more-container'>
+        <h1>THE COLLECTION</h1>
+        <!-- <aside>BUY SUNGLASSES BUY SUNGLASSES BUY SUNGLASSES BUY SUNGLASSES BUY SUNGLASSES DO IT</aside> -->
+        <img src="{{ 'homepage-sideview.jpg' | asset_url }}" alt="Westward Leaning Sunglasses">
+        <div class='shop-now'>SHOP NOW</div>
+      </div>
+    </section>
+  </a>
+  <a href="/pages/behind-the-scenes">
+    <section id="right-option">
+      <div>
+        <h1>THE CRAFTSMANSHIP</h1>
+        <aside>OUR SUNGLASSES ARE MADE BY THE ARTISANS IN OUR SAN FRANCISCO STUDIO</aside>
+        <div class='learn-more'>LEARN MORE</div>
+      </div>
+    </section>
+  </a>
+  </div>
+  
+  
+</div>
+<div id="preload-1"></div>
+<div id="preload-2"></div>

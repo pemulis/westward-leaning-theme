@@ -1,0 +1,55 @@
+<div id='{{ page.handle }}' class='container'>
+  <div id='bts-gallery' class='row'>
+    <!-- Let's preload gallery nav arrows... -->
+    <div class='hidden'>{{ 'arrow_light_right.jpg' | asset_url | img_tag }}{{ 'arrow_dark_right.jpg' | asset_url | img_tag }}{{ 'arrow_light_left.jpg' | asset_url | img_tag }}{{ 'arrow_dark_left.jpg' | asset_url | img_tag }}</div>
+
+    <div id='bts-left-arrow' class='col-md-2 hidden-sm hidden-xs gallery-arrow left'>
+      {{ 'arrow_light_left.jpg' | asset_url | img_tag: 'Cycle Left', 'light-arrow' }}
+      {{ 'arrow_dark_left.jpg' | asset_url | img_tag: 'Cycle Left', 'dark-arrow' }}
+    </div>
+    <div id='bts-gallery-images' class='col-md-8 col-xs-12'>
+      {{ 'BTS_GALLERY_1.png' | asset_url | img_tag: 'Behind the Scenes 1', 'active first' }}
+      {{ 'BTS_GALLERY_2.png' | asset_url | img_tag: 'Behind the Scenes 2' }}
+      {{ 'BTS_GALLERY_3.png' | asset_url | img_tag: 'Behind the Scenes 3' }}
+      {{ 'BTS_GALLERY_4.png' | asset_url | img_tag: 'Behind the Scenes 4' }}
+      {{ 'BTS_GALLERY_5.png' | asset_url | img_tag: 'Behind the Scenes 5' }}
+      {{ 'BTS_GALLERY_6.png' | asset_url | img_tag: 'Behind the Scenes 6' }}
+      {{ 'BTS_GALLERY_7.png' | asset_url | img_tag: 'Behind the Scenes 7' }}
+      {{ 'BTS_GALLERY_8.png' | asset_url | img_tag: 'Behind the Scenes 8', 'last' }}
+    </div>
+    <div id='bts-right-arrow' class='col-md-2 hidden-sm hidden-xs gallery-arrow right'>
+      {{ 'arrow_light_right.jpg' | asset_url | img_tag: 'Cycle Right', 'light-arrow' }}
+      {{ 'arrow_dark_right.jpg' | asset_url | img_tag: 'Cycle Right', 'dark-arrow' }}
+    </div>
+    <div class='col-md-offset-2 col-md-8 col-xs-12'>
+      <h1>AT OUR SAN FRANCISCO STUDIO</h1>
+      <p>Our team of artisans and jewelers handcraft your Westward Leaning sunglasses. They cut, weave, sew, and sand the frames’ side pieces before they are inlaid in our frames by hand.</p>
+    </div>
+  </div>
+  <div id='bts-grid' class='row'>
+    <div class='col-md-offset-2 col-md-4 col-xs-12'>
+      {{ 'BTS_GRID_1.png' | asset_url | img_tag }}
+      <p>Model <a href='/products/ultramarine-8-1-lapis-wayfarer'>N&deg;8.1 Ultramarine</a> features natural lapis lazuli stone on the frame’s temples</p>
+    </div>
+    <div class='col-md-4 col-xs-12'>
+      {{ 'BTS_GRID_2.png' | asset_url | img_tag }}
+      <p>Mirrored lenses are the signature piece of our Color Revolution line. View these blue mirror lenses in <a href='/products/color-revolution-9-1-blue-mirror-wayfarer'>N&deg;9.1 Color Revolution</a>, <a href='/products/color-revolution-9-2-blue-mirror-wayfarer'>N&deg;9.2 Color Revolution</a>, <a href='/products/color-revolution-9-10-blue-mirror-wayfarer'>N&deg;9.10 Color Revolution</a>, <a href='/products/color-revolution-9-11-blue-mirror-wayfarer'>N&deg;9.11 Color Revolution</a> and <a href='/products/color-revolution-9-22-blue-mirror-wayfarer'>N&deg;9.22 Color Revolution</a></p>
+    </div>
+    <div class='col-md-offset-2 col-md-4 col-xs-12'>
+      {{ 'BTS_GRID_3.png' | asset_url | img_tag }}
+      <p>Turquoise is the accent material for our <a href='/products/sleeping-beauty-7-2-turquoise-wayfarer'>N&deg;7.2 Sleeping Beauty model</a></p>
+    </div>
+    <div class='col-md-4 col-xs-12'>
+      {{ 'BTS_GRID_4.png' | asset_url | img_tag }}
+      <p>View these chaquira beads in model <a href='/products/love-thy-neighbor-5-1-beads-wayfarer'>N&deg;5.1 Love Thy Neighbor</a></p>
+    </div>
+    <div class='col-md-offset-2 col-md-4 col-xs-12'>
+      {{ 'BTS_GRID_5.png' | asset_url | img_tag }}
+      <p>Learn more about our <a href='/products/pocket-sized-case'>Pocket-Sized Case</a> for your pocket or purse </p>
+    </div>
+    <div class='col-md-4 col-xs-12'>
+      {{ 'BTS_GRID_6.png' | asset_url | img_tag }}
+      <p><a href='/collections'>Shop the full Westward Leaning Collection</a></p>
+    </div>
+  </div>
+</div>

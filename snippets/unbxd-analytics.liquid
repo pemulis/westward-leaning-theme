@@ -1,0 +1,82 @@
+<script type="text/javascript">
+var UnbxdSiteName = "westward_leaning_myshopify_com-u1405491303885";
+var UnbxdApiKey = "3b7a4e8a1de134d288343e5aaf7836c1";
+var UnbxdWidgetsConf = {
+{% if template contains 'product' %}
+pid : "{{product.id}}"
+{% elsif template contains 'collection' %}
+category : "{{collection.title}}"
+{% endif %}
+};
+if(window.Unbxd==undefined){
+window.Unbxd={}
+}
+var x=Unbxd.postLoad;
+Unbxd.postLoad = function(){
+if(x!=undefined&&typeof x=="function"){x()}
+function createCookie(name,value,days){
+if (days) {
+var date = new Date();date.setTime(date.getTime()+(days*24*60*60*1000));var expires = "; expires="+date.toGMTString();}
+else var expires = "";
+document.cookie = name+"="+value+expires+"; path=/";}
+function readCookie(name) {
+var nameEQ = name + "=";
+var ca = document.cookie.split(';');
+for(var i=0;i < ca.length;i++) {
+var c = ca[i];while (c.charAt(0)==' ') c = c.substring(1,c.length);
+if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);}
+return null;}
+function eraseCookie(name) {
+createCookie(name,"",-1);}
+{% if template contains 'product' %}
+Unbxd.track("click",{pid : "{{product.id }}", rank : "", box_type : ""});
+$("form[action='/cart/add']").on("click",function( event ) {
+Unbxd.track("addToCart",{pid : "{{product.id }}"});
+});
+{%elsif template contains 'customers' %}{% if order.order_number %}
+{% if order.cancelled %}
+{%else%}
+var unx_cookie = readCookie('unbxd_shopify');
+if ( !unx_cookie || unx_cookie != "{{order.order_number}}"){
+createCookie('unbxd_shopify',"{{order.order_number}}",1);
+{% for line_item in order.line_items %}
+Unbxd.track("order",{pid : "{{line_item.product.id}}", qty : "line_item.quantity", price : "line_item.price"});
+{% endfor %}
+}
+{% endif %}
+{% endif %}
+{% endif %}
+}
+var loadScript = function(url,callback){
+var script = document.createElement("script");script.type = "text/javascript";
+if (script.readyState){
+script.onreadystatechange = function(){
+if (script.readyState == "loaded" ||
+script.readyState == "complete"){
+script.onreadystatechange = null;
+callback();
+}};
+}else { 
+ script.onload = function(){ 
+callback();
+ }; }
+script.src=url;document.getElementsByTagName("head")[0].appendChild(script);};
+var myAppJavaScript = function($){
+(function(){
+var ubx = document.createElement('script');ubx.type = 'text/javascript'; ubx.sync=true;
+ubx.src = '//unbxd.s3.amazonaws.com/unbxdAnalytics.js';
+(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(ubx);})();
+(function(){
+var ubx = document.createElement('script');ubx.type = 'text/javascript'; ubx.sync=true;
+ubx.src = '//unbxd.s3.amazonaws.com/embed.js';
+(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(ubx);})();
+}
+if ((typeof jQuery === 'undefined') || (parseFloat(jQuery.fn.jquery) < 1.7)) {
+loadScript('//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js', function(){
+jQueryUnbxd = jQuery.noConflict(true);
+myAppJavaScript(jQueryUnbxd);
+});
+} else {
+myAppJavaScript(jQuery);
+}
+</script>

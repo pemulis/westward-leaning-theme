@@ -1,0 +1,111 @@
+<script>
+/* Isotope stuff: Container setup, AJAX, filtering, jquery BBQ, and hash changes. NOTICE: AS OF OCTOBER 2014, THIS IS NO LONGER USED. */
+/*
+$(function() {
+//  if ($('body').hasClass('sunglasses')) {
+  if ($('.container').is('#collection')) {
+    if(window.location.href.indexOf("filter") == -1) {
+      nextPage = $.ajax({
+        url : window.location + '?page=2'
+      });
+      nextPage.done(function(html) {
+        var products = $(html).find('ul > div').addClass("product-wrapper");
+        isoContainer.isotope('insert', products);
+        isoContainer.isotope('reloadItems');
+        isoContainer.isotope( {
+          filter: '*'
+        } );
+//      //$('#product-grid').append( products );
+//      
+//      var $products = $(html).find('.product-wrapper');
+//      isoContainer.isotope('insert', $products);
+//      isoContainer.isotope( 'reloadItems' );
+//      isoContainer.isotope( {
+//        filter: '*'
+//      } );
+//      console.log($products);
+      });
+    }
+  }
+
+
+  // cache container
+  var isoContainer = $('#product-grid');
+  // initialize isotope
+  isoContainer.isotope({
+    itemSelector: '.product-wrapper',
+    filter: '*'
+  });
+
+  // filter items when filter link is clicked
+  
+  //$('#sidebar a').click(function(){
+  //  var selector = $(this).attr('data-filter');
+  //  isoContainer.isotope({ filter: selector });
+  //  return false;
+  //});
+  
+  $('#sidebar a').click(function(){
+      // get href attr, remove leading #
+    var href = $(this).attr('href').replace( /^#/, '' ),
+        // convert href into object
+        // i.e. 'filter=.inner-transition' -> { filter: '.inner-transition' }
+        option = $.deparam( href, true );
+    // set hash, triggers hashchange on window
+    $.bbq.pushState( option );
+    return false;
+  });
+  
+  $(window).bind( 'hashchange', function( event ){
+    // get options object from hash
+    var hashOptions = $.deparam.fragment();
+    // apply options from hash
+    isoContainer.isotope( hashOptions );
+  })
+    // trigger hashchange to capture any hash data on init
+    .trigger('hashchange');
+
+  
+  $('.product-filter-dropdown a').click(function(){
+    var selector = $(this).attr('data-filter');
+    isoContainer.isotope({ filter: selector });
+    $(this).previous('ul').collapse('hide');
+    return false;
+  });
+});
+*/
+
+/* Handling the sidebar filter on the collection grid. NOTICE: AS OF OCTOBER 2014, THIS IS NO LONGER USED. */
+
+/*
+$('#sidebar > a').on('click', function (e) {
+  if($(this).hasClass("no-jump")){
+    e.preventDefault();
+  }
+  if(!$(this).hasClass("active")){
+    var lastActive = $(this).closest("#sidebar").children(".active");
+    lastActive.removeClass("active");
+    lastActive.next('div').children('.active').removeClass('active');
+    lastActive.next('div').collapse('hide');
+    $(this).addClass("active");
+    $(this).next('div').collapse('show');
+
+  } else {
+    $(this).removeClass('active');
+    $(this).next('div').collapse('hide');
+  }
+
+});
+
+$('.subitem > a').on('click', function (e) {
+  if($(this).hasClass("no-jump")){
+    e.preventDefault();
+  }
+  
+  var lastActive = $(this).closest(".subitem").children(".active");
+  lastActive.removeClass("active");
+  $(this).addClass("active");
+  window.scrollTo('0','0');
+});
+*/
+</script>

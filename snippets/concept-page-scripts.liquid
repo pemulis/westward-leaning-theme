@@ -1,0 +1,36 @@
+<script>$(document).ready(function(e) { $('img[usemap]').rwdImageMaps(); });</script>
+
+<script>
+  $(document).ready(function(){
+    var firstItem = $('#our-story-gallery-images').find('.gallery-item.first');
+    var lastItem = $('#our-story-gallery-images').find('.gallery-item.last');
+    $('#our-story-left-arrow').click(function(){
+      var activeItem = $('.gallery-item.active');
+      if (activeItem.hasClass('first')){
+        var prevItem = lastItem;
+      } else {
+        var prevItem = activeItem.prev('.gallery-item');
+      }
+      // Animation sequence goes here
+      activeItem.removeClass('active');
+      prevItem.addClass('active');
+      prevItem.stop().animate({
+        opacity: 1
+      }, 400);
+    });
+    $('#our-story-right-arrow').click(function(){
+      var activeItem = $('.gallery-item.active');
+      if (activeItem.hasClass('last')) {
+        var nextItem = firstItem;
+      } else {
+        var nextItem = activeItem.next('.gallery-item');
+      }
+      // Animation sequence goes here
+      activeItem.removeClass('active');
+      nextItem.addClass('active');
+      nextItem.stop().animate({
+        opacity: 1
+      }, 400);
+    });
+  });
+</script>

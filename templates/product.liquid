@@ -1,0 +1,103 @@
+{% for tag in product.tags %}
+  {% if tag contains 'model' %}{% assign model = tag %}
+  {% elsif tag contains 'special note' %}{% assign special_note = tag %}
+  {% elsif tag contains 'primary mat' %}{% assign primary_mat = tag %}
+  {% elsif tag contains 'frame color' %}{% assign frame_color = tag %}
+  {% elsif tag contains 'quantity note' %}{% assign quantity_note = tag %}
+  {% endif %}
+{% endfor %} 
+<div id='left-test-wrapper'></div>
+<div id='right-test-wrapper'></div>
+<div id='product' class='container'>
+  <div class='row'>
+    <section class='col-md-9 col-xs-12 left-col'>
+      <div id='gallery'>
+        <div id='active-wrapper'>
+  		  <img src="{{ '' | product_img_url: 'grande' }}" alt="{{ product.featured_image.alt | escape }}" />
+        </div>
+	    {% if product.images.size > 1 %}
+        <ul id='thumbs'>
+          {% for image in product.images %}<li><a href='{{ image.src | product_img_url: 'original' }}' class='thumb-anchor'><img src='{{ image.src | product_img_url: 'small' }}'  alt="{{ image.alt | escape }}" /></a></li>{% endfor %}
+        </ul>
+  		{% endif %}
+      </div>
+    </section>
+    <section class='col-md-3 col-xs-12 right-col'>
+      <h1>{{ product.type | upcase }}</h1>
+      <p class='model-details'>{{ model | remove: 'model = ' }}</p>
+      <p class='model-details'>{{ special_note | remove: 'special note = ' }}</p>
+      <p class='model-details'>{{ primary_mat | remove: 'primary mat = ' }}</p>
+      {% if frame_color %}
+        <p class='model-details'>{{ frame_color | remove: 'frame color = ' }} Frame</p>
+      {% endif %}
+      <p id="product-price" class='model-details'>
+      	  {% if product.compare_at_price > product.price %}
+          <span class="product-price on-sale">{{ product.price | money }}</span> <span class="product-compare-price"><del>{{ product.compare_at_price_max | money }}</del></span>
+          {% else %}
+          <span class="product-price">{{ product.price | money | remove: '.00' }}</span>
+          {% endif %}
+      </p>
+      <p id='converted-currency'></p>
+      {% if quantity_note %}
+        <p id='finish-and-quantity'>{{ quantity_note | remove: 'quantity note = ' }}</p>
+      {% else %}
+        <p id="finish-and-quantity">Select finish and quantity:</p>
+      {% endif %}
+        <form action="/cart/add" method="post" enctype="multipart/form-data">
+	  	    {% assign hide_default_title = false %}
+	        {% if product.variants.size == 1 and product.variants.first.title contains 'Default' %}
+	          {% assign hide_default_title = true %}
+	        {% endif %}       
+          <fieldset>
+	        <div id="product-variants" class="{% if hide_default_title %} hidden{% endif %}">
+	        <select id="product-select" name="id">
+	        {% for variant in product.variants %}
+              <option value="{{ variant.id }}">{{ variant.option1}}</option>
+	        {% endfor %}
+	        </select>
+		    <select id="quantity" name="quantity">
+		    {% for i in (1..20) %}
+		    	<option value="{{ i }}">{{ i }}</option>
+		    {% endfor %}
+		    </select>
+	        </div>
+          </fieldset>
+          <br>
+          {% if product.available %}
+            <button id='buy' type='submit'>BUY</button>
+          {% elsif product.type == 'Westward Leaning x OliviaPalermo.com' %}
+            <p><a id="for_real_sold_out" href="javascript:void(0)">SOLD OUT</a></p>
+          {% else %}
+            <p><a id="BIS_trigger" href="javascript:void(0)">JOIN WAITLIST</a></p>
+          {% endif %}
+          <div id="social-share">
+            <p>
+              <a id="product-like" href="https://www.facebook.com/sharer/sharer.php?u={{ shop.url | url_escape }}{{ product.url | url_escape }}" target="_blank">share</a>
+              <a id="product-tweet" href="https://twitter.com/share?url={{ shop.url | url_escape }}{{ product.url | url_escape }}" target="_blank">tweet</a>
+              <a id="product-pin" href="http://www.pinterest.com/pin/create/button/?url={{ shop.url | url_escape }}{{ product.url | url_escape }}&media={{ product.featured_image.src | product_img_url: 'original' | url_escape }}&description=Next%20stop%3A%20Pinterest" target="_blank">pin</a>
+            </p>
+          </div>
+		  <div id="quantity-message"></div>
+        </form>
+      <!-- This section is out of scope for now, but may be useful for our big rebuild later in 2014. -->
+	  {% for article in blogs.product-lookbook.articles %}
+		{% if article.title == product.title %}
+	 	<p><a href="{{ article.url }}">VIEW IN LOOKBOOK</a></p>
+	    {% endif %}
+      {% endfor %}
+      <!-- -->
+    </section>
+  </div>
+  <ul class='nav nav-tabs product-nav-tabs' role='tablist'>
+    <li class="active"><a href="#model-story" role="tab" data-toggle="tab">ABOUT THIS MODEL</a></li>
+    <li><a href="#you-might-also-like" role="tab" data-toggle="tab">YOU MIGHT ALSO LIKE</a></li>
+  </ul>
+  <div class='row tab-content'>
+    <article id='model-story' class='model-story tab-pane fade in active'>
+ 	  {{ product.content }}
+    </article>
+    <article id='you-might-also-like' class='ymal tab-pane fade'>
+      <div id="cross-sell"></div>
+    </article>
+  </div>
+</div>

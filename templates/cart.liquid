@@ -1,0 +1,71 @@
+<div id='cart' class='container'>
+  <div class='col-xs-12 col-lg-6 col-lg-offset-3'>
+	{% if cart.item_count > 0 %}
+	<form action="/cart" method="post">
+    	<div class='row'>
+	      <h1>SHOPPING BAG</h1>
+	    </div>
+	    <div class='row'>
+	      <table>
+	        <tr>
+	          <th>ITEM</th>
+	          <th>PRICE</th>
+	          <th>QUANTITY</th>
+	          <th class="hidden-xs">TOTAL</th>
+	        </tr>
+			{% for item in cart.items %} 
+	        <tr>
+              <td><a href='{{ item.product.url }}'><img class='cart-item' src="{{ item.product.featured_image.src | product_img_url: 'compact' }}" alt="{{ item.title | escape }}"> <br> {{ item.product.type }} \\ {{ item.variant.option2 | escape }}</a></td>
+	          <td>{{ item.price | money }}</td>
+	          <td class='product-quantity'>
+                <input class="text quantity replace" type="text" size="4" id="updates_{{ item.id }}" name="updates[{{ item.id }}]" value="{{ item.quantity }}" onchange="updateQuantity();" />
+                <a class="icon-trash remove-from-cart" href="/cart/change?id={{ item.id }}&quantity=0"></a>
+              </td>
+	          <td class='hidden-xs'>{{ item.line_price | money }}</td>
+	        </tr>
+			{% endfor %}
+	      </table>
+	    </div>
+	    <div class='row'>
+	      <p class='grand-total'>GRAND TOTAL: {{ cart.total_price | money }}</p>
+          <input id='quantity-update-submit' type="submit" value="Update quantities" style="position: absolute; left: -9999px; width: 1px; height: 1px;" />
+	    </div>
+	    <div class='row'>
+	      <div class='cart-buttons'>
+            <a href='/collections/the-sunglasses'><span class='cart-button keep-shopping'>KEEP SHOPPING</span></a>
+            <span class='cart-button gift-wrapping'>GIFT WRAPPING <input id="wrapping" type="checkbox" name="attributes[wrapping]" value="yes" {% if cart.attributes.wrapping %} checked="checked"{% endif %} /></span> 
+	        <button class='cart-button checkout-button' name="checkout">CHECKOUT</button>
+          </div>
+	    </div>
+	</form>
+    {% else %}
+	<p>Your cart is empty. <a href="/collections/the-sunglasses">Continue shopping...</a></p>
+	{% endif %}
+    <div class='row'>
+      <div>
+        <img src='{{ 'shipping_august.jpg' | asset_url }}' alt='Free Domestic Shipping, $25 Flat Rate Shipping Worldwide' class='cart-bottom-img'>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Facebook Conversion Code for W\\L Add to Cart - New Site -->
+<!--
+<script type="text/javascript">
+$.getJSON('https://graph.facebook.com/feed?callback=?')
+  .success(function(){
+    var fb_param = {};
+    fb_param.pixel_id = '6012892124610';
+    fb_param.value = '{{ cart.total_price | money }}';
+    fb_param.currency = 'USD';
+    (function(){
+      var fpw = document.createElement('script');
+      fpw.async = true;
+      fpw.src = '//connect.facebook.net/en_US/fp.js';
+      var ref = document.getElementsByTagName('script')[0];
+      ref.parentNode.insertBefore(fpw, ref);
+    })();
+  });
+</script>
+<noscript><img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/offsite_event.php?id=6012892124610&amp;value={{ cart.total_price | money }}&amp;currency=USD" /></noscript>
+-->

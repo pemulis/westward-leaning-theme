@@ -1,0 +1,16 @@
+<script>
+/* Functionality for the celeb lookbook. */
+
+$('#celeb-picker > a').on('click', function (e) {
+
+  if(!$(this).hasClass("active")){
+    var lastActive = $(this).closest("#celeb-picker").children(".active");
+    lastActive.removeClass("active");
+    $(this).addClass("active");
+
+  } else {
+    $(this).removeClass('active');
+  }
+
+});
+</script>

@@ -1,0 +1,26 @@
+<div class='container'>
+{% if current_tags %}
+<h1>{{ blog.title | link_to: blog.url }} &raquo; {{ current_tags.first }}</h1>
+{% else %}
+<h1>{{ blog.title }}</h1>
+{% endif %}
+
+<ul>
+
+  {% for article in blog.articles %}
+  <li class="blog-article{% if forloop.first %} first{% endif %}{% if forloop.last %} last{% endif %}">
+    <h2 class="blog-article-title">
+      <a href="{{ article.url }}">{{ article.title }}</a>
+    </h2>
+    <div class="rte">
+      {% if article.excerpt.size > 0 %}
+        {{ article.excerpt }}
+      {% else %}
+        <p>{{ article.content | strip_html | truncatewords: 100 }}</p>
+      {% endif %}
+    </div>
+  </li>
+  {% endfor %}
+
+</ul>
+</div>

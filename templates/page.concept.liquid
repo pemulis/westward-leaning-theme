@@ -1,0 +1,155 @@
+<div id='concept' class='container'>
+  <div class='row'>
+    <h1>OUR DESIGN</h1>
+  </div>
+  <div class='row'>
+    <aside class='subtitle'>
+      WE DESIGN OUR SUNGLASSES TO BE UNIVERSALLY FLATTERING FOR MEN AND WOMEN.
+    </aside>
+    <aside class='subtitle'>
+      WE ARE COMMITTED TO HIGH-QUALITY CRAFTSMANSHIP AND LUXE MATERIALS.
+    </aside>
+  </div>
+  <div class='row'>
+    <img src='{{ 'concept_redwood.png' | asset_url }}' alt='Westward Leaning Redwood Sunglasses' class='hidden-sm hidden-xs' usemap='#concept-map'>
+    <img src='{{ 'redwood.png' | asset_url }}' alt='Westward Leaning Redwood Sunglasses' class='visible-sm visible-xs'>
+    <map name='concept-map'>
+      <area shape='circle' coords='188, 179, 100' data-toggle='modal' data-target='#lenses' alt='Lenses'>
+      <area shape='circle' coords='414, 101, 100' data-toggle='modal' data-target='#sizing' alt='Sizing'>
+      <area shape='circle' coords='999, 118, 100' data-toggle='modal' data-target='#unique-materials' alt='Unique Materials'>
+    </map>
+  </div>
+  <div class='row'>
+    <div id='unique-materials' class='modal' role='dialog' aria-labelledby='unique-materials-label' aria-hidden='true' tabindex='-1'>
+      <div class='modal-dialog'>
+        <div class='modal-body concept-modal'>
+          <button type='button' class='close' data-dismiss='modal' aria-hidden='true'>&times;</button>
+          <h2>{{ pages.popup-unique-materials.title | remove: 'Popup ' | upcase }}</h2>
+          <p>{{ pages.popup-unique-materials.content | strip_html }}</p>
+        </div>
+      </div>
+    </div>
+    <div id='sizing' class='modal' role='dialog' aria-labelledby='sizing-label' aria-hidden='true' tabindex='-1'>
+      <div class='modal-dialog'>
+        <div class='modal-body concept-modal'>
+          <button type='button' class='close' data-dismiss='modal' aria-hidden='true'>&times;</button>
+          <h2>{{ pages.popup-sizing.title | remove: 'Popup ' | upcase }}</h2>
+          <p>{{ pages.popup-sizing.content | strip_html }}</p>
+        </div>
+      </div>
+    </div>
+    <div id='lenses' class='modal' role='dialog' aria-labelledby='lenses-label' aria-hidden='true' tabindex='-1'>
+      <div class='modal-dialog'>
+        <div class='modal-body concept-modal'>
+          <button type='button' class='close' data-dismiss='modal' aria-hidden='true'>&times;</button>
+          <h2>{{ pages.popup-lenses.title | remove: 'Popup ' | upcase }}</h2>
+          <p>{{ pages.popup-lenses.content | strip_html }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <h2>UNIQUE MATERIALS <span class='concept-link'><a href='/pages/our-story'>THE CONCEPT BEHIND OUR BRAND</a></span></h2>
+  <p>Westward Leaning's signature piece is the unique accent material on the frame's temples. Our collection features redwood, turquoise, brass, sea glass, mother of pearl, onyx, aluminum, lapis, coral, mirror and chaquira beads.</p>
+  <div class='row'>
+    <div class='col-md-12'>
+      <div id='materials-gallery'>
+        <!-- Let's preload gallery nav arrows... -->
+        <div class='hidden'>{{ 'arrow_light_right.jpg' | asset_url | img_tag }}{{ 'arrow_dark_right.jpg' | asset_url | img_tag }}{{ 'arrow_light_left.jpg' | asset_url | img_tag }}{{ 'arrow_dark_left.jpg' | asset_url | img_tag }}</div>
+
+        <div id='our-story-left-arrow' class='col-md-2 hidden-sm hidden-xs gallery-arrow left'>
+          {{ 'arrow_light_left.jpg' | asset_url | img_tag: 'Cycle Left', 'light-arrow' }}
+          {{ 'arrow_dark_left.jpg' | asset_url | img_tag: 'Cycle Left', 'dark-arrow' }}
+        </div>
+        <div id='our-story-gallery-images' class='col-md-8 col-xs-12 gallery-images'>
+          <div class='gallery-item active first'>
+            {{ 'OS_GALLERY_1.jpg' | asset_url | img_tag: 'Children of California - Redwood' }}
+            <h4>REDWOOD</h4>
+            <p>Reclaimed California redwood accent is available in</p>
+            <p><a href='/products/children-of-california-1-1-redwood-wayfarer'>CHILDREN OF CALIFORNIA</a> models</p>
+          </div> 
+          <div class='gallery-item'>
+            {{ 'OS_GALLERY_2.jpg' | asset_url | img_tag: 'Louisiana Purchase - Brass' }}
+            <h4>BRASS</h4>
+            <p>The metal of New Orleans' musical instruments is available in</p>
+            <p><a href='/products/n-2-louisiana-purchase-tortoise-shell'>LOUISIANA PURCHASE</a> models</p>
+          </div>
+          <div class='gallery-item'>
+            {{ 'OS_GALLERY_3.jpg' | asset_url | img_tag: 'Mercury Seven - Aluminum' }}
+            <h4>ALUMINUM</h4>
+            <p>The material of space exploration is available in</p>
+            <p><a href='/products/mercury-seven-3-1-aluminum-wayfarer'>MERCURY SEVEN</a> models</p>
+          </div>
+          <div class='gallery-item'>
+            {{ 'OS_GALLERY_4.jpg' | asset_url | img_tag: 'Sleeping Beauty - Turquoise' }}
+            <h4>TURQUOISE</h4>
+            <p>inspired by Native American and Southwestern jewelers is available in</p>
+            <p>the <a href='/products/sleeping-beauty-7-2-turquoise-wayfarer'>SLEEPING BEAUTY</a> model</p>
+          </div>
+          <div class='gallery-item'>
+            {{ 'OS_GALLERY_5.jpg' | asset_url | img_tag: 'Fathom Five - White Coral' }}
+            <h4>WHITE CREATED CORAL</h4>
+            <p>for Shakespeare's The Tempest is available in</p>
+            <p><a href='/products/fathom-five-14-2-coral-wayfarer'>FATHOM FIVE</a> models</p>
+          </div>
+          <div class='gallery-item'>
+            {{ 'OS_GALLERY_6.jpg' | asset_url | img_tag: 'Wintermute - Black Anodized Aluminum' }}
+            <h4>BLACK ANODIZED ALUMINUM</h4>
+            <p>as a visual homage to artificial intelligence is available in</p>
+            <p><a href='/products/wintermute-10-7-silver-mirror-wayfarer'>WINTERMUTE</a> models</p>
+          </div>
+          <div class='gallery-item'>
+            {{ 'OS_GALLERY_7.jpg' | asset_url | img_tag: 'Ultramarine - Lapis Lazuli' }}
+            <h4>LAPIS LAZULI</h4>
+            <p>The natural stone of Afghanistan is available in</p>
+            <p>the <a href='/products/ultramarine-8-1-lapis-wayfarer'>ULTRAMARINE</a> model</p>
+          </div>
+          <div class='gallery-item'>
+            {{ 'OS_GALLERY_8.jpg' | asset_url | img_tag: 'Love Thy Neighbor - Chaquira Beads' }}
+            <h4>CHAQUIRA BEADS</h4>
+            <p>from the Huichol people in western central Mexico is available in</p>
+            <p>the <a href='/products/love-thy-neighbor-5-1-beads-wayfarer'>LOVE THY NEIGHBOR</a> model</p>
+          </div>
+          <div class='gallery-item'>
+            {{ 'OS_GALLERY_9.jpg' | asset_url | img_tag: 'Mother of Pearl - Mother of Pearl' }}
+            <h4>MOTHER OF PEARL</h4>
+            <p>naturally sourced nacre is available in</p>
+            <p><a href='/products/mother-of-pearl-15-2-silver-wayfarer'>MOTHER OF PEARL</a> models</p>
+          </div>
+          <div class='gallery-item last'>
+            {{ 'OS_GALLERY_10.jpg' | asset_url | img_tag: 'Color Revolution - Mirror' }}
+            <h4>ONYX AND MIRROR</h4>
+            <p>reflecting the boldness of revolutionaries is available in</p>
+            <p><a href='/products/color-revolution-9-2-blue-mirror-wayfarer'>COLOR REVOLUTION</a> models</p>
+          </div>
+        </div>
+        <div id='our-story-right-arrow' class='col-md-2 hidden-sm hidden-xs gallery-arrow right'>
+          {{ 'arrow_light_right.jpg' | asset_url | img_tag: 'Cycle Right', 'light-arrow' }}
+          {{ 'arrow_dark_right.jpg' | asset_url | img_tag: 'Cycle Right', 'dark-arrow' }}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class='row'>
+    <div class='concept-link-mobile'><a href='/pages/our-story'>THE CONCEPT BEHIND OUR BRAND</a></div>
+  </div>
+  <div id='concept-description' class='row'>
+    <div>
+      <h2>STANDARD, SMALL, AND LARGE WAYFARERS <span class='concept-link'><a href='/products/small-large-wayfarer'>SHOP THE SMALL AND THE LARGE</a></span></h2>
+      {{ 'small-and-large.jpg' | asset_url | img_tag: 'Small and Large Sunglasses Dimensions' }}
+      <p>All Westward Leaning sunglasses are available in our standard size, carefully designed to be universally flattering for all male and female face shapes. However, approximately 10% of our customers prefer a smaller or a larger size than our standard fit. Therefore we added a scaled down version (the Small) and a scaled up version (the Large) to our collection. The Small and the Large are available for the models N°1.1 Children of California and N°9.1 Color Revolution.</p>
+      <div class='concept-link-mobile'><a href='/products/small-large-wayfarer'>SHOP THE SMALL AND THE LARGE</a></div>
+    </div>
+    <div>
+      <h2>BRIDGE FIT <span class='concept-link'><a href='/products/asian-bridge-fit-wayfarer'>SHOP BRIDGE FIT</a></span></h2>
+      {{ 'bridgefit.png' | asset_url | img_tag: 'Bridge Fit Westward Leaning Sunglasses' }}
+      <p>To further broaden the universality of our classic frame we designed Bridge Fit for everyone who wants a more secure fit over their nose bridge. Bridge Fit is identical to our classic Wayfarer frame with the exception of the added nose pads, which emulate the solid fit of an aviator. Bridge Fit is available for the models N°1.1 Children of California, N°2.1 Louisiana Purchase and N°9.1 Color Revolution.</p>
+      <div class='concept-link-mobile'><a href='/products/asian-bridge-fit-wayfarer'>SHOP BRIDGE FIT</a></div>
+    </div>
+    <div>
+      <h2>POCKET-SIZED AND CLAMSHELL CASES <span class='concept-link'><a href='/products/pocket-sized-case'>SHOP THE CASE</a></span></h2>
+      {{ 'cases.png' | asset_url | img_tag: 'Soft Pocket-Sized Case and Hard Clamshell Case' }}
+      <p>In addition to a traditional large and durable clamshell outer case, our sunglasses come with a custom-designed and compact protective sleeve. By popular demand we made this pocket-sized case available for purchase on its own.</p>
+      <div class='concept-link-mobile'><a href='/products/pocket-sized-case'>SHOP THE CASE</a></div>
+    </div>
+  </div>
+</div>

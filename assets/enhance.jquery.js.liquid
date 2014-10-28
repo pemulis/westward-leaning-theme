@@ -1,0 +1,138 @@
+(function($) {
+ 
+  /* Initializing the cache, settings, and global variables. */
+  var cache = [];
+  var settings = {
+        thumbListId : '#thumbs',
+        activeWrapperId : '#active-wrapper',
+        activeImageId : '#active-image',
+        loadingLabel: 'Loading...'
+      };
+  var $thumbList, $activeWrapper, $loading, $activeImage, $previousThumb, $originalThumb, $nextThumb;
+
+  /* Loading the dot navigation for mobile devices and small screen widths. */
+  if ($(window).width() < 400) {
+    $('.thumb-anchor').html("<img src='{{'grey-dot.gif' | asset_url }}' class='mobile-thumb' />");
+  }
+
+  $(window).resize(function() {
+    if ($(window).width() < 400) {
+      $('.thumb-anchor').html("<img src='{{'grey-dot.gif' | asset_url }}' class='mobile-thumb' />");
+    }
+  });
+
+  /* Okay, let's get into the interesting stuff... */
+  $.fn.enhanceGallery = function(options){
+
+    if( options ){
+      $.extend(settings, options);
+    }
+
+    $thumbList = $(settings.thumbListId);
+    $activeWrapper = $(settings.activeWrapperId);
+    $loading = $('<div id="active-image-loading">'+settings.loadingLabel+'</div>');
+    $originalThumb = $thumbList.find('a:first');
+    $nextThumb = $originalThumb.parent().next().find('a');
+    preloadImage( $originalThumb.attr('href') ); // preload 1st image
+    $activeImage = $(settings.activeImageId);
+    
+    if ($(window).width() < 400) { 
+      $thumbList.find('a:first').html("<img src='{{'black-dot.gif' | asset_url }}' class='mobile-thumb' />"); 
+    }
+
+    $thumbList.find('a').click( function(e){
+      preloadImage( this.href );
+      if ($(this).parent().next().find('a').length > 0) {
+        $nextThumb = $(this).parent().next().find('a');
+      } else {
+        $nextThumb = $originalThumb;
+      }
+      if ($(window).width() < 400) {
+        $('.thumb-anchor').html("<img src='{{'grey-dot.gif' | asset_url }}' class='mobile-thumb' />");
+        $( this ).html("<img src='{{'black-dot.gif' | asset_url }}' class='mobile-thumb' />");
+      }
+      e.preventDefault();
+    });
+        
+    $activeWrapper.click( function(e){
+      if ($(window).width() < 400) {
+        $('.thumb-anchor').html("<img src='{{'grey-dot.gif' | asset_url }}' class='mobile-thumb' />");
+        $nextThumb.html("<img src='{{'black-dot.gif' | asset_url }}' class='mobile-thumb' />");
+      }
+      preloadImage( $nextThumb.attr('href') );
+      if ($nextThumb.parent().next().find('a').length > 0) {
+        $nextThumb = $nextThumb.parent().next().find('a');
+      } else {
+        $nextThumb = $originalThumb;
+      }
+      e.preventDefault();
+    });
+
+    return this;
+
+  };
+
+
+  function swap(image){
+    var scale = $activeWrapper.width() / image.originalWidth,
+        wrapperWidth = $activeWrapper.width(),
+        wrapperHeight = 325;
+
+    hideSpinner();
+
+    // empty container, change container's width, append the <img>
+    $activeWrapper.empty().height(wrapperHeight).append(image.tag);
+  }
+
+
+  function preloadImage(url){
+    var image = getCachedImage(url);
+    if( !image ){
+      var cacheImage = document.createElement('img');
+      cacheImage.id = 'active-image';
+      cacheImage.onload = function(){
+        imageLoaded(cacheImage, url);
+      };
+      cacheImage.src = url;
+      showSpinner();
+    } else {
+      swap(image);
+    }
+  }
+
+
+  function imageLoaded(img, url){
+    var image = {
+      tag: img,
+      url: url,
+      originalWidth: img.width,
+      originalHeight: img.height
+    };
+    cache.push(image);
+    swap(image);
+  }
+
+
+  function showSpinner(){
+    $activeWrapper.append($loading);
+    var fromLeft = $activeWrapper.width()/2 - $loading.width()/2;
+    var fromTop = $activeWrapper.height()/2 - $loading.height()/2;
+    $loading.css('top', fromTop+'px').css('left', fromLeft +'px');
+  }
+
+  function hideSpinner(){
+    $loading.remove();
+  }
+
+
+  function getCachedImage(url){
+    for(var i=0; i < cache.length; i++ ){
+      if( cache[i].url === url ){
+        return cache[i];
+      }
+    }
+    return false;
+  }
+
+
+})(jQuery);

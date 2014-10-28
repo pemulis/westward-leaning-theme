@@ -1,0 +1,40 @@
+{% assign on_sale = false %}
+{% if product.compare_at_price > product.price %}
+  {% assign on_sale = true %}
+{% endif %}
+{% for tag in product.tags %}
+	{% if tag contains "side mat" %}
+		{% assign side_material = tag | remove: 'side mat = ' %}
+	{% endif %}
+	{% if tag contains "model" %}
+		{% assign model = tag | remove: 'model = ' %}
+	{% endif %}
+    {% if tag contains "special projects" %}
+        {% assign special_project = true %}
+    {% endif %}
+{% endfor %}
+
+<a href='{{ product.url }}'>
+  <li class='product-thumb'>
+
+  	  <img src="{{ product.featured_image.src | product_img_url: 'medium' }}" alt="{{ product.featured_image.alt | escape }}"  class='img-response'/>
+      <h2>{{ product.type | upcase }}</h2>
+      <aside class='model'>{{ model }}</aside>
+      <aside class='material'>{{ side_material }}</aside>
+      <aside>
+        {% comment %}{% if product.price_varies %}From {% endif %}{% endcomment %}
+        {% if product.title == "Gift Card" %}
+          $50 - $200
+        {% elsif model == 'N°3.12' %}
+          {{ product.price | money | remove: '.00' }} - BARNEYS XO
+        {% elsif product.first_available_variant.inventory_quantity < 6 and product.first_available_variant.inventory_management == "shopify" and product.first_available_variant.inventory_policy == "deny" %}
+          {{ product.price | money | remove: '.00' }} - LIMITED STOCK
+        {% elsif product.available %}
+          {{ product.price | money | remove: '.00' }}
+        {% else %}
+          {{ product.price | money | remove: '.00' }} - SOLD OUT
+        {% endif %}
+	    {% comment %}{% if on_sale %}<span class="compare-at-price"><del>{{ product.compare_at_price | money }}</del></span>{% endif %}{% endcomment %}
+	  </aside>
+  </li>
+</a>

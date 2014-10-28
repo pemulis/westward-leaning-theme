@@ -1,0 +1,52 @@
+<script>
+	jQuery('form[action^="/cart/add"]').submit(function() {
+	  var product = {{ product | json }},
+	      cannotAddThisQuantity = false,
+	      message = 'We do not have %q item of %t left.',
+	      selectedVariantId = jQuery(this).find('[name="id"]').val(),
+	      quantityToAdd = parseInt(jQuery(this).find('[name="quantity"]').val(), 10) || 1,
+	      quantityInCart = 0,
+	      title = '';
+	      inventoryLimited = false,
+	      inventory = 0;      
+	  for (var i=0; i<product.variants.length; i++) {
+	    if (product.variants[i].id == selectedVariantId) {
+	      var variant = product.variants[i];;
+	      title = product.title;
+	      if (product.variants.length > 1) title += ' - ' + variant.title; 
+	      if (variant.inventory_management && variant.inventory_policy == 'deny') {
+	        inventoryLimited = true;
+	        inventory = product.variants[i].inventory_quantity;
+	      }
+	    }     
+	  }
+	  if (inventoryLimited) {
+	    {% if cart.item_count > 0 %}
+	    var cart = {{ cart | json }};
+	    for (var i=0; i<cart.items.length; i++) {
+	      if (cart.items[i].id == selectedVariantId) {
+	        quantityInCart = cart.items[i].quantity;
+	      }     
+	    }
+	    {% endif %}
+	    if ((inventory - quantityInCart) < quantityToAdd) {
+	      message = message.replace('%q', quantityToAdd).replace('%t', title);
+	      if (quantityToAdd > 1) message.replace('item', 'items');
+	      cannotAddThisQuantity = true;
+	    }
+	  }
+	  if (cannotAddThisQuantity) {
+	    /*alert(message);*/
+		$("#quantity-message").text(message);
+		$( "#quantity-message" ).fadeIn( "slow");
+	    return false;
+	  }
+	  else {
+	    return true;
+	  }
+	});  	
+	$('#quantity').change(function(){
+		$( "#quantity-message" ).fadeOut( "fast");
+	        
+	 });		  
+</script>

@@ -1,0 +1,23 @@
+<div id='celeb-lookbook' class='container'>
+  <div class='row'>
+    <div class='col-md-5 col-md-offset-3 col-xs-12'>
+      <div class="blog-article">
+        <div class="rte">
+          {{ article.content }}
+        </div>
+      </div>
+    </div>
+    <div class='col-md-4 col-xs-12'>
+      <ul id='celeb-picker'>
+        {% assign current_title = article.title %}
+        {% for article in blog.articles %}
+          {% if article.title == current_title %}
+            <a href="{{ article.url }}" class="active"><li>{{ article.title | upcase }}</li></a>
+          {% else %}
+            <a href="{{ article.url }}"><li>{{ article.title | upcase }}</li></a>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</div>

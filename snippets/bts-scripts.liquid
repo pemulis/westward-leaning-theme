@@ -1,0 +1,36 @@
+<script>
+  $(document).ready(function(){
+    var firstImage = $('#bts-gallery-images').find('img.first');
+    var lastImage = $('#bts-gallery-images').find('img.last');
+    $('#bts-left-arrow').click(function(){
+      var activeImage = $('img.active');
+      if (activeImage.hasClass('first')){
+        var prevImage = lastImage;
+      } else {
+        var prevImage = activeImage.prev('img');
+      }
+      // Animation sequence goes here
+      activeImage.css('opacity', '0');
+      activeImage.removeClass('active');
+      prevImage.addClass('active');
+      prevImage.stop().animate({
+        opacity: 1
+      }, 400);
+    });
+    $('#bts-right-arrow').click(function(){
+      var activeImage = $('img.active');
+      if (activeImage.hasClass('last')) {
+        var nextImage = firstImage;
+      } else {
+        var nextImage = activeImage.next('img');
+      }
+      // Animation sequence goes here
+      activeImage.css('opacity', '0');
+      activeImage.removeClass('active');
+      nextImage.addClass('active');
+      nextImage.stop().animate({
+        opacity: 1
+      }, 400);
+    });
+  });
+</script>

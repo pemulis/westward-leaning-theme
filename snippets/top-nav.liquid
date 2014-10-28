@@ -1,0 +1,48 @@
+	<div id='header-ribbon' class='hidden-xs'><a href='/'>{{ shop.name }}</a></div>
+    <nav class='navbar navbar-default' role='navigation'>
+		<div class='navbar-header'>
+        	<button type='button' class='navbar-toggle' data-toggle='collapse' data-target='#top-menu'>
+          		<span class='sr-only'>Toggle navigation</span>
+          		<span class='icon-bar'></span>
+          		<span class='icon-bar'></span>
+          		<span class='icon-bar'></span>
+        	</button>
+          	<a class='navbar-brand visible-xs' href='/'>{{ shop.name }}</a>
+		</div>
+		<div id='top-menu' class='collapse navbar-collapse'>
+        	<ul class='nav navbar-nav'>
+				{% for link in linklists.main-menu.links %}
+          		<li id="nav-{{ link.object.handle }}"><a href='{{ link.url }}' >{{ link.title }}</a></li>
+				{% endfor %}
+                <li class='visible-xs'><a href='/pages/faq/'>FAQ</a></li>
+                <li class='visible-xs'><a href='/pages/help/'>CUSTOMER SERVICE</a></li>
+          		<li class='cart-link hidden-md hidden-sm hidden-xs'><a href='/cart'>BAG ({{ cart.item_count }})</a></li>
+                <li class='visible-md visible-sm visible-xs'><a href='/cart'>BAG ({{ cart.item_count }})</a></li>
+        	</ul>
+      	</div>
+    </nav>
+
+    <nav id='nav-submenu-about' class='hidden'>
+      <ul class='nav navbar-nav'>
+        {% for link in linklists.about.links %}<li><a href='{{ link.url }}'>{{ link.title | upcase }}</a></li>{% endfor %}
+      </ul>
+    </nav>
+	
+    <nav id='nav-submenu-lookbook' class='hidden'>
+      <ul class='nav navbar-nav'>
+         {% for link in linklists.lookbook.links %}<li><a href='{{ link.url }}'>{{ link.title | upcase }}</a></li>{% endfor %}
+      </ul>
+    </nav>
+
+
+    <div id='sticky-mini-menu' class='hidden hidden-xs'>
+      <nav class='navbar navbar-default' role='navigation'>
+        <ul class='nav navbar-nav'>
+          {% for link in linklists.main-menu.links %}
+          <li id="nav-{{ link.object.handle }}"><a href='{{ link.url }}'  >{{ link.title }}</a></li>
+		  {% endfor %}
+          <li class='cart-link hidden-md hidden-sm hidden-xs'><a href='/cart'>BAG ({{ cart.item_count }})</a></li>
+          <li class='visible-md visible-sm visible-xs'><a href='/cart'>BAG ({{ cart.item_count }})</a></li>
+        </ul>
+      </nav>
+    </div>
