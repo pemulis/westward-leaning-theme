@@ -55,6 +55,7 @@ function mce_preload_check(){
         setTimeout('mce_preload_check();', 250);
         return;
     }
+    // Don't autoload on the help, homepage, cart, or collection listing pages.
     if ($('#help').length == 0 && $('#homepage').length == 0 && $('#cart').length == 0 && $('#collections-listing').length == 0) {
       mce_init_form(2500);
     }

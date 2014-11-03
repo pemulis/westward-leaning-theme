@@ -30,6 +30,7 @@
     {% if page_description %}
       <meta name="description" content="{{ page_description | escape }}" />
     {% endif %}
+    {% include 'pingdom-rum' %}
     <script src="//cdn.optimizely.com/js/413800223.js"></script>
 </head>
 <body class="{{ collection.title | downcase}}">
