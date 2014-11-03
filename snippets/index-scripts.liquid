@@ -1,159 +1,41 @@
-<script type="text/javascript">  
+<script type="text/javascript">
   $(window).load(function(){
     $('.spinner').addClass('hidden-xs hidden-sm hidden-md hidden-lg hidden-xl');
-    $('#mobile-view').removeClass('hidden');
-    $('#desktop-view').removeClass('hidden');
+    $('#full-screen').removeClass('hidden');
+    $('h1').removeClass('hidden');
+    $('aside').removeClass('hidden');
   });
+  
   $(window).load(
     function(){
-    $('.learn-more').hover(
+    $('.signup').hover(
       function(){
-        $(this).css('background-color', '#aaa');
+        $(this).css( 'cursor', 'pointer' );
       },
       function(){
-        $(this).css('background-color', '#ccc');
+        $(this).css( 'cursor', 'default' );
       }
     );
   });
   
-  // Default animation transition time is 400ms.
-  $(window).load(function() {
-    $('#middle-option').animate({
-      opacity: 1.0
-    }, 1200);
-    $('#middle-option .learn-more-container').animate({
-      opacity: 1.0
-    }, 1200);
-    $('#left-option').delay(1600).animate({
-      opacity: 1.0
-    }, 1200);
-    $('#right-option').delay(1600).animate({
-      opacity: 1.0
-    }, 1200);
-    $('#left-option h1').delay(3200).animate({
-      opacity: 1.0
-    }, 1200);
-    $('#right-option h1').delay(3200).animate({
-      opacity: 1.0
-    }, 1200);
+  $(window).load(
+    function(){
+    $('.signup').on('click', function(e) {
+      mcEvilPopupReopen();
+    });
+  });
     
-    $('#left-option').hover(
-      
-      function(){
-        $('#left-option aside').show();
-        $('#left-option .learn-more').show();
-        $('#left-option > div').addClass('learn-more-container');
-        
-        $('#right-option').finish();
-        $('#right-option h1').finish();
-        $('#right-option aside').finish();
-        $('#right-option .learn-more').finish();
-        $('#middle-option').finish();
-        
-        $('#left-option').finish().animate({
-          width: '73%'
-        }, 400);
-        $('#left-option h1').finish().animate({
-          marginLeft: '1%'
-        }, 400);
-        $('#left-option aside').finish().animate({
-          opacity: 1
-        }, 800);
-        $('#left-option .learn-more').finish().animate({
-          opacity: 1
-        }, 800);
-        $('#middle-option').finish().animate({
-          left: '43vw'
-        }, 400);
-        $('#right-option').finish().animate({
-          right: '-16vw'
-        }, 400);
-        
-      }, function(){
-        
-        $('#left-option aside').hide();
-        $('#left-option .learn-more').hide();
-        $('#left-option > div').removeClass('learn-more-container');
-        $('#left-option').finish().animate({
-          width: '60%'
-        }, 400);
-        $('#left-option h1').finish().animate({
-          marginLeft: '0%'
-        }, 400);
-        $('#left-option aside').finish().animate({
-          opacity: 0
-        }, 800);
-        $('#left-option .learn-more').finish().animate({
-          opacity: 0
-        }, 800);
-        $('#middle-option').finish().animate({
-          left: '30vw'
-        }, 400);
-        $('#right-option').finish().animate({
-          right: '0'
-        }, 400);
-      }
-    );
-  });
-  
-  $(window).load(function() {
-    $('#right-option').hover(
-      
-      function(){
-        $('#right-option aside').show();
-        $('#right-option .learn-more').show();
-        $('#right-option > div').addClass('learn-more-container');
-        
-        $('#left-option').finish();
-        $('#left-option h1').finish();
-        $('#left-option aside').finish();
-        $('#left-option .learn-more').finish();
-        $('#middle-option').finish();
-        
+</script>
 
-        $('#right-option').finish().animate({
-          width: '65%'
-        }, 400);
-        $('#right-option h1').finish().animate({
-          marginRight: '3%'
-        }, 400);
-        $('#right-option aside').finish().animate({
-          opacity: 1
-        }, 800);
-        $('#right-option .learn-more').finish().animate({
-          opacity: 1
-        }, 800);
-        $('#middle-option').finish().animate({
-          left: '17vw'
-        }, 400);
-        $('#left-option').finish().animate({
-          left: '-16vw'
-        }, 400);
-        
-      }, function(){
-        
-        $('#right-option aside').hide();
-        $('#right-option .learn-more').hide();
-        $('#right-option > div').removeClass('learn-more-container');
-        $('#right-option').finish().animate({
-          width: '52%'
-        }, 400);
-        $('#right-option h1').finish().animate({
-          marginRight: '0%'
-        }, 400);
-        $('#right-option aside').finish().animate({
-          opacity: 0
-        }, 800);
-        $('#right-option .learn-more').finish().animate({
-          opacity: 0
-        }, 800);
-        $('#middle-option').finish().animate({
-          left: '30vw'
-        }, 400);
-        $('#left-option').finish().animate({
-          left: '0'
-        }, 400);
-      }
-    );
-  });
+{{ 'plugin.jquery.js' | asset_url | script_tag }}
+{{ 'countdown.jquery.js' | asset_url | script_tag }}
+
+<script type='text/javascript'>
+  // Grab the current date
+  var currentDate = new Date();
+  
+  // Set some date in the future. In this case, it's always Jan 1
+  var futureDate  = new Date(2014, 10, 13);
+  
+  $('.countdown-clock').countdown({until: futureDate});
 </script>

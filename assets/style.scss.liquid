@@ -967,6 +967,117 @@ footer {
   opacity: 0;
 }
 
+
+/* Styles for the countdown homepage. */
+
+#full-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: url({{ 'comingsoon.jpg' | asset_url }}) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  z-index: -1;
+}
+
+#homepage h1.countdown-text {
+  color: #33cccc;
+  font-family: 'WWLstandard';
+  font-size: 16px;
+  letter-spacing: .18em;
+  text-align: center;
+  width: 100%;
+  margin-top: 12vh;
+  margin-bottom: 0px;
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+@media only screen and (min-width: 768px) {
+  #homepage h1.countdown-text {
+    font-size: 26px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  #homepage h1.countdown-text {
+    font-size: 34px;
+  }
+}
+
+#homepage aside.countdown-text {
+  color: #33cccc;
+  font-family: 'WWLstandard';
+  font-size: 14px;
+  letter-spacing: .18em;
+  text-align: center;
+  margin-top: 24px;
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+@media only screen and (min-width: 768px) {
+  #homepage aside.countdown-text {
+    font-size: 22px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  #homepage aside.countdown-text {
+    font-size: 26px;
+  }
+}
+
+#homepage aside.countdown-text.be-the-first {
+  font-size: 12px;
+  margin-top: 24px;
+}
+
+@media only screen and (min-width: 768px) {
+  #homepage aside.countdown-text.be-the-first {
+    font-size: 14px;
+    margin-top: 72px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  #homepage aside.countdown-text.be-the-first {
+    font-size: 16px;
+    margin-top: 72px;
+  }
+}
+
+#homepage aside.countdown-text.signup {
+  display: block;
+  font-size: 12px;
+  color: #eeeeee;
+  border: 1px solid #eeeeee;
+  padding-top: 12px;
+  padding-left: 12px;
+  padding-right: 12px;
+  padding-bottom: 9px;
+  width: 146px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media only screen and (min-width: 992px) {
+  #homepage aside.countdown-text.signup {
+    font-size: 14px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  #homepage aside.countdown-text.signup {
+    font-size: 16px;
+  }
+}
+
+
 /* Styles for the individual product pages. */
 
 #product h1 {

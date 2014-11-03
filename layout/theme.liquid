@@ -45,6 +45,7 @@
 {{ 'enhance.jquery.js' | asset_url | script_tag }}
 {{ 'rwdImageMaps.jquery.js' | asset_url | script_tag }}
 {{ 'misc.jquery.js' | asset_url | script_tag }}
+{{ 'mailchimp.jquery.js' | asset_url | script_tag }}
 <!-- Template-specific JavaScript code. -->
 {% if template contains 'concept' %}{% include 'concept-page-scripts' %}{% endif %}
 {% if template contains 'stores' %}{% include 'stores-map-scripts' %}{% endif %}
@@ -57,7 +58,6 @@
 {% if template contains 'article' %}{% include 'article-scripts' %}{% endif %}
 {% if template contains 'cart' %}{% include 'cart-scripts' %}{% endif %}
 {% if template contains 'index' %}{% include 'index-scripts' %}{% endif %}
-{{ 'mailchimp.jquery.js' | asset_url | script_tag }}
 
 <!-- Tracking and retargeting code. -->
 {% include 'adroll-tag' %}
