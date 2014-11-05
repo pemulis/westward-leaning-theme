@@ -281,3 +281,35 @@ jQuery('#cross-sell').append(settingsoutput);
       identifyCountry(currencyCallback);
       
     </script>
+
+<!-- Assign product-specific retargeting buckets. -->
+
+<script>
+var tags = [];
+{% for tag in product.tags %}
+  tags.push("{{tag}}");
+{% endfor %}
+assignBucket(tags);
+              
+function assignBucket(tags) {
+  if (tags.indexOf("classics") > -1 ) {
+    if(!_rt_calls){ var _rt_calls = []; }
+    _rt_calls.push({"type":"segment", "id":[9866]});
+  } else if (tags.indexOf("mirrorshades") > -1 ) {
+    if(!_rt_calls){ var _rt_calls = []; }
+    _rt_calls.push({"type":"segment", "id":[9864]});
+  } else if (tags.indexOf("neons") > -1 ) {
+    if(!_rt_calls){ var _rt_calls = []; }
+    _rt_calls.push({"type":"segment", "id":[9865]});
+  } else if (tags.indexOf("voyager classics") > -1 ) {
+    if(!_rt_calls){ var _rt_calls = []; }
+    _rt_calls.push({"type":"segment", "id":[9863]});
+  } else if (tags.indexOf("voyager neons") > -1 ) {
+    if(!_rt_calls){ var _rt_calls = []; }
+    _rt_calls.push({"type":"segment", "id":[9862]});
+  } else {
+    if(!_rt_calls){ var _rt_calls = []; }
+    _rt_calls.push({"type":"segment", "id":[9861]});
+  }
+}
+</script>
