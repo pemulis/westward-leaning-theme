@@ -1,6 +1,7 @@
 {% if template contains 'product' %}
   <meta property="og:image" content="http:{{ product.featured_image.src | product_img_url: '1024x1024' }}" />
   <meta property="og:image:secure_url" content="https:{{ product.featured_image.src | product_img_url: '1024x1024' }}" />
+  <meta property="og:title" content="{{ product.title }}" />
 {% elsif template contains 'article' %} 
   {% assign img_tag = '<' | append: 'img' %}
   {% if article.content contains img_tag %}
@@ -12,12 +13,11 @@
     {% endif %}
   {% endif %}
 {% elsif template contains 'gift-guide' %}
-  <meta property="og:image" content="http:{{ 'perfect_match.png' | asset_url }}" />
-  <meta property="og:description" content="We've matched each of the 16 different MBTI personalities with a pair of our sunglasses. Take the quiz below to get your perfect, very scientific match (and see which famous people share your personality type)." />
-  <meta property="og:title" content="Which pair of sunglasses matches your personality?" />
+  <meta property="og:image" content="http:{{ 'v1.jpg' | asset_url }}" />
+  <meta property="og:description" content="Whether you're looking for a gift for someone special in your life, or just a gift for yourself, you can find our designer picks here." />
+  <meta property="og:title" content="Find the perfect pair of Westward Leaning shades." />
 {% else %}
-  {% if settings.use_logo %}
-    <meta property="og:image" content="http:{{ 'logo.png' | asset_url }}" />
-    <meta property="og:image:secure_url" content="https:{{ 'logo.png' | asset_url }}" />
-  {% endif %}
+  <meta property="og:image" content="http:{{ 'v1.jpg' | asset_url }}" />
+  <meta property="og:image:secure_url" content="https:{{ 'v1.jpg' | asset_url }}" />
+  <meta property="og:description" content="Westward Leaning sunglasses in two universally flattering shapes. For a future so bright, you'll have to wear shades." />
 {% endif %}
