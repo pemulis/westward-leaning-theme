@@ -1,11 +1,4 @@
 <script>
-var tags = [];
-{% for tag in product.tags %}
-  tags.push("{{tag}}");
-{% endfor %}
-  
-
-  
 	jQuery('form[action^="/cart/add"]').submit(function() {
 	  var product = {{ product | json }},
 	      cannotAddThisQuantity = false,
@@ -49,7 +42,7 @@ var tags = [];
 	    return false;
 	  }
 	  else {
-        return true;
+	    return true;
 	  }
 	});  	
 	$('#quantity').change(function(){

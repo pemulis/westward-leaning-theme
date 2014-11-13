@@ -1,4 +1,11 @@
 <div id='our-story' class='container'>
+  
+  <div class="spinner">
+    <div class="dot1"></div>
+    <div class="dot2"></div>
+  </div>
+  
+  <div id='content' class='hidden'>
   <div class='row'>
     <div class='col-md-8 col-md-offset-2 col-xs-12'>
       <div class='row'>
@@ -7,8 +14,12 @@
       <div class='row'>
         <div class='col-md-12'>
           <h2>FOR ALL VISIONARIES</h2>
-          <p>Westward Leaning launched in San Francisco in 2012 with a simple idea: to make products that are equally beautiful and meaningful. Our premise is that social causes and progressive issues shouldn’t just be an afterthought, or a marketing pitch. Instead they should be an integral part of everything from the product's design to how we use its proceeds.</p>      <h2>OUR ACCENT MATERIALS</h2>
-          <p>Westward Leaning sunglasses feature unique accent materials celebrating human achievements.</p>
+          <p>Westward Leaning launched in San Francisco in 2012 with a simple idea: to make products that are equally beautiful and meaningful. Our premise is that social causes and progressive issues shouldn’t just be an afterthought, or a marketing pitch. Instead they should be an integral part of everything from the product's design to how we use its proceeds.</p>      
+        </div>
+      </div>
+      <div class='row'>
+        <div class='col-md-12'>
+          <h2>CLASSIC WESTWARD ACCENT MATERIALS</h2>
         </div>
       </div>
       <div class='row'>
@@ -25,75 +36,156 @@
           <div class='gallery-item active first'>
             {{ 'OS_GALLERY_1.jpg' | asset_url | img_tag: 'Children of California - Redwood' }}
             <h3>REDWOOD</h3>
-            <p>Reclaimed California redwood accent is available in</p>
-            <p><a href='/products/children-of-california-1-1-redwood-wayfarer'>CHILDREN OF CALIFORNIA</a> models</p>
-            <p>benefiting Teach for America Bay Area</p>
+            <p>Reclaimed Californian redwood is available in our</p>
+            <p><a href='/products/children-of-california-1-1-redwood-wayfarer'>CHILDREN OF CALIFORNIA</a> models,</p>
+            <p>which benefit Teach for America, Bay Area.</p>
           </div>
           <div class='gallery-item'>
             {{ 'OS_GALLERY_2.jpg' | asset_url | img_tag: 'Louisiana Purchase - Brass' }}
             <h3>BRASS</h3>
-            <p>The metal of New Orleans' musical instruments is available in</p>
-            <p><a href='/products/n-2-louisiana-purchase-tortoise-shell'>LOUISIANA PURCHASE</a> models</p>
-            <p>benefiting the Jazz Foundation of America's Jazz in the Schools program</p>
+            <p>Brass, in honor of New Orleans as the birthplace of jazz, is featured in our</p>
+            <p><a href='/products/n-2-louisiana-purchase-tortoise-shell'>LOUISIANA PURCHASE</a> models,</p>
+            <p>which fund music education programs taught by artists displaced by Hurricane Katrina.</p>
           </div>
           <div class='gallery-item'>
             {{ 'OS_GALLERY_3.jpg' | asset_url | img_tag: 'Mercury Seven - Aluminum' }}
             <h3>ALUMINUM</h3>
-            <p>The material of space exploration is available in</p>
-            <p><a href='/products/mercury-seven-3-1-aluminum-wayfarer'>MERCURY SEVEN</a> models</p>
-            <p>benefiting the National Science Teachers Association</p>
+            <p>Aluminum is featured in our</p>
+            <p><a href='/products/mercury-seven-3-1-aluminum-wayfarer'>MERCURY SEVEN</a> models,</p>
+            <p>which honor the first American astronauts, whose spacecraft and spacesuits were made using aluminum. These models benefit science education.</p>
           </div>
           <div class='gallery-item'>
             {{ 'OS_GALLERY_4.jpg' | asset_url | img_tag: 'Sleeping Beauty - Turquoise' }}
             <h3>TURQUOISE</h3>
-            <p>inspired by Native American and Southwestern jewelers is available in</p>
-            <p>the <a href='/products/sleeping-beauty-7-2-turquoise-wayfarer'>SLEEPING BEAUTY</a> model</p>
-            <p>benefiting education opportunities for Native American students</p>
+            <p>Turquoise, in honor of Native American and Southwest jewelry, comes in our</p>
+            <p><a href='/products/sleeping-beauty-7-2-turquoise-wayfarer'>SLEEPING BEAUTY</a> models,</p>
+            <p>which support the American Indian College Fund.</p>
           </div>
           <div class='gallery-item'>
             {{ 'OS_GALLERY_5.jpg' | asset_url | img_tag: 'Fathom Five - White Coral' }}
-            <h3>WHITE CREATED CORAL</h3>
-            <p>for Shakespeare's The Tempest is available in</p>
-            <p><a href='/products/fathom-five-14-2-coral-wayfarer'>FATHOM FIVE</a> models</p>
-            <p>benefiting youth literacy and writing programs</p>
+            <h3>WHITE CORAL</h3>
+            <p>Created coral, a tribute to the oceans and their endangered and critical ecosystems, comes in our</p>
+            <p><a href='/products/fathom-five-14-2-coral-wayfarer'>FATHOM FIVE</a> models,</p>
+            <p>which are named after the sonnet of Shakespeare’s <em>The Tempest</em>, and support youth literacy and writing programs.</p>
           </div>
           <div class='gallery-item'>
             {{ 'OS_GALLERY_6.jpg' | asset_url | img_tag: 'Wintermute - Black Anodized Aluminum' }}
             <h4>BLACK ANODIZED ALUMINUM</h4>
-            <p>as a visual homage to artificial intelligence is available in</p>
-            <p><a href='/products/wintermute-10-7-silver-mirror-wayfarer'>WINTERMUTE</a> models</p>
-            <p>benefiting the Noisebridge hackerspace</p>
+            <p>Black Anodized Aluminum is available in our</p>
+            <p><a href='/products/wintermute-10-7-silver-mirror-wayfarer'>WINTERMUTE</a> models,</p>
+            <p>which were inspired by the artificial intelligence of William Gibson’s Neuromancer, and which support the Noisebridge hacker community.</p>
           </div>
           <div class='gallery-item'>
             {{ 'OS_GALLERY_7.jpg' | asset_url | img_tag: 'Ultramarine - Lapis Lazuli' }}
-            <h4>LAPIS LAZULI</h4>
-            <p>The natural stone of Afghanistan is available in</p>
-            <p>the <a href='/products/ultramarine-8-1-lapis-wayfarer'>ULTRAMARINE</a> model</p>
-            <p>benefiting education programs for youths in Afghanistan</p>
+            <h4>LAPIS</h4>
+            <p>Lapis comes in our</p>
+            <p><a href='/products/ultramarine-8-1-lapis-wayfarer'>ULTRAMARINE</a> models,</p>
+            <p>which celebrate the important role lapis lazuli has played in the history of art. Proceeds from this model go to youth education programs in Afghanistan, the world’s primary source of lapis.</p>
           </div>
           <div class='gallery-item'>
             {{ 'OS_GALLERY_8.jpg' | asset_url | img_tag: 'Love Thy Neighbor - Chaquira Beads' }}
-            <h4>CHAQUIRA BEADS</h4>
-            <p>from the Huichol people in western central Mexico is available in</p>
-            <p>the <a href='/products/love-thy-neighbor-5-1-beads-wayfarer'>LOVE THY NEIGHBOR</a> model</p>
-            <p>benefiting Love Thy Neighbor Mexico</p>
+            <h4>BEADS</h4>
+            <p>Chaquira beads, inspired by the beadwork of Huichol artisans in western Mexico, are featured in our</p>
+            <p><a href='/products/love-thy-neighbor-5-1-beads-wayfarer'>LOVE THY NEIGHBOR</a> models,</p>
+            <p>which support the foundation of the same name, Love Thy Neighbor Mexico.</p>
           </div>
           <div class='gallery-item'>
             {{ 'OS_GALLERY_9.jpg' | asset_url | img_tag: 'Mother of Pearl - Mother of Pearl' }}
-            <h4>MOTHER OF PEARL</h4>
-            <p>naturally sourced nacre is available in</p>
-            <p><a href='/products/mother-of-pearl-15-2-silver-wayfarer'>MOTHER OF PEARL</a> models</p>
-            <p>benefiting ocean conservation efforts</p>
+            <h4>PEARL</h4>
+            <p>Naturally sourced and environmentally sustainable nacre (or Mother of Pearl) is used in our</p>
+            <p><a href='/products/mother-of-pearl-15-2-silver-wayfarer'>MOTHER OF PEARL</a> models,</p>
+            <p>which, in tribute to the source of pearls, benefit ocean conservation efforts.</p>
           </div>
           <div class='gallery-item last'>
             {{ 'OS_GALLERY_10.jpg' | asset_url | img_tag: 'Color Revolution - Mirror' }}
-            <h4>ONYX AND MIRROR</h4>
-            <p>reflecting the boldness of revolutionaries is available in</p>
-            <p><a href='/products/color-revolution-9-2-blue-mirror-wayfarer'>COLOR REVOLUTION</a> models</p>
-            <p>benefiting Reporters Without Borders</p>
+            <h4>BLUE NEON</h4>
+            <p>Reflective mirrored neon lenses, in addition to a number of bold side materials, come in our</p>
+            <p><a href='/products/color-revolution-9-2-blue-mirror-wayfarer'>COLOR REVOLUTION</a> models,</p>
+            <p>which pay tribute to the Color Revolutions that fought for democratic change, and whose proceeds benefit Reporters Without Borders.</p>
           </div>
         </div>
         <div id='our-story-right-arrow' class='col-md-2 hidden-sm hidden-xs gallery-arrow right'>
+          {{ 'arrow_light_right.jpg' | asset_url | img_tag: 'Cycle Right', 'light-arrow' }}
+          {{ 'arrow_dark_right.jpg' | asset_url | img_tag: 'Cycle Right', 'dark-arrow' }}
+        </div>
+      </div>
+      </div>
+      </div>
+      <div class='row'>
+        <div class='col-md-12'>
+          <h2>CIRCLE ACCENT MATERIALS</h2>
+        </div>
+      </div>
+      <div class='row'>
+      <div class='col-md-12'>
+      <div id='circle-materials-gallery'>
+        <div id='circle-materials-left-arrow' class='col-md-2 hidden-sm hidden-xs gallery-arrow left'>
+          {{ 'arrow_light_left.jpg' | asset_url | img_tag: 'Cycle Left', 'light-arrow' }}
+          {{ 'arrow_dark_left.jpg' | asset_url | img_tag: 'Cycle Left', 'dark-arrow' }}
+        </div>
+        <div id='circle-materials-gallery-images' class='col-md-8 col-xs-12 gallery-images'>
+          <div class='gallery-item active first'>
+            {{ 'VOYAGER_GALLERY_1.jpg' | asset_url | img_tag: 'Voyager 1 - Bronze' }}
+            <h4>BRONZE</h4>
+            <p>is used in our <a href='/products/voyager-v1-gold-mirror-bronze-circle'>VOYAGER 1</a> and <a href='/products/voyager-v8-bronze-circle'>VOYAGER 8</a> models.</p>
+            <p>The materials of the Voyager collection were each inspired by the universality and purpose of the Golden Records, included on the Voyager spacecraft, which were intended as summations of our planet and civilization in the 20th century. The entire Voyager collection supports STEM (science, tech, engineering, math) education initiatives.</p>
+          </div>
+          <div class='gallery-item'>
+            {{ 'VOYAGER_GALLERY_2.jpg' | asset_url | img_tag: 'Voyager 2 - Polished Aluminum' }}
+            <h4>POLISHED ALUMINUM</h4>
+            <p>is used in our <a href='/products/voyager-v2-super-silver-mirror-polished-aluminum-circle'>VOYAGER 2</a> and <a href='/products/voyager-v15-emerald-mirror-polished-aluminum-circle'>VOYAGER 15</a> models.</p>
+            <p>The materials of the Voyager collection were each inspired by the universality and purpose of the Golden Records, included on the Voyager spacecraft, which were intended as summations of our planet and civilization in the 20th century. The entire Voyager collection supports STEM (science, tech, engineering, math) education initiatives.</p>
+          </div>
+          <div class='gallery-item'>
+            {{ 'VOYAGER_GALLERY_3.jpg' | asset_url | img_tag: 'Voyager 9 - Redwood' }}
+            <h4>REDWOOD</h4>
+            <p>is used in our <a href='/products/voyager-v3-infrared-mirror-redwood-circle'>VOYAGER 3</a>, <a href='/products/voyager-v9-super-silver-mirror-redwood-circle'>VOYAGER 9</a>, and <a href='/products/voyager-v16-blackened-redwood-circle'>VOYAGER 16</a> models.</p>
+            <p>The materials of the Voyager collection were each inspired by the universality and purpose of the Golden Records, included on the Voyager spacecraft, which were intended as summations of our planet and civilization in the 20th century. The entire Voyager collection supports STEM (science, tech, engineering, math) education initiatives.</p>
+          </div>
+          <div class='gallery-item'>
+            {{ 'VOYAGER_GALLERY_4.jpg' | asset_url | img_tag: 'Voyager 4 - Black Marble' }}
+            <h4>BLACK MARBLE</h4>
+            <p>is used in our <a href='/products/voyager-v4-black-marble-circle'>VOYAGER 4</a> and <a href='/products/voyager-v5-super-silver-mirror-black-marble-circle'>VOYAGER 5</a> models.</p>
+            <p>The materials of the Voyager collection were each inspired by the universality and purpose of the Golden Records, included on the Voyager spacecraft, which were intended as summations of our planet and civilization in the 20th century. The entire Voyager collection supports STEM (science, tech, engineering, math) education initiatives.</p>
+          </div>
+          <div class='gallery-item'>
+            {{ 'VOYAGER_GALLERY_5.jpg' | asset_url | img_tag: 'Voyager 6 - Tahoe Blue' }}
+            <h4>TAHOE BLUE</h4>
+            <p>is used in our <a href='/products/voyager-v6-rose-gold-mirror-tahoe-blue-circle'>VOYAGER 6</a> model.</p>
+            <p>The materials of the Voyager collection were each inspired by the universality and purpose of the Golden Records, included on the Voyager spacecraft, which were intended as summations of our planet and civilization in the 20th century. The entire Voyager collection supports STEM (science, tech, engineering, math) education initiatives.</p>
+          </div>
+          <div class='gallery-item'>
+            {{ 'VOYAGER_GALLERY_6.jpg' | asset_url | img_tag: 'Voyager 13 - Onyx' }}
+            <h4>ONYX</h4>
+            <p>is used in our <a href='/products/voyager-v7-midnight-mirror-onyx-circle'>VOYAGER 7</a> and <a href='/products/voyager-v13-red-mirror-onyx-circle'>VOYAGER 13</a> models.</p>
+            <p>The materials of the Voyager collection were each inspired by the universality and purpose of the Golden Records, included on the Voyager spacecraft, which were intended as summations of our planet and civilization in the 20th century. The entire Voyager collection supports STEM (science, tech, engineering, math) education initiatives.</p>
+          </div>
+          <div class='gallery-item'>
+            {{ 'VOYAGER_GALLERY_7.jpg' | asset_url | img_tag: 'Voyager 10 - Blue Sea Glass' }}
+            <h4>BLUE SEA GLASS</h4>
+            <p>is used in our <a href='/products/voyager-v10-emerald-mirror-blue-sea-glass-circle'>VOYAGER 10</a> model.</p>
+            <p>The materials of the Voyager collection were each inspired by the universality and purpose of the Golden Records, included on the Voyager spacecraft, which were intended as summations of our planet and civilization in the 20th century. The entire Voyager collection supports STEM (science, tech, engineering, math) education initiatives.</p>
+          </div>
+          <div class='gallery-item'>
+            {{ 'VOYAGER_GALLERY_8.jpg' | asset_url | img_tag: 'Voyager 11 - Jade' }}
+            <h4>JADE</h4>
+            <p>is used in our <a href='/products/voyager-v11-midnight-mirror-jade-circle'>VOYAGER 11</a> model.</p>
+            <p>The materials of the Voyager collection were each inspired by the universality and purpose of the Golden Records, included on the Voyager spacecraft, which were intended as summations of our planet and civilization in the 20th century. The entire Voyager collection supports STEM (science, tech, engineering, math) education initiatives.</p>
+          </div>
+          <div class='gallery-item'>
+            {{ 'VOYAGER_GALLERY_9.jpg' | asset_url | img_tag: 'Voyager 12 - Mother of Pearl' }}
+            <h4>MOTHER OF PEARL</h4>
+            <p>is used in our <a href='/products/voyager-v12-mother-of-pearl-circle'>VOYAGER 12</a> model.</p>
+            <p>The materials of the Voyager collection were each inspired by the universality and purpose of the Golden Records, included on the Voyager spacecraft, which were intended as summations of our planet and civilization in the 20th century. The entire Voyager collection supports STEM (science, tech, engineering, math) education initiatives.</p>
+          </div>
+          <div class='gallery-item last'>
+            {{ 'VOYAGER_GALLERY_10.jpg' | asset_url | img_tag: 'Voyager 14 - Titanium' }}
+            <h4>TITANIUM</h4>
+            <p>is used in our <a href='/products/voyager-v14-violet-mirror-titanium-circle'>VOYAGER 14</a> model.</p>
+            <p>The materials of the Voyager collection were each inspired by the universality and purpose of the Golden Records, included on the Voyager spacecraft, which were intended as summations of our planet and civilization in the 20th century. The entire Voyager collection supports STEM (science, tech, engineering, math) education initiatives.</p>
+          </div>
+        </div>
+        <div id='circle-materials-right-arrow' class='col-md-2 hidden-sm hidden-xs gallery-arrow right'>
           {{ 'arrow_light_right.jpg' | asset_url | img_tag: 'Cycle Right', 'light-arrow' }}
           {{ 'arrow_dark_right.jpg' | asset_url | img_tag: 'Cycle Right', 'dark-arrow' }}
         </div>
@@ -107,5 +199,6 @@
         </div>
       </div>
     </div>
+  </div>
   </div>
 </div>

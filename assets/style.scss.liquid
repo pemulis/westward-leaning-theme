@@ -518,12 +518,45 @@ b, strong {
   }
 }
 
+.dropdown-menu {
+  background-color: #DDD;
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+
 @media only screen and (min-width: 768px) {
   .navbar-nav {
     float: none;
     margin: 0 auto;
     display: table;
     table-layout: fixed;
+  }
+
+  #top-menu > ul > li.open > ul.dropdown-menu > li {
+    background-color: #DDD;
+    a {
+      color: black;
+      &:hover {
+        background-color: #EEE;
+      }
+    }
+  }
+
+  #sticky-mini-menu > nav > ul > li.open > ul.dropdown-menu > li {
+    background-color: #DDD;
+    a {
+      color: black;
+      &:hover {
+        background-color: #EEE;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  #top-menu .dropdown-menu {
+    padding-left: 24px;
   }
 }
 
@@ -621,20 +654,11 @@ footer {
   margin-top: 12px;
 }
 
-#middle-option .learn-more-container aside {
-  color: #111;
-}
-
 .learn-more-container {
-  background-color: rgba(0,0,0,0.5);
   display: inline-block;
   margin-top: 34vh;
   width: 100%;
   padding-bottom: 12px;
-}
-
-#middle-option .learn-more-container {
-  background-color: rgba(0,0,0,0);
 }
 
 #left-option > div.learn-more-container > h1, #right-option > div.learn-more-container > h1 {
@@ -659,15 +683,10 @@ footer {
   transform: skew(20deg);
   -webkit-transform: skew(20deg);
   -moz-transform: skew(20deg);
-  -ms-transform: rotate(20deg);
+  -ms-transform: skew(20deg);
   -o-transform: skew(20deg);
-  background: white;
-  //background-image: url({{ 'homepage-warped-3.png' | asset_url }});
-  opacity: 0;
-}
-
-#middle-option .learn-more-container {
-  opacity: 0;
+  background-image: url({{ 'voyager_skewed.jpg' | asset_url }});
+  background-size: cover;
 }
 
 #middle-option h1 {
@@ -681,13 +700,8 @@ footer {
   z-index: -2;
   width: 60%;
   height: 100%;
-  background-image: url({{ 'homepage-left-bw.png' | asset_url }});
+  background-image: url({{ 'space_bg_1.jpg' | asset_url }});
   background-size: cover;
-  opacity: 0;
-}
-
-#left-option:hover {
-  background-image: url({{ 'homepage-left-color.png' | asset_url }}); /* Don't forget to preload! */
 }
 
 #right-option {
@@ -697,13 +711,8 @@ footer {
   z-index: -3;
   width: 52%;
   height: 100%;
-  background-image: url({{ 'homepage-right-bw.png' | asset_url }});
+  background-image: url({{ 'space_bg_2.jpg' | asset_url }});
   background-size: cover;
-  opacity: 0;
-}
-
-#right-option:hover {
-  background-image: url({{ 'homepage-right-color.png' | asset_url }}); /* Don't forget to preload! */
 }
 
 #middle-option h1, #middle-option aside {
@@ -722,14 +731,14 @@ footer {
 #middle-option img {
   display: block;
   float: left;
-  margin-top: 0px;
   margin-bottom: 0px;
-  margin-left: 10%;
-  max-width: 80%;
   transform: skew(-20deg);
   -webkit-transform: skew(-20deg);
   -moz-transform: skew(-20deg);
   -o-transform: skew(-20deg);
+  margin-top: -32px;
+  width: 72%;
+  margin-left: 14%;
 }
 
 #middle-option h1 {
@@ -750,8 +759,26 @@ footer {
   margin-left: 11%;
   margin-right: 59%;
   float: left;
-  display: none;
-  opacity: 0;
+}
+
+#left-option img, #right-option img {
+  margin-top: 36px;
+  opacity: 1;
+  display: block;
+}
+
+#left-option img {
+  margin-left: 19%;
+  max-width: 11%;
+  float: left;
+  clear: left;
+}
+
+#right-option img {
+  margin-right: 18%;
+  max-width: 11%;
+  float: right;
+  clear: right;
 }
 
 #right-option h1 {
@@ -763,8 +790,6 @@ footer {
   margin-left: 53%;
   margin-right: 11%;
   float: right;
-  display: none;
-  opacity: 0;
 }
 
 .learn-more, .shop-now {
@@ -781,22 +806,6 @@ footer {
   margin-top: 18px;
   margin-left: auto;
   margin-right: auto;
-}
-
-#left-option .learn-more {
-  float: left;
-  margin-left: 13%;
-  width: 26%;
-  opacity: 0;
-  vertical-align: bottom;
-}
-
-#right-option .learn-more {
-  float: right;
-  margin-right: 15%;
-  width: 26%;
-  opacity: 0;
-  vertical-align: bottom;
 }
 
 #middle-option .shop-now {
@@ -855,10 +864,7 @@ footer {
 
 #homepage #mobile-view h1 {
   width: 100%;
-  color: #111;
   text-align: center;
-  margin-top: 0;
-  padding-top: 0;
   padding-left: 10%;
   padding-right: 10%;
 }
@@ -872,6 +878,12 @@ footer {
   height: 50%;
   padding-top: 6vh;
   float: left;
+  background-size: cover;
+  background-image: url({{ 'pieces_brightened.jpg' | asset_url }});
+  h1 {
+    color: #eee;
+    margin-top: 26vh;
+  }
 }
 
 #left-option-mobile, #right-option-mobile {
@@ -904,15 +916,12 @@ footer {
 }
 
 #left-option-mobile {
-  background-image: url({{ 'homepage-left-color.png' | asset_url }});
+  background-image: url({{ 'space_bg_1.jpg' | asset_url }});
 }
 
 #right-option-mobile {
-  background-image: url({{ 'homepage-right-color.png' | asset_url }});
+  background-image: url({{ 'space_bg_2.jpg' | asset_url }});
 }
-
-#preload-1 { background: url({{ 'homepage-left-color.png' | asset_url }}) no-repeat -9999px -9999px; }
-#preload-2 { background: url({{ 'homepage-right-color.png' | asset_url }}) no-repeat -9999px -9999px; }
 
 #homepage .right-col {
   padding-top: 500px;
@@ -961,10 +970,6 @@ footer {
     margin-top: -20px;
     height: 100%;
   }
-}
-
-#right-option h1, #left-option h1 {
-  opacity: 0;
 }
 
 
@@ -1910,15 +1915,16 @@ input.quantity:parent {
 
 #concept h1 {
   margin-bottom: 4px;
+  text-align: center;
 }
 
-#concept aside {
-  font-size: 18px;
-}
-
-@media screen and (max-width: 991px) {
-  #concept aside {
-    font-size: 13px;
+#concept .subtitle {
+  font-size: 12px;
+  margin-bottom: 4px;
+  text-align: center;
+  @media screen and (min-width: 768px) {
+    margin-bottom: 0px;
+    font-size: 14px;
   }
 }
 
@@ -2040,6 +2046,12 @@ input.quantity:parent {
   }
 }
 
+.buttons-image {
+  width: 100%;
+  padding-top: 18px;
+  padding-bottom: 18px;
+}
+
 /* Styles for the official lookbook. */
 
 #viewer-columns a:hover {
@@ -2107,195 +2119,71 @@ iframe {
 
 #westward-leaning-recommends h1 {
   text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 36px;
+  margin-bottom: 36px;
+}
+
+#westward-leaning-recommends h2 {
+  text-align: center;
+  font-size: 18px;
+  border: none;
+  padding-bottom: 4px;
+  margin-bottom: 0px;
+  margin-top: 0px;
 }
 
 #westward-leaning-recommends h3 {
   font-family: 'WWLheavy', sans-serif;
   font-weight: normal;
-  font-size: 14px;
-  margin-bottom: 0;
-  line-height: 1.3em;
-}
-
-#westward-leaning-recommends p.explanation {
   text-align: center;
-  font-size: 12px;
-  color: #888;
-  margin-bottom: 0;
+  font-size: 16px;
+  color: #777;
+  line-height: 1.3em;
+  @media screen and (max-width: 479px) {
+    font-size: 14px;
+  }
 }
 
-#westward-leaning-recommends p.explanation a {
+#westward-leaning-recommends p {
+  text-align: center;
+  font-size: 14px;
+  margin-top: 0px;
+  margin-bottom: 4px;
+}
+
+#westward-leaning-recommends a {
   color: inherit;
+  text-decoration: none;
+  display: block;
+  padding-bottom: 18px;
+  padding-top: 18px;
+  border-top: 1px solid #333;
+  &:first-of-type {
+    border-top: none;
+  }
+  &:hover {
+    background-color: inherit;
+    p.price {
+      text-decoration: underline;
+    }
+  }
 }
 
-#westward-leaning-recommends p.explanation a:hover {
-  color: white;
+#westward-leaning-recommends img {
+  width: 100%;
+  margin-top: 0px;
+  margin-bottom: 16px;
+  @media screen and (min-width: 768px) {
+    width: 70%;
+    margin-left: 15%;
+  }
 }
 
 #westward-leaning-recommends p.price {
-  text-align: center;
-  font-size: 12px;
   color: #777;
-  margin-bottom: 4px;
+  margin-top: 0px;
+  margin-bottom: 2px;
 }
 
-#mbti-quiz h2 {
-  text-align: center;
-  color: #000;
-  border-bottom: none;
-  border-top: 1px solid #BBB;
-  margin-top: 12px;
-  font-family: 'WWLStandard', sans-serif;
-  padding-top: 18px;
-}
-
-#results aside {
-  text-align: center;
-  margin-top: 14px;
-  font-size: 16px;
-}
-
-.mbti-type {
-  width: 48.5%;
-  margin-left: 0.75%;
-  margin-right: 0.75%;
-  height: 140px;
-  float: left;
-  margin-bottom: 22px;
-  padding-left: 14px;
-  padding-right: 14px;
-  background-color: #EEE;
-  line-height: 1.3em;
-}
-
-.mbti-type:nth-child(odd) {
-  text-align: left;
-}
-
-.mbti-type:nth-child(even) {
-  text-align: right;
-}
-
-.mbti-type:hover, .mbti-type.selected {
-  background-color: #BBB;
-}
-
-img#take-our-quiz {
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 100%;
-  margin-top: 42px;
-}
-
-#take-our-quiz, .result {
-  margin-bottom: 16px;
-}
-
-.result-image {
-  margin-top: 20px;
-}
-
-@media screen and (max-width: 768px) {
-  .mbti-type {
-    height: 54px;
-    text-align: center;
-  }
-  .mbti-type h3 {
-    text-align: center;
-  }
-}
-
-@media screen and (min-width: 992px) and (max-width: 1199px) {
-  .mbti-type {
-    height: 160px;
-  }
-}
-
-.gg-share, .gg-shop {
-  width: 49%;
-  color: white;
-  font-family: 'WWLheavy', sans-serif;
-  border: none;
-  padding-bottom: 3px;
-  padding-top: 4px;
-  padding-right: 8px;
-  text-align: right;
-  margin-bottom: 16px;
-  float: left;
-  display: block;
-  text-decoration: none;
-}
-
-.gg-share {
-  margin-right: 0.5%;
-  background-color: #777;
-}
-
-.gg-shop {
-  margin-left: 0.5%;
-  background-color: black;
-}
-
-a.gg-share:hover, a.gg-shop:hover {
-  text-decoration: none;
-}
-
-a.gg-share:hover {
-  background-color: #777;
-}
-
-#also-recommend h1 {
-  margin-bottom: 28px;
-}
-
-#also-recommend h2 {
-  text-align: center;
-}
-
-#also-recommend a {
-  text-decoration: none;
-  display: block;
-}
-
-#also-recommend a:hover {
-  color: inherit;
-  background-color: inherit;
-}
-
-#seasons-trends img {
-  margin-bottom: 16px;
-}
-
-#seasons-trends p {
-  font-size: 12px;
-  text-align: justify;
-}
-
-#perfect-match {
-  font-size: 12px;
-  border: 1px solid #bbb;
-  margin-top: 14px;
-  margin-bottom: 14px;
-}
-
-#perfect-match p {
-  text-align: justify;
-}
-
-#perfect-match h3 {
-  font-family: 'WWLHeavy', sans-serif;
-  font-size: 12px;
-  color: #777;
-  text-align: center;
-  margin-bottom: 4px;
-}
-
-#quiz-wrapper h1 {
-  margin-top: 56px;
-}
 
 /* Styles for the 404 page. */
 
@@ -2454,6 +2342,25 @@ a.faq-header-link {
   &:hover {
     color: inherit;
     background-color: inherit;
+  }
+}
+
+.faq-dimensions {
+  width: 100%;
+  @media screen and (min-width: 480px) and (max-width: 767px) {
+    width: 86%;
+    margin-left: 7%;
+    margin-right: 7%;
+  }
+  @media screen and (min-width: 768px) and (max-width: 991px) {
+    width: 72%;
+    margin-left: 14%;
+    margin-right: 14%;
+  }
+  @media screen and (min-width: 992px) {
+    width: 58%;
+    margin-left: 21%;
+    margin-right: 21%;
   }
 }
 
@@ -2661,5 +2568,170 @@ a.faq-header-link {
   } 50% { 
     transform: scale(1.0);
     -webkit-transform: scale(1.0);
+  }
+}
+
+/* Style for the grid navbar. */
+
+#collections-listing-navigation, #collections-listing-navigation-mobile {
+  position: relative;
+  margin-top: -8px;
+  margin-left: -38px;
+  background-color: #c8c8c8;
+  ul {
+    list-style-type: none;
+    text-align: center;
+    li {
+      display: inline-block;
+      margin-top: 4px;
+      margin-bottom: 4px;
+      margin-right: -4px;
+      text-align: center;
+      border-left: 1px solid #333;
+      text-transform: uppercase;
+      font-family: 'WWLheavy';
+      span {
+        display: inline-block;
+        vertical-align: middle;
+        line-height: 1.2em;
+      }
+      &.active {
+        background-color: #e8e8e8;
+      }
+    }
+    a {
+      text-decoration: none;
+      &:hover {
+        color: inherit;
+        background-color: inherit;
+      }
+      &:first-of-type {
+        li {
+          border-left: none;
+        }
+      }
+    }
+  }
+}
+
+#collections-listing-navigation {
+  height: 72px;
+  margin-bottom: 20px;
+  padding-left: 15px;
+  li {
+    width: 140px;
+    height: 64px;
+    line-height: 64px;
+    font-size: 12.4px;
+    img {
+      max-height: 24px;
+      padding-bottom: 4px;
+    }
+  }
+  @media screen and (max-width: 991px) {
+    li {
+      width: 124px;
+      font-size: 11.2px;
+    }
+  }
+}
+
+#collections-listing-navigation-mobile {
+  height: 48px;
+  margin-bottom: 12px;
+  background-color: #c8c8c8;
+  li {
+    width: 80px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 10px;
+    img {
+      max-height: 22px;
+      padding-bottom: 4px;
+      &.more-arrow {
+        max-height: 32px;
+        height: 32px;
+      }
+    }
+  }
+}
+
+#mobile-grid-dropdown {
+  float: right;
+  clear: right;
+  width: 100%;
+  border: none !important;
+  padding: none !important;
+  margin: none !important;
+  background-color: #c8c8c8;
+  li {
+    width: 100%;
+    float: right;
+    clear: right;
+    margin: 0 !important;
+    padding: 0 !important;
+    border-top: 1px solid #333;
+    background-color: #c8c8c8;
+  }
+  a:first-child > li {
+    border-top: none;
+  }
+}
+
+
+/* Style for the Introducing Voyager page. */
+
+#introducing-voyager {
+  img {
+    width: 100%;
+  }
+  h1 {
+    text-align: center;
+    color: #999;
+    font-size: 18px;
+    line-height: 1.4em;
+    letter-spacing: 0.1em;
+    &.the-collection {
+      background-color: black;
+      margin-top: 0;
+      margin-bottom: 0;
+      padding-top: 14px;
+      padding-bottom: 14px;
+    }
+    &.full-range {
+      @media screen and (min-width: 992px) {
+        width: 80%;
+        margin-left: 10%;
+        margin-right: 10%;
+      }
+    }
+  }
+  a {
+    text-decoration: none;
+  }
+  .row {
+    padding: 0;
+  }
+  .inspiration {
+    background-color: black;
+    color: #eee;
+    text-align: center;
+    p {
+      margin-bottom: 0;
+      padding-bottom: 11px;
+      padding-top: 11px;
+      padding-right: 14px;
+      padding-left: 14px;
+    }
+  }
+  .shape {
+    p {
+      text-align: justify;
+      margin-bottom: 0;
+      padding-bottom: 18px;
+      padding-top: 0px;
+      padding-right: 14px;
+      padding-left: 14px;
+    }
   }
 }

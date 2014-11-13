@@ -4,7 +4,7 @@
               <li class='pull-left'><a href='/pages/help#shipping' class='shipping-link'>FREE DOMESTIC SHIPPING</a></li>
               <li class='pull-left hidden-xs hidden-sm'><a href='/pages/help/' class='shipping-link'>CUSTOMER SERVICE</a></li>
               <li class='pull-left hidden-xs hidden-sm hidden-md'><a href='/pages/faq/' class='shipping-link'>FAQ</a></li>
-              <li class='centered hidden-xs'><a href="javascript:void(0);" class='popup-footer-toggle'>{{ 'footer-more.jpg' | asset_url | img_tag }}</a></li>
+              <li class='centered hidden-xs'><a href="javascript:void(0)" class='popup-footer-toggle'>{{ 'footer-more.jpg' | asset_url | img_tag }}</a></li>
 				{% for link in linklists.footer.links %}
 				  {% capture socialImg %}{{ link.title | downcase | handleize }}.jpg{% endcapture %}
                   {% if link.url == 'http://instagram.com/westwardleaning' %}
@@ -22,7 +22,7 @@
               <li class='pull-left'><a href='/pages/help#shipping' class='shipping-link'>FREE DOMESTIC SHIPPING</a></li>
               <li class='pull-left hidden-xs hidden-sm'><a href='/pages/help/' class='shipping-link'>CUSTOMER SERVICE</a></li>
               <li class='pull-left hidden-xs hidden-sm hidden-md'><a href='/pages/faq/' class='shipping-link'>FAQ</a></li>
-              <li class='centered'><a href="javascript:void(0);" class='popup-footer-toggle'>{{ 'footer-close.jpg' | asset_url | img_tag }}</a></li>
+              <li class='centered'><a href="javascript:void(0)" class='popup-footer-toggle'>{{ 'footer-close.jpg' | asset_url | img_tag }}</a></li>
 				{% for link in linklists.footer.links %}
 				  {% capture socialImg %}{{ link.title | downcase | handleize }}.jpg{% endcapture %}
                   {% if link.url == 'http://instagram.com/westwardleaning' %}
@@ -35,12 +35,12 @@
  		</nav>
         <div class='popup-options'>
           <ul>
-            <li><a href='/collections'>SHOP THE SUNGLASSES</a></li>
-            <li><a href='/pages/westward-leaning-recommends'>W\\L RECOMMENDS</a></li>
-            <li><a href='/pages/lookbook'>LOOKBOOK</a></li>
-            <li><a href='/blogs/celeb-style/12529605-olivia-palermo'>CELEB STYLE</a></li>
+            <li><a href='/collections'>SHOP</a></li>
+            <li><a href='/pages/westward-leaning-recommends'>GIFT GUIDE</a></li>
+            <li><a href='/pages/lookbook'>STREET STYLE</a></li>
+            <li><a href='/blogs/celeb-style/12529441-coco-rocha'>FAMOUS FANS</a></li>
             <li><a href='/pages/press'>PRESS</a></li>
-            <li><a href='/pages/stores'>STORES</a></li>
+            <li><a href='/pages/stores'>STOCKISTS</a></li>
           </ul>
           <ul>
             <li class='visible-sm visible-xs'><a href='/pages/help'>CUSTOMER SUPPORT</a></li>

@@ -2,10 +2,51 @@
 <script>$('#gallery').enhanceGallery();</script>
 
 
+<!-- Variant option selectors. -->
+<script>
+	var selectCallback = function(variant, selector) {
+	  if (variant) {
+	    // Selected a valid variant that is available.
+	    if (variant.available) {
+	      // Enabling add to cart button.
+	      jQuery('#buy').removeClass('disabled').removeAttr('disabled').val('Add to Cart').fadeTo(200,1);
+	    } else {
+	      // Variant is sold out.
+	      jQuery('#buy').val('Sold Out').addClass('disabled').attr('disabled', 'disabled').fadeTo(200,0.5);        
+	    }
+	    // Whether the variant is in stock or not, we can update the price and compare at price.
+	    if ( variant.compare_at_price > variant.price ) {
+	      jQuery('#product-price').html('<span class="product-price on-sale">'+ Shopify.formatMoney(variant.price, "{{ shop.money_format }}") +'</span>'+'&nbsp;<span class="product-compare-price"><del>'+Shopify.formatMoney(variant.compare_at_price, "{{ shop.money_format }}")+ '</del></span>');
+	    } else {
+	      jQuery('#product-price').html('<span class="product-price">'+ Shopify.formatMoney(variant.price, "{{ shop.money_format }}") + '</span>' );
+	    }        
+	  } else {
+	    // variant doesn't exist.
+	    jQuery('#buy').val('Unavailable').addClass('disabled').attr('disabled', 'disabled').fadeTo(200,0.5);
+	  }
+	};
+	jQuery(function($) {
+	  new Shopify.OptionSelectors('product-select', { product: {{ product | json }}, onVariantSelected: selectCallback });
+	  // Auto-select first available variant on page load.
+	  {% assign found_one_in_stock = false %}
+	  {% for variant in product.variants %}
+	    {% if variant.available and found_one_in_stock == false %}
+	      {% assign found_one_in_stock = true %}
+	      {% for option in product.options %}
+	      $('.single-option-selector:eq({{ forloop.index0 }})').val({{ variant.options[forloop.index0] | json }}).trigger('change');
+	      {% endfor %}
+	    {% endif %}
+	  {% endfor %}
+	});
+</script>
+
+
 <!-- Cross-Sell widget. -->
 {% assign cscurrentpage = 'product' %}
 {% if shop.metafields.shopCrosssell.settings != null %}
 
+<script>!window.jQuery && document.write('<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"><\/script>')</script>
+{{ 'api.jquery.js' | shopify_asset_url | script_tag }}
 
   <script type="text/javascript" charset="utf-8">
   //<![CDATA[
@@ -63,7 +104,7 @@
     //objects tend to randomize the output, so put the handles into an array first
     for (var i=0; i<numproducts; i++)
     {
-      order = (Number(tmpdata[i]['order']) - 1); 
+      order = (Number(tmpdata[i]['order']) - 1);
       crosssell[order] = tmpdata[i]['handle']; 
     } 
  
@@ -87,7 +128,7 @@
          {
            list.append('<li><a href="' + product.url +'"><div class="image"><img src="' + product.images[0].replace(/(.JPG|.jpg|.PNG|.png|.JPEG|.jpeg|.GIF|.gif)/, '_medium$1') + '" /></div><div class="producttitle">' + product.type + '</div><div class="model_no">' + model_no + '</div></a></li>');
            if (j==0) { leftTestWrapper.append('<a href="' + product.url + '" id="left-arrow-link"><div class="left-test">{{ "arrow_light_left.jpg" | asset_url | img_tag: 'Light Left Arrow', 'light-left-arrow' }}{{ "arrow_dark_left.jpg" | asset_url | img_tag: 'Dark Left Arrow', 'dark-left-arrow' }}</div></a>'); } // some more click-through arrows code
-           if (j==3) { rightTestWrapper.append('<a href="' + product.url + '" id="right-arrow-link"><div class="right-test">{{ "arrow_light_right.jpg" | asset_url | img_tag: 'Light Right Arrow', 'light-right-arrow' }}{{ "arrow_dark_right.jpg" | asset_url | img_tag: 'Dark Right Arrow', 'dark-right-arrow' }}</div></a>'); }
+           if (j==3) { rightTestWrapper.append('<a href="' + product.url + '" id="right-arrow-link"><div class="right-test">{{ "arrow_light_right.jpg" | asset_url | img_tag: 'Light Right Arrow', 'light-right-arrow' }}{{ "arrow_dark_right.jpg" | asset_url | img_tag: 'Dark Right Arrow', 'dark-right-arrow' }}</div></a>'); } 
           }
           else
           {
@@ -108,7 +149,7 @@ jQuery.each(crosssellsettings[0], function(key, value){
   	settingsoutput += '<input type="hidden" name="' + key + '" id="cs_' + key + '" value="' + value + '" />';    	
 });	       
 jQuery('#cross-sell').append(settingsoutput);
-
+            
 //]]>
 </script>
 
@@ -281,36 +322,3 @@ jQuery('#cross-sell').append(settingsoutput);
       identifyCountry(currencyCallback);
       
     </script>
-
-<!-- Assign product-specific retargeting buckets. -->
-
-<script>
-var tags = [];
-{% for tag in product.tags %}
-  tags.push("{{tag}}");
-{% endfor %}
-            
-$('#buy').click(assignBucket(tags));
-
-function assignBucket(tags) {
-  if (tags.indexOf("classics") > -1 ) {
-    if(!_rt_calls){ var _rt_calls = []; }
-    _rt_calls.push({"type":"segment", "id":[9866]});
-  } else if (tags.indexOf("mirrorshades") > -1 ) {
-    if(!_rt_calls){ var _rt_calls = []; }
-    _rt_calls.push({"type":"segment", "id":[9864]});
-  } else if (tags.indexOf("neons") > -1 ) {
-    if(!_rt_calls){ var _rt_calls = []; }
-    _rt_calls.push({"type":"segment", "id":[9865]});
-  } else if (tags.indexOf("voyager classics") > -1 ) {
-    if(!_rt_calls){ var _rt_calls = []; }
-    _rt_calls.push({"type":"segment", "id":[9863]});
-  } else if (tags.indexOf("voyager neons") > -1 ) {
-    if(!_rt_calls){ var _rt_calls = []; }
-    _rt_calls.push({"type":"segment", "id":[9862]});
-  } else {
-    if(!_rt_calls){ var _rt_calls = []; }
-    _rt_calls.push({"type":"segment", "id":[9861]});
-  }
-}
-</script>

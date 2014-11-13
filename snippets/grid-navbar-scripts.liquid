@@ -1,0 +1,41 @@
+<script type='text/javascript'>
+  var pathname = window.location.pathname;
+  findActiveLink();
+  
+  $('#collections-listing-navigation li').hover(function() {
+    removeActiveLinks();
+    $(this).addClass('active');
+  }, function() {
+    removeActiveLinks();
+    findActiveLink();
+  });
+  
+  $('#collections-listing-navigation-mobile li').hover(function() {
+    removeActiveLinks();
+    $(this).addClass('active');
+  }, function() {
+    removeActiveLinks();
+    findActiveLink();
+  });
+    
+  
+  function removeActiveLinks() {
+    $('#collections-listing-navigation li.active').removeClass('active');
+    $('#collections-listing-navigation-mobile li.active').removeClass('active');
+  }
+  
+  function findActiveLink() {
+    $('#collections-listing-navigation li').each(function(){
+      var link = $(this).parent().attr('href');
+      if (link == pathname) {
+        $(this).addClass('active');
+      }
+    });
+    $('#collections-listing-navigation-mobile li').each(function(){
+      var link = $(this).parent().attr('href');
+      if (link == pathname) {
+        $(this).addClass('active');
+      }
+    });
+  }
+</script>

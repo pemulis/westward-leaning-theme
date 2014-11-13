@@ -1,0 +1,221 @@
+/* 
+
+Copyright RyanFosterDesign Ltd
+www.ryanfosterdesign.co.uk
+
+Vanilla checkout css for Shopify (white page, white boxes with grey borders, grey/black text, red errors)
+
+ */
+
+
+/* @group Reset */
+
+
+/* Fonts and such. */
+
+@font-face {
+	font-family: 'WWLlogo';
+	src: url('WWLlogo.eot'); /* IE9 Compat Modes */
+	src: url('WWLlogo.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+	     url('WWLlogo.woff') format('woff'), /* Modern Browsers */
+	     url('WWLlogo.ttf')  format('truetype'), /* Safari, Android, iOS */
+	     url('WWLlogo.svg#svgWWLlogo') format('svg'); /* Legacy iOS */
+	}
+
+
+/* Undo background and gradiant */
+body, #main, #container, #header, #footer {
+  background: #fff;
+}
+
+#main #overview > * {
+  border: none;
+}
+
+#main #thumbs div {
+  border: none;
+  }
+  
+/* Undo overview background and borders */
+#main #overview {
+  background: #fff;
+  border: none;
+}
+
+/* center the title */
+#header > h1{
+  text-align:center;
+}
+
+
+/* @end */
+
+/* @group Globals */
+
+body {
+  color: #111;
+  text-align: center;
+  background: #fff;
+  font-family: Arial, Helvetica, Geneva, sans-serif !important;
+  line-height: 120%;
+}
+
+#container {
+	background: #fff;
+	border: 1px solid #ccc;
+	width: 805px;	
+}
+
+#content {
+	padding: 0px;
+}
+
+h1, h2, h3, h4, h5, h6, strong, #email label, #overview #cost {
+  font-family: Arial, Helvetica, sans-serif;
+  text-transform: uppercase;
+  font-weight: normal !important;
+}
+
+#tagline .title {
+  font-family: 'WWLlogo', Arial, Helvetica, sans-serif;
+  font-size: 36px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+#tagline .subtitle {
+  display: block;
+  margin-top: 18px;
+}
+
+/* @end */
+
+/* @group Info Bar */
+
+#info-bar {
+	border-bottom: none;
+	background: #fff;
+}
+
+/* @end */
+
+/* @group Order Summary */
+
+/* Insert your own logo (upload separatly) */
+#logo { 
+  	height: 0px;
+  	width: 100%;
+  	background: url(logo.png) center no-repeat;
+}
+
+#wallet{
+	padding-top: 40px;
+	background-color: #fff !important;
+}
+
+#thumbs td {
+	padding: 20px;
+}
+
+#thumbs h3 {
+	color: #333 !important;
+	clear: both;
+	font-size: 13px;
+}
+
+#thumbs span, #thumbs h3 span {
+	color: #000;
+	font-size: 13px;
+}
+
+#container.slim #overview table#thumbs td {
+	padding: 10px;
+}
+
+
+#cost, #order-num {
+	font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif !important;
+	color: #000;
+	font-weight: bold;
+	line-height: 120%;
+}
+
+#steps {
+	font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif !important;
+	line-height: 120%;
+	font-size: 13px;
+}
+
+/* @end */
+
+/* @group Address+Emails+Buttons */
+
+#main #overview, #email, #addresses, .group, #marketing-box, .address-notification {
+	background: #fff;
+	border: 1px solid #ccc;
+}
+
+#buttons {
+	background:#f9f9f9;
+	border-bottom:1px solid #ccc;
+	border-top: 1px solid #ccc;
+	margin:0;
+	padding:10px;
+}
+
+.group h3, .pgroup h3 {
+	color: #333;
+	border-bottom:1px solid #ccc;
+}
+
+.group input{
+	font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif !important;
+	padding: 3px;
+	font-size: 13px;
+	border: 1px solid #ccc;
+}
+
+#container.slim {
+	width:  440px;
+}
+
+#container.slim #header, #container.slim #main, #container.slim #footer {
+	background-image: none;
+}
+
+div#shipping-same::after {
+  content: " \A\APlease note: Shipments outside of the US may face customs fees.";
+  white-space: pre-wrap;
+}
+
+small#cancel-purchase::after {
+  content: ". Please note: Shipments outside of the US may face customs fees.";
+}
+
+/* @end */
+
+
+/* @group Footer */
+
+#footer p {
+	display:  none;
+}
+
+/* @end */
+
+/* @group Errors */
+
+.field-with-errors{ 
+	margin-bottom: 20px; 
+	border: 1px solid #FBC2C4; 
+	background: #FBE3E4; 
+	padding: 10px 5px;
+}
+
+.field-with-errors .error-message {
+	color: #8a1f11;
+}
+
+/* @end */
+
+

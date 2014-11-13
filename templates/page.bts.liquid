@@ -1,4 +1,11 @@
 <div id='{{ page.handle }}' class='container'>
+  
+  <div class="spinner">
+    <div class="dot1"></div>
+    <div class="dot2"></div>
+  </div>
+  
+  <div id='content' class='hidden'>
   <div id='bts-gallery' class='row'>
     <!-- Let's preload gallery nav arrows... -->
     <div class='hidden'>{{ 'arrow_light_right.jpg' | asset_url | img_tag }}{{ 'arrow_dark_right.jpg' | asset_url | img_tag }}{{ 'arrow_light_left.jpg' | asset_url | img_tag }}{{ 'arrow_dark_left.jpg' | asset_url | img_tag }}</div>
@@ -49,7 +56,8 @@
     </div>
     <div class='col-md-4 col-xs-12'>
       {{ 'BTS_GRID_6.png' | asset_url | img_tag }}
-      <p><a href='/collections'>Shop the full Westward Leaning Collection</a></p>
+      <p><a href='/collections/new-releases'>Shop the Westward Leaning Collection</a></p>
     </div>
+  </div>
   </div>
 </div>

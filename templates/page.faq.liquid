@@ -1,7 +1,6 @@
 <div id='{{ page.handle }}' class='container'>
   <div class='row'>
     <div class='col-md-offset-2 col-md-8 col-xs-12'>
-      {{ 'FAQ-image.jpg' | asset_url | img_tag: 'FAQ', 'faq-top-header' }}
       <a href="javascript:void(0)" id='about-the-sunglasses-link' class='faq-header-link'>
         {{ 'sunglasses-silhouette.jpg' | asset_url | img_tag: 'Sunglasses Silhouette', 'sg-silhouette' }}
         <h1>About the Sunglasses</h1>
@@ -10,35 +9,39 @@
       <div id="about-the-sunglasses">
       <h2>What are Westward Leaning sunglasses made from?</h2>
       <p>Westward Leaning frames are made from thick sheets of acetate, giving our sunglasses an incredibly substantial feel.</p>
-      <p>All but one of our models use CR-39 plastic lenses, the best lenses in the world. We offer one model (N°3S Mercury Seven Stealth) with polarized glass lenses for improved usability in the outdoors.</p>
+      <p>All but one of our models use CR-39 plastic lenses, the best lenses in the world.</p>
       <p>Additionally, all of our sunglasses feature Westward Leaning’s signature piece: a unique material embedded or sewn into their temples. These materials range from California redwood and aluminum to created coral and lapis.</p>
       
       <h2>Where are Westward Leaning sunglasses made?</h2>
       <p>Our sunglasses are all made by hand in Japan and San Francisco. A team of professional artisans works in our San Francisco offices to integrate neon lenses and all of the unique materials into the frames by hand.</p>
       
-      <h2>Can I order a custom pair?</h2>
-      <p>Unfortunately, we do not offer the opportunity to customize our sunglasses at this time. But stayed tuned!</p>
-      
       <h2>How can I improve the fit of my sunglasses?</h2>
       <p>Acetate, the material used to craft our frames, is flexible. Gently bend the end of the stems inwards or outwards for a tighter or looser fit as needed.</p>
       {{ 'fit1.png' | asset_url | img_tag: 'Fit Diagram #1', 'fit-diagram' }}
-      <p>You can increase the malleability of the acetate by heating your sunglasses with a hairdryer. Should you choose to do so, make sure to direct the heat at the end of the stems while avoiding the unique material inlay.</p>
+      <p>You can increase the malleability of the frame by heating your sunglasses with a hairdryer. Should you choose to do so, make sure to direct the heat at the end of the stems while avoiding the unique material inlay.</p>
       {{ 'fit2.png' | asset_url | img_tag: 'Fit Diagram #2', 'fit-diagram' }}
       
       <h2>How can I best care for my Westward Leaning sunglasses?</h2>
       <p>We are proud to offer sunglasses made with the best materials and exceptional craftsmanship, and your satisfaction is important to us. We recommend that you store your sunglasses in the provided protective cases at all times when not in use. Rest sunglasses lens-side up to prevent scratching the lenses.</p>
-      <p>Additionally, lenses should be cleaned regularly with either a lens cleaner or fresh water and a soft, clean cloth (we provide such a cloth with all of our sunglasses).</p>
+      <p>Additionally, lenses should be cleaned regularly with either a lens cleaner or fresh water and a soft, clean cloth (you will receive such a cloth with your purchase).</p>
       <p>Although Westward Leaning sunglasses are waterproof, we do not recommend submerging our sunglasses in water as this can deteriorate the adhesives used to inlay unique materials. Moreover, we advise against leaving sunglasses exposed in high temperatures, such as in a car in Arizona in July, as acetate can warp.</p>
       
       <h2>What can I do if a screw falls out?</h2>
       <p>Any of your local opticians should be able to replace the screw. Or email us at help@westwardleaning.com and we’ll be happy to fix them for you.</p>
       
       <h2>Can I put prescription lenses in my Westward Leaning sunglasses? How?</h2>
-      <p>Yes. Although Westward Leaning does not offer prescription lenses at this time, your optician should be able to fit our sunglasses with your prescription.</p>
+      <p>Yes. Although Westward Leaning does not offer prescription lenses at this time, your optician will be able to fit our sunglasses with your prescription.</p>
       
       <h2>How do I determine which size I should order?</h2>
-      <p>All of our sunglasses are available in a standard size that fits 90% of our customers. We offer <a href="http://westwardleaning.com/products/small-large-wayfarer">select models</a> in two additional sizes: a small and large. The small and large frames are merely scaled down and up versions of our standard size, respectively, and are appropriate for customers who’ve experienced problems with the fit of sunglasses in the past and know that sunglasses typically fit too large or too small on them. For the precise measurements of our sizes, please see below:</p>
-      {{ 'sml.jpg' | asset_url | img_tag }}
+      <p>Westward Leaning prides itself on its universally flattering shapes: all of our frames have gone through two years of design research to make sure they truly are a great fit for everyone.</p>
+      <p>Our Voyager circle model is available in a single size, measuring 48mm by 2mm by 145mm (lens width, nose bridge width and stem length). This makes it a more petite frame than our wayfarer.</p>
+      <div class='faq-dimensions voyager'>{{ 'voyager_specs.jpg' | asset_url | img_tag: 'Voyager Dimensions' }}</div>
+      <p>Our Classic wayfarer model is available in three sizes: the Standard, the Small and the Large. The Standard size is the optimal fit for 90% of our customers and we offer it for all our models. The Small and the Large, scaled down and up versions of our standard size, respectively, are appropriate for customers who’ve experienced problems with the fit of sunglasses in the past. We the Small and the Large in <a href='/products/small-large-size'>select models</a>. For the precise measurements of our sizes, please see below:</p>
+      <div class='faq-dimensions'>{{ 'small_specs.jpg' | asset_url | img_tag: 'Small Wayfarer Sunglasses Dimensions' }}</div>
+      <div class='faq-dimensions'>{{ 'wayfarer_specs.jpg' | asset_url | img_tag: 'Standard Wayfarer Sunglasses Dimensions' }}</div>
+      <div class='faq-dimensions'>{{ 'large_specs.jpg' | asset_url | img_tag: 'Large Wayfarer Sunglasses Dimensions' }}</div>
+
+
       
       <h2>What is bridge fit?</h2>
       <p>We designed our bridge fit option, a style with nose pads added at the bridge of our glasses, for customers who found that they needed or wanted a more secure fit. If you find that sunglasses without nose pads typically slide off your nose or rest on your cheeks, we recommend you try a bridge fit style. The nose pads do not alter the appearance of our sunglasses when worn, but they’ll provide a comfortable, secure, and snug fit on all faces. <a href="http://westwardleaning.com/products/asian-bridge-fit-wayfarer">We offer bridge fit in select styles.</a></p>
@@ -51,8 +54,11 @@
       <p>If you sign up for a specific pair’s waitlist, you will receive an email letting you know when the style is back in stock.</p>
       
       <h2>Can you help me pick a pair?</h2>
-        <p>We love that our sunglasses are universally flattering -— we designed them to look great on everyone, regardless of age/sex/location. For proof, visit <a href="/pages/lookbook">our lookbook</a> to see photos from other fans around the world wearing our shades. Since our sunglasses are universally flattering, choosing between pairs depends more on your personal style and taste.</p>
-      <p>We offer a few suggestions in our <a href="/pages/westward-leaning-recommends">gift guide</a> and we also have a (very scientific!) quiz that matches you with a specific pair of our sunglasses based on your MBTI personality type.</p>
+      <p>We love that our sunglasses are universally flattering -— we designed them to look great on everyone, regardless of age, gender, or location. Therefore choosing between pairs depends fully on your personal style.</p>
+      <p>If you would like personal advice in selecting a pair, please do not hesitate to email us on <a href='mailto:help@westwardleaning.com'>help@westwardleaning.com</a> and we’d be happy to help. We also offer a few suggestions in our <a href='/pages/westward-leaning-recommends'>gift guide</a> and our <a href=/pages/lookbook''>street style</a>.</p>
+      
+      <h2>I didn't see my question in this list.</h2>
+      <p>Have we missed anything? Please feel free to contact us at <a href='mailto:help@westwardleaning.com'>help@westwardleaning.com</a>.</p>
       </div>
       
       
@@ -63,7 +69,7 @@
       
       <div id="shipping-and-exchanges">
       <h2>Where can I buy Westward Leaning sunglasses in my city?</h2>
-      <p>The most complete selection of our available styles will always be found on our website. However, we appreciate that many fans want to try sunglasses on before purchasing and we are privileged to have partnered with incredible retailers around the world to that end. Please visit our <a href='/pages/stores'>stores page</a> for a complete list of our retail partners.</p>
+      <p>The most complete selection of our available styles will always be found on our website. We are privileged to have partnered with incredible retailers around the world that each carry a selection of our collection. Please visit our <a href='/pages/stores'>stores page</a> for a complete list of our retail partners.</p>
       
       <h2>Do I need to create an account in order to place my order?</h2>
       <p>No. At this time we do not offer the ability to create a customer account and so orders are placed as a guest.</p>
@@ -112,14 +118,16 @@
       <p>Yes. If exchanging a pair for a different pair, we will ship you a new pair as soon as we receive the original pair in our office. To arrange an exchange, please contact help@westwardleaning.com.</p>
       
       <h2>What if I lose or break my sunglasses?</h2>
-      <p>We guarantee the craftsmanship of our sunglasses. However, we cannot offer a replacement or exchange for any products that are lost or damaged due to misuse, negligence, or normal wear-and-tear. So, if you left your sunglasses on the subway or your dog ate them, we’re sorry, but they cannot be replaced for free.</p>
+      <p>We guarantee the craftsmanship of our sunglasses. However, we cannot offer a replacement or exchange for any products that are lost or damaged due to misuse, negligence, or normal wear-and-tear.</p>
       
       <h2>I’ve broken my sunglasses. Can you send me loose screws, lenses, or swatches with which to repair them?</h2>
-      <p>We do not ship loose parts, just whole sunglasses.</p>
+      <p>We do not ship loose parts, just whole sunglasses. Contact us on <a href='help@westwardleaning.com'>help@westwardleaning.com</a> to learn more.</p>
 
       <h2>I’m interested in placing a corporate order. Who should I contact?</h2>
       <p>Please reach out to our wholesale team at retailers@westwardleaning.com.</p>
-      <p>Have we missed anything? Please feel free to contact us at help@westwardleaning.com.</p>
+      
+      <h2>I didn't see my question in this list.</h2>
+      <p>Have we missed anything? Please feel free to contact us at <a href='mailto:help@westwardleaning.com'>help@westwardleaning.com</a>.</p>
       </div>
     </div>
   </div>

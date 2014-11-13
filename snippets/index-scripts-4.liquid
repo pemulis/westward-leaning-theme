@@ -1,0 +1,41 @@
+<script type="text/javascript">
+  $(window).load(function(){
+    $('.spinner').addClass('hidden-xs hidden-sm hidden-md hidden-lg hidden-xl');
+    $('#full-screen').removeClass('hidden');
+    $('h1').removeClass('hidden');
+    $('aside').removeClass('hidden');
+  });
+  
+  $(window).load(
+    function(){
+    $('.signup').hover(
+      function(){
+        $(this).css( 'cursor', 'pointer' );
+      },
+      function(){
+        $(this).css( 'cursor', 'default' );
+      }
+    );
+  });
+  
+  $(window).load(
+    function(){
+    $('.signup').on('click', function(e) {
+      mcEvilPopupReopen();
+    });
+  });
+    
+</script>
+
+{{ 'plugin.jquery.js' | asset_url | script_tag }}
+{{ 'countdown.jquery.js' | asset_url | script_tag }}
+
+<script type='text/javascript'>
+  // Grab the current date
+  var currentDate = new Date();
+  
+  // Set some date in the future. In this case, it's always Jan 1
+  var futureDate  = new Date(2014, 10, 13);
+  
+  $('.countdown-clock').countdown({until: futureDate});
+</script>

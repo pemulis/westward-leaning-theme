@@ -1,0 +1,185 @@
+ <div id='collection' class='container'>
+  <div class='row'>
+    <section class='col-sm-12 visible-sm'>
+      <ul id='product-filter-mobile' class='nav nav-tabs'>
+        <li>
+          <div class='dropdown'>
+            <a data-toggle='dropdown' href='#'>FRAME COLOR</a>
+            <ul class='product-filter-dropdown dropdown-menu' role='menu' aria-labelledby='dLabel'>
+              {% for link in linklists.frame-color.links %}
+                {% capture handleized_link %}frame-color-{{ link.title | handleize }}{% endcapture %} 
+                <li>
+                  <a href='#filter=.{{ handleized_link }}' class='list-group-item'>
+                    {{ link.title | upcase }}
+                  </a>
+                </li>
+              {% endfor %}
+			  <li><a href="#filter=*">ALL COLORS</a></li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <div class='dropdown'>
+            <a data-toggle='dropdown' href='#'>LENS COLOR</a>
+            <ul class='product-filter-dropdown dropdown-menu' role='menu' aria-labelledby='dLabel'>
+              {% for link in linklists.lens.links %}
+                {% capture handleized_link %}lens-{{ link.title | handleize }}{% endcapture %}
+                <li>
+                  <a href='#filter=.{{ handleized_link }}' class='list-group-item'>
+                    {% if link.title == "No Mirror" %}
+                      TRADITIONAL
+                    {% else %}
+                      {{ link.title | upcase }}
+                    {% endif %}
+                  </a>
+                </li>
+              {% endfor %}
+			  <li><a href="#filter=*">ALL COLORS</a></li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <div class='dropdown'>
+            <a data-toggle='dropdown' href='#'>MATERIAL</a>
+            <ul class='product-filter-dropdown dropdown-menu' role='menu' aria-labelledby='dLabel'>
+              {% for link in linklists.material.links %}
+                {% capture handleized_link %}material-{{ link.title | handleize }}{% endcapture %}
+                <li>
+                  <a href='#filter=.{{ handleized_link }}' class='list-group-item'>
+                    {{ link.title | upcase }}
+                  </a>
+                </li>
+              {% endfor %}
+<!--              {% for tag in collection.all_tags %}
+			  	{% if tag contains "material" %}
+                  {% if tag != 'material = Gift Card' and tag != 'material = Bridge Fit' and tag != 'material = Small & Large' and tag != 'material = Wood & Graphite' %}
+                    {% capture handleized_tag %}{{ tag | handleize }}{% endcapture %}
+  			  		  <li>
+                        <a href='#filter=.{{ handleized_tag }}' class='list-group-item'>
+			    		  {{ tag | remove: 'material = ' | upcase  }}
+                        </a>
+			  		  </li>
+                  {% endif %}
+			  	{% endif %}
+			  {% endfor %} -->
+			  <li><a href="#filter=*">ALL MATERIALS</a></li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </section>
+  </div>
+  <div class='row'>
+    <section class='col-md-10 col-sm-12 left-col'>
+      <div>
+        <ul id='product-grid'>
+          {% paginate collection.products by 48 %}
+          	{% for product in collection.products %}
+              <div class='product-wrapper {% for tag in product.tags %}{{ tag | handleize }} {% endfor %}'>
+
+		        {% include 'product-grid-item' %}
+                
+              </div>
+          
+			{% else %}
+			<p>There are no products in this view.</p>
+			{% endfor %}
+          {% endpaginate %}
+        </ul>
+      </div>
+    </section>
+    <section id='product-filter' class='panel panel-default col-md-2 right-col hidden-xs hidden-sm'>
+	  {% capture active_link %}{{ current_tags | handleize }}{% endcapture %}
+      <div id='sidebar' class='list-group'>
+        <a href='#filter=*' class='list-group-item'>
+          ALL
+        </a>
+        <a href='#filter=.op' class='list-group-item'>
+          #OPforWL
+        </a>
+<!--        <a href='#' class='list-group-item {% if active_link contains 'new-releases'  %}active{% endif %}' data-filter='.new-releases'>
+          NEW RELEASES
+        </a> -->
+        <a href='#filter=.new-releases' class='list-group-item'>
+          NEW RELEASES
+        </a>
+        <a href='#filter=.top-sellers' class='list-group-item'>
+          TOP SELLERS
+        </a>
+        <a href='#frame-type' class='list-group-item no-jump' data-parent='#sidebar'>
+          FRAME TYPE
+        </a>
+ 		<div id='frame-type' class='list-group subitem collapse'>          
+          {% for link in linklists.frame-type.links %}
+            {% capture handleized_link %}frame-type-{{ link.title | handleize }}{% endcapture %} 
+            <a href='#filter=.{{ handleized_link }}' class='list-group-item'>
+              {{ link.title | upcase }}
+            </a>
+          {% endfor %}
+		</div>
+        <a href='#frame-color' class='list-group-item no-jump' data-parent='#sidebar'>
+          FRAME COLOR 
+        </a>
+     	<div id='frame-color' class='list-group subitem collapse'>
+          {% for link in linklists.frame-color.links %}
+            {% capture handleized_link %}frame-color-{{ link.title | handleize }}{% endcapture %} 
+            <a href='#filter=.{{ handleized_link }}' class='list-group-item'>
+              {{ link.title | upcase }}
+            </a>
+          {% endfor %}
+        </div>
+        <a href='#lens' class='list-group-item no-jump' data-parent='#sidebar'>
+          LENS
+        </a>
+        <div id='lens' class='list-group subitem collapse'>
+          {% for link in linklists.lens.links %}
+            {% capture handleized_link %}lens-{{ link.title | handleize }}{% endcapture %} 
+            <a href='#filter=.{{ handleized_link }}' class='list-group-item'>
+              {% if link.title == "No Mirror" %}
+                TRADITIONAL
+              {% else %}
+                {{ link.title | upcase }}
+              {% endif %}
+            </a>
+          {% endfor %}
+        </div>
+        <a href='#material' class='list-group-item no-jump' data-parent='#sidebar'>
+          MATERIAL
+        </a>
+        <div id='material' class='list-group subitem collapse'>
+            {% for link in linklists.material.links %}
+              {% capture handleized_link %}material-{{ link.title | handleize }}{% endcapture %}
+              <li>
+                <a href='#filter=.{{ handleized_link }}' class='list-group-item'>
+                  {{ link.title | upcase }}
+                </a>
+              </li>
+            {% endfor %}
+<!--          	{% for tag in collection.all_tags %}
+			  	{% if tag contains "material" %}
+                  {% if tag != 'material = Gift Card' and tag != 'material = Bridge Fit' and tag != 'material = Small & Large' and tag != 'material = Wood & Graphite' %}
+                    {% capture handleized_tag %}{{ tag | handleize }}{% endcapture %} 
+                    <a href='#filter=.{{ handleized_tag }}' class='list-group-item'>
+			          {{ tag | remove: 'material = ' | upcase }}
+	                </a>
+                  {% endif %}
+			  	{% endif %}
+			{% endfor %} -->
+        </div>
+        <a href='#theme' class='list-group-item no-jump' data-parent='#sidebar'>
+          THEME
+        </a>
+        <div id='theme' class='list-group subitem collapse'>
+          <!-- Create collections for each theme and a linked list ordering them, then iterate through that linked list. -->
+          {% for link in linklists.theme.links %}
+            {% capture handleized_link %}theme-{{ link.title | handleize }}{% endcapture %} 
+            <a href='#filter=.{{ handleized_link }}' class='list-group-item'>
+              {{ link.title | upcase }}
+            </a>
+          {% endfor %}
+        </div>
+
+      </div>
+    </section>
+  </div>
+</div>
