@@ -289,8 +289,9 @@ var tags = [];
 {% for tag in product.tags %}
   tags.push("{{tag}}");
 {% endfor %}
-assignBucket(tags);
-              
+            
+$('#buy').click(assignBucket(tags));
+
 function assignBucket(tags) {
   if (tags.indexOf("classics") > -1 ) {
     if(!_rt_calls){ var _rt_calls = []; }

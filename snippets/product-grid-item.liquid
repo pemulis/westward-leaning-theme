@@ -3,31 +3,36 @@
   {% assign on_sale = true %}
 {% endif %}
 {% for tag in product.tags %}
-	{% if tag contains "side mat" %}
-		{% assign side_material = tag | remove: 'side mat = ' %}
+	{% if tag contains "primary mat = " %}
+		{% assign product_material = tag | remove: 'primary mat = ' %}
 	{% endif %}
-	{% if tag contains "model" %}
+	{% if tag contains "model = " %}
 		{% assign model = tag | remove: 'model = ' %}
 	{% endif %}
-    {% if tag contains "special projects" %}
-        {% assign special_project = true %}
-    {% endif %}
 {% endfor %}
 
 <a href='{{ product.url }}'>
   <li class='product-thumb'>
 
   	  <img src="{{ product.featured_image.src | product_img_url: 'medium' }}" alt="{{ product.featured_image.alt | escape }}"  class='img-response'/>
-      <h2>{{ product.type | upcase }}</h2>
+      <h2>
+        {% if model == 'N°3.10' %}
+          {{ product.type | upcase }}<br>WITH BARNEYS
+        {% elsif model == 'N°3.11' %}
+          {{ product.type | upcase }}<br>WITH BARNEYS
+        {% elsif model == 'N°3.12' %}
+          {{ product.type | upcase }}<br>WITH BARNEYS
+        {% else %}
+          {{ product.type | upcase }}
+        {% endif %}
+      </h2>
       <aside class='model'>{{ model }}</aside>
-      <aside class='material'>{{ side_material }}</aside>
+      <aside class='material'>{{ product_material }}</aside>
       <aside>
         {% comment %}{% if product.price_varies %}From {% endif %}{% endcomment %}
         {% if product.title == "Gift Card" %}
           $50 - $200
-        {% elsif model == 'N°3.12' %}
-          {{ product.price | money | remove: '.00' }} - BARNEYS XO
-        {% elsif product.first_available_variant.inventory_quantity < 6 and product.first_available_variant.inventory_management == "shopify" and product.first_available_variant.inventory_policy == "deny" %}
+        {% elsif product.first_available_variant.inventory_quantity < 6 and product.first_available_variant.inventory_management == "shopify" and product.first_available_variant.inventory_policy == "deny" and product.type != "Voyager" %}
           {{ product.price | money | remove: '.00' }} - LIMITED STOCK
         {% elsif product.available %}
           {{ product.price | money | remove: '.00' }}
