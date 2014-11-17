@@ -38,8 +38,6 @@
         {% comment %}{% if product.price_varies %}From {% endif %}{% endcomment %}
         {% if product.title == "Gift Card" %}
           $50 - $200
-        {% elsif product.first_available_variant.inventory_quantity < 6 and product.first_available_variant.inventory_management == "shopify" and product.first_available_variant.inventory_policy == "deny" and product.type != "Voyager" %}
-          {{ product.price | money | remove: '.00' }} - LIMITED STOCK
         {% elsif product.available %}
           {{ product.price | money | remove: '.00' }}
         {% else %}
