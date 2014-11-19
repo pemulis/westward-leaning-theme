@@ -69,13 +69,6 @@
         {% else %}
           <p><a id="BIS_trigger" href="#">WAITLIST</a></p>
         {% endif %}
-        <div id="social-share">
-          <p>
-            <a id="product-like" href="https://www.facebook.com/sharer/sharer.php?u={{ shop.url | url_escape }}{{ product.url | url_escape }}" target="_blank">share</a>
-            <a id="product-tweet" href="https://twitter.com/share?url={{ shop.url | url_escape }}{{ product.url | url_escape }}" target="_blank">tweet</a>
-            <a id="product-pin" href="http://www.pinterest.com/pin/create/button/?url={{ shop.url | url_escape }}{{ product.url | url_escape }}&media={{ product.featured_image.src | product_img_url: 'original' | url_escape }}&description=Next%20stop%3A%20Pinterest">pin</a>
-          </p>
-        </div>
 		<div id="quantity-message"></div>
       </form>
       <!-- This section is out of scope for now, but may be useful for our big rebuild later in 2014. -->

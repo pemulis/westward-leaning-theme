@@ -1,0 +1,27 @@
+<script>
+function identifyCountry(callback) {
+  jQuery.ajax( { 
+    url: '//freegeoip.net/json/', 
+    type: 'POST', 
+    dataType: 'jsonp',
+    success: function(location) {
+      switch (location.country_code) {
+        case "US":
+          outside_the_united_states = false;
+          break;
+        default:
+          outside_the_united_states = true;
+      }
+      callback(outside_the_united_states);
+    } 
+  });
+}
+      
+function shippingCallback(outsideTheUnitedStates) {
+  if (outsideTheUnitedStates == true) {
+    $('.shipping-message').html("WORLDWIDE SHIPPING");
+  }
+} 
+      
+identifyCountry(shippingCallback);      
+</script>
