@@ -1,5 +1,16 @@
 @charset "UTF-8";
 
+
+/* Bootstrap breakpoints. */
+
+$screen-sm-min: 768px;
+$screen-xs-max: ($screen-sm-min - 1);
+$screen-md-min: 992px;
+$screen-sm-max: ($screen-md-min - 1);
+$screen-lg-min: 1200px;
+$screen-md-max: ($screen-lg-min - 1);
+
+
 /* A few high-level styles, mostly having to do with fonts. */ 
  
 body {
@@ -81,7 +92,7 @@ b, strong {
   padding-top: 60px;
   padding-bottom: 40px;
   text-align: center;
-  @media only screen and (max-width: 991px) {
+  @media only screen and (max-width: $screen-sm-max) {
     padding-top: 10px;
     padding-bottom: 10px;
   }
@@ -179,7 +190,7 @@ b, strong {
   border: none;
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: $screen-sm-min) {
   .navbar-nav {
     float: none;
     margin: 0 auto;
@@ -208,7 +219,7 @@ b, strong {
   }
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and ($screen-xs-max) {
   #top-menu .dropdown-menu {
     padding-left: 24px;
   }
@@ -582,7 +593,7 @@ footer {
   padding-bottom: 0px;
 }
 
-@media (min-width: 992px) {
+@media (min-width: $screen-md-min) {
   .shipping-in-header {
     float:left;
     color:white;
@@ -594,7 +605,7 @@ footer {
   }
 }
 
-@media (max-width: 991px) {
+@media (max-width: $screen-sm-max) {
   .shipping-in-header {
     display: none;
   }
@@ -627,116 +638,6 @@ footer {
 }
 
 
-/* Styles for the countdown homepage. */
-
-#full-screen {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: url({{ 'comingsoon.jpg' | asset_url }}) no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  z-index: -1;
-}
-
-#homepage h1.countdown-text {
-  color: #33cccc;
-  font-family: 'WWLstandard';
-  font-size: 16px;
-  letter-spacing: .18em;
-  text-align: center;
-  width: 100%;
-  margin-top: 12vh;
-  margin-bottom: 0px;
-  padding-left: 12px;
-  padding-right: 12px;
-}
-
-@media only screen and (min-width: 768px) {
-  #homepage h1.countdown-text {
-    font-size: 26px;
-  }
-}
-
-@media only screen and (min-width: 1200px) {
-  #homepage h1.countdown-text {
-    font-size: 34px;
-  }
-}
-
-#homepage aside.countdown-text {
-  color: #33cccc;
-  font-family: 'WWLstandard';
-  font-size: 14px;
-  letter-spacing: .18em;
-  text-align: center;
-  margin-top: 24px;
-  padding-left: 12px;
-  padding-right: 12px;
-}
-
-@media only screen and (min-width: 768px) {
-  #homepage aside.countdown-text {
-    font-size: 22px;
-  }
-}
-
-@media only screen and (min-width: 1200px) {
-  #homepage aside.countdown-text {
-    font-size: 26px;
-  }
-}
-
-#homepage aside.countdown-text.be-the-first {
-  font-size: 12px;
-  margin-top: 24px;
-}
-
-@media only screen and (min-width: 768px) {
-  #homepage aside.countdown-text.be-the-first {
-    font-size: 14px;
-    margin-top: 72px;
-  }
-}
-
-@media only screen and (min-width: 1200px) {
-  #homepage aside.countdown-text.be-the-first {
-    font-size: 16px;
-    margin-top: 72px;
-  }
-}
-
-#homepage aside.countdown-text.signup {
-  display: block;
-  font-size: 12px;
-  color: #eeeeee;
-  border: 1px solid #eeeeee;
-  padding-top: 12px;
-  padding-left: 12px;
-  padding-right: 12px;
-  padding-bottom: 9px;
-  width: 146px;
-  margin-right: auto;
-  margin-left: auto;
-}
-
-@media only screen and (min-width: 992px) {
-  #homepage aside.countdown-text.signup {
-    font-size: 14px;
-  }
-}
-
-@media only screen and (min-width: 1200px) {
-  #homepage aside.countdown-text.signup {
-    font-size: 16px;
-  }
-}
-
-
 /* Styles for the individual product pages. */
 
 #product h1 {
@@ -750,7 +651,7 @@ footer {
   margin-left: 0px;
 }
 
-@media screen and (min-width: 991px) {
+@media screen and (min-width: $screen-md-min) {
   #thumbs {
     margin-left: 100px;
   }
@@ -777,7 +678,7 @@ footer {
 }
 
 
-@media (max-width: 991px) {
+@media (max-width: $screen-sm-max) {
   #thumbs {
     text-align: center;
   }
@@ -796,7 +697,7 @@ footer {
   }
 }
 
-@media (min-width: 401px) and (max-width: 991px) {
+@media (min-width: 401px) and (max-width: $screen-sm-max) {
   #product .right-col {
     margin-top: 140px;
   }
@@ -823,7 +724,7 @@ footer {
   }
 }
 
-@media only screen and (min-width: 1200px) {
+@media only screen and (min-width: $screen-lg-min) {
   .gallery {
     margin-top: 300px;
   }
@@ -989,7 +890,7 @@ footer {
   color: #444;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: $screen-xs-max) {
   #product .nav-tabs {
     display: none;
   }
@@ -1009,22 +910,37 @@ footer {
 
 /* Styles for the Cross-Sell widget. */
 
-  #cross-sell{float:left;clear:both;width:100%;}
-  h3.crossselltitle{display: none;}
-  .cross-sell{overflow:hidden;list-style-type:none;margin:0;padding:0;clear:both;}
-  .cross-sell *{font-size:13px; text-align:center; padding:0;}
-  .cross-sell h4{border:none;margin:5px 0 0 0;line-height:1.5;}
-  .cross-sell div.image{margin-top:16px;}
-  .cross-sell li{float:left;position:relative;width:20%;}
-  .cross-sell li .image{display:inline-block;max-width:100%;max-height:110px;}
-  .cross-sell li .image img{margin:0px 0 10px 0px;float:left;max-width:100%;max-height: 84px;}
-  .cross-sell li .producttitle{float:left;width:100%;text-transform:uppercase;color:#777;font-size:12px;}
-  .cross-sell li a{text-decoration:none;color:inherit;}
-  .cross-sell li a:hover{background-color:inherit;color:inherit;}
-  .cross-sell li .money, .cross-sell li .model_no { margin: 0; padding: 0; }
-  .cross-sell li .money {float:left;text-align:center;width:100%;font-size:12px;font-family:'WWLheavy';}
-  .cross-sell li .model_no {float:left;text-align:center;width:100%;font-size:12px;color:#777;}
-  ul.cross-sell > li > a { margin: 0px; display: block; width: 100%; height: 100%; }
+#cross-sell{float:left;clear:both;width:100%;}
+
+h3.crossselltitle{display: none;}
+
+.cross-sell{overflow:hidden;list-style-type:none;margin:0;padding:0;clear:both;}
+
+.cross-sell *{font-size:13px; text-align:center; padding:0;}
+
+.cross-sell h4{border:none;margin:5px 0 0 0;line-height:1.5;}
+
+.cross-sell div.image{margin-top:16px;}
+
+.cross-sell li{float:left;position:relative;width:20%;}
+
+.cross-sell li .image{display:inline-block;max-width:100%;max-height:110px;}
+
+.cross-sell li .image img{margin:0px 0 10px 0px;float:left;max-width:100%;max-height: 84px;}
+
+.cross-sell li .producttitle{float:left;width:100%;text-transform:uppercase;color:#777;font-size:12px;}
+
+.cross-sell li a{text-decoration:none;color:inherit;}
+
+.cross-sell li a:hover{background-color:inherit;color:inherit;}
+
+.cross-sell li .money, .cross-sell li .model_no { margin: 0; padding: 0; }
+
+.cross-sell li .money {float:left;text-align:center;width:100%;font-size:12px;font-family:'WWLheavy';}
+
+.cross-sell li .model_no {float:left;text-align:center;width:100%;font-size:12px;color:#777;}
+
+ul.cross-sell > li > a { margin: 0px; display: block; width: 100%; height: 100%; }
 
 /* Standard Bootstrap Media Query Sizes, plus a little extra... */
 
@@ -1035,7 +951,7 @@ footer {
   }
 }
 
-@media (min-width: 600px) and (max-width: 991px) {
+@media (min-width: 600px) and (max-width: $screen-sm-max) {
   #product-variants select:nth-child(1) {
     width: 170px;
   	margin-left: 250px;
@@ -1043,14 +959,14 @@ footer {
 }
 
 
-@media (min-width: 992px) and (max-width: 1199px) {
+@media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
   #product-variants select:nth-child(1) {
     width: 150px;
     margin-left: 10px;
   }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: $screen-lg-min) {
   #product-variants select:nth-child(1) {
     width: 150px;
     margin-left: 55px;
@@ -1077,11 +993,10 @@ footer {
 
 #collection a {
   outline: 0;
-}
-
-#collection a:hover {
-  color: #222;
-  background-color: #FFF;
+  &:hover {
+    color: #222;
+    background-color: #FFF;
+  }
 }
 
 #product-grid p {
@@ -1119,7 +1034,7 @@ footer {
       font-weight: normal;
     }
   }
-  @media only screen and (max-width: 991px) {
+  @media only screen and (max-width: $screen-sm-max) {
     width: 190px;
     height: 182px;
     h2 {
@@ -1435,7 +1350,7 @@ input.quantity:parent {
   margin-left: 15%;
 }
 
-@media screen and (max-width: 991px) {
+@media screen and (max-width: $screen-sm-max) {
   #shipping img {
     width: 60%;
     height: auto;
@@ -1453,13 +1368,15 @@ input.quantity:parent {
   text-decoration: underline;
 }
 
-@media (min-width: 992px) {
+/* Styles for the press page. */
+
+@media (min-width: $screen-md-min) {
   .press-box {
     height: 200px;
   }
 }
 
-@media (max-width: 991px) {
+@media (max-width: $screen-sm-max) {
   .press-box {
     height: 110px;
   }
@@ -1540,7 +1457,7 @@ input.quantity:parent {
   }
 }
 
-@media only screen and (min-width: 401px) and (max-width: 991px) {
+@media only screen and (min-width: 401px) and (max-width: $screen-sm-max) {
   #celeb-lookbook ul {
     margin-top: 20px;
     margin-left: 0px;
@@ -1554,7 +1471,7 @@ input.quantity:parent {
   }
 }
 
-@media only screen and (min-width: 992px) {
+@media only screen and (min-width: $screen-md-min) {
   #celeb-lookbook ul {
     margin-left: 110px;
   }
@@ -1576,7 +1493,7 @@ input.quantity:parent {
   font-size: 12px;
   margin-bottom: 4px;
   text-align: center;
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: $screen-sm-min) {
     margin-bottom: 0px;
     font-size: 14px;
   }
@@ -1826,7 +1743,7 @@ iframe {
   width: 100%;
   margin-top: 0px;
   margin-bottom: 16px;
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: $screen-sm-min) {
     width: 70%;
     margin-left: 15%;
   }
@@ -1847,7 +1764,7 @@ iframe {
   max-width: 80%;
 }
 
-@media (min-width: 991px) {
+@media (min-width: $screen-md-min) {
   #error-page img {
     margin-left: 18%;
     margin-right: 18%;
@@ -1885,7 +1802,7 @@ iframe {
   margin-right: auto;
 }
 
-@media screen and (max-width: 1119px) {
+@media screen and (max-width: $screen-md-max) {
   #error-page ul {
     padding-left: 0%;
     padding-right: 0%;
@@ -2001,17 +1918,17 @@ a.faq-header-link {
 
 .faq-dimensions {
   width: 100%;
-  @media screen and (min-width: 480px) and (max-width: 767px) {
+  @media screen and (min-width: 480px) and (max-width: $screen-xs-max) {
     width: 86%;
     margin-left: 7%;
     margin-right: 7%;
   }
-  @media screen and (min-width: 768px) and (max-width: 991px) {
+  @media screen and (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
     width: 72%;
     margin-left: 14%;
     margin-right: 14%;
   }
-  @media screen and (min-width: 992px) {
+  @media screen and (min-width: $screen-md-min) {
     width: 58%;
     margin-left: 21%;
     margin-right: 21%;
@@ -2147,7 +2064,7 @@ a.faq-header-link {
   display: none;
 }
 
-@media screen and (max-width: 992px) {
+@media screen and (max-width: $screen-sm-max) {
   .gallery-item {
     display: block;
     opacity: 1;
@@ -2282,7 +2199,7 @@ a.faq-header-link {
       padding-bottom: 4px;
     }
   }
-  @media screen and (max-width: 991px) {
+  @media screen and (max-width: $screen-sm-max) {
     li {
       width: 124px;
       font-size: 11.2px;
@@ -2353,7 +2270,7 @@ a.faq-header-link {
       padding-bottom: 14px;
     }
     &.full-range {
-      @media screen and (min-width: 992px) {
+      @media screen and (min-width: $screen-md-min) {
         width: 80%;
         margin-left: 10%;
         margin-right: 10%;
