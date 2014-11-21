@@ -1339,6 +1339,22 @@ input.quantity:parent {
   padding: 0px;
 }
 
+#quantity-update-submit {
+  font-size: 12px;
+  line-height: 1.1em;
+  text-decoration: underline;
+  text-align: left;
+  color: #333;
+  padding: 0;
+  border: none;
+  background-color: #FFF !important;
+  margin-right: 24px;
+  &:hover {
+    background-color: #000 !important;
+    color: #EEE;
+  }
+}
+
 /* Styles for the shipping page. */
 
 #shipping h1 {
@@ -1360,12 +1376,6 @@ input.quantity:parent {
 
 .shipping-section {
   padding-left: 0px;
-}
-
-/* Styles for the about page. */
-
-#about a {
-  text-decoration: underline;
 }
 
 /* Styles for the press page. */
@@ -1800,7 +1810,7 @@ iframe {
   text-decoration: none;
   margin-left: auto;
   margin-right: auto;
-}
+} 
 
 @media screen and (max-width: $screen-md-max) {
   #error-page ul {
@@ -1817,12 +1827,12 @@ iframe {
 
 /* Styles for click-through arrows on the PDP. */
 
-.left-test, .right-test {
+.left-click-through, .right-click-through {
   display: none;
 }
 
 @media screen and (min-width: 1440px) {
-  .left-test, .right-test {
+  .left-click-through, .right-click-through {
     position: absolute;
     display: block;
     top: 320px;
@@ -1831,10 +1841,10 @@ iframe {
       max-height: 120px;
     }
   }
-  .left-test {
+  .left-click-through {
     left: 20px;
   }
-  .right-test {
+  .right-click-through {
     right: 20px;
   }
 }
@@ -1843,19 +1853,19 @@ iframe {
   display: none;
 }
 
-#left-test-wrapper:hover .light-left-arrow {
+#left-click-through-wrapper:hover .light-left-arrow {
    display: none;
 }
 
-#left-test-wrapper:hover .dark-left-arrow {
+#left-click-through-wrapper:hover .dark-left-arrow {
    display: block;
 }
 
-#right-test-wrapper:hover .light-right-arrow {
+#right-click-through-wrapper:hover .light-right-arrow {
    display: none;
 }
 
-#right-test-wrapper:hover .dark-right-arrow {
+#right-click-through-wrapper:hover .dark-right-arrow {
    display: block;
 }
 
