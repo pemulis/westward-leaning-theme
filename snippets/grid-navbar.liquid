@@ -2,11 +2,11 @@
     <ul>
       {% for link in linklists.collection-grids.links %}
       {% if link.url == '/collections/classic-westward' %}
-        <a href="{{link.url}}"><li><span>{{ 'wayfarer_silhouette.png' | asset_url | img_tag}}<br>{{link.title}}</span></li></a>
+        <a href="{{link.url}}"><li id='{{link.handle}}'><span>{{ 'wayfarer_silhouette.png' | asset_url | img_tag}}<br>{{link.title}}</span></li></a>
       {% elsif link.url == '/collections/circle' %}
-        <a href="{{link.url}}"><li><span>{{ 'voyager_silhouette.png' | asset_url | img_tag}}<br>{{link.title}}</span></li></a>
+        <a href="{{link.url}}"><li id='{{link.handle}}'><span>{{ 'voyager_silhouette.png' | asset_url | img_tag}}<br>{{link.title}}</span></li></a>
       {% else %}
-        <a href="{{link.url}}"><li><span>{{link.title}}</span></li></a>
+        <a href="{{link.url}}"><li id='{{link.handle}}'><span>{{link.title}}</span></li></a>
       {% endif %}
       {% endfor %}
     </ul>
@@ -15,11 +15,11 @@
     <ul>
       {% for link in linklists.collection-grids.links %}
       {% if link.url == '/collections/new-releases' %}
-        <a href="{{link.url}}"><li><span>New</span></li></a>
+        <a href="{{link.url}}"><li id='{{link.handle}}'><span>New</span></li></a>
       {% elsif link.url == '/collections/classic-westward' %}
-        <a href="{{link.url}}"><li><span>{{ 'wayfarer_silhouette.png' | asset_url | img_tag}}<br>Wayfarer</span></li></a>
+        <a href="{{link.url}}"><li id='{{link.handle}}'><span>{{ 'wayfarer_silhouette.png' | asset_url | img_tag}}<br>Wayfarer</span></li></a>
       {% elsif link.url == '/collections/circle' %}
-        <a href="{{link.url}}"><li><span>{{ 'voyager_silhouette.png' | asset_url | img_tag}}<br>Circle</span></li></a>
+        <a href="{{link.url}}"><li id='{{link.handle}}'><span>{{ 'voyager_silhouette.png' | asset_url | img_tag}}<br>Circle</span></li></a>
       {% endif %}
       {% endfor %}
       <li>

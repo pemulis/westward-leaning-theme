@@ -16,58 +16,490 @@
   <div class='row'>  
     <section id='city-filter' class='col-md-12'>
       <h4>CLICK ON YOUR REGION</h4>
-<!--
-      <div class='city-links'>
-        <a href="#stores-europe" >EUROPE</a>
-        <a href="#stores-asia" >ASIA</a>
-        <a href="#stores-west-coast">US WEST COAST</a>
-        <a href="#stores-east-coast" >US EAST COAST</a>
-        <a href="#stores-central" >US CENTRAL</a>
-      </div>
--->
-<!--
-      <h4>UNITED STATES</h4>
-      	<div class='city-links'>
-        <a href='#san-francisco' id='san-francisco-link'>SAN FRANCISCO</a>
-        <a href='#new-york' id='new-york-link'>NEW YORK CITY</a>
-        <a href='#los-angeles' id='los-angeles-link'>LOS ANGELES</a>
-        <br><br>
-        <a href='#austin' id='austin-link'>AUSTIN</a>
-        <a href='#burlingame' id='burlingame-link'>BURLINGAME</a>
-        <a href='#charlotte' id='charlotte-link'>CHARLOTTE</a>
-        <a href='#chicago' id='chicago-link'>CHICAGO</a>
-        <a href='#columbus' id='columbus-link'>COLUMBUS</a>
-        <a href='#los-altos' id='los-altos-link'>LOS ALTOS</a>
-        <a href='#menlo-park' id='menlo-park-link'>MENLO PARK</a>
-        <a href='#miami' id='miami-link'>MIAMI</a>
-        <a href='#minneapolis' id='minneapolis-link'>MINNEAPOLIS</a>
-        <a href='#new-orleans' id='new-orleans-link'>NEW ORLEANS</a>
-        <a href='#orange-county' id='orange-county-link'>ORANGE COUNTY</a>
-        <a href='#palo-alto' id='palo-alto-link'>PALO ALTO</a>
-        <a href='#piedmont' id='piedmont-link'>PIEDMONT</a>
-        <a href='#scottsdale' id='scottsdale-link'>SCOTTSDALE</a>
-        <a href='#seattle' id='seattle-link'>SEATTLE</a>
-        <a href='#walnut-creek' id='walnut-creek-link'>WALNUT CREEK</a>
-        </div>
-      <h4>EUROPE</h4>
-        <div class='city-links'>
-        <a href='#paris' id='paris-link'>PARIS</a>
-        <a href='#london' id='london-link'>LONDON</a>
-        <a href='#sotogrande' id='sotogrande-link'>SOTOGRANDE</a>
-        </div>
-      <h4>ASIA</h4>
-        <div class='city-links'>
-        <a href='#tokyo' id='tokyo-link'>TOKYO</a>
-        <a href='#jakarta' id='jakarta-link'>JAKARTA</a>
-        <a href='#taipei-city' id='taipei-city-link'>TAIPEI CITY</a>
-        </div>
--->
     </section>
   </div>
   <div class='row'>
-    <h1 id="stockists-header" class='col-md-12'>{{ page.title | upcase }}</h1>
+    <h1 id="stockists-header" class='col-md-12'>STOCKISTS</h1>
   </div>
   <section class='stockists-list'>
-    {{ page.content }}
+<div id="no-stores" class="row stores-region">
+<p>Sorry! We are not currently available at stockists in this region, but we offer free international shipping on all sales on our website.</p>
+<p class="buy-style"><a href="/collections/new-releases">CONTINUE SHOPPING</a></p>
+</div>
+<div id="stores-europe" class="row stores-region">
+<div id="paris" class="col-md-12">
+<h2>PARIS</h2>
+<div class="stockist">
+<p>Colette</p>
+<p>213 Rue Saint-Honoré</p>
+</div>
+<div class="stockist">
+<p>John Paul Paris</p>
+<p>159 Rue Lafayette</p>
+</div>
+</div>
+<div id="london" class="col-md-12">
+<h2>LONDON</h2>
+<div class="stockist">
+<p>Opening Ceremony London</p>
+<p>35 King Street, Covent Garden</p>
+</div>
+</div>
+<div id="london" class="col-md-12">
+<h2>SAINT TROPEZ</h2>
+<div class="stockist">
+<p>The Box</p>
+<p>2 Rue de la citadelle</p>
+</div>
+</div>
+<div id="sotogrande" class="col-md-12">
+<h2>SOTOGRANDE, SPAIN</h2>
+<div class="stockist">
+<p>Itsomi</p>
+<p>Ribera Del Marlin - 14 Puerto Sotogrande</p>
+</div>
+</div>
+</div>
+<div id="stores-asia" class="row stores-region">
+<div id="tokyo" class="col-md-12">
+<h2>TOKYO</h2>
+<div class="stockist">
+<p>Baycrew Relume Journal Standard</p>
+<p>1-6-12 Jinnan Shibuya-ku, Suite 4th Floor</p>
+</div>
+<div class="stockist">
+<p>Ron Herman</p>
+<p>2-11-1 Sendagaya Shibuya-Ku</p>
+</div>
+</div>
+<div id="jakarta" class="col-md-12">
+<h2>JAKARTA</h2>
+<div class="stockist">
+<p>Denimology</p>
+<p>Jl. ciniru IV, no.8 Kebayoran Baru</p>
+</div>
+</div>
+<div id="taipei-city" class="col-md-12">
+<h2>TAIPEI CITY</h2>
+<div class="stockist">
+<p>Eric's Optical</p>
+<p>182, Sec 5, Minsheng East Road</p>
+</div>
+<div class="stockist">
+<p>Artifacts</p>
+<p>Dunhua: No.23, Alley 177, Sec 1, Dun Hua South Road</p>
+<p>Nanxi Shin Kond Mitsukoshi: No. 12, Nanking East Road</p>
+<p>A4 Shin Kong Mitsukoshi: No. 12, SongGao Road, Xinyi District</p>
+<p>Songyan Eslite: No. 133 Guangfu South Road, Xinyi District</p>
+</div>
+</div>
+</div>
+<div id="stores-west-coast" class="row stores-region">
+<div id="los-angeles" class="col-md-12">
+<h2>LOS ANGELES</h2>
+<div class="stockist">
+<p>Barneys</p>
+<p>Beverly Hills: 9570 Wilshire Boulevard</p>
+<p>Santa Monica: 395 Santa Monica Place</p>
+</div>
+<div class="stockist">
+<p>Theory</p>
+<p>8428 Melrose Avenue</p>
+</div>
+<div class="stockist">
+<p>Opening Ceremony</p>
+<p>451 N La Cienega Boulevard</p>
+</div>
+<div class="stockist">
+<p>Mohawk General Store</p>
+<p>4011 W Sunset Boulevard</p>
+</div>
+<div class="stockist">
+<p>Fred Segal</p>
+<p>LAX: 300 World Way Terminal 3</p>
+</div>
+<div class="stockist">
+<p>Californication</p>
+<p>739 Wilcox Ave, Suite 101</p>
+</div>
+<div class="stockist">
+<p>Eye Holics</p>
+<p>125 N Western Ave</p>
+</div>
+<div class="stockist">
+<p>Hoff Optometry</p>
+<p>1636 Abbot Kinney Boulevard (Venice)</p>
+</div>
+<div class="stockist">
+<p>Positive Eyeons</p>
+<p>7629 Melrose Avenue</p>
+</div>
+<div class="stockist">
+<p>Standard Hotel</p>
+<p>550 S Flower Street</p>
+</div>
+<div class="stockist">
+<p>W Hotel Hollywood</p>
+<p>6250 Hollywood Blvd</p>
+</div>
+</div>
+<div id="san-francisco" class="col-md-12">
+<h2>SAN FRANCISCO</h2>
+<div class="stockist">
+<p>Barneys</p>
+<p>77 O'Farrell Street</p>
+</div>
+<div class="stockist">
+<p>Capulet</p>
+<p>2354 Polk Street</p>
+</div>
+<div class="stockist">
+<p>Dish</p>
+<p>541 Hayes Street</p>
+</div>
+<div class="stockist">
+<p>Wilkes Bashford</p>
+<p>375 Sutter Street</p>
+</div>
+</div>
+<div id="burlingame" class="col-md-12">
+<h2>BURLINGAME</h2>
+<div class="stockist">
+<p>Alys Grace in Burlingame</p>
+<p>1350 Burlingame Avenue</p>
+</div>
+<div class="stockist">
+<p>Podolls</p>
+<p>251 Primrose Road</p>
+</div>
+</div>
+<div id="glendale" class="col-md-12">
+<h2>GLENDALE, CALIFORNIA</h2>
+<div class="stockist">
+<p>Barneys</p>
+<p>869 Americana Way</p>
+</div>
+</div>
+<div id="las-vegas" class="col-md-12">
+<h2>LAS VEGAS</h2>
+<div class="stockist">
+<p>Barneys</p>
+<p>3327 Las Vegas Boulevard</p>
+</div>
+<div class="stockist">
+<p>SLS Hotel &amp; Casino</p>
+<p>4285 Polaris</p>
+</div>
+</div>
+<div id="long-beach" class="col-md-12">
+<h2>LONG BEACH, CALIFORNIA</h2>
+<div class="stockist">
+<p>La Bella</p>
+<p>5280 E. 2nd Street</p>
+</div>
+</div>
+<div id="los-altos" class="col-md-12">
+<h2>LOS ALTOS, CALIFORNIA</h2>
+<div class="stockist">
+<p>Alys Grace in Los Altos</p>
+<p>208 Main St</p>
+</div>
+</div>
+<div id="menlo-park" class="col-md-12">
+<h2>MENLO PARK, CALIFORNIA</h2>
+<div class="stockist">
+<p>Alys Grace in Menlo Park</p>
+<p>899B Santa Cruz Ave</p>
+</div>
+</div>
+<div id="napa" class="col-md-12">
+<h2>NAPA, CALIFORNIA</h2>
+<div class="stockist">
+<p>Hunter Gatherer</p>
+<p>3350 California Blvd, Suite A</p>
+</div>
+</div>
+<div id="orange-county" class="col-md-12">
+<h2>ORANGE COUNTY, CALIFORNIA</h2>
+<div class="stockist">
+<p>Barneys</p>
+<p>3333 Bristol Street - Costa Mesa</p>
+</div>
+<div class="stockist">
+<p>Alexander Grey</p>
+<p>3313 Hyland Avenue - Costa Mesa</p>
+</div>
+<div class="stockist">
+<p>A'maree's</p>
+<p>2241 W Coast Highway - Newport Beach</p>
+</div>
+</div>
+<div id="palo-alto" class="col-md-12">
+<h2>PALO ALTO, CALIFORNIA</h2>
+<div class="stockist">
+<p>Leaf and Petal</p>
+<p>439 S California Ave</p>
+</div>
+</div>
+<div id="piedmont" class="col-md-12">
+<h2>PIEDMONT, CALIFORNIA</h2>
+<div class="stockist">
+<p>McMullen</p>
+<p>1235 Grand Ave</p>
+</div>
+</div>
+<div id="santa-cruz" class="col-md-12">
+<h2>SANTA CRUZ, CALIFORNIA</h2>
+<div class="stockist">
+<p>Cameron Marks Boutique</p>
+<p>402 Ingalls Street #7</p>
+</div>
+</div>
+<div id="seattle" class="col-md-12">
+<h2>SEATTLE</h2>
+<div class="stockist">
+<p>Barneys</p>
+<p>600 Pine Street</p>
+</div>
+<div class="stockist">
+<p>Les Amis</p>
+<p>3420 Evanston Avenue North</p>
+</div>
+<div class="stockist">
+<p>Seattle Eye</p>
+<p>523 Pine Street</p>
+</div>
+</div>
+</div>
+<div id="stores-east-coast" class="row stores-region">
+<div id="new-york" class="col-md-12">
+<h2>NEW YORK CITY</h2>
+<div class="stockist">
+<p>Barneys</p>
+<p>Madison Avenue: 660 Madison Avenue</p>
+<p>Brooklyn: 194 Atlantic Avenue</p>
+</div>
+<div class="stockist">
+<p>Theory</p>
+<p>40 Gansevoort Street</p>
+</div>
+<div class="stockist">
+<p>Opening Ceremony</p>
+<p>35 Howard Street</p>
+</div>
+<div class="stockist">
+<p>Opening Ceremony Ace Hotel</p>
+<p>1190-1192 Broadway</p>
+</div>
+<div class="stockist">
+<p>Assembly</p>
+<p>170 Ludlow Street</p>
+</div>
+<div class="stockist">
+<p>Flying A</p>
+<p>169 Spring Street</p>
+</div>
+<div class="stockist">
+<p>Jumelle</p>
+<p>148 Bedford Ave, Brooklyn</p>
+</div>
+<div class="stockist">
+<p>Kaight</p>
+<p>382 Atlantic Ave, Brooklyn</p>
+</div>
+<div class="stockist">
+<p>Monocle Order</p>
+<p>5 Devoe St - Basement, Brooklyn</p>
+</div>
+<div class="stockist">
+<p>Otte</p>
+<p>West Village: 121 Greenwich Avenue</p>
+<p>Third Avenue: 1232 Third Avenue</p>
+<p>Madison Avenue: 1281 Madison Avenue</p>
+<p>Tribeca: 37 North Moore Street</p>
+</div>
+<div class="stockist">
+<p>Selima Optique</p>
+<p>59 Wooster Street</p>
+</div>
+<div class="stockist">
+<p>Sigerson Morrison</p>
+<p>28 Prince Street</p>
+</div>
+<div class="stockist">
+<p>Ultimate Spectacle</p>
+<p>789 Lexington Avenue</p>
+</div>
+<div class="stockist">
+<p>W Hotel Times Square</p>
+<p>1567 Broadway</p>
+</div>
+<div class="stockist">
+<p>W Hotel New York</p>
+<p>541 Lexington Avenue</p>
+</div>
+<div class="stockist">
+<p>Windsor Custom (beneath the Ainsworth)</p>
+<p>122 West 26th Street</p>
+</div>
+<div class="stockist">
+<p>Wink - SOHO Store</p>
+<p>129 Prince Street</p>
+</div>
+</div>
+<div id="hamptons" class="col-md-12">
+<h2>THE HAMPTONS</h2>
+<div class="stockist">
+<p>Theory East Hampton</p>
+<p>46 Newtown Lane, Suite 5</p>
+</div>
+<div class="stockist">
+<p>Theory Southampton</p>
+<p>98-100 Main Street</p>
+</div>
+</div>
+<div id="boston" class="col-md-12">
+<h2>BOSTON</h2>
+<div class="stockist">
+<p>Barneys</p>
+<p>100 Huntington Avenue</p>
+</div>
+</div>
+<div id="charlotte" class="col-md-12">
+<h2>CHARLOTTE</h2>
+<div class="stockist">
+<p>Poole Shop</p>
+<p>4010 Sharon Road</p>
+</div>
+</div>
+<div id="columbus" class="col-md-12">
+<h2>COLUMBUS, OHIO</h2>
+<div class="stockist">
+<p>Rowe</p>
+<p>718 N High Street</p>
+</div>
+</div>
+<div id="king-of-prussia" class="col-md-12">
+<h2>KING OF PRUSSIA, PENNSYLVANIA</h2>
+<div class="stockist">
+<p>Lavendar Badge</p>
+<p>840 First Ave, Suite 200</p>
+</div>
+</div>
+<div id="miami" class="col-md-12">
+<h2>MIAMI</h2>
+<div class="stockist">
+<p>Barneys</p>
+<p>832 Collins Avenue - Miami Beach</p>
+</div>
+<div class="stockist">
+<p>Supply &amp; Advise</p>
+<p>3322 North Miami Avenue</p>
+</div>
+<div class="stockist">
+<p>W Hotel Ft Lauderdale</p>
+<p>401 North Fort Lauderdale Beach Boulevard</p>
+</div>
+<div class="stockist">
+<p>W Hotel South Beach</p>
+<p>2201 Collins Avenue</p>
+</div>
+</div>
+<div id="philadelphia" class="col-md-12">
+<h2>PHILADELPHIA</h2>
+<div class="stockist">
+<p>Barneys</p>
+<p>1811 Walnut Street</p>
+</div>
+</div>
+<div id="washington-dc" class="col-md-12">
+<h2>WASHINGTON, D.C.</h2>
+<div class="stockist">
+<p>Barneys</p>
+<p>3040 M Street - Georgetown</p>
+</div>
+</div>
+</div>
+<div id="stores-central" class="row stores-region">
+<div id="austin" class="col-md-12">
+<h2>AUSTIN</h2>
+<div class="stockist">
+<p>By George Soco</p>
+<p>1400 S Congress</p>
+</div>
+</div>
+<div id="chicago" class="col-md-12">
+<h2>CHICAGO</h2>
+<div class="stockist">
+<p>Barneys</p>
+<p>15 East Oak Street</p>
+</div>
+<div class="stockist">
+<p>LabRabbit Optics</p>
+<p>1104 N Ashland Avenue</p>
+<p>Ste 110</p>
+</div>
+</div>
+<div id="denver" class="col-md-12">
+<h2>DENVER</h2>
+<div class="stockist">
+<p>BLUSH</p>
+<p>1411 Larimer Square</p>
+</div>
+</div>
+<div id="houston" class="col-md-12">
+<h2>HOUSTON</h2>
+<div class="stockist">
+<p>Parcs and Rec</p>
+<p>1723 Westheimer Road</p>
+</div>
+</div>
+<div id="jackson-wy" class="col-md-12">
+<h2>JACKSON, WYOMING</h2>
+<div class="stockist">
+<p>Wool and Whiskey</p>
+<p>1745 High School Road #550</p>
+</div>
+</div>
+<div id="minneapolis" class="col-md-12">
+<h2>MINNEAPOLIS</h2>
+<div class="stockist">
+<p>Owl Optical</p>
+<p>4318 Upton Avenue South</p>
+</div>
+</div>
+<div id="new-orleans" class="col-md-12">
+<h2>NEW ORLEANS</h2>
+<div class="stockist">
+<p>Haute Boutique</p>
+<p>725 Magazine Street</p>
+</div>
+</div>
+<div id="norman" class="col-md-12">
+<h2>NORMAN, OKLAHOMA</h2>
+<div class="stockist">
+<p>Caymans Collection</p>
+<p>2001 W. Main #105</p>
+</div>
+</div>
+<div id="scottsdale" class="col-md-12">
+<h2>SCOTTSDALE, ARIZONA</h2>
+<div class="stockist">
+<p>Barneys</p>
+<p>4500 N Scottsdale Road</p>
+</div>
+<div class="stockist">
+<p>W Hotel Scottsdale</p>
+<p>7277 E Camelback Road</p>
+</div>
+</div>
+<div id="winnipeg" class="col-md-12">
+<h2>WINNIPEG, MANITOBA</h2>
+<div class="stockist">
+<p>G is For Glasses</p>
+<p>3-1176 Taylor Ave</p>
+</div>
+</div>
+</div>
   </section>
 </div>

@@ -1,12 +1,6 @@
 <div id='collections-listing' class='container'>
-{% if linklists.featured-collections.links.size > 0 %}
   {% for link in linklists.featured-collections.links %}
   {% assign collection = link.object %}
-    <div class='row'>
-      <h2 class='col-md-10 col-md-offset-1 col-sm-12 collection-title'>
-        {{ collection.title }}
-      </h2>
-    </div>
     <div class='row'>
       <section class='col-md-10 col-md-offset-1 col-sm-12'>
         <div>
@@ -21,6 +15,4 @@
       </section>
     </div>
   {% endfor %}
-  {% else %}
-  <p>Please {{ 'create a link list' | link_to: '/admin/links' }} that contains links to all the collections you wish to feature on this page. The title of that link list must be <strong>Featured Collections</strong>. If you want your collections to be listed alphabetically, reorder them alphabetically on your {{ 'Navigation page' | link_to: '/admin/links' }}.</p>{% endif %}
 </div>
