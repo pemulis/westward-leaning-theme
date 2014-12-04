@@ -5,8 +5,8 @@
     	<div class='row'>
 	      <h1>SHOPPING BAG</h1>
 	    </div>
-        <div class='row hidden-xs' >
-          {{ 'boxedsetbanner.jpg' | asset_url | img_tag: 'Holiday Boxed Set Included With All Purchases This Week', 'cart-banner'  }}
+        <div class='row' >
+          {{ 'giftwrap-banner.jpg' | asset_url | img_tag: 'Four Free Holiday Gift Wrap Options Available', 'cart-banner'  }}
         </div>
 	    <div class='row'> 
 	      <table>
@@ -37,10 +37,25 @@
 	    <div class='row'>
 	      <div class='cart-buttons'>
             <a href='/collections/new-releases'><span class='cart-button keep-shopping'>KEEP SHOPPING</span></a>
-            <span class='cart-button gift-wrapping'>GIFT WRAPPING <input id="wrapping" type="checkbox" name="attributes[wrapping]" value="yes" {% if cart.attributes.wrapping %} checked="checked"{% endif %} /></span> 
+            <span class='cart-button gift-wrapping'>GIFT WRAP <input id="wrapping" type="checkbox" name="attributes[wrapping]" value="yes" /></span> 
 	        <button class='cart-button checkout-button' name="checkout">CHECKOUT</button>
           </div>
 	    </div>
+        <div id='gift-wrap' class='row'>
+          <h3>Select your gift wrap:</h3>
+        {% assign attribute = 'type-of-wrap' %}
+        {% for i in (1..4) %}
+          {% capture option %}{% cycle 'waves', 'clouds', 'mountain', 'astronaut' %}{% endcapture %}
+          {% capture option_jpg %}{{option}}.jpg{% endcapture %}
+          <div class='col-xs-12 col-sm-6 gift-wrap-option'>
+            <img src="{{ option_jpg | asset_url }}" alt='{{option}}'>
+            <input type="radio" id="{{ option }}" name="attributes[{{ attribute }}]" value="{{ option }}" />
+            <label for="{{ option }}"><span></span></label>
+          </div>
+        {% endfor %}
+          <button class='cart-button checkout-button visible-xs' name="checkout">CHECKOUT</button>
+          <button class='cart-button checkout-button hidden-xs' name="checkout" style='float: left; margin-left: 34%; margin-right: 34%;'>CHECKOUT</button>
+        </div>
 	</form>
     {% else %}
 	<p>Your cart is empty. <a href="/collections/new-releases">Continue shopping...</a></p>

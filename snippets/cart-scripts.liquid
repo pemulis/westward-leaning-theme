@@ -1,11 +1,14 @@
 <script type='text/javascript'>
-  
-  $('.updates-quantity').focusout(updateQuantity(););
-  
-  function updateQuantity(){
-    $('#quantity-update-submit').submit();
-  }
 
+  /* Show gift wrap options when gift wrapping is selected. */
+  /* ... */
+  $('#wrapping').click(function() {
+    $('#gift-wrap').toggle("slow");
+    $('html, body').animate({
+      scrollTop: $("#gift-wrap").offset().top -60
+    }, 1000);
+  });
+  
 /* Assign retargeting bucket based on first item in the cart. */  
   
 {% assign first_product = cart.items[0].product %}

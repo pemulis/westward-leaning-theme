@@ -2055,3 +2055,75 @@ a.faq-header-link {
     }
   }
 }
+
+/* Styles for the gift wrapping popup. */
+
+#gift-wrap {
+  display: none;
+  h3 {
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: 18px;
+    margin-bottom: 14px;
+    font-family: 'WWLheavy';
+    @media screen and (max-width: $screen-sm-max) {
+      font-size: 18px;
+    }
+  }
+  @media screen and (min-width: $screen-sm-min) {
+    border: 1px solid #666;
+  }
+}
+
+.gift-wrap-option {
+  margin-bottom: 18px;
+  img {
+    width: 100%;
+  }
+  input[type="radio"] {
+    display:none;
+  }
+  input[type="radio"] + label {
+    color: #333;
+    font-family:Arial, sans-serif;
+    font-size:14px;
+    width: 100%;
+  }
+  input[type="radio"] + label span {
+    display:inline-block;
+    width:19px;
+    height:19px;
+    margin:-1px 4px 0 0;
+    vertical-align:middle;
+    cursor:pointer;
+    -moz-border-radius:  50%;
+    border-radius:  50%;
+  }
+  input[type="radio"] + label span {
+    background-image: url("{{ 'unchecked.jpg' | asset_url }}");
+    width: 35px;
+    height: 35px;
+    background-size: 100%;
+    border: 2px solid black;
+    margin-top: 12px;
+    margin-left: 45%;
+    margin-right: 45%;
+    @media screen and (max-width: $screen-sm-max) {
+      width: 28px;
+      height: 28px;
+      margin-left: 47%;
+      margin-right: 47%;
+    }
+  }
+  input[type="radio"]:checked + label span{
+    background-image: url("{{ 'checked.jpg' | asset_url }}");
+  }
+}
+
+.gift-wrapping {
+  background-color: #CCC;
+  color: #000;
+  &:hover {
+    cursor: pointer;
+  }
+}
