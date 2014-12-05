@@ -87,7 +87,11 @@
           var model_no = split[0];
          if(product.images[0])
          {
-           list.append('<li><a href="' + product.url +'"><div class="image"><img src="' + product.images[0].replace(/(.JPG|.jpg|.PNG|.png|.JPEG|.jpeg|.GIF|.gif)/, '_medium$1') + '" /></div><div class="producttitle">' + product.type + '</div><div class="model_no">' + model_no + '</div></a></li>');
+           {% if product.type == 'Voyager' %}
+             list.append('<li><a href="' + product.url +'"><div class="image"><img src="' + product.images[0].replace(/(.JPG|.jpg|.PNG|.png|.JPEG|.jpeg|.GIF|.gif)/, '_medium$1') + '" /></div><div class="producttitle">' + product.type + '</div><div class="model_no">' + product.title + '</div></a></li>');
+           {% else %}
+             list.append('<li><a href="' + product.url +'"><div class="image"><img src="' + product.images[0].replace(/(.JPG|.jpg|.PNG|.png|.JPEG|.jpeg|.GIF|.gif)/, '_medium$1') + '" /></div><div class="producttitle">' + product.type + '</div><div class="model_no">' + model_no + '</div></a></li>');
+           {% endif %}
            if (j==0) { leftClickThroughWrapper.append('<a href="' + product.url + '" id="left-arrow-link"><div class="left-click-through">{{ "arrow_light_left.jpg" | asset_url | img_tag: 'Light Left Arrow', 'light-left-arrow' }}{{ "arrow_dark_left.jpg" | asset_url | img_tag: 'Dark Left Arrow', 'dark-left-arrow' }}</div></a>'); } // some more click-through arrows code
            if (j==3) { rightClickThroughWrapper.append('<a href="' + product.url + '" id="right-arrow-link"><div class="right-click-through">{{ "arrow_light_right.jpg" | asset_url | img_tag: 'Light Right Arrow', 'light-right-arrow' }}{{ "arrow_dark_right.jpg" | asset_url | img_tag: 'Dark Right Arrow', 'dark-right-arrow' }}</div></a>'); } 
           }

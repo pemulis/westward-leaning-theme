@@ -24,8 +24,20 @@
       </div>
     </section>
     <section class='col-md-3 col-xs-12 right-col'>
-      <h1>{{ product.type | upcase }}</h1>
-      <p class='model-details'>{{ model | remove: 'model = ' }}</p>
+      <h1>
+        {% if product.type == 'Voyager' %}
+          {{ product.title | upcase }}
+        {% else %}
+          {{ product.type | upcase }}
+        {% endif %}
+      </h1>
+      <p class='model-details'>
+        {% if product.type == 'Voyager' %}
+          <!-- No model number. -->
+        {% else %}
+          {{ model | remove: 'model = ' }}
+        {% endif %}
+      </p>
       <p class='model-details'>{{ primary_mat | remove: 'primary mat = ' }}</p>
       {% if frame_color %}
         <p class='model-details'>{{ frame_color | remove: 'frame color = ' }} Frame</p>

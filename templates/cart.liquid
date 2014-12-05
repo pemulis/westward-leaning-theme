@@ -46,7 +46,7 @@
         {% assign attribute = 'type-of-wrap' %}
         {% for i in (1..4) %}
           {% capture option %}{% cycle 'waves', 'clouds', 'mountain', 'astronaut' %}{% endcapture %}
-          {% capture option_jpg %}{{option}}.jpg{% endcapture %}
+          {% capture option_jpg %}2{{option}}.jpg{% endcapture %}
           <div class='col-xs-12 col-sm-6 gift-wrap-option'>
             <img src="{{ option_jpg | asset_url }}" alt='{{option}}'>
             <input type="radio" id="{{ option }}" name="attributes[{{ attribute }}]" value="{{ option }}" />

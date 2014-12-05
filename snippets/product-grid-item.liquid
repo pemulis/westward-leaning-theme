@@ -9,6 +9,9 @@
 	{% if tag contains "model = " %}
 		{% assign model = tag | remove: 'model = ' %}
 	{% endif %}
+	{% if tag contains "lens = " %}
+		{% assign lens = tag | remove: 'lens = ' %}
+	{% endif %}
 {% endfor %}
 
 <a href='{{ product.url }}'>
@@ -28,11 +31,19 @@
           WL X OPENING CEREMONY
         {% elsif model == 'N°3.T' %}
           WL X THEORY
+        {% elsif product.type == 'Voyager' %}
+          {{ product.title | upcase }}
         {% else %}
           {{ product.type | upcase }}
         {% endif %}
       </h2>
-      <aside class='model'>{{ model }}</aside>
+      <aside class='model'>
+        {% if product.type == 'Voyager' %}
+          {{ lens }} Lens
+        {% else %}
+          {{ model }}
+        {% endif %}
+      </aside>
       <aside class='material'>{{ product_material }}</aside>
       <aside>
         {% comment %}{% if product.price_varies %}From {% endif %}{% endcomment %}
