@@ -45,6 +45,8 @@
       <p id="product-price" class='model-details'>
       	  {% if product.compare_at_price > product.price %}
           <span class="product-price on-sale">{{ product.price | money }}</span> <span class="product-compare-price"><del>{{ product.compare_at_price_max | money }}</del></span>
+      	  {% elsif product.type == 'W\\L Gift Card' %}
+          <span class="product-price">$50 - $200</span>
           {% else %}
           <span class="product-price">{{ product.price | money | remove: '.00' }}</span>
           {% endif %}
