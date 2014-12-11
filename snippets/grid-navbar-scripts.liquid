@@ -27,13 +27,13 @@
   function findActiveLink() {
     $('#collections-listing-navigation li').each(function(){
       var link = $(this).parent().attr('href');
-      if (link == pathname) {
+      if (pathname.indexOf(link) > -1) {
         $(this).addClass('active');
       }
     });
     $('#collections-listing-navigation-mobile li').each(function(){
       var link = $(this).parent().attr('href');
-      if (link == pathname) {
+      if (pathname.indexOf(link) > -1) {
         $(this).addClass('active');
       }
     });

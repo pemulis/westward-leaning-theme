@@ -5,18 +5,10 @@ $('a.popup-footer-toggle').on('click', function () {
 });
 
 
-/* Hide and show top navigation submenu. */
+/* Triggering topnav dropdown menu on hover. */
 
-$( '.toggle-submenu-about' ).click(function() {
-  $( '#nav-submenu-lookbook' ).hide();
-  $( '#nav-submenu-about' ).show();
-  $( '#nav-submenu-about' ).removeClass("hidden");
-});
-
-$( '.toggle-submenu-lookbook' ).click(function() {
-  $( '#nav-submenu-about' ).hide();
-  $( '#nav-submenu-lookbook' ).show();
-  $( '#nav-submenu-lookbook' ).removeClass("hidden");
+$('.dropdown').hover(function(){ 
+  $('.dropdown-toggle', this).trigger('click'); 
 });
 
 

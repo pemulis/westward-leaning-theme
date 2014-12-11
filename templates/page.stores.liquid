@@ -1,7 +1,20 @@
 <div id='{{ page.handle }}' class='container'>
-  <div class='row'>
+  <div class='row'> 
+    <section id='world-map' class-'col-md-12'>
+      <img id='world-map-img' src="{{ 'worldmap.jpg' | asset_url }}" alt="World Map" usemap="#world-map" />
+      <map name="world-map">
+        <area id='no-stores-link-1' shape="poly" coords="1, 0, 1323, 2, 1321, 56, 915, 45, 638, 52, 567, 170, 611, 217, 695, 196, 779, 237, 814, 300, 877, 292, 1000, 367, 1069, 390, 1152, 369, 1323, 239, 1321, 556, 538, 554, 534, 353, 414, 279, 365, 302, 304, 364, 316, 551, 536, 555, 0, 556, 3, 263, 255, 272, 253, 247, 292, 243, 329, 257, 407, 257, 471, 180, 433, 82, 326, 46, 1, 47" href="#city-filter" />
+        <area id="stores-asia-link"  shape="poly" coords="746, 215, 780, 236, 812, 297, 877, 290, 1001, 364, 1070, 389, 1154, 369, 1321, 239, 1320, 60, 915, 48, 845, 167, 833, 171, 823, 178, 821, 188, 794, 185, 765, 185, 742, 198" href="#city-filter" />
+        <area id="stores-europe-link" shape="poly" coords="612, 216, 699, 194, 743, 214, 743, 197, 766, 184, 797, 184, 821, 185, 820, 176, 834, 166, 846, 166, 913, 47, 642, 53, 569, 169" href="#city-filter" />
+        <area id="stores-south-america-link"  shape="poly" coords="535, 353, 416, 281, 366, 303, 307, 362, 317, 550, 540, 554" href="#city-filter" />
+        <area id="stores-east-coast-link"  shape="poly" coords="325, 47, 431, 82, 470, 180, 407, 258, 332, 252, 350, 183" href="#city-filter" />
+        <area id="stores-central-link"  shape="poly" coords="187, 48, 322, 47, 349, 183, 331, 256, 293, 241, 253, 245" href="#city-filter" />
+        <area id="stores-west-coast-link"  shape="poly" coords="1, 48, 184, 47, 251, 243, 253, 271, 0, 261" href="#city-filter" />
+      </map>
+    </section>
+    <!--
     <section id='world-map' class='col-md-12'>
-      <img id="world-map-img" src="{{ 'world_map.png' | asset_url }}" alt="World Map" usemap="#world-map" />
+      <img id="world-map-img" src="{{ 'worldmap.jpg' | asset_url }}" alt="World Map" usemap="#world-map" />
       <map id="world-map" name="world-map">
         <area id="no-stores-link-1" shape="poly" coords="368, 59, 463, 6, 596, 8, 596, 39, 563, 90, 520, 99, 486, 138, 403, 66" href="#city-filter" />
         <area id="no-stores-link-2" shape="poly" coords="62, 220, 106, 556, 1315, 555, 1322, 354, 1166, 347, 1160, 371, 1043, 391, 886, 280, 814, 301, 777, 238, 740, 212, 695, 201, 582, 217, 429, 252, 329, 248, 240, 231" href="#city-filter" />
@@ -12,6 +25,7 @@
         <area id="stores-west-coast-link" shape="poly" coords="16, 75, 215, 79, 243, 230, 63, 223" href="#city-filter" />
       </map>
     </section>
+    -->
   </div>
   <div class='row'>  
     <section id='city-filter' class='col-md-12'>
@@ -25,6 +39,15 @@
 <div id="no-stores" class="row stores-region">
 <p>Sorry! We are not currently available at stockists in this region, but we offer free international shipping on all sales on our website.</p>
 <p class="buy-style"><a href="/collections/new-releases">CONTINUE SHOPPING</a></p>
+</div>
+<div id="stores-south-america" class="row stores-region">
+<div id="santiago" class="col-md-12">
+<h2>SANTIAGO, CHILE</h2>
+<div class="stockist">
+<p>Mrs. Stone</p>
+<p>Fernando de Arguello 6655 depto 41 Viatcura</p>
+</div>
+</div>
 </div>
 <div id="stores-europe" class="row stores-region">
 <div id="paris" class="col-md-12">
