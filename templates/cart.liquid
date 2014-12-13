@@ -57,6 +57,33 @@
           <button class='cart-button checkout-button hidden-xs' name="checkout" style='float: left; margin-left: 34%; margin-right: 34%;'>CHECKOUT</button>
         </div>
 	</form>
+    <div class='row addon-items hidden-xs'>
+      <h2>MAY WE ALSO SUGGEST</h2>
+      <a id='boxed-set' href='javascript:void(0)' class='add-this'>
+        <div class='col-sm-4 addon-item'>
+          {{ 'boxed_set.jpg' | asset_url | img_tag }}
+          <p>Special Edition Boxed Set</p>
+          <p class='price'>$250</p>
+          <button>ADD TO CART</button>
+        </div>
+      </a>
+      <a id='playing-cards' href='javascript:void(0)' class='add-this'>
+        <div class='col-sm-4 addon-item'>
+          {{ 'playing_cards.jpg' | asset_url | img_tag }}
+          <p>Playing Cards</p>
+          <p class='price'>$35</p>
+          <button>ADD TO CART</button>
+        </div>
+      </a>
+      <a id='pocket-case' href='javascript:void(0)' class='add-this'>
+        <div class='col-sm-4 addon-item'>
+          {{ 'small_case.jpg' | asset_url | img_tag }}
+          <p>Additional Pocket-Sized Case</p>
+          <p class='price'>$40</p>
+          <button>ADD TO CART</button>
+        </div>
+      </a>
+    </div>
     {% else %}
 	<p>Your cart is empty. <a href="/collections/new-releases">Continue shopping...</a></p>
 	{% endif %}

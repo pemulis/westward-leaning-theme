@@ -19,12 +19,12 @@ $( document ).ready( function() {
 
 $( document ).ready( function() {
   $( '#stores-south-america-link' ).hover(function() {
-    document.getElementById("world-map-img").src = "{{ 'southamerica.jpg' | asset_url }}";
+    document.getElementById("world-map-img").src = "{{ 'worldmap.jpg' | asset_url }}";
   });
   $( '#stores-south-america-link' ).click(function() {
     $( '#stockists-header' ).show().text( "STOCKISTS - SOUTH AMERICA" );
     $( '#stores-south-america' ).show();
-    document.getElementById("world-map-img").src = "{{ 'southamerica.jpg' | asset_url }}";
+    document.getElementById("world-map-img").src = "{{ 'worldmap.jpg' | asset_url }}";
     document.getElementById("stores-asia").style.display = "none";
     document.getElementById("stores-europe").style.display = "none";
     document.getElementById("stores-west-coast").style.display = "none";
