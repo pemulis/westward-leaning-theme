@@ -62,7 +62,6 @@
 {{ 'mailchimp.jquery.js' | asset_url | script_tag }}
 
 <!-- Tracking and retargeting code. -->
-{% include 'adroll-tag' %}
 {% include 'retargeter-tag' %}
 {% if template contains 'index' %}
   <!-- No Retargeter pixel. -->
@@ -87,7 +86,6 @@
 
 <!-- Retargeter burn pixel for people referred from email. -->
 {% include 'retargeter-burn-script' %}
-{% include 'adroll-pixel' %}
 
 <!-- Crazy Egg script. -->
 {% include 'crazy-egg' %}
