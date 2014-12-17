@@ -52,7 +52,6 @@
           {% endif %}
       </p>
       <p id='converted-currency'></p>
-      <p class='model-details'>{{ special_note | remove: 'special note = ' }}</p>
       {% if quantity_note %}
         <p id='finish-and-quantity'>{{ quantity_note | remove: 'quantity note = ' }}</p>
       {% else %}
@@ -85,13 +84,6 @@
         {% endif %}
 		<div id="quantity-message"></div>
       </form>
-      <!-- This section is out of scope for now, but may be useful for our big rebuild later in 2014. -->
-	  {% for article in blogs.product-lookbook.articles %}
-		{% if article.title == product.title %}
-	 	<p><a href="{{ article.url }}">VIEW IN LOOKBOOK</a></p>
-	    {% endif %}
-      {% endfor %}
-      <!-- -->
     </section>
   </div>
   <ul class='nav nav-tabs product-nav-tabs' role='tablist'>
