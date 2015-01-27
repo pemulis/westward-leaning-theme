@@ -34,6 +34,8 @@
       <p class='model-details'>
         {% if product.type == 'Voyager' %}
           <!-- No model number. -->
+        {% elsif product.type contains 'WL X' %}
+          <!-- No model number. -->
         {% else %}
           {{ model | remove: 'model = ' }}
         {% endif %}

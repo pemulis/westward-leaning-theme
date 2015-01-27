@@ -19,21 +19,7 @@
 
   	  <img src="{{ product.featured_image.src | product_img_url: 'medium' }}" alt="{{ product.featured_image.alt | escape }}"  class='img-response'/>
       <h2>
-        {% if model == 'N°3.10' %}
-          WL X BARNEYS NEW YORK
-        {% elsif model == 'N°3.11' %}
-          WL X BARNEYS NEW YORK
-        {% elsif model == 'N°3.12' %}
-          WL X BARNEYS NEW YORK
-        {% elsif model == 'N°9.2' %}
-          WL X OPENING CEREMONY
-        {% elsif model == 'N°9.6' %}
-          WL X OPENING CEREMONY
-        {% elsif model == 'N°3.T' %}
-          WL X THEORY
-        {% elsif model == 'N°3.GIF' %}
-          WL X IMGUR
-        {% elsif product.type == 'Voyager' %}
+        {% if product.type == 'Voyager' %}
           {{ product.title | upcase }}
         {% else %}
           {{ product.type | upcase }}
