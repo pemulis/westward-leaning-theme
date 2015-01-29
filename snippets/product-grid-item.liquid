@@ -12,6 +12,9 @@
 	{% if tag contains "lens = " %}
 		{% assign lens = tag | remove: 'lens = ' %}
 	{% endif %}
+	{% if tag contains "special projects" %}
+		{% assign special_project = true %}
+	{% endif %}
 {% endfor %}
 
 <a href='{{ product.url }}'>
@@ -21,18 +24,42 @@
       <h2>
         {% if product.type == 'Voyager' %}
           {{ product.title | upcase }}
+        {% elsif product.type contains 'WL X' %}
+          {% if product.type contains 'OLIVIAPALERMO' %}
+            {{ product.type | upcase }}
+          {% else %}
+            {{ product.title | upcase }}
+          {% endif %}
         {% else %}
           {{ product.type | upcase }}
         {% endif %}
       </h2>
       <aside class='model'>
         {% if product.type == 'Voyager' %}
-          {{ lens }} Lens
+          <!-- No model number. -->
+        {% elsif product.type contains 'WL X' %}
+          <!-- No model number. -->
+        {% elsif special_project %}
+          <!-- No model number. -->
         {% else %}
           {{ model }}
         {% endif %}
       </aside>
-      <aside class='material'>{{ product_material }}</aside>
+      <aside class='material'>
+        {% if product.type == 'Voyager' %}
+          {{ product_material }}
+        {% elsif product.type contains 'WL X' %}
+          {% if product.type contains 'OLIVIAPALERMO' %}
+            <!-- No product material. -->
+          {% else %}
+            {{ product_material }}
+          {% endif %}
+        {% elsif special_project %}
+          {{ product_material }}
+        {% else %}
+          <!-- No product material. -->
+        {% endif %}
+      </aside>
       <aside>
         {% comment %}{% if product.price_varies %}From {% endif %}{% endcomment %}
         {% if product.title == "Gift Card" %}

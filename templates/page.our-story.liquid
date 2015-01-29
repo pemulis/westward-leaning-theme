@@ -19,101 +19,7 @@
       </div>
       <div class='row'>
         <div class='col-md-12'>
-          <h2>CLASSIC WESTWARD ACCENT MATERIALS</h2>
-        </div>
-      </div>
-      <div class='row'>
-      <div class='col-md-12'>
-      <div id='materials-gallery'>
-        <!-- Let's preload gallery nav arrows... -->
-        <div class='hidden'>{{ 'arrow_light_right.jpg' | asset_url | img_tag }}{{ 'arrow_dark_right.jpg' | asset_url | img_tag }}{{ 'arrow_light_left.jpg' | asset_url | img_tag }}{{ 'arrow_dark_left.jpg' | asset_url | img_tag }}</div>
-
-        <div id='our-story-left-arrow' class='col-md-2 hidden-sm hidden-xs gallery-arrow left'>
-          {{ 'arrow_light_left.jpg' | asset_url | img_tag: 'Cycle Left', 'light-arrow' }}
-          {{ 'arrow_dark_left.jpg' | asset_url | img_tag: 'Cycle Left', 'dark-arrow' }}
-        </div>
-        <div id='our-story-gallery-images' class='col-md-8 col-xs-12 gallery-images'>
-          <div class='gallery-item active first'>
-            {{ 'OS_GALLERY_1.jpg' | asset_url | img_tag: 'Children of California - Redwood' }}
-            <h3>REDWOOD</h3>
-            <p>Reclaimed Californian redwood is available in our</p>
-            <p><a href='/products/children-of-california-1-1-redwood-wayfarer'>CHILDREN OF CALIFORNIA</a> models,</p>
-            <p>which benefit Teach for America, Bay Area.</p>
-          </div>
-          <div class='gallery-item'>
-            {{ 'OS_GALLERY_2.jpg' | asset_url | img_tag: 'Louisiana Purchase - Brass' }}
-            <h3>BRASS</h3>
-            <p>Brass, in honor of New Orleans as the birthplace of jazz, is featured in our</p>
-            <p><a href='/products/n-2-louisiana-purchase-tortoise-shell'>LOUISIANA PURCHASE</a> models,</p>
-            <p>which fund music education programs taught by artists displaced by Hurricane Katrina.</p>
-          </div>
-          <div class='gallery-item'>
-            {{ 'OS_GALLERY_3.jpg' | asset_url | img_tag: 'Mercury Seven - Aluminum' }}
-            <h3>ALUMINUM</h3>
-            <p>Aluminum is featured in our</p>
-            <p><a href='/products/mercury-seven-3-1-aluminum-wayfarer'>MERCURY SEVEN</a> models,</p>
-            <p>which honor the first American astronauts, whose spacecraft and spacesuits were made using aluminum. These models benefit science education.</p>
-          </div>
-          <div class='gallery-item'>
-            {{ 'OS_GALLERY_4.jpg' | asset_url | img_tag: 'Sleeping Beauty - Turquoise' }}
-            <h3>TURQUOISE</h3>
-            <p>Turquoise, in honor of Native American and Southwest jewelry, comes in our</p>
-            <p><a href='/products/sleeping-beauty-7-2-turquoise-wayfarer'>SLEEPING BEAUTY</a> models,</p>
-            <p>which support the American Indian College Fund.</p>
-          </div>
-          <div class='gallery-item'>
-            {{ 'OS_GALLERY_5.jpg' | asset_url | img_tag: 'Fathom Five - White Coral' }}
-            <h3>WHITE CORAL</h3>
-            <p>Created coral, a tribute to the oceans and their endangered and critical ecosystems, comes in our</p>
-            <p><a href='/products/fathom-five-14-2-coral-wayfarer'>FATHOM FIVE</a> models,</p>
-            <p>which are named after the sonnet of Shakespeare’s <em>The Tempest</em>, and support youth literacy and writing programs.</p>
-          </div>
-          <div class='gallery-item'>
-            {{ 'OS_GALLERY_6.jpg' | asset_url | img_tag: 'Wintermute - Black Anodized Aluminum' }}
-            <h4>BLACK ANODIZED ALUMINUM</h4>
-            <p>Black Anodized Aluminum is available in our</p>
-            <p><a href='/products/wintermute-10-7-silver-mirror-wayfarer'>WINTERMUTE</a> models,</p>
-            <p>which were inspired by the artificial intelligence of William Gibson’s Neuromancer, and which support the Noisebridge hacker community.</p>
-          </div>
-          <div class='gallery-item'>
-            {{ 'OS_GALLERY_7.jpg' | asset_url | img_tag: 'Ultramarine - Lapis Lazuli' }}
-            <h4>LAPIS</h4>
-            <p>Lapis comes in our</p>
-            <p><a href='/products/ultramarine-8-1-lapis-wayfarer'>ULTRAMARINE</a> models,</p>
-            <p>which celebrate the important role lapis lazuli has played in the history of art. Proceeds from this model go to youth education programs in Afghanistan, the world’s primary source of lapis.</p>
-          </div>
-          <div class='gallery-item'>
-            {{ 'OS_GALLERY_8.jpg' | asset_url | img_tag: 'Love Thy Neighbor - Chaquira Beads' }}
-            <h4>BEADS</h4>
-            <p>Chaquira beads, inspired by the beadwork of Huichol artisans in western Mexico, are featured in our</p>
-            <p><a href='/products/love-thy-neighbor-5-1-beads-wayfarer'>LOVE THY NEIGHBOR</a> models,</p>
-            <p>which support the foundation of the same name, Love Thy Neighbor Mexico.</p>
-          </div>
-          <div class='gallery-item'>
-            {{ 'OS_GALLERY_9.jpg' | asset_url | img_tag: 'Mother of Pearl - Mother of Pearl' }}
-            <h4>PEARL</h4>
-            <p>Naturally sourced and environmentally sustainable nacre (or Mother of Pearl) is used in our</p>
-            <p><a href='/products/mother-of-pearl-15-2-silver-wayfarer'>MOTHER OF PEARL</a> models,</p>
-            <p>which, in tribute to the source of pearls, benefit ocean conservation efforts.</p>
-          </div>
-          <div class='gallery-item last'>
-            {{ 'OS_GALLERY_10.jpg' | asset_url | img_tag: 'Color Revolution - Mirror' }}
-            <h4>BLUE NEON</h4>
-            <p>Reflective mirrored neon lenses, in addition to a number of bold side materials, come in our</p>
-            <p><a href='/products/color-revolution-9-2-blue-mirror-wayfarer'>COLOR REVOLUTION</a> models,</p>
-            <p>which pay tribute to the Color Revolutions that fought for democratic change, and whose proceeds benefit Reporters Without Borders.</p>
-          </div>
-        </div>
-        <div id='our-story-right-arrow' class='col-md-2 hidden-sm hidden-xs gallery-arrow right'>
-          {{ 'arrow_light_right.jpg' | asset_url | img_tag: 'Cycle Right', 'light-arrow' }}
-          {{ 'arrow_dark_right.jpg' | asset_url | img_tag: 'Cycle Right', 'dark-arrow' }}
-        </div>
-      </div>
-      </div>
-      </div>
-      <div class='row'>
-        <div class='col-md-12'>
-          <h2>CIRCLE ACCENT MATERIALS</h2>
+          <h2>VOYAGER ACCENT MATERIALS</h2>
         </div>
       </div>
       <div class='row'>
@@ -195,7 +101,7 @@
       <div class='row'>
         <div class='col-md-12'>
           <h2>EACH MATERIAL REPRESENTS AN ACHIEVEMENT IN PLACE AND TIME</h2>
-          <p>All Westward Leaning sunglasses feature a unique material on the frame’s temple – each in honor of a human achievement: from the brass that brought us jazz in our Louisiana Purchase models to the spirit and legacy of oceanic exploration in our Mother of Pearl line. $10 from each pair sold goes to education initiatives specific to each achievement.</p>
+          <p>All Westward Leaning sunglasses feature a unique material on the frame’s temple – each in honor of a human achievement: from the bronze that brought us jazz in our Louisiana Purchase model to the spirit and legacy of democratic change in our Color Revolution model. $10 from each pair sold goes to education initiatives specific to each achievement.</p>
         </div>
       </div>
     </div>
