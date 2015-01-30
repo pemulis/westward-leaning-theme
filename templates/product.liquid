@@ -92,6 +92,8 @@
         <br>
         {% if product.available %}
           <button id='buy' type='submit'>BUY</button>
+        {% elsif product.title == "Voyager 15" %}
+          <p><em>{{ product.title }} is currently unavailable on our website, but still available at <a href='http://www.barneys.com/on/demandware.store/Sites-BNY-Site/default/Product-Show?pid=00505038012686'>Barneys New York</a>.</em></p>
         {% else %}
           <p><a id="BIS_trigger" href="#">WAITLIST</a></p>
         {% endif %}
