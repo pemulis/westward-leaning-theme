@@ -48,5 +48,8 @@
 	$('#quantity').change(function(){
 		$( "#quantity-message" ).fadeOut( "fast");
 	        
-	 });		  
+	 });
+    $('#buy').on('click', function() {
+      ga('send', 'event', 'Button', 'Click', 'Add to Cart');
+    });
 </script>

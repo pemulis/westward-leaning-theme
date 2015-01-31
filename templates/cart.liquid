@@ -39,33 +39,6 @@
           </div>
 	    </div>
 	</form>
-    <div class='row addon-items hidden-xs'>
-      <h2>MAY WE ALSO SUGGEST</h2>
-      <a id='gift-card' href='javascript:void(0)' class='add-this'>
-        <div class='col-sm-4 addon-item'>
-          {{ 'red_gift_card.jpg' | asset_url | img_tag }}
-          <p>Gift Card</p>
-          <p class='price'>$100</p>
-          <button>ADD TO CART</button>
-        </div>
-      </a>
-      <a id='pencil-set' href='javascript:void(0)' class='add-this'>
-        <div class='col-sm-4 addon-item'>
-          {{ 'pencil_set.jpg' | asset_url | img_tag }}
-          <p>Pencil Set</p>
-          <p class='price'>$10</p>
-          <button>ADD TO CART</button>
-        </div>
-      </a>
-      <a id='pocket-case' href='javascript:void(0)' class='add-this'>
-        <div class='col-sm-4 addon-item'>
-          {{ 'small_case.jpg' | asset_url | img_tag }}
-          <p>Additional Pocket-Sized Case</p>
-          <p class='price'>$40</p>
-          <button>ADD TO CART</button>
-        </div>
-      </a>
-    </div>
     {% else %}
 	<p>Your cart is empty. <a href="/collections/new-releases">Continue shopping...</a></p>
 	{% endif %}
