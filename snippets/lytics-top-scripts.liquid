@@ -1,0 +1,40 @@
+<!-- start lytics audience integration -->
+<script type="text/javascript">
+var ly_cid="1423";
+(function(d,w){ var cookies, lychunk; function readCookie(name,c,C,i){ if(cookies){ return cookies[name]; } c = document.cookie.split('; '); cookies = {}; for(i=c.length-1; i>=0; i--){ C = c[i].split('='); cookies[C[0]] = C[1]; } return cookies[name]; } function setCookie(name, value, minutes) { var d = new Date(); d.setTime(d.getTime() + (minutes*60*1000)); var expires = "expires="+d.toUTCString(); document.cookie = name + "=" + value + "; " + expires; } w["lio"] = w["lio"] || { loaded:false, segmentsCookie : {}, segmentsHash : {}, _uid : readCookie("seerid"), getlioCookie:function(){ return readCookie("ly_segs"); }, segmentscb:function(json){ if ("data" in json) { if ("segments" in json.data) { var segList = json.data.segments; for (var i = segList.length - 1; i >= 0; i--) { this.segmentsHash[segList[i]] = segList[i]; }; this.segmentsCookie = this.segmentsHash; setCookie("ly_segs", JSON.stringify(this.segmentsHash), 15); } } lio.loaded=true; } }; if(readCookie("ly_segs") !== undefined){ lio.segmentsCookie = JSON.parse(readCookie("ly_segs")); } if(typeof ly_field !== 'undefined' && typeof ly_value !== 'undefined'){ lychunk = ly_cid+"/"+ly_field+"/"+ly_value; }else{ lychunk = ly_cid+"/"+readCookie("seerid"); } apiurl = "https://api.lytics.io/api/me/"+lychunk+"?segments=true&callback=lio.segmentscb"; document.write('\x3Cscript type="text/javascript" src="' + apiurl + '">\x3C/script>'); }(document,window));
+
+</script>
+<!-- end lytics audience integration -->
+
+
+
+<!-- Optimizely Integration REQUIRES LYTICS AUDIENCE INTEGRATION CODE TO EXIST. -->
+<script type="text/javascript">
+window["optimizely"] = window['optimizely'] || [];
+window["optimizely"].push(["customTag", lio.segmentsCookie]);
+window['optimizely'].push(["activate"]);
+</script>
+
+<script type="text/javascript" src="https://cdn.optimizely.com/js/413800223.js?shop=westward-leaning.myshopify.com"></script>
+
+
+
+<!-- FB Integration GENERIC FB CODE -->
+<script>(function () {
+          var _fbq = window._fbq || (window._fbq = []);
+          if (!_fbq.loaded) {
+               var fbds = document.createElement('script');
+               fbds.async = true;
+               fbds.src = '//connect.facebook.net/en_US/fbds.js';
+               var s = document.getElementsByTagName('script')[0];
+               s.parentNode.insertBefore(fbds, s);
+               _fbq.loaded = true;
+          }
+          _fbq.push(['addPixelId', '793145567418573']);
+     })();
+     window._fbq = window._fbq || [];
+ //LYTICS-SPECIFIC CODE.  CAN GO BELOW ANY OTHER CALLS (E.G. PIXELINITIALIZED).  REQUIRES LYTICS AUDIENCE INTEGRATION CODE TO EXIST.
+     var lh = {}
+     for (p in lio.segmentsCookie) { if(p != "" && p != "not_found"){lh[p] = "true";}}
+     window._fbq.push(["track", "Lytics Audiences", lh ]);
+</script>

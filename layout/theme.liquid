@@ -32,8 +32,10 @@
     {% if page_description %}
       <meta name="description" content="{{ page_description | escape }}" />
     {% endif %}
+    <!-- Pingdom uptime tracking. -->
     {% include 'pingdom-rum' %}
-    <script src="//cdn.optimizely.com/js/413800223.js"></script>
+    <!-- Lytics scripts. -->
+    {% include 'lytics-top-scripts' %}
 </head>
 <body class="{{ collection.title | downcase}}">
   {% include 'top-nav' %}
@@ -90,5 +92,8 @@
 
 <!-- Crazy Egg script. -->
 {% include 'crazy-egg' %}
+  
+<!-- Lytics scripts. -->
+{% include 'lytics-bottom-scripts' %}
 </body>
 </html>
