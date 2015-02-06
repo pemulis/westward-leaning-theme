@@ -5,6 +5,9 @@
     	<div class='row'>
 	      <h1>SHOPPING BAG</h1>
 	    </div>
+    	<div class='row'>
+	      {{ 'banner_valentines.png' | asset_url | img_tag: "Happy Valentine's Day", 'cart-banner' }}
+	    </div>
 	    <div class='row'> 
 	      <table>
 	        <tr>
@@ -59,7 +62,7 @@
 	{% endif %}
     <div class='row'>
       <div>
-        <img src='{{ 'shipping_august.jpg' | asset_url }}' alt='Free Domestic Shipping, $25 Flat Rate Shipping Worldwide' class='cart-bottom-img'>
+       <img src='{{ 'shipping_valentines.jpg' | asset_url }}' alt='Free Express Shipping through February 16, $25 Flat Rate Shipping Worldwide' class='cart-bottom-img'>
       </div>
     </div>
   </div>
