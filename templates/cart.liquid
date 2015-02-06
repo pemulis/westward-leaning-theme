@@ -1,10 +1,10 @@
 <div id='cart' class='container'>
-  <div class='col-xs-12 col-lg-8 col-lg-offset-2'>
+  <div class='col-xs-12 col-lg-10 col-lg-offset-1'>
 	{% if cart.item_count > 0 %}
 	<form action="/cart" method="post">
     	<div class='row'>
 	      <h1>SHOPPING BAG</h1>
-        </div>
+	    </div>
 	    <div class='row'> 
 	      <table>
 	        <tr>
@@ -34,10 +34,25 @@
 	    <div class='row'>
 	      <div class='cart-buttons'>
             <a href='/collections/new-releases'><span class='cart-button keep-shopping'>KEEP SHOPPING</span></a>
-            <span class='cart-button gift-wrapping'>GIFT WRAP <input id="wrapping" type="checkbox" name="attributes[wrapping]" value="yes" /></span> 
+            <span class='cart-button gift-wrapping'>VALENTINE'S GIFT WRAP <input id="wrapping" type="checkbox" name="attributes[wrapping]" value="yes" /></span> 
 	        <button class='cart-button checkout-button' name="checkout">CHECKOUT</button>
           </div>
 	    </div>
+        <div id='gift-wrap' class='row'>
+          <h3>Select your gift wrap</h3>
+        {% assign attribute = 'type-of-wrap' %}
+        {% for i in (1..3) %}
+          {% capture option %}{% cycle 'waves', 'clouds', 'mountain' %}{% endcapture %}
+          {% capture option_jpg %}2{{option}}.jpg{% endcapture %}
+          <div class='col-xs-12 col-sm-4 gift-wrap-option'>
+            <img src="{{ option_jpg | asset_url }}" alt='{{option}}'>
+            <input type="radio" id="{{ option }}" name="attributes[{{ attribute }}]" value="{{ option }}" />
+            <label for="{{ option }}"><span></span></label>
+          </div>
+        {% endfor %}
+          <button class='cart-button checkout-button visible-sm visible-xs' name="checkout">CHECKOUT</button>
+          <button class='cart-button checkout-button hidden-sm hidden-xs' name="checkout" style='float: left; margin-left: 34%; margin-right: 34%;'>CHECKOUT</button>
+        </div>
 	</form>
     {% else %}
 	<p>Your cart is empty. <a href="/collections/new-releases">Continue shopping...</a></p>

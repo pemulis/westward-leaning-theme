@@ -960,6 +960,9 @@ aside.region-select {
   text-align: right;
   vertical-align: top;
   width: 25%;
+  @media screen and (min-width: $screen-md-min) {
+    font-size: 16px;
+  }
 }
 
 #cart td.product-quantity {
@@ -1046,13 +1049,14 @@ img.cart-item {
   margin-bottom: 8px;
 }
 
-#cart .holiday-shipping-message {
-  color: red;
-  text-align: center;
-  margin-bottom: 24px;
+@media screen and (max-width: $screen-xs-max) {
+  .gift-wrap-option {
+    width: 60%;
+    margin-left: 20%;
+  }
 }
 
-@media screen and (max-width: 650px) {  
+@media screen and (max-width: $screen-sm-max) {  
   .keep-shopping {
     width: 100%;
     margin-bottom: 10px;

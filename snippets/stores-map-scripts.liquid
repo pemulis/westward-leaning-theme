@@ -17,20 +17,22 @@ $( document ).ready( function() {
 
 /* Show store information when region selected. */
 
+  
+/* No stores in South America now. */  
 $( document ).ready( function() {
   $( '#stores-south-america-link' ).hover(function() {
     document.getElementById("world-map-img").src = "{{ 'worldmap.jpg' | asset_url }}";
   });
   $( '#stores-south-america-link' ).click(function() {
-    $( '#stockists-header' ).show().text( "STOCKISTS - SOUTH AMERICA" );
-    $( '#stores-south-america' ).show();
+    $( '#stockists-header' ).hide();
     document.getElementById("world-map-img").src = "{{ 'worldmap.jpg' | asset_url }}";
+    document.getElementById("no-stores").style.display = "inline";
+    document.getElementById("stores-south-america").style.display = "none";
     document.getElementById("stores-asia").style.display = "none";
-    document.getElementById("stores-europe").style.display = "none";
     document.getElementById("stores-west-coast").style.display = "none";
     document.getElementById("stores-east-coast").style.display = "none";
     document.getElementById("stores-central").style.display = "none";
-    document.getElementById("no-stores").style.display = "none";
+    document.getElementById("stores-europe").style.display = "none";
     $( this ).toggleClass( 'active' );
     //return false;
   });

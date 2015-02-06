@@ -2,33 +2,13 @@
 
   /* Show gift wrap options when gift wrapping is selected. */
   /* ... */
-/*  $('#wrapping').click(function() {
+  $('#wrapping').click(function() {
     $('#gift-wrap').toggle("slow");
     $('html, body').animate({
       scrollTop: $("#gift-wrap").offset().top -60
     }, 1000);
   });
   
-  $('.add-this').click(function() {
-    if ($(this).attr('id') == 'playing-cards') {
-      Shopify.addItem(896302457,1,addItemCallback);
-    } else if ($(this).attr('id') == 'boxed-set') {
-      Shopify.addItem(896153361,1,addItemCallback);
-    } else if ($(this).attr('id') == 'gift-card') {
-      Shopify.addItem(569782617,1,addItemCallback);
-    } else if ($(this).attr('id') == 'pocket-case') {
-      Shopify.addItem(959171348,1,addItemCallback);
-    } else if ($(this).attr('id') == 'pencil-set') {
-      Shopify.addItem(569798385,1,addItemCallback);
-    } else {
-      // Do nothing, because something went wrong. Did the variant IDs change or something? Call Shopify and complain.
-    }
-  });
-  
-  function addItemCallback() {
-    window.location.reload();
-  }
-  */
   
 /* Assign retargeting bucket based on first item in the cart. */  
   
