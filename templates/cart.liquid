@@ -5,9 +5,6 @@
     	<div class='row'>
 	      <h1>SHOPPING BAG</h1>
 	    </div>
-    	<div class='row'>
-	      {{ 'banner_valentines.png' | asset_url | img_tag: "Happy Valentine's Day", 'cart-banner' }}
-	    </div>
 	    <div class='row'> 
 	      <table>
 	        <tr>
@@ -37,7 +34,7 @@
 	    <div class='row'>
 	      <div class='cart-buttons'>
             <a href='/collections/new-releases'><span class='cart-button keep-shopping'>KEEP SHOPPING</span></a>
-            <span class='cart-button gift-wrapping'>VALENTINE'S GIFT WRAP <input id="wrapping" type="checkbox" name="attributes[wrapping]" value="yes" /></span> 
+            <span class='cart-button gift-wrapping'>GIFT WRAP <input id="wrapping" type="checkbox" name="attributes[wrapping]" value="yes" /></span> 
 	        <button class='cart-button checkout-button' name="checkout">CHECKOUT</button>
           </div>
 	    </div>
@@ -62,7 +59,7 @@
 	{% endif %}
     <div class='row'>
       <div>
-       <img src='{{ 'shipping_valentines.jpg' | asset_url }}' alt='Free Express Shipping through February 16, $25 Flat Rate Shipping Worldwide' class='cart-bottom-img'>
+       <img src='{{ 'shipping_august.jpg' | asset_url }}' alt='Free Domestic Shipping, $25 Flat Rate Shipping Worldwide' class='cart-bottom-img'>
       </div>
     </div>
   </div>
