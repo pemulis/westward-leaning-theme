@@ -5,13 +5,6 @@ $('a.popup-footer-toggle').on('click', function () {
 });
 
 
-/* Triggering topnav dropdown menu on hover. */
-
-$('.dropdown').hover(function(){ 
-  $('.dropdown-toggle', this).trigger('click'); 
-});
-
-
 /* Sticky mini side menu for when the user scrolls past the navigation bar. */
 
 $(window).scroll(function(){
