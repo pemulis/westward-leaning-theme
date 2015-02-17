@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <!-- Janet was here -->
     <!-- Meta tags. -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta charset="utf-8" />
@@ -39,19 +40,19 @@
 </head>
 <body class="{{ collection.title | downcase}}">
   {% include 'top-nav' %}
-   
+
     {% if template contains 'collection' %}
       {% include 'grid-navbar' %}
     {% endif %}
     {% if template contains 'gift-guide' %}
       {% include 'grid-navbar' %}
-    {% endif %} 
-  
+    {% endif %}
+
 	{{ content_for_layout }}
-   
+
   {% include 'mailchimp-form' %}
   {% include 'footer' %}
-        
+
 <!-- jQuery! -->
 {{ '//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js' | script_tag }}
 <!-- Shopify's Ajax API wrapper library. -->
@@ -72,7 +73,7 @@
 {% endif %}
 {% include 'facebook-custom-audiences-tag' %}
 {% include 'adwords-retargeting-tag' %}
-  
+
 {% if template contains 'index' %}{% include 'index-scripts' %}{% endif %}
 {% if template contains 'concept' %}{% include 'concept-page-scripts' %}{% endif %}
 {% if template contains 'stores' %}{% include 'stores-map-scripts' %}{% endif %}
@@ -85,14 +86,14 @@
 {% if template contains 'our-story' %}{% include 'our-story-scripts' %}{% endif %}
 {% if template contains 'introducing-voyager' %}{% include 'introducing-voyager-scripts' %}{% endif %}
 {% if template contains 'article' %}{% include 'article-scripts' %}{% endif %}
-{% if template contains 'cart' %}{% include 'cart-scripts' %}{% endif %} 
+{% if template contains 'cart' %}{% include 'cart-scripts' %}{% endif %}
 
 <!-- Retargeter burn pixel for people referred from email. -->
 {% include 'retargeter-burn-script' %}
 
 <!-- Crazy Egg script. -->
 {% include 'crazy-egg' %}
-  
+
 <!-- Lytics scripts. -->
 {% include 'lytics-bottom-scripts' %}
 </body>
