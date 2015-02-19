@@ -186,6 +186,21 @@ b, strong {
     table-layout: fixed;
   }
   
+  #top-menu, #sticky-mini-menu {
+    li.dropdown.open {
+      color: black;
+      background-color: #DDD;
+    }
+  }
+  
+  #top-menu, #sticky-mini-menu {
+    .dropdown:hover {
+      .dropdown-menu {
+        display: block;
+      }
+    }
+  }
+  
   #top-menu .dropdown-menu, #sticky-mini-menu .dropdown-menu {
     li {
       background-color: #DDD;

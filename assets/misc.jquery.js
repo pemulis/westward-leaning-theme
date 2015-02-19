@@ -5,7 +5,7 @@ $('a.popup-footer-toggle').on('click', function () {
 });
 
 
-/* Sticky mini side menu for when the user scrolls past the navigation bar. */
+/* Sticky menu for when the user scrolls past the navigation bar. */
 
 $(window).scroll(function(){
   if ($(document).scrollTop() > 80) {
@@ -15,6 +15,13 @@ $(window).scroll(function(){
   }
 });
 
+/* Highlight top level option of dropdown menu when hovering over suboptions. */
+
+$('.dropdown-menu').hover(function() {
+  $(this).parent('.dropdown').addClass('open');
+}, function() {
+  $(this).parent('.dropdown').removeClass('open');
+});
 
 /* Newsletter popup in footer. */
 
