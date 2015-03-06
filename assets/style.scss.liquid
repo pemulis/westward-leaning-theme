@@ -293,15 +293,16 @@ footer {
   left: 0;
   width: 100vw;
   height: 100vh;
+  background: url({{ 'ShuttleEnterprise_NASA.jpg' | asset_url }}) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  z-index: -1;
+  z-index: -1000;
 }
 
 #homepage h1 {
-  color: #111;
+  color: #EEE;
   font-family: 'WWLheavy';
   font-size: 32px;
   text-align: center;
@@ -314,7 +315,7 @@ footer {
 }
 
 #homepage aside {
-  color: #111;
+  color: #EEE;
   font-family: 'WWLheavy';
   font-size: 14px;
   text-align: center;
@@ -367,10 +368,18 @@ footer {
 }
 
 #homepage video#bgvid {
-  position: fixed; right: 0; bottom: 0;
-  min-width: 100%; min-height: 100%;
-  width: auto; height: auto; z-index: -100;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  width: auto;
+  height: auto;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -100;
   background: url(258mb.png) no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   background-size: cover;
 }
 
@@ -378,6 +387,7 @@ footer {
   #homepage #full-screen { background: url(258mb.png) #000 no-repeat center center fixed; }
   #bgvid { display: none; }
 }
+
 
 
 /* Styles for the individual product pages. */
