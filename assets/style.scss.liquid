@@ -293,7 +293,6 @@ footer {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: url({{ 'ShuttleEnterprise_NASA.jpg' | asset_url }}) no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -302,7 +301,7 @@ footer {
 }
 
 #homepage h1 {
-  color: #EEE;
+  color: #111;
   font-family: 'WWLheavy';
   font-size: 32px;
   text-align: center;
@@ -315,7 +314,7 @@ footer {
 }
 
 #homepage aside {
-  color: #EEE;
+  color: #111;
   font-family: 'WWLheavy';
   font-size: 14px;
   text-align: center;
@@ -336,10 +335,10 @@ footer {
 
 @media only screen and (min-width: 768px) {
   #homepage h1 {
-    font-size: 44px;
+    font-size: 60px;//44px;
   }
   #homepage aside {
-    font-size: 18px;
+    font-size: 24px;//18px;
   }
   #homepage .content-box {
     width: 60vw;
@@ -351,7 +350,7 @@ footer {
 
 @media only screen and (min-width: 992px) {
   #homepage .content-box {
-    width: 44vw;
+    width: 50vw;//44vw;
     /*margin-left: 28vw;*/
     margin-left: auto;
     margin-right: auto;
@@ -360,11 +359,24 @@ footer {
 
 @media only screen and (min-width: 1200px) {
   #homepage .content-box {
-    width: 30vw;
+    width: 50vw;//30vw;
     /*margin-left: 35vw;*/
     margin-left: auto;
     margin-right: auto;
   }
+}
+
+#homepage video#bgvid {
+  position: fixed; right: 0; bottom: 0;
+  min-width: 100%; min-height: 100%;
+  width: auto; height: auto; z-index: -100;
+  background: url(258mb.png) no-repeat;
+  background-size: cover;
+}
+
+@media screen and (max-device-width: 800px) {
+  #homepage #full-screen { background: url(258mb.png) #000 no-repeat center center fixed; }
+  #bgvid { display: none; }
 }
 
 
