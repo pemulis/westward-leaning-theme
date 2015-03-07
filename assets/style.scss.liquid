@@ -293,16 +293,29 @@ footer {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: url({{ 'ShuttleEnterprise_NASA.jpg' | asset_url }}) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  z-index: -1000;
+  z-index: -100;
+}
+
+video#bgvid {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  min-width: 100vw;
+  min-height: 100vh;
+  background: url({{ '258mb.png' | asset_url }}) no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  z-index: -10;
 }
 
 #homepage h1 {
-  color: #EEE;
+  color: #111;
   font-family: 'WWLheavy';
   font-size: 32px;
   text-align: center;
@@ -315,7 +328,7 @@ footer {
 }
 
 #homepage aside {
-  color: #EEE;
+  color: #111;
   font-family: 'WWLheavy';
   font-size: 14px;
   text-align: center;
@@ -325,9 +338,7 @@ footer {
 }
 
 #homepage .content-box {
-  /*background-color:rgba(255,255,255,0.5);*/
   width: 90vw;
-  /*margin-left: 5vw;*/
   margin-left: auto;
   margin-right: auto;
   padding-bottom: 24px;
@@ -336,14 +347,13 @@ footer {
 
 @media only screen and (min-width: 768px) {
   #homepage h1 {
-    font-size: 60px;//44px;
+    font-size: 60px;
   }
   #homepage aside {
-    font-size: 24px;//18px;
+    font-size: 24px;
   }
   #homepage .content-box {
     width: 60vw;
-    /*margin-left: 15vw;*/
     margin-left: auto;
     margin-right: auto;
   }
@@ -351,8 +361,7 @@ footer {
 
 @media only screen and (min-width: 992px) {
   #homepage .content-box {
-    width: 50vw;//44vw;
-    /*margin-left: 28vw;*/
+    width: 50vw;
     margin-left: auto;
     margin-right: auto;
   }
@@ -360,31 +369,14 @@ footer {
 
 @media only screen and (min-width: 1200px) {
   #homepage .content-box {
-    width: 50vw;//30vw;
-    /*margin-left: 35vw;*/
+    width: 50vw;
     margin-left: auto;
     margin-right: auto;
   }
 }
 
-#homepage video#bgvid {
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  width: auto;
-  height: auto;
-  min-width: 100%;
-  min-height: 100%;
-  z-index: -100;
-  background: url(258mb.png) no-repeat;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
-
 @media screen and (max-device-width: 800px) {
-  #homepage #full-screen { background: url(258mb.png) #000 no-repeat center center fixed; }
+  #homepage #full-screen { background: url({{ '258mb.png' | asset_url }}) #000 no-repeat center center fixed; }
   #bgvid { display: none; }
 }
 
