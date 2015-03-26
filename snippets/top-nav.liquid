@@ -11,12 +11,12 @@
 		</div>
 		<div id='top-menu' class='collapse navbar-collapse'>
         	<ul class='nav navbar-nav'>
-				{% for link in linklists.main-menu.links %}
+				{% for link in linklists.main-menu-summer-2015.links %}
                 <li {% if link.title contains 'ABOUT' %}class='dropdown'{% elsif link.title contains 'AS SEEN ON' %}class='dropdown'{% endif %}>
-                  <a href='{{ link.url }}' {% if link.title contains 'ABOUT' %}data-toggle='dropdown' class='dropdown-toggle'{% elsif link.title contains 'AS SEEN ON' %}data-toggle='dropdown' class='dropdown-toggle'{% elsif link.title contains 'HOLIDAY' %}class='holiday visible-xs'{% endif %}>{{ link.title }}</a>
+                  <a href='{{ link.url }}' {% if link.title contains 'ABOUT' %}data-toggle='dropdown' class='dropdown-toggle'{% elsif link.title contains 'AS SEEN ON' %}data-toggle='dropdown' class='dropdown-toggle'{% endif %}>{{ link.title }}</a>
                   {% if link.title contains 'ABOUT' %}
                     <ul class='dropdown-menu'>
-                      {% for dropdownlink in linklists.about.links %}
+                      {% for dropdownlink in linklists.summer-2015-about.links %}
                         <li><a href='{{dropdownlink.url}}'>{{dropdownlink.title|upcase}}</a></li>
                       {% endfor %}
                     </ul>
@@ -40,12 +40,12 @@
     <div id='sticky-mini-menu' class='hidden hidden-xs'>
       <nav class='navbar navbar-default' role='navigation'>
         <ul class='nav navbar-nav'>
-				{% for link in linklists.main-menu.links %}
+				{% for link in linklists.main-menu-summer-2015.links %}
                 <li {% if link.title contains 'ABOUT' %}class='dropdown'{% elsif link.title contains 'AS SEEN ON' %}class='dropdown'{% endif %}>
-                  <a href='{{ link.url }}' {% if link.title contains 'ABOUT' %}data-toggle='dropdown' class='dropdown-toggle'{% elsif link.title contains 'AS SEEN ON' %}data-toggle='dropdown' class='dropdown-toggle'{% elsif link.title contains 'HOLIDAY' %}class='holiday visible-xs'{% endif %}>{{ link.title }}</a>
+                  <a href='{{ link.url }}' {% if link.title contains 'ABOUT' %}data-toggle='dropdown' class='dropdown-toggle'{% elsif link.title contains 'AS SEEN ON' %}data-toggle='dropdown' class='dropdown-toggle'{% endif %}>{{ link.title }}</a>
                   {% if link.title contains 'ABOUT' %}
                     <ul class='dropdown-menu'>
-                      {% for dropdownlink in linklists.about.links %}
+                      {% for dropdownlink in linklists.summer-2015-about.links %}
                         <li><a href='{{dropdownlink.url}}'>{{dropdownlink.title|upcase}}</a></li>
                       {% endfor %}
                     </ul>

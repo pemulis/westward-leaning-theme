@@ -1,0 +1,23 @@
+        <ul>
+          
+          {% for link in linklists.summer-2015-special-collection-grids.links %}
+            <a href="{{link.url}}"><li id='{{link.handle}}' class='special-collection-link'><span>{{link.title}}</span></li></a>
+          {% endfor %}
+          
+          <p class='grid-nav-left-divider'>See styles by shape:</p>
+          
+          {% for link in linklists.summer-2015-frame-type-collection-grids.links %}
+          {% if link.url == '/collections/pioneer' %}
+            <a href="{{link.url}}"><li id='{{link.handle}}' class='frame-select first'><span>{{ 'wayfarer_silhouette.jpg' | asset_url | img_tag}}<br>{{link.title}}</span></li></a>
+          {% elsif link.url == '/collections/circle' %}
+            <a href="{{link.url}}"><li id='{{link.handle}}' class='frame-select'><span>{{ 'voyager_silhouette.jpg' | asset_url | img_tag}}<br>{{link.title}}</span></li></a>
+          {% elsif link.url == '/collections/project-vanguard' %}
+            <a href="{{link.url}}"><li id='{{link.handle}}' class='frame-select'><span>{{ 'vanguard_silhouette.jpg' | asset_url | img_tag}}<br>{{link.title}}</span></li></a>
+          {% elsif link.url == '/collections/concorde' %}
+            <a href="{{link.url}}"><li id='{{link.handle}}' class='frame-select'><span>{{ 'concorde_silhouette.jpg' | asset_url | img_tag}}<br>{{link.title}}</span></li></a>
+          {% else %}
+            <a href="{{link.url}}"><li id='{{link.handle}}'><span>{{link.title}}</span></li></a>
+          {% endif %}
+          {% endfor %}
+        
+        </ul>

@@ -4,6 +4,8 @@
   {% if tag contains 'model = ' %}{% assign model = tag %}
   {% elsif tag contains 'primary mat = ' %}{% assign primary_mat = tag %}
   {% elsif tag contains 'frame color = ' %}{% assign frame_color = tag %}
+  {% elsif tag contains 'lens = ' %}{% assign lens = tag %}
+  {% elsif tag contains 'nosepads = ' %}{% assign nosepads = tag %}
   {% elsif tag contains 'quantity note = ' %}{% assign quantity_note = tag %}
   {% elsif tag contains 'special projects' %}{% assign hide_variants = false %}
   {% elsif tag contains 'wayfarer spring 2015' %}{% assign spring_2015 = true %}
@@ -30,12 +32,20 @@
       <h1>
         {% if product.type == 'Voyager' %}
           {{ product.title | upcase }}
+        {% elsif product.type == 'Concorde' %}
+          {{ product.title | upcase }}
+        {% elsif product.type == 'Project Vanguard' %}
+          {{ model | remove: 'model = ' | upcase }}
         {% else %}
           {{ product.type | upcase }}
         {% endif %}
       </h1>
       <p class='model-details'>
         {% if product.type == 'Voyager' %}
+          <!-- No model number. -->
+        {% elsif product.type == 'Concorde' %}
+          <!-- No model number. -->
+        {% elsif product.type == 'Project Vanguard' %}
           <!-- No model number. -->
         {% elsif product.type contains 'WL X' %}
           <!-- No model number. -->
@@ -51,8 +61,28 @@
         <!-- No model details. -->
       {% else %}
         <p class='model-details'>{{ primary_mat | remove: 'primary mat = ' }}</p>
-        {% if frame_color %}
-          <p class='model-details'>{{ frame_color | remove: 'frame color = ' }} Frame</p>
+        {% if product.type == 'Voyager' %}
+          {% if lens %}
+            <p class='model-details'>{{ lens | remove: 'lens = ' }} Lenses</p>
+          {% endif %}
+        {% elsif product.type == 'Concorde' %}
+          {% if lens %}
+            <p class='model-details'>{{ lens | remove: 'lens = ' }} Lenses</p>
+          {% endif %}
+          {% if nosepads %}
+            <p class='model-details'>{{ nosepads | remove: 'nosepads = ' }} Nose Pads</p>
+          {% endif %}
+        {% elsif product.type == 'Project Vanguard' %}
+          {% if lens %}
+            <p class='model-details'>{{ lens | remove: 'lens = ' }} Lenses</p>
+          {% endif %}
+          {% if nosepads %}
+            <p class='model-details'>{{ nosepads | remove: 'nosepads = ' }} Nose Pads</p>
+          {% endif %}
+        {% else %}
+          {% if frame_color %}
+            <p class='model-details'>{{ frame_color | remove: 'frame color = ' }} Frame</p>
+          {% endif %}
         {% endif %}
       {% endif %}
       <p id="product-price" class='model-details'>

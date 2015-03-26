@@ -8,9 +8,9 @@
 				{% for link in linklists.footer.links %}
 				  {% capture socialImg %}{{ link.title | downcase | handleize }}.jpg{% endcapture %}
                   {% if link.url == 'http://instagram.com/westwardleaning' %}
-				    <li><a href='{{ link.url }}'><img src='{{ socialImg | asset_url }}' alt='{{ link.title }}' /></a></li>
+				    <li><a target="_blank" href='{{ link.url }}'><img src='{{ socialImg | asset_url }}' alt='{{ link.title }}' /></a></li>
                   {% else %}
-				    <li class='hidden-xs'><a href='{{ link.url }}'><img src='{{ socialImg | asset_url }}' alt='{{ link.title }}' /></a></li>
+				    <li class='hidden-xs'><a target="_blank" href='{{ link.url }}'><img src='{{ socialImg | asset_url }}' alt='{{ link.title }}' /></a></li>
                   {% endif %}
 				{% endfor %}
         	</ul>
@@ -38,24 +38,22 @@
             <li><a href='/collections'>SHOP</a></li>
             <li><a href='/pages/lookbook'>STREET STYLE</a></li>
             <li><a href='/blogs/celeb-style/12530101-alessandra-ambrosio'>FAMOUS FANS</a></li>
-            <li><a href='/pages/press'>PRESS</a></li>
             <li><a href='/pages/stores'>STOCKISTS</a></li>
           </ul>
           <ul>
             <li class='visible-sm visible-xs'><a href='/pages/help'>CUSTOMER SUPPORT</a></li>
             <li class='visible-md visible-sm visible-xs'><a href='/pages/faq'>FAQ</a></li>
-            <li><a href='/pages/our-story'>STORY</a></li>
-            <li><a href='/pages/behind-the-scenes'>CRAFTSMANSHIP</a></li>
-            <li><a href='/pages/the-concept'>DESIGN</a></li>
+            <li><a href='/pages/about-new'>ABOUT US</a></li>
+            <li><a href='/pages/design'>DESIGN</a></li>
             <li><a href='/pages/careers'>CAREERS</a></li>
             <li><a href='/pages/privacy-policy'>PRIVACY POLICY</a></li>
             <li><a href='/pages/terms-of-use'>TERMS OF USE</a></li>
           </ul>
           <ul>
-            <li><a href='https://www.facebook.com/westwardleaning'>FACEBOOK</a></li>
-            <li><a href='https://twitter.com/#!/westwardleaning'>TWITTER</a></li>
-            <li><a href='http://pinterest.com/westwardleaning/'>PINTEREST</a></li>
-            <li><a href='http://instagram.com/westwardleaning'>INSTAGRAM</a></li>
+            <li><a target="_blank" href='https://www.facebook.com/westwardleaning'>FACEBOOK</a></li>
+            <li><a target="_blank" href='https://twitter.com/#!/westwardleaning'>TWITTER</a></li>
+            <li><a target="_blank" href='http://pinterest.com/westwardleaning/'>PINTEREST</a></li>
+            <li><a target="_blank" href='http://instagram.com/westwardleaning'>INSTAGRAM</a></li>
           </ul>
           <a class='pull-right newsletter' href='javascript:void(0);'>SIGN UP FOR OUR NEWSLETTER</a>
         </div>

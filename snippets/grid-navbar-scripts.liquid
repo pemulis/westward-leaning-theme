@@ -17,11 +17,49 @@
     removeActiveLinks();
     findActiveLink();
   });
+  
+  $('#grid-nav-left li').hover(function() {
+    removeActiveLinks();
+    $(this).addClass('active');
+  }, function() {
+    var link = $(this).parent().attr('href');
+    if (pathname.indexOf(link) > -1) {
+      // This is the link to the current page! Do nothing.
+    } else {
+      removeActiveLinks();
+    }
+  });
+  
+  $('#product-grid-container').hover(function() {
+    findActiveLink(); // set the link to the current page as active when outside the left navigation section
+  }, function() {
+    // do nothing
+  });
+  
+  $('footer').hover(function() {
+    findActiveLink(); // set the link to the current page as active when outside the left navigation section
+  }, function() {
+    // do nothing
+  });
+  
+  $('#sticky-mini-menu').hover(function() {
+    findActiveLink(); // set the link to the current page as active when outside the left navigation section
+  }, function() {
+    // do nothing
+  });
+  
+  $('.navbar').hover(function() {
+    findActiveLink(); // set the link to the current page as active when outside the left navigation section
+  }, function() {
+    // do nothing
+  });
     
+  
   
   function removeActiveLinks() {
     $('#collections-listing-navigation li.active').removeClass('active');
     $('#collections-listing-navigation-mobile li.active').removeClass('active');
+    $('#grid-nav-left li.active').removeClass('active');
   }
   
   function findActiveLink() {
@@ -32,6 +70,12 @@
       }
     });
     $('#collections-listing-navigation-mobile li').each(function(){
+      var link = $(this).parent().attr('href');
+      if (pathname.indexOf(link) > -1) {
+        $(this).addClass('active');
+      }
+    });
+    $('#grid-nav-left li').each(function(){
       var link = $(this).parent().attr('href');
       if (pathname.indexOf(link) > -1) {
         $(this).addClass('active');

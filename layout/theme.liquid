@@ -15,7 +15,7 @@
     <link rel="canonical" href="{{ canonical_url }}" />
     {% include 'open-graph-tags' %}
 	<!-- Bootstrap -->
-	{{ 'bootstrap.min.css' | asset_url | stylesheet_tag }}
+	{{ 'bootstrap.scss' | asset_url | stylesheet_tag }}
 	{{ 'fonts.scss' | asset_url | stylesheet_tag }}
 	{{ 'style.scss.css' | asset_url | stylesheet_tag }}
     <link href="//cdn-images.mailchimp.com/embedcode/classic-081711.css" rel="stylesheet" type="text/css">
@@ -86,6 +86,8 @@
 {% if template contains 'introducing-voyager' %}{% include 'introducing-voyager-scripts' %}{% endif %}
 {% if template contains 'article' %}{% include 'article-scripts' %}{% endif %}
 {% if template contains 'cart' %}{% include 'cart-scripts' %}{% endif %} 
+{% if template contains 'about-new' %}{% include 'bts-scripts' %}{% endif %}
+{% if template contains 'design' %}{% include 'design-scripts' %}{% endif %}
 
 <!-- Retargeter burn pixel for people referred from email. -->
 {% include 'retargeter-burn-script' %}

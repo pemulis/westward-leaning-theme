@@ -1,10 +1,182 @@
-<div id='{{ page.handle }}' class='container'>
-  <div class='row'>
-        <h1 class='col-md-8 col-md-offset-2 col-xs-12'>{{ page.title | upcase }}</h1>
+<div id='new-about' class='fluid-container'>
+	
+  	<div class='row our-sunglasses-container'>
+        <div class='our-sunglasses col-lg-4 col-md-12 col-xs-12'> 
+          <h1>OUR SUNGLASSES</h1>
+          <p>All of our sunglasses are designed to be universally flattering for both men and women, and have undergone two years of research and prototyping to be the perfect fit for all face shapes. The Westward Leaning collection now includes four shapes: Pioneer, Voyager, Project Vanguard, and Concorde. All Westward Leaning sunglasses are hand assembled at our studio in San Francisco and feature a unique material on the frame’s temple in honor of a human achievement.</p>
+        </div>
+        <div class='col-lg-8 col-md-12 col-xs-12'>
+          <div class='row frame-row'>
+    	    <div class='frame col-md-6 col-xs-12'> 
+        	  {{ 'wayfarer-about.jpg' | asset_url | img_tag: "Pioneer" }}
+        	  <h1>PIONEER</h1>
+              <p>Our very first frame shape, Pioneer is our universally flattering interpretation of the classic wayfarer.</p> 
+            </div>
+              
+            <div class='frame col-md-6 col-xs-12'> 
+        	  {{ 'voyager_silhouette.png' | asset_url | img_tag: "Concorde" }}
+        	  <h1>VOYAGER</h1>
+              <p>Both the round shape and universal fit of our Voyager frame is inspired by the Golden Record carried on all Voyager spacecraft.</p>
+            </div>
+              
+            <div class="clearfix visible-md-block"></div>
+    			
+            <div class='frame col-md-6 col-xs-12'> 
+        	  {{ 'vanguard_silhouette.png' | asset_url | img_tag: "Project Vanguard" }}
+        	  <h1>PROJECT VANGUARD</h1>
+              <p>Project Vanguard is a modern take on the classic half-frame shape featuring a mixed-material frame of metal and acetate.</p>
+            </div>
+      			
+            <div class='frame col-md-6 col-xs-12'> 
+        	  {{ 'concorde_silhouette.png' | asset_url | img_tag: "Concorde" }}
+        	  <h1>CONCORDE</h1>
+              <p>Concorde is our version of the aviator, or “pilot’s glasses,” and features a mixed-material frame of metal and acetate.</p>
+            </div>
+          </div>
+    	</div>
+	</div>
+    
+  	<div class="row about">
+      <h1 class ='col-lg-3 col-lg-offset-1 col-lg-push-7 col-xs-12'>ABOUT</h1>
+      <p class='col-lg-7 col-lg-pull-4 col-xs-12'>Westward Leaning launched in San Francisco in 2012 with a simple idea: to make products that are equally beautiful and meaningful. Our premise is that social causes and progressive issues shouldn’t just be an afterthought, or a marketing pitch. Instead, they should be an integral part of everything from the product's design to how we use its proceeds.</p>
+  	</div>
+  
+ <div class ='row craftsmanship-container'>
+   <div class= 'craftsmanship col-lg-4 col-md-12 col-xs-12'>
+     <h1>CRAFTSMANSHIP</h1>
+     <p>Each pair of Westward Leaning sunglasses carries its own unique story. At Westward Leaning’s San Francisco studio, our team of artisans and jewelers handcraft each pair of sunglasses using traditional techniques perfected over thousands of years. They cut, weave, sew, and sand the frames’ unique accent materials before they are inlaid in our frames by hand. Every single component of our sunglasses and unique packaging is subject to our rigorous quality control. From our home to yours: at Westward Leaning we believe the special touches make all the difference.</p>
+   </div>
+   
+   <div class= 'col-lg-8 col-md-12 hidden-sm hidden-xs'>
+		<div id='bts-gallery' class='row'>
+    	<!-- Let's preload gallery nav arrows... -->
+    		<div class='hidden'>{{ 'arrow_light_right.jpg' | asset_url | img_tag }}{{ 'arrow_dark_right.jpg' | asset_url | img_tag }}{{ 'arrow_light_left.jpg' | asset_url | img_tag }}{{ 'arrow_dark_left.jpg' | asset_url | img_tag }}</div>
+    	<div id='bts-left-arrow' class='col-md-2 hidden-sm hidden-xs gallery-arrow left'>
+      		{{ 'arrow_light_left.jpg' | asset_url | img_tag: 'Cycle Left', 'light-arrow' }}
+      		{{ 'arrow_dark_left.jpg' | asset_url | img_tag: 'Cycle Left', 'dark-arrow' }}
+    	</div>
+    		<div id='bts-gallery-images' class='col-md-8 col-xs-12'>
+      			{{ 'BTS_carousel_7.jpg' | asset_url | img_tag: 'Behind the Scenes 1', 'active first' }}
+      			{{ 'BTS_carousel_1.jpg' | asset_url | img_tag: 'Behind the Scenes 2' }}
+    	  		{{ 'BTS_carousel_2.jpg' | asset_url | img_tag: 'Behind the Scenes 3' }}
+      			{{ 'BTS_carousel_3.jpg' | asset_url | img_tag: 'Behind the Scenes 4' }}
+      			{{ 'BTS_carousel_4.jpg' | asset_url | img_tag: 'Behind the Scenes 5' }}
+      			{{ 'BTS_carousel_5.jpg' | asset_url | img_tag: 'Behind the Scenes 7' }}
+      			{{ 'BTS_carousel_6.jpg' | asset_url | img_tag: 'Behind the Scenes 8', 'last' }}
+    		</div>
+    		<div id='bts-right-arrow' class='col-md-2 hidden-sm hidden-xs gallery-arrow right'>
+      			{{ 'arrow_light_right.jpg' | asset_url | img_tag: 'Cycle Right', 'light-arrow' }}
+      			{{ 'arrow_dark_right.jpg' | asset_url | img_tag: 'Cycle Right', 'dark-arrow' }}
+    		</div>
+      	</div>
   </div>
-  <div class='row'>
-    <div class='col-md-8 col-md-offset-2 col-xs-12'>
-  	  {{ page.content }}
+
+ </div>
+  
+  
+ <div class='row press'>
+        <h1 class='col-lg-3 col-lg-push-8 col-xs-12'>PRESS</h1>
+    	<div class='col-lg-8 col-lg-pull-3 col-xs-12'>
+      		<div class='press-box col-md-4 col-xs-12'> 
+        		{{ 'press_wwd_white.jpg' | asset_url | img_tag: "WWD" }}
+        			<p>"A modern take on the wayfarer"</p>
+          	</div>
+          
+            <div class='press-box col-md-4 col-xs-12'>
+        		<a target="_blank" href="http://www.wmagazine.com/fashion/accessories/2012/04/were-eyeing-westward-leanings/">
+        			{{'press_W_white.jpg' | asset_url | img_tag: "w" }}
+        				<p>"The wayfarer style is being made charitable by Westward Leaning’s new designs"</p>
+        		</a>
+      		</div>
+          
+            <div class='press-box col-md-4 col-xs-12'> 
+        		{{ 'press_bazaar_white.jpg' | asset_url | img_tag: "Harper's Bazaar" }}
+        			<p>"Make a stylish difference...and support educational programs dedicated to social causes that each pair represents"</p>
+          	</div>
+          
+            <div class='press-box col-md-4 col-xs-12'>
+        		<a target="_blank" href="http://www.interviewmagazine.com/fashion/most-wanted-westward-leaning-teddy-roosevelt-sunglasses/">
+        			{{ 'press_interview_white.jpg' | asset_url | img_tag: "Interview" }}
+        			<p>"This Spring we would most like to hide behind glasses from Westward Leaning"</p>
+        		</a>
+          	</div>
+			
+          	<div class='press-box col-md-4 col-xs-12'> 
+        		<a target="_blank" href="http://www.elle.com/fashion/accessories/news/a8850/westward-leaning-your-new-favorite-sunglasses-40836/">
+        			{{ 'press_elle_white.jpg' | asset_url | img_tag: "Elle" }}
+        				<p>"Your new favorite sunglasses"</p>
+        		</a>
+        	</div>
+      		
+          	<div class='press-box col-md-4 col-xs-12'> 
+        		{{ 'press_vogue_white.jpg' | asset_url | img_tag: "Vogue" }}
+        			<p>"We've had our eyes on (or behind, rather) these sunglasses since the San Francisco-based label launched"</p>
+          	</div>
+       		
+            <div class='press-box col-md-4 col-xs-12'> 
+        		{{ 'press_nyt_white.jpg' | asset_url | img_tag: "New York Times" }}
+        			<p>"Sunglasses with iridescent mirrored lenses...work some amazing tricks, the shifting colors picking up those in your ensemble"</p>
+          	</div>
+          
+            <div class='press-box col-md-4 col-xs-12'> 
+        		<a target="_blank" href="http://nymag.com/thecut/2012/06/best-bet-westward-leaning-mirrored-sunglasses.html">
+        			{{ 'press_newyork_white.jpg' | asset_url | img_tag: "New York" }}
+        				<p>"Best bet... perfect for shading your eyes on the street — or better yet, by the pool"</p>
+        		</a>
+          	</div>
+            
+            <div class='press-box col-md-4 col-xs-12'> 
+        		<a target="_blank" href="http://www.wsj.com/news/interactive/mag0613whatsnews2">
+        			{{ 'press_wsj_white.jpg' | asset_url | img_tag: "Wall Street Jounral" }}
+        				<p>"Petrochemical-free sunglasses...proceeds will go toward the restoration of pollution-damaged areas of the American Southeast"</p>
+        	</a>
+          	</div>
+          
+          	<div class='press-box col-md-4 col-xs-12'> 
+        		{{ 'press_nylon_white.jpg' | asset_url | img_tag: "Nylon" }}
+        			<p>"Take time to reflect in the season's hottest shades"</p>
+           	</div>
+      		
+          	<div class='press-box col-md-4 col-xs-12'> 
+        		{{ 'press_newsweek__white.jpg' | asset_url | img_tag: "Newsweek" }}
+        			<p>"Great for a trip because they will go with everything in your suitcase"</p>
+           	</div>
+      		
+          	<div class='press-box col-md-4 col-xs-12'>
+        		{{ 'press_marieclaire_white.jpg' | asset_url | img_tag: "Marie Claire" }}
+        			<p>"A favorite of international fashion editors"</p>
+          	</div>
+      		
+          	<div class='press-box col-md-4 col-xs-12'>
+        		{{ 'press_t_white.jpg' | asset_url | img_tag: "T" }}
+        			<p>"The Look of the Moment"</p>
+          	</div>
+      		
+          	<div class='press-box col-md-4 col-xs-12'> 
+        		{{ 'press_people_white.jpg' | asset_url | img_tag: "People" }}
+        			<p>"Pretty much everyone in Hollywood owns a pair of this brand's shades"</p>
+          	</div>
+      		
+          	<div class='press-box col-md-4 col-xs-12'>
+        		<a target="_blank" href="http://www.instyle.com/fashion/accessories/shop-star-sunglasses/page8">
+        			{{ 'press_instyle_white.jpg' | asset_url | img_tag: "InStyle" }}
+        				<p>"San Francisco sunglasses mavens"</p>
+        		</a>
+          	</div>
+          
+          	<div class='press-box col-md-4 col-xs-12'>
+        		<a target="_blank" href="http://www.luckyshops.com/article/olivia-palermo-westward-leaning">
+          			{{ 'press_lucky_white.png' | asset_url | img_tag: "Lucky" }}
+          				<p>“Frames that’d fit in right by the pool, at the shore — or in the front row of a fashion show”</p>
+        		</a>
+          	</div>
+            
+            <div class='press-box col-md-4 col-md-offset-4 col-xs-12'>
+        		<a target="_blank" href="http://www.self.com/life/travel/2015/02/tropical-travel-packing-essentials/">
+        			{{ 'press_self_white.jpg' | asset_url | img_tag: "Self" }}
+        				<p>"Sunglasses that are sporty and stylish"</p>
+        	</a>
+          	</div>
+    	</div>
     </div>
-  </div>
-</div>
+ </div>
