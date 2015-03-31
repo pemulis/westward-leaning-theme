@@ -1,15 +1,15 @@
 {% assign hide_variants = true %}
 {% assign spring_2015 = false %}
 {% for tag in product.tags %}
-  {% if tag contains 'model = ' %}{% assign model = tag %}
-  {% elsif tag contains 'primary mat = ' %}{% assign primary_mat = tag %}
-  {% elsif tag contains 'frame color = ' %}{% assign frame_color = tag %}
-  {% elsif tag contains 'lens = ' %}{% assign lens = tag %}
-  {% elsif tag contains 'nosepads = ' %}{% assign nosepads = tag %}
-  {% elsif tag contains 'collab = ' %}{% assign collab = tag %}
-  {% elsif tag contains 'quantity note = ' %}{% assign quantity_note = tag %}
+  {% if tag contains 'model = ' %}{% assign model = tag | remove: 'model = ' %}
+  {% elsif tag contains 'primary mat = ' %}{% assign primary_mat = tag | remove: 'primary mat = ' %}
+  {% elsif tag contains 'frame color = ' %}{% assign frame_color = tag | remove: 'frame color = ' %}
+  {% elsif tag contains 'lens = ' %}{% assign lens = tag | remove: 'lens = ' %}
+  {% elsif tag contains 'nosepads = ' %}{% assign nosepads = tag | remove: 'nosepads = ' %}
+  {% elsif tag contains 'collab = ' %}{% assign collab = tag | remove: 'collab = ' %}
+  {% elsif tag contains 'quantity note = ' %}{% assign quantity_note = tag | remove: 'quantity note = ' %}
   {% elsif tag contains 'special projects' %}{% assign hide_variants = false %}
-  {% elsif tag contains 'wayfarer spring 2015' %}{% assign spring_2015 = true %}
+  {% elsif tag contains 'wayfarer spring 2015' %}{% assign wayfarer_spring_2015 = true %}
   {% endif %}
 {% endfor %}
 {% if model == 'model = \\' %}{% assign model = '' %}{% endif %}
@@ -36,7 +36,7 @@
         {% elsif product.type == 'Concorde' %}
           {{ product.title | upcase }}
         {% elsif product.type == 'Project Vanguard' %}
-          {{ model | remove: 'model = ' | upcase }}
+          {{ model | upcase }}
         {% else %}
           {{ product.type | upcase }}
         {% endif %}
@@ -51,42 +51,42 @@
         {% elsif product.type contains 'WL X' %}
           <!-- No model number. -->
         {% elsif product.type contains 'Pioneer X' %}
-          <em>{{ collab | remove: 'collab = ' }}</em>
+          <em>{{ collab }}</em>
         {% elsif product.type contains 'Voyager X' %}
-          <em>{{ collab | remove: 'collab = ' }}</em>
+          <em>{{ collab }}</em>
         {% elsif product.title contains 'op.' %}
-          <em>{{ model | remove: 'model = ' }}</em>
-        {% elsif model contains 'model = ' %}
-          <em>in {{ model | remove: 'model = ' }}</em>
+          <em>{{ model }}</em>
+        {% elsif model %}
+          <em>in {{ model }}</em>
         {% else %}
           <!-- No model number. -->
         {% endif %}
       </p>
-      {% if spring_2015 %}
+      {% if wayfarer_spring_2015 %}
         <!-- No model details. -->
       {% else %}
-        <p class='model-details'>{{ primary_mat | remove: 'primary mat = ' }}</p>
+        <p class='model-details'>{{ primary_mat }}</p>
         {% if product.type == 'Voyager' %}
           {% if lens %}
-            <p class='model-details'>{{ lens | remove: 'lens = ' }} Lenses</p>
+            <p class='model-details'>{{ lens }} Lenses</p>
           {% endif %}
         {% elsif product.type == 'Concorde' %}
           {% if lens %}
-            <p class='model-details'>{{ lens | remove: 'lens = ' }} Lenses</p>
+            <p class='model-details'>{{ lens }} Lenses</p>
           {% endif %}
           {% if nosepads %}
-            <p class='model-details'>{{ nosepads | remove: 'nosepads = ' }} Nose Pads</p>
+            <p class='model-details'>{{ nosepads }} Nose Pads</p>
           {% endif %}
         {% elsif product.type == 'Project Vanguard' %}
           {% if lens %}
-            <p class='model-details'>{{ lens | remove: 'lens = ' }} Lenses</p>
+            <p class='model-details'>{{ lens }} Lenses</p>
           {% endif %}
           {% if nosepads %}
-            <p class='model-details'>{{ nosepads | remove: 'nosepads = ' }} Nose Pads</p>
+            <p class='model-details'>{{ nosepads }} Nose Pads</p>
           {% endif %}
         {% else %}
           {% if frame_color %}
-            <p class='model-details'>{{ frame_color | remove: 'frame color = ' }} Frame</p>
+            <p class='model-details'>{{ frame_color }} Frame</p>
           {% endif %}
         {% endif %}
       {% endif %}
@@ -101,7 +101,7 @@
       </p>
       <p id='converted-currency'></p>
       {% if quantity_note %}
-        <p id='finish-and-quantity'>{{ quantity_note | remove: 'quantity note = ' }}</p>
+        <p id='finish-and-quantity'>{{ quantity_note }}</p>
       {% else %}
         <p id="finish-and-quantity" class="{% if hide_variants %}hidden{% endif %}">Select finish and quantity:</p>
       {% endif %}

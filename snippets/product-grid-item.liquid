@@ -3,20 +3,11 @@
   {% assign on_sale = true %}
 {% endif %}
 {% for tag in product.tags %}
-	{% if tag contains "primary mat = " %}
-		{% assign product_material = tag | remove: 'primary mat = ' %}
-	{% endif %}
-	{% if tag contains "model = " %}
-		{% assign model = tag | remove: 'model = ' %}
-	{% endif %}
-	{% if tag contains "lens = " %}
-		{% assign lens = tag | remove: 'lens = ' %}
-	{% endif %}
-	{% if tag contains "collab = " %}
-		{% assign collab = tag | remove: 'collab = ' %}
-	{% endif %}
-	{% if tag contains "special projects" %}
-		{% assign special_project = true %}
+	{% if tag contains "primary mat = " %}{% assign product_material = tag | remove: 'primary mat = ' %}
+	{% elsif tag contains "model = " %}{% assign model = tag | remove: 'model = ' %}
+	{% elsif tag contains "lens = " %}{% assign lens = tag | remove: 'lens = ' %}
+	{% elsif tag contains "collab = " %}{% assign collab = tag | remove: 'collab = ' %}
+	{% elsif tag contains "special projects" %}{% assign special_project = true %}
 	{% endif %}
 {% endfor %}
 
@@ -26,6 +17,10 @@
   	  <img src="{{ product.featured_image.src | product_img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}"  class='img-response'/>
       <h2>
         {% if product.type == 'Voyager' %}
+          {{ product.title | upcase }}
+        {% elsif product.type == 'Project Vanguard' %}
+          {{ product.title | upcase }}
+        {% elsif product.type == 'Concorde' %}
           {{ product.title | upcase }}
         {% elsif product.type contains 'WL X' %}
           {% if product.type contains 'OLIVIAPALERMO' %}
@@ -44,6 +39,10 @@
       <aside class='model'>
         {% if product.type == 'Voyager' %}
           <!-- No model number. -->
+        {% elsif product.type == 'Project Vanguard' %}
+          <!-- No model number. -->
+        {% elsif product.type == 'Concorde' %}
+          <!-- No model number. -->
         {% elsif product.type contains 'WL X' %}
           <!-- No model number. -->
         {% elsif product.type contains 'Pioneer X' %}
@@ -59,6 +58,10 @@
       <aside class='material'>
         {% if product.type == 'Voyager' %}
           {{ product_material }}
+        {% elsif product.type == 'Project Vanguard' %}
+          {{ lens }} Lenses
+        {% elsif product.type == 'Concorde' %}
+          {{ lens }} Lenses
         {% elsif product.type contains 'WL X' %}
           {% if product.type contains 'OLIVIAPALERMO' %}
             <!-- No product material. -->
