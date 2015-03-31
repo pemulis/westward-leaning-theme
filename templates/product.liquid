@@ -6,6 +6,7 @@
   {% elsif tag contains 'frame color = ' %}{% assign frame_color = tag %}
   {% elsif tag contains 'lens = ' %}{% assign lens = tag %}
   {% elsif tag contains 'nosepads = ' %}{% assign nosepads = tag %}
+  {% elsif tag contains 'collab = ' %}{% assign collab = tag %}
   {% elsif tag contains 'quantity note = ' %}{% assign quantity_note = tag %}
   {% elsif tag contains 'special projects' %}{% assign hide_variants = false %}
   {% elsif tag contains 'wayfarer spring 2015' %}{% assign spring_2015 = true %}
@@ -49,6 +50,8 @@
           <!-- No model number. -->
         {% elsif product.type contains 'WL X' %}
           <!-- No model number. -->
+        {% elsif product.type contains 'Pioneer X' %}
+          <em>{{ collab | remove: 'collab = ' }}</em>
         {% elsif product.title contains 'op.' %}
           <em>{{ model | remove: 'model = ' }}</em>
         {% elsif model contains 'model = ' %}

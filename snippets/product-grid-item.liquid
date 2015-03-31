@@ -12,6 +12,9 @@
 	{% if tag contains "lens = " %}
 		{% assign lens = tag | remove: 'lens = ' %}
 	{% endif %}
+	{% if tag contains "collab = " %}
+		{% assign collab = tag | remove: 'collab = ' %}
+	{% endif %}
 	{% if tag contains "special projects" %}
 		{% assign special_project = true %}
 	{% endif %}
@@ -20,7 +23,7 @@
 <a href='{{ product.url }}'>
   <li class='product-thumb'>
 
-  	  <img src="{{ product.featured_image.src | product_img_url: 'medium' }}" alt="{{ product.featured_image.alt | escape }}"  class='img-response'/>
+  	  <img src="{{ product.featured_image.src | product_img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}"  class='img-response'/>
       <h2>
         {% if product.type == 'Voyager' %}
           {{ product.title | upcase }}
@@ -30,6 +33,8 @@
           {% else %}
             {{ product.title | upcase }}
           {% endif %}
+        {% elsif product.type contains 'Pioneer X' %}
+          {{ product.title | upcase }}
         {% else %}
           {{ product.type | upcase }}
         {% endif %}
@@ -38,6 +43,8 @@
         {% if product.type == 'Voyager' %}
           <!-- No model number. -->
         {% elsif product.type contains 'WL X' %}
+          <!-- No model number. -->
+        {% elsif product.type contains 'Pioneer X' %}
           <!-- No model number. -->
         {% elsif special_project %}
           <!-- No model number. -->
@@ -54,6 +61,8 @@
           {% else %}
             {{ product_material }}
           {% endif %}
+        {% elsif product.type contains 'Pioneer X' %}
+          {{ collab }}
         {% elsif special_project %}
           {{ product_material }}
         {% else %}
