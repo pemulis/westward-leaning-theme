@@ -8,6 +8,7 @@
 	{% elsif tag contains "lens = " %}{% assign lens = tag | remove: 'lens = ' %}
 	{% elsif tag contains "collab = " %}{% assign collab = tag | remove: 'collab = ' %}
 	{% elsif tag contains "special projects" %}{% assign special_project = true %}
+	{% elsif tag contains "launch collection" %}{% assign launch_collection = true %}
 	{% endif %}
 {% endfor %}
 
@@ -51,6 +52,8 @@
           <!-- No model number. -->
         {% elsif special_project %}
           <!-- No model number. -->
+        {% elsif launch_collection %}
+          Complete Set
         {% else %}
           {{ model }}
         {% endif %}
@@ -59,9 +62,13 @@
         {% if product.type == 'Voyager' %}
           {{ product_material }}
         {% elsif product.type == 'Project Vanguard' %}
-          {{ lens }} Lenses
+          {% if lens %}
+            {{ lens }} Lenses
+          {% endif %}
         {% elsif product.type == 'Concorde' %}
-          {{ lens }} Lenses
+          {% if lens %}
+            {{ lens }} Lenses
+          {% endif %}
         {% elsif product.type contains 'WL X' %}
           {% if product.type contains 'OLIVIAPALERMO' %}
             <!-- No product material. -->
