@@ -1,37 +1,32 @@
-<script>$.preloadImages = function() { for (var i = 0; i < arguments.length; i++) { $("<img />").attr("src", arguments[i]); } } $.preloadImages("{{ 'asia.jpg' | asset_url}}", "{{ 'europe.jpg' | asset_url}}", "{{ 'eastcoast.jpg' | asset_url}}", "{{ 'centralus.jpg' | asset_url}}", "{{ 'westcoast.jpg' | asset_url}}");</script>
-<script>$(document).ready(function(){ var images = new Array(); function preload() { for (i = 0; i < preload.arguments.length; i++) { images[i] = new Image(); images[i].src = preload.arguments[i]; } } preload("{{ 'asia.jpg' | asset_url}}", "{{ 'europe.jpg' | asset_url}}", "{{ 'eastcoast.jpg' | asset_url}}", "{{ 'centralus.jpg' | asset_url}}", "{{ 'westcoast.jpg' | asset_url}}") ;} );</script>
-<script>$(document).ready(function(e) { $('img[usemap]').rwdImageMaps(); });</script>
+<script>$.preloadImages = function() { for (var i = 0; i < arguments.length; i++) { $("<img />").attr("src", arguments[i]); } } $.preloadImages("{{ 'asia.jpg' | asset_url}}", "{{ 'europe.jpg' | asset_url}}", "{{ 'north-america.png' | asset_url}}", "{{ 'southern-hemisphere.png' | asset_url}}");</script>
+<script>$(document).ready(function(){ var images = new Array(); function preload() { for (i = 0; i < preload.arguments.length; i++) { images[i] = new Image(); images[i].src = preload.arguments[i]; } } preload("{{ 'asia.jpg' | asset_url}}", "{{ 'europe.jpg' | asset_url}}", "{{ 'north-america.png' | asset_url}}", "{{ 'southern-hemisphere.png' | asset_url}}") ;} );</script>
+<script>$(document).ready(function() { $('img[usemap]').rwdImageMaps(); });</script>
 <script>
   
 /* Hide stockist listings until region selected. */
 
 $( document ).ready( function() {
-  $( '#stores-south-america' ).hide();
+  $( '#stores-southern-hemisphere' ).hide();
   $( '#stores-europe' ).hide();
   $( '#stores-asia' ).hide();
-  $( '#stores-west-coast' ).hide();
-  $( '#stores-east-coast' ).hide();
-  $( '#stores-central' ).hide();
+  $( '#stores-north-america' ).hide();
   $( '#stockists-header' ).hide();
 });
 
 /* Show store information when region selected. */
 
   
-/* No stores in South America now. */  
+/* No stores in southern hemisphere now. */  
 $( document ).ready( function() {
-  $( '#stores-south-america-link' ).hover(function() {
-    document.getElementById("world-map-img").src = "{{ 'worldmap.jpg' | asset_url }}";
+  $( '#stores-southern-hemisphere-link' ).hover(function() {
+    document.getElementById("world-map-img").src = "{{ 'southern-hemisphere.png' | asset_url }}";
   });
-  $( '#stores-south-america-link' ).click(function() {
-    $( '#stockists-header' ).hide();
-    document.getElementById("world-map-img").src = "{{ 'worldmap.jpg' | asset_url }}";
-    document.getElementById("no-stores").style.display = "inline";
-    document.getElementById("stores-south-america").style.display = "none";
+  $( '#stores-southern-hemisphere-link' ).click(function() {
+    $( '#stockists-header' ).show().text( "STOCKISTS - SOUTH AMERICA, AFRICA, AUSTRALIA");
+    $( '#stores-southern-hemisphere' ).show();
+    document.getElementById("world-map-img").src = "{{ 'southern-hemisphere.png' | asset_url }}";
     document.getElementById("stores-asia").style.display = "none";
-    document.getElementById("stores-west-coast").style.display = "none";
-    document.getElementById("stores-east-coast").style.display = "none";
-    document.getElementById("stores-central").style.display = "none";
+    document.getElementById("stores-north-america").style.display = "none";
     document.getElementById("stores-europe").style.display = "none";
     $( this ).toggleClass( 'active' );
     //return false;
@@ -46,12 +41,9 @@ $( document ).ready( function() {
     $( '#stockists-header' ).show().text( "STOCKISTS - EUROPE" );
     $( '#stores-europe' ).show();
     document.getElementById("world-map-img").src = "{{ 'europe.jpg' | asset_url }}";
-    document.getElementById("stores-south-america").style.display = "none";
+    document.getElementById("stores-southern-hemisphere").style.display = "none";
     document.getElementById("stores-asia").style.display = "none";
-    document.getElementById("stores-west-coast").style.display = "none";
-    document.getElementById("stores-east-coast").style.display = "none";
-    document.getElementById("stores-central").style.display = "none";
-    document.getElementById("no-stores").style.display = "none";
+    document.getElementById("stores-north-america").style.display = "none";
     $( this ).toggleClass( 'active' );
     //return false;
   });
@@ -65,92 +57,29 @@ $( document ).ready( function() {
     $( '#stockists-header' ).show().text( "STOCKISTS - ASIA" );
     $( '#stores-asia' ).show();
     document.getElementById("world-map-img").src = "{{ 'asia.jpg' | asset_url }}";
-    document.getElementById("stores-south-america").style.display = "none";
+    document.getElementById("stores-southern-hemisphere").style.display = "none";
     document.getElementById("stores-europe").style.display = "none";
-    document.getElementById("stores-west-coast").style.display = "none";
-    document.getElementById("stores-east-coast").style.display = "none";
-    document.getElementById("stores-central").style.display = "none";
-    document.getElementById("no-stores").style.display = "none";
+    document.getElementById("stores-north-america").style.display = "none";
     $( this ).toggleClass( 'active' );
     //return false;
   });
 });
 
 $( document ).ready( function() {
-  $( '#stores-west-coast-link' ).hover(function() {
-    document.getElementById("world-map-img").src = "{{ 'westcoast.jpg' | asset_url }}";
+  $( '#stores-north-america-link' ).hover(function() {
+    document.getElementById("world-map-img").src = "{{ 'north-america.png' | asset_url }}";
   });
-  $( '#stores-west-coast-link' ).click(function() {
-    $( '#stockists-header' ).show().text( "STOCKISTS - WEST COAST" );
-    $( '#stores-west-coast' ).show();
-    document.getElementById("world-map-img").src = "{{ 'westcoast.jpg' | asset_url }}";
-    document.getElementById("stores-south-america").style.display = "none";
+  $( '#stores-north-america-link' ).click(function() {
+    $( '#stockists-header' ).show().text( "STOCKISTS - NORTH AMERICA" );
+    $( '#stores-north-america' ).show();
+    document.getElementById("world-map-img").src = "{{ 'north-america.png' | asset_url }}";
+    document.getElementById("stores-southern-hemisphere").style.display = "none";
     document.getElementById("stores-asia").style.display = "none";
     document.getElementById("stores-europe").style.display = "none";
-    document.getElementById("stores-east-coast").style.display = "none";
-    document.getElementById("stores-central").style.display = "none";
-    document.getElementById("no-stores").style.display = "none";
     $( this ).toggleClass( 'active' );
     //return false;
   });
 });
 
-
-$( document ).ready( function() {
-  $( '#stores-east-coast-link' ).hover(function() {
-    document.getElementById("world-map-img").src = "{{ 'eastcoast.jpg' | asset_url }}";
-  });
-  $( '#stores-east-coast-link' ).click(function() {
-    $( '#stockists-header' ).show().text( "STOCKISTS - EAST COAST" );
-    $( '#stores-east-coast' ).show();
-    document.getElementById("world-map-img").src = "{{ 'eastcoast.jpg' | asset_url }}";
-    document.getElementById("stores-south-america").style.display = "none";
-    document.getElementById("stores-asia").style.display = "none";
-    document.getElementById("stores-west-coast").style.display = "none";
-    document.getElementById("stores-europe").style.display = "none";
-    document.getElementById("stores-central").style.display = "none";
-    document.getElementById("no-stores").style.display = "none";
-    $( this ).toggleClass( 'active' );
-    //return false;
-  });
-});
-
-$( document ).ready( function() {
-  $( '#stores-central-link' ).hover(function() {
-    document.getElementById("world-map-img").src = "{{ 'centralus.jpg' | asset_url }}";
-  });
-  $( '#stores-central-link' ).click(function() {
-    $( '#stockists-header' ).show().text( "STOCKISTS - CENTRAL" );
-    $( '#stores-central' ).show();
-    document.getElementById("world-map-img").src = "{{ 'centralus.jpg' | asset_url }}";
-    document.getElementById("stores-south-america").style.display = "none";
-    document.getElementById("stores-asia").style.display = "none";
-    document.getElementById("stores-west-coast").style.display = "none";
-    document.getElementById("stores-east-coast").style.display = "none";
-    document.getElementById("stores-europe").style.display = "none";
-    document.getElementById("no-stores").style.display = "none";
-    $( this ).toggleClass( 'active' );
-    //return false;
-  });
-});
-
-$( document ).ready( function() {
-  $( '#no-stores-link-1' ).hover(function() {
-    document.getElementById("world-map-img").src = "{{ 'worldmap.jpg' | asset_url }}";
-  });
-  $( '#no-stores-link-1' ).click(function() {
-    $( '#stockists-header' ).hide();
-    document.getElementById("world-map-img").src = "{{ 'worldmap.jpg' | asset_url }}";
-    document.getElementById("no-stores").style.display = "inline";
-    document.getElementById("stores-south-america").style.display = "none";
-    document.getElementById("stores-asia").style.display = "none";
-    document.getElementById("stores-west-coast").style.display = "none";
-    document.getElementById("stores-east-coast").style.display = "none";
-    document.getElementById("stores-central").style.display = "none";
-    document.getElementById("stores-europe").style.display = "none";
-    $( this ).toggleClass( 'active' );
-    //return false;
-  });
-});
   
 </script>
