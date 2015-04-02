@@ -1,5 +1,4 @@
 {% assign hide_variants = true %}
-{% assign spring_2015 = false %}
 {% for tag in product.tags %}
   {% if tag contains 'model = ' %}{% assign model = tag | remove: 'model = ' %}
   {% elsif tag contains 'primary mat = ' %}{% assign primary_mat = tag | remove: 'primary mat = ' %}
@@ -9,7 +8,7 @@
   {% elsif tag contains 'collab = ' %}{% assign collab = tag | remove: 'collab = ' %}
   {% elsif tag contains 'quantity note = ' %}{% assign quantity_note = tag | remove: 'quantity note = ' %}
   {% elsif tag contains 'set = ' %}{% assign set = tag | remove: 'set = ' %}
-  {% elsif tag contains 'special projects' %}{% assign hide_variants = false %}
+  {% elsif tag contains 'show variants' %}{% assign hide_variants = false %}
   {% elsif tag contains 'wayfarer spring 2015' %}{% assign wayfarer_spring_2015 = true %}
   {% elsif tag contains 'launch collection' %}{% assign launch_collection = true %}
   {% endif %}
