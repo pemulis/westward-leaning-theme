@@ -289,31 +289,19 @@ footer {
 
 /* Styles for the homepage. */
 
+
 #full-screen {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  z-index: -100;
-}
-
-video#bgvid {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  min-width: 100vw;
-  min-height: 100vh;
-  background: url({{ '258mb.png' | asset_url }}) no-repeat;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  z-index: -10;
+  background: url({{ 'concorde_homepage.jpg' | asset_url }}) no-repeat center; 
+  -webkit-background-size: contain;
+  -moz-background-size: contain;
+  -o-background-size: contain;
+  background-size: contain;
+  z-index: -1;
 }
 
 
@@ -378,9 +366,44 @@ video#bgvid {
   }
 }
 
-@media screen and (max-device-width: 800px) {
-  #homepage #full-screen { background: url({{ '258mb.png' | asset_url }}) #000 no-repeat center center fixed; }
-  #bgvid { display: none; }
+@media screen and (min-width: 701px) and (max-width: 1000px) {
+  #homepage #full-screen { 
+    background: url({{ 'concorde_homepage_ipad.jpg' | asset_url }}) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  #homepage #full-screen { 
+    background: url({{ 'concorde_homepage_mobile.jpg' | asset_url }}) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+}
+
+@media screen and (max-width: 700px) and (min-aspect-ratio: 1/5) and (max-aspect-ratio: 3/5)  {
+  #homepage #full-screen { 
+    background: url({{ 'concorde_homepage_mobile_notext.jpg' | asset_url }}) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+}
+
+@media screen and (min-width: 1001px) and (min-aspect-ratio: 18/9)  {
+  #homepage #full-screen { 
+    background: url({{ 'concorde_homepage_notext.jpg' | asset_url }}) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
 }
 
 
