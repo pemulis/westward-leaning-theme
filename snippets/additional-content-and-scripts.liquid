@@ -1,0 +1,123 @@
+<!-- This code is a copy taken from Settings > Checkout > Additional content and scripts. Included here so it's in our GitHub repo. -->
+
+<iframe src="https://t.pepperjamnetwork.com/track?PID=6528&INT=ITEMIZED{% for line_item in line_items %}&ITEM{{ forloop.index }}={{ line_item.sku }}&QTY{{ forloop.index }}={{ line_item.quantity }}&AMOUNT{{ forloop.index }}={{ line_item.price | money_without_currency }}{% endfor %}&OID={{ order_number }}" width="1" height="1" frameborder="0"></iframe>
+
+
+
+<!-- Optimizely tracking. -->
+<script src="//cdn.optimizely.com/js/413800223.js"></script>
+<script type='text/javascript'>
+var price = {{ total_price }};
+window.optimizely = window.optimizely || [];
+window.optimizely.push(['trackEvent', 'purchase_complete', {'revenue': price * 100 }]);
+</script>
+
+
+<!-- Facebook Conversion Code for W\\L Checkouts -->
+<script type="text/javascript">
+var fb_param = {};
+fb_param.pixel_id = '6012892072010';
+fb_param.value = '{{ total_price | money_without_currency }}';
+fb_param.currency = 'USD';
+(function(){
+  var fpw = document.createElement('script');
+  fpw.async = true;
+  fpw.src = '//connect.facebook.net/en_US/fp.js';
+  var ref = document.getElementsByTagName('script')[0];
+  ref.parentNode.insertBefore(fpw, ref);
+})();
+</script>
+<noscript><img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/offsite_event.php?id=6012892072010&amp;value={{ total_price | money_without_currency }}&amp;currency=USD" /></noscript>
+
+<!-- Google Code for Shopify Purchases (AdWords) Conversion Page -->
+<script type="text/javascript">
+/* <![CDATA[ */
+var google_conversion_id = 1005775799;
+var google_conversion_language = "en";
+var google_conversion_format = "3";
+var google_conversion_color = "ffffff";
+var google_conversion_label = "MRDICNSoplgQt9fL3wM";
+if ({{ subtotal_price }}) { var google_conversion_value = {{ subtotal_price | money_without_currency }}; }
+var google_conversion_currency = "USD";
+var google_remarketing_only = false;
+/* ]]> */
+</script>
+<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+</script>
+<noscript>
+<div style="display:inline;">
+<img height="1" width="1" style="border-style:none;" alt="" src="//www.googleadservices.com/pagead/conversion/1005775799/?value={{ subtotal_price | money_without_currency }}&amp;currency_code=USD&amp;label=MRDICNSoplgQt9fL3wM&amp;guid=ON&amp;script=0"/>
+</div>
+</noscript>
+
+
+<!-- Start of ReTargeter Tag -->
+<script type="text/javascript" src="https://s3.amazonaws.com/V3-Assets/prod/client_super_tag/json3.js"></script>
+<script type="text/javascript">
+    if( typeof _rt_cgi == "undefined" ){
+    var _rt_cgi = 203;
+    var _rt_base_url = "https://lt.retargeter.com/";
+    var _rt_js_base_url = "https://s3.amazonaws.com/V3-Assets/prod/client_super_tag/";
+    var _rt_init_src = _rt_js_base_url+"init_super_tag.js";
+    var _rt_refresh_st = false;
+    var _rt_record = function(params){if(typeof document.getElementsByTagName("_rt_data")[0]=="undefined"){setTimeout(function(){_rt_record(params);},25);}};
+    (function() {var scr = document.createElement("script");scr.src = _rt_init_src;document.getElementsByTagName("head")[0].appendChild(scr);})();}
+    </script>
+<!-- End of ReTargeter Tag -->
+<script type="text/javascript">
+    if(!_rt_calls){ var _rt_calls = []; }
+    _rt_calls.push({"type":"segment", "id":[283]}, {"type":"conversion", "id":[82], "value":[{{ total_price | money_without_currency }}], "order_id":[{{ order_number }}]});
+</script>
+
+<img src="https://ad.retargeter.com/px?id=111806&t=2" width="1" height="1" />
+<img src="https://ad.retargeter.com/seg?add=1029137&t=2" width="1" height="1" />
+
+<!-- Lytics event code. -->
+<script type="text/javascript">
+  window.jstag = function() { var t = { _q: [], _c: {}, ts: (new Date).getTime() }, l = false, w = window, d = document, src = "/static/io", ext = ".min.js", as = Array.prototype.slice, js = "//c.lytics.io", url = "//c.lytics.io", tag = "io"; t.init = function(c) { url = c.url || url; ext = c.min === false ? ".js" : ext; tag = c.tag || tag; t._c = c; return this }; t.load = function() { var jsel, scriptEl = d.getElementsByTagName("script")[0]; l = true; if (d.getElementById(src)) return this; jsel = d.createElement("script"); src = js + "/static/" + tag + ext; jsel.id = src; jsel.src = src; scriptEl.parentNode.insertBefore(jsel, scriptEl); return this }; t.bind = function(e) { if (!l) this.load(); this._q.push([e, as.call(arguments, 1)]) }; t.ready = function() { if (!l) this.load(); this._q.push(["ready", as.call(arguments)]) }; t.send = function() { if (!l) this.load(); this._q.push(["ready", "send", as.call(arguments)]); return this }; return t}();
+
+  jstag.init({ cid: "1423", url:'//c.lytics.io', min:false });
+
+  jstag.send({ email: "{{ checkout.email }}",
+    shipping_name: "{{ checkout.shipping_address.name }}",
+    shipping_country: "{{ checkout.shipping_address.country }}",
+    shipping_city: "{{ checkout.shipping_address.city }}",
+    shipping_province: "{{ checkout.shipping_address.province }}",
+    shipping_zip: "{{ checkout.shipping_address.zip }}",
+    shipping_method: "{{ checkout.shipping_method.title }}",
+    shipping_price: "{{ checkout.shipping_method.price | money }}",
+    billing_name: "{{ checkout.billing_address.name }}",
+    billing_country: "{{ checkout.billing_address.country }}",
+    billing_city: "{{ checkout.billing_address.city }}",
+    billing_province: "{{ checkout.billing_address.province }}",
+    billing_zip: "{{ checkout.billing_address.zip }}",
+    discounts: "{{ checkout.discounts_amount | money }}",
+    accepts_marketing: "{{ checkout.buyer_accepts_marketing }}",
+    product_title: [
+      {% for item in checkout.line_items %}
+        "{{ item.title }}"{% if forloop.last == true%}{% else %},{% endif %}
+      {% endfor %}
+    ],
+    product_price: [
+      {% for item in checkout.line_items %}
+        "{{ item.price | money }}"{% if forloop.last == true%}{% else %},{% endif %}
+      {% endfor %}
+    ],
+    product_quantity: [
+      {% for item in checkout.line_items %}
+        "{{ item.quantity }}"{% if forloop.last == true%}{% else %},{% endif %}
+      {% endfor %}
+    ],
+    product_sku: [
+      {% for item in checkout.line_items %}
+        "{{ item.sku }}"{% if forloop.last == true%}{% else %},{% endif %}
+      {% endfor %}
+    ],
+    product_type: [
+      {% for item in checkout.line_items %}
+        "{{ item.product.type }}"{% if forloop.last == true%}{% else %},{% endif %}
+      {% endfor %}
+    ],
+    total_price: "{{ checkout.total_price | money }}"
+  });
+</script>
