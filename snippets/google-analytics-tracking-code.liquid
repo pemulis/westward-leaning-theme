@@ -7,8 +7,12 @@
   ga('create', 'UA-23451607-1', 'auto');
   ga('require', 'displayfeatures');
   ga('require', 'ec');
-  {% if template contains 'product' %}{% include 'google-analytics-product-page' %}{% endif %}
-  {% if template contains 'cart' %}{% include 'google-analytics-cart-page' %}{% endif %}
+  {% if template contains 'product' %}
+    {% include 'google-analytics-product-page' %}
+  {% endif %}
+  {% if template contains 'cart' %}
+    {% include 'google-analytics-cart-page' %}
+  {% endif %}
   if (window.location.href.indexOf("thank_you") > -1) {
     {% include 'google-analytics-thank-you-page' %}
   }
