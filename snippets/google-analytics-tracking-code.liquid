@@ -13,6 +13,9 @@
   {% if template contains 'cart' %}
     {% include 'google-analytics-cart-page' %}
   {% endif %}
+  {% if template contains 'collection' %}
+    {% include 'google-analytics-collection-page' %}
+  {% endif %}
   if (window.location.href.indexOf("thank_you") > -1) {
     {% include 'google-analytics-thank-you-page' %}
   }
