@@ -1,38 +1,482 @@
-<div id='{{ page.handle }}' class='container'>
-  <div class='row'> 
-    <section id='world-map' class='col-md-12 visible-xs'>
-      <img id='world-map-img-mobile' src="{{ 'worldmap.jpg' | asset_url }}" alt="World Map" />
-    </section>
-    <section id='world-map' class='col-md-12 hidden-xs'>
-      <img id='world-map-img' src="{{ 'worldmap.jpg' | asset_url }}" alt="World Map" usemap="#world-map" />
-      <map name="world-map"> 
-        <area id="stores-asia-link"  shape="poly" coords="905, 95, 820, 177, 745, 197, 769, 227, 813, 296, 895, 289, 1054, 407, 1141, 373, 1324, 399, 1323, 4, 905, 44" href="#city-filter" />
-        <area id="stores-europe-link" shape="poly" coords="691, 1, 556, 170, 617, 219, 678, 194, 765, 224, 746, 199, 821, 177, 907, 97, 905, 44" href="#city-filter" />
-        <area id="stores-southern-hemisphere-link"  shape="poly" coords="6, 556, 368, 316, 376, 289, 436, 292, 679, 194, 770, 227, 813, 298, 890, 289, 1055, 408, 1139, 374, 1322, 400, 1322, 556" href="#city-filter" />
-        <area id="stores-north-america-link"  shape="poly" coords="1, 1, 687, 1, 437, 290, 374, 285, 368, 312, 2, 556" href="#city-filter" />
-      </map>
-    </section>
-    
-  </div>
-  <div class='row'>  
-    <section id='city-filter' class='col-md-12 hidden-xs'>
-      <h4>CLICK ON YOUR REGION</h4>
-    </section>
-  </div>
-  <div class='row hidden-xs'>
-    <h1 id="stockists-header" class='col-md-12'>STOCKISTS</h1>
-  </div>
-<section class='stockists-list hidden-xs'>
+<div id='stores' class='container'>
 
-{% include 'stores-southern-hemisphere' %}
-{% include 'stores-europe' %}
-{% include 'stores-asia' %}
-{% include 'stores-north-america' %}
+  <div class="spinner">
+    <div class="dot1"></div>
+    <div class="dot2"></div>
+  </div>
+  
+  <div id='content'>
+  <div id='header-row' class='row'>
+    <div class='dropdown col-sm-4 col-xs-12'>
+      <h1>CHOOSE REGION</h1>
+      <select id='region-select'>
+        <option id='select-us' value='us'>UNITED STATES</option>
+        <option id='select-canada' value='canada'>CANADA</option>
+        <option id='select-europe' value='europe'>EUROPE</option>
+        <option id='select-asia' value='asia'>ASIA</option>
+      </select>
+    </div>
     
-</section>
-<section class='stockists-list visible-xs'>
+    <div id='header' class='col-sm-8 hidden-xs'>
+      <h1 id='header-us'>Westward Leaning Retail Stores, United States</h1>
+      <h1 id='header-canada'>Westward Leaning Retail Stores, Canada</h1>
+      <h1 id='header-europe'>Westward Leaning Retail Stores, Europe</h1>
+      <h1 id='header-asia'>Westward Leaning Retail Stores, Asia</h1>
+    </div>
+  </div>
 
-{% include 'stores-mobile' %}
+	 
+  <div id='us' class='region'>
+   
+    <div class='row'>
+      <div class='col-md-3 col-md-push-9'>
+          <div class='barneys'>
+        {{ 'barneys.jpg' | asset_url | img_tag: "barneys" }}
+        <h1>BARNEYS</h1>
+        <h2>All Locations</h2>
+        </div>
+      </div>
+      <div class='col-md-9 col-md-pull-3'>
+        <div class='row'>
+          <h3>NEW YORK</h3>
+          
+          <div class='location col-xl-3 col-lg-4 col-md-6 col-xs-12'>
+            <h2>Concrete + Water</h2>
+            <p>Brooklyn</p>
+          </div>
+          
+          <div class='location col-xl-3 col-lg-4 col-md-6 col-xs-12'>
+            <h2>Jumelle</h2>
+            <p>Brooklyn</p>
+          </div>
+          
+          <div class='location col-xl-3 col-lg-4 col-md-6 col-xs-12'>
+           <h2>Kaight</h2>
+           <p>Brooklyn</p>
+          </div>
+          
+          <div class='location col-xl-3 col-lg-4 col-md-6 col-xs-12'>
+           <h2>Blue & Cream</h2>
+           <p>East Hamptons</p>
+          </div>
+          
+         <div class='location col-xl-3 col-lg-4 col-md-6 col-xs-12'>
+            <h2>Theory</h2>
+            <p>East Hamptons</p>
+          </div>
+
+          
+          <div class='location col-xl-3 col-lg-4 col-md-6 col-xs-12'>
+            <h2>Opening Ceremony Ace</h2>
+            <p>Flatiron - NYC</p>
+          </div>
+          
+         
+          <div class='location col-xl-3 col-lg-4 col-md-6 col-xs-12'>
+            <h2>Theory</h2>
+            <p>Greenwich Village</p>
+          </div>
+
+          <div class='location col-xl-3 col-lg-4 col-md-6 col-xs-12'>
+             <h2>Saks Fifth Ave</h2>
+             <p>Midtown - NYC</p>
+          </div> 
+          
+          <div class='location col-xl-3 col-lg-4 col-md-6 col-xs-12'>
+            <h2>Sigerson Morrison</h2>
+            <p>Nolita - NYC</p>
+          </div>              
+
+
+          <div class='location col-xl-3 col-lg-4 col-md-6 col-xs-12'>
+            <h2>Opening Ceremony NY</h2>
+            <p>Soho - NYC</p>
+          </div>
+          
+          <div class='location col-xl-3 col-lg-4 col-md-6 col-xs-12'>
+           <h2>Wink NYC</h2>
+           <p>Soho - NYC</p>
+          </div>
+
+          <div class='location col-xl-3 col-lg-4 col-md-6 col-xs-12'>
+           <h2>Theory</h2>
+           <p>South Hamptons</p>
+          </div>
+
+          <div class='location col-xl-3 col-lg-4 col-md-6 col-xs-12'>
+           <h2>Valley</h2>
+           <p>Tribeca - NYC</p>
+          </div>
+
+
+          <div class='location col-xl-3 col-lg-4 col-md-6 col-xs-12'>
+           <h2>Ultimate Spectacle</h2>
+           <p> Upper East Side - NYC</p> 
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+           
+    <div class='row'>
+    <h3>CALIFORNIA</h3>    
+          
+           
+        <div class='location col-xl-3 col-md-4 col-xs-12'>
+         <h2>Capulet</h2>
+         <p>San Francisco</p>
+        </div>
+           
+        <div class='location col-xl-3 col-md-4 col-xs-12'>
+         <h2>Dish Clothing</h2>
+          <p>San Francisco</p>
+        </div> 
+           
+      
+        <div class='location col-xl-3 col-md-4 col-xs-12'>
+         <h2>The Podolls San Francisco</h2>
+         <p>San Francisco</p>
+        </div>
+          
+      <div class='location col-xl-3 col-md-4 col-xs-12'>
+         <h2>Fred Segel</h2>
+         <p>Los Angeles</p> 
+        </div>     
+      
+        <div class='location col-xl-3 col-md-4 col-xs-12'>
+         <h2>Theory</h2>
+         <p>Los Angeles</p> 
+        </div>
+        
+      <div class='location col-xl-3 col-md-4 col-xs-12'>
+         <h2>Mohawk General Store</h2>
+         <p>Los Angeles</p> 
+        </div>
+      
+        
+          <div class='location col-xl-3 col-md-4 col-xs-12'>
+         <h2>Postitive Eyeons</h2>
+         <p>Los Angeles</p> 
+      </div>
+          
+  
+        <div class='location col-xl-3 col-md-4 col-xs-12'>
+         <h2>The Podolls Burlingame</h2>
+         <p>Burlingame</p> 
+        </div>
+      
+        <div class='location col-xl-3 col-md-4 col-xs-12'>
+         <h2>Alexander Grey</h2>
+         <p>Costa Mesa</p> 
+        </div>
+           
+           
+        <div class='location col-xl-3 col-md-4 col-xs-12'>
+         <h2>Las Bella</h2>
+         <p>Long Beach</p> 
+        </div>
+  
+        <div class='location col-xl-3 col-md-4 col-xs-12'>
+         <h2>Hunter Gatherer</h2>
+         <p>Napa</p> 
+        </div>
+ 
+           
+        <div class='location col-xl-3 col-md-4 col-xs-12'>
+         <h2>A'maree's</h2>
+         <p>Newport Beach</p> 
+        </div>
+           
+      
+      <div class='location col-xl-3 col-md-4 col-xs-12'>
+         <h2>Hoff Optometry</h2>
+         <p>Venice</p>   
+        </div>
+           
+        <div class='location col-xl-3 col-md-4 col-xs-12'>
+         <h2>Opening Ceremoney LA</h2>
+         <p>West Hollywood</p> 
+        </div>
+   </div>
+
+   <div class='row'>
+  <h3>ARIZONA</h3>
+  
+        <div class='location col-xl-3 col-md-4 col-xs-12'>
+         <h2>Barneys</h2>
+         <p>Scottsdale</p> 
+        </div>
+   </div>
+         
+   <div class='row'>
+  <h3>COLORADO</h3>
+  
+        <div class='location col-xl-3 col-md-4 col-xs-12'>
+          <h2>BLUSH</h2>
+          <p>Denver</p> 
+        </div>
+   </div>
+           
+  <div class='row'>
+  <h3>FLORIDA</h3>  
     
-</section>
+     <div class='location col-xl-3 col-md-4 col-xs-12'>
+         <h2>Saks Fifth Avenue</h2>
+         <p>Bal Harbor</p> 
+         </div>
+           
+        <div class='location col-xl-3 col-md-4 col-xs-12'>
+         <h2>Barneys</h2>
+         <p>Miami</p> 
+        </div> 
+       
+   </div>
+  
+   <div class='row'>
+  <h3>ILLINOIS</h3>
+ 
+        <div class='location col-xl-3 col-md-4 col-xs-12'>
+         <h2>Barneys</h2>
+         <p>Chicago</p> 
+        </div>
+          
+    </div>
+       
+  <div class='row'>
+  <h3>MINNESOTA</h3>
+  
+        <div class='location col-xl-3 col-md-4 col-xs-12'>
+         <h2>Owl Optics</h2>
+         <p>Minneapolis</p> 
+        </div>
+   </div>
+           
+  <div class='row'>
+  <h3>MASSACHUSSETTS</h3>
+           
+        <div class='location col-xl-3 col-md-4 col-xs-12'>
+         <h2>Barneys</h2>
+         <p>Boston</p>
+        </div>  
+   </div>
+          
+   <div class='row'>
+   <h3>NEVADA</h3>
+  
+        <div class='location col-xl-3 col-md-4 col-xs-12'>
+         <h2>Barneys</h2>
+         <p>Las Vegas</p> 
+        </div>
+  
+        <div class='location col-xl-3 col-md-4 col-xs-12'>
+         <h2>SLS Hotel &amp; Casino</h2>
+         <p>Las Vegas</p> 
+        </div>
+   </div>
+  
+   <div class='row'>
+   <h3>NORTH CAROLINA</h3>
+   
+        <div class='location col-xl-3 col-md-4 col-xs-12'>
+          <h2>Poole Shop</h2>
+          <p>Charlotte</p> 
+         </div>
+   </div>
+ 
+   <div class='row'>
+  <h3>OKLAHOMA</h3>
+  
+        <div class='location col-xl-3 col-md-4 col-xs-12'>
+          <h2>Caymans Collection</h2>
+          <p>Norman</p> 
+         </div>         
+   </div>
+  
+   <div class='row'>
+   <h3>PENNSYLVANIA</h3>
+  
+        <div class='location col-xl-3 col-md-4 col-xs-12'>
+          <h2>Barneys</h2>
+          <p>Philidelphia</p> 
+         </div>
+   </div>
+         
+  
+  <div class='row'>
+  <h3>WASHINGTON</h3>
+  
+        <div class='location col-xl-3 col-md-4 col-xs-12'>
+           <h2>Barneys</h2>
+           <p>Seattle</p> 
+          </div>
+  
+        <div class='location col-xl-3 col-md-4 col-xs-12'>
+           <h2>Les Amis</h2>
+           <p>Seattle</p> 
+          </div>
+  
+        <div class='location col-xl-3 col-md-4 col-xs-12'>
+           <h2>Seattle Eye</h2>
+           <p>Seattle</p> 
+          </div>
+   </div>
+  
+   <div class='row'>
+  <h3>WASHINGTON, D.C.</h3>
+  
+        <div class='location col-xl-3 col-md-4 col-xs-12'>
+           <h2>Barneys</h2>
+           <p>Washington, D.C.</p> 
+          </div>
+   </div>
+         
+   <div class='row'>
+  <h3>WYOMING</h3>
+  
+        <div class='location col-xl-3 col-md-4 col-xs-12'>
+            <h2>Wool and Whiskey</h2>
+            <p>Jackson</p> 
+           </div>
+   </div>
+           
+ </div>       
+  
+ <div id='canada' class='row region'>
+  
+   <div class='row'>
+	   <h3>BRITISH COLUMBIA</h3>
+        <div class='location col-xl-3 col-md-4 col-xs-12'>
+           <h2>Holt Renfrew</h2>
+           <p>Vancouver</p> 
+          </div>
+   </div>
+   
+  <div class='row'>
+        <h3>MANITOBA</h3>
+        <div class='location col-xl-3 col-md-4 col-xs-12'>
+           <h2>G is for Glasses</h2>
+           <p>Winnipeg</p> 
+          </div>
+   </div>
+    
+   <div class='row'>
+        <h3>ONTARIO</h3>
+        <div class='location col-xl-3 col-md-4 col-xs-12'>
+           <h2>Holt Renfrew</h2>
+           <p>Toronto</p> 
+          </div>
+   </div>
+  
+ </div>  
+
+ <div id='europe' class='row region'>
+
+   <div class='row'>
+   <h3>FRANCE</h3>
+   <div class='location col-xl-3 col-md-4 col-xs-12'>
+     <h2>Colette</h2>
+     <p>Paris</p> 
+   </div>
+     
+     <div class='location col-xl-3 col-md-4 col-xs-12'>
+     <h2>Theory</h2>
+     <p>Paris</p> 
+   </div>
+   
+   <div class='location col-xl-3 col-md-4 col-xs-12'>
+     <h2>The Box</h2>
+     <p>Saint Tropez</p> 
+   </div>
+   </div>
+
+   <div class='row'>
+   <h3>GERMANY</h3>
+   <div class='location col-xl-3 col-md-4 col-xs-12'>
+     <h2>Soho House</h2>
+     <p>Berlin</p> 
+   </div>
+     
+     <div class='location col-xl-3 col-md-4 col-xs-12'>
+     <h2>Helma Interior</h2>
+     <p>Heidlberg</p> 
+   </div>
+     
+   </div>
+   
+   <div class='row'>
+   <h3>UNITED KINGDOM</h3>        
+   
+     <div class='location col-xl-3 col-md-4 col-xs-12'>
+     <h2>Arthur Morrice Opticians</h2>
+     <p>Chelsea</p> 
+   </div>
+     
+     <div class='location col-xl-3 col-md-4 col-xs-12'>
+     <h2>Arthur Morrice Opticians</h2>
+     <p>Hamstead</p> 
+   </div>
+     
+     
+     <div class='location col-xl-3 col-md-4 col-xs-12'>
+     <h2>Arthur Morrice Opticians</h2>
+     <p>Knightsbridge</p> 
+   </div>
+     
+     <div class='location col-xl-3 col-md-4 col-xs-12'>
+     <h2>Opening Ceremony London</h2>
+     <p>London</p> 
+   </div>
+     
+     <div class='location col-xl-3 col-md-4 col-xs-12'>
+     <h2>Fenwick Limited</h2>
+     <p>London</p> 
+   </div>
+     
+      <div class='location col-xl-3 col-md-4 col-xs-12'>
+     <h2>Arthur Morrice Opticians</h2>
+     <p>Marylebone</p> 
+   </div>
+     
+   </div>
+  
+ </div>  
+  
+ <div id='asia' class='row region'>
+
+
+   <div class='row'>
+   <h3>JAPAN</h3>
+   <div class='location col-xl-3 col-md-4 col-xs-12'>
+     <h2>Theory</h2>
+     <p>Tokyo</p> 
+   </div>
+   </div>
+
+   <div class='row'>
+   <h3>TAIWAN</h3>
+
+     <div class='location col-xl-3 col-md-4 col-xs-12'>
+     <h2>Artifacts</h2>
+     <p>Taichung</p> 
+   </div>
+     
+      <div class='location col-xl-3 col-md-4 col-xs-12'>
+     <h2>Artifacts</h2>
+     <p>Taipei City</p> 
+   </div>
+
+   <div class='location col-xl-3 col-md-4 col-xs-12'>
+     <h2>Eric's Optical</h2>
+     <p>Taipei City</p> 
+   </div>
+
+   <div class='location col-xl-3 col-md-4 col-xs-12'>
+     <h2>Visual Tech Optical</h2>
+     <p>Taipei City</p> 
+   </div>
+   </div>
+
+</div>
+</div>
 </div>
