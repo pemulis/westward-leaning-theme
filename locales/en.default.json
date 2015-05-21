@@ -1,1 +1,1 @@
-{}
+{"shopify":{"errors":{"discount_disabled":"This code has been disabled","discount_expired":"This code is not valid anymore"},"checkout":{"order_summary":{"show_discount_form_link_label":"Have a gift or discount code? Click here to enter it","discount_placeholder":"Gift or discount code"}}}}

@@ -1,6 +1,9 @@
-ga('ec:addImpression', {
+ga('ec:addProduct', {
   'id': '{{ product.variants[0].sku }}',
   'name': '{{ product.title }} {{ product.variants[0].title }}',
   'category': '{{ product.type }}',
-  'brand': 'Westward Leaning'
+  'brand': 'Westward Leaning',
+  'variant': '{{ product.variants[0].title }}'
 });
+
+ga('ec:setAction', 'detail');

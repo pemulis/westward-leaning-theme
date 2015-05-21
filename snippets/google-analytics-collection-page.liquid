@@ -1,0 +1,10 @@
+{% for product in collection.products %}
+ga('ec:addImpression', {
+  'id': '{{ product.variant.sku }}',
+  'name': '{{ product.title }} {{ product.variants[0].title }}',
+  'category': '{{ product.type }}',
+  'brand': 'Westward Leaning',
+  'variant': '{{ product.variants[0].title }}',
+  'list': '{{ collection.title }}'
+});
+{% endfor %}
