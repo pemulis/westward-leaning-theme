@@ -15,7 +15,7 @@
 	        </tr>
 			{% for item in cart.items %} 
 	        <tr>
-              <td><a href='{{ item.product.url }}'><img class='cart-item' src="{{ item.product.featured_image.src | product_img_url: 'compact' }}" alt="{{ item.title | escape }}"> <br> {{ item.product.type }} \\ {{ item.variant.option2 | escape }}</a></td>
+              <td><a href='{{ item.product.url }}'><img class='cart-item' src="{{ item.product.featured_image.src | product_img_url: 'compact' }}" alt="{{ item.title | escape }}"> <br> {{ item.product.title | escape }} \\ {{ item.variant.option2 | escape }}</a></td>
 	          <td>{{ item.price | money }}</td>
 	          <td class='product-quantity'>
                 <input class="text quantity replace updates-quantity" type="text" size="4" id="updates_{{ item.id }}" name="updates[{{ item.id }}]" value="{{ item.quantity }}" onchange="updateQuantity();" />

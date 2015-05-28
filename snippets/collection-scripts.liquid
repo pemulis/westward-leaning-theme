@@ -1,1 +1,10 @@
 {% include 'grid-navbar-scripts' %}
+
+<script>
+  $('.product-wrapper').hover( function() {
+      $(this).find('.quick-buy').removeClass('hidden');
+    }, function() {
+      $(this).find('.quick-buy').addClass('hidden');
+    }
+  );
+</script>

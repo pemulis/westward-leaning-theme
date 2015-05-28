@@ -114,7 +114,7 @@ b, strong {
   font-family: 'WWLlogo';
   font-weight: normal;
   a {
-    font-size: 26px;
+    font-size: 28px;
     color: white;
     text-decoration: none;
   }
@@ -194,15 +194,7 @@ b, strong {
       background-color: #DDD;
     }
   }
-  /*
-  #top-menu, #sticky-mini-menu {
-    .dropdown:hover {
-      .dropdown-menu {
-        display: block;
-      }
-    }
-  }
-  */
+  
   #top-menu .dropdown-menu, #sticky-mini-menu .dropdown-menu {
     li {
       background-color: #DDD;
@@ -219,6 +211,43 @@ b, strong {
 @media only screen and (max-width: $screen-xs-max) {
   #top-menu .dropdown-menu {
     padding-left: 24px;
+  }
+}
+
+
+#free-shipping-banner, #free-shipping-banner-collection , #free-shipping-banner-index {
+  background-color: white;
+  width: 100%;
+  height: 14px;
+  margin-bottom: 0;
+  p {
+    text-align: center;
+    padding-top: 0;
+    font-family: 'WWLheavy';
+    font-size: 12px;
+    letter-spacing: 2px;
+    &:hover {
+      cursor: default;
+    }
+  }
+}
+
+#free-shipping-banner-index {
+  height: 25px;
+  margin-bottom: 4px;
+}
+
+#free-shipping-banner-index p {
+  padding-top: 7px;
+}
+ 
+@media screen and (max-width: $screen-xs-max) {
+  #free-shipping-banner-index { 
+    display: none; 
+  }
+  
+  #free-shipping-banner-collection {
+    display: none;
   }
 }
 
@@ -764,22 +793,16 @@ ul.cross-sell > li > a { margin: 0px; display: block; width: 100%; height: 100%;
 
 /* Styles for the product collection grid. */
 
-#collection a {
-  outline: 0;
-  &:hover {
-    color: #222;
-    background-color: #FFF;
+#product-grid {
+  p {
+    text-align: center;
+    margin-top: 80px;
   }
 }
 
-#product-grid p {
-  text-align: center;
-  margin-top: 80px;
-}
-
 .product-thumb {
-  width: 100%;//220px;
-  height: 196px;//196px;
+  width: 100%;
+  height: 222px;
   float: left;
   margin-right: 0px;
   margin-left: 5px;
@@ -787,7 +810,6 @@ ul.cross-sell > li > a { margin: 0px; display: block; width: 100%; height: 100%;
   list-style-type: none;
   text-align: center;
   img {
-    //max-height: 96px;
     width: 100%;
   }
   h2 {
@@ -796,8 +818,10 @@ ul.cross-sell > li > a { margin: 0px; display: block; width: 100%; height: 100%;
     border: none;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 4px;
-    padding: 0px;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 20px;
+    padding-bottom: 4px;
   }
   aside {
     font-size: 13px;
@@ -819,13 +843,15 @@ ul.cross-sell > li > a { margin: 0px; display: block; width: 100%; height: 100%;
   }
 }
 
+a.product-link:hover {
+  color: inherit;
+  background-color: inherit;
+}
+
 #collections-listing {
   a {
     outline: 0;
-    &:hover {
-      color: inherit;
-      background-color: #FFF;
-    }
+    text-decoration: none;
   }
   img {
     margin-left: auto;
@@ -837,22 +863,20 @@ ul.cross-sell > li > a { margin: 0px; display: block; width: 100%; height: 100%;
   }
 }
 
-.collection-title {
-  width: 90%;
-  margin-left: 5%;
-  margin-right: 5%;
-  padding-top: 12px;
-  padding-bottom: 10px;
+a.quick-buy {
+  width: 64px;
+  color: white;
+  font-family: 'WWLheavy';
+  display: block;
+  background-color: black;
+  text-decoration: none;
   text-align: center;
-  font-size: 24px;
-  border-top: 1px solid #AAA;
-  border-bottom: 1px solid #AAA;
-  text-transform: uppercase;
-  @media screen and (min-width: 800px) {
-    width: 50%;
-    margin-left: 25%;
-    margin-right: 25%;
-  }
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 12px;
+  padding-top: 6px;
+  padding-bottom: 3px;
+  font-size: 12px;
 }
 
 
@@ -1751,7 +1775,9 @@ iframe {
 
 .tumblr-iframe {
   width: 100%; 
-  margin-left: 0;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-left: 0px;
   margin-right: 0;
   margin-bottom: 0;
   margin-top: -40px;
@@ -2757,8 +2783,8 @@ a.faq-header-link {
   font-size: 25px;
   color: #000000;
   font-family: 'WWLHEAVY', sans-serif;
-  margin-top: 4%;
-  margin-left: 1%;
+  margin-top: 24px;
+  margin-left: 15px;
 }
 
 #stores #header-row {
@@ -2910,6 +2936,7 @@ a.faq-header-link {
 @media screen and (max-width: $screen-sm-max) {
   #stores h3 {
     text-align: center;
+    margin-left: 0px;
   }
   
   #stores .location {

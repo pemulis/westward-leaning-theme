@@ -1,4 +1,12 @@
-	<div id='header-ribbon' class='hidden-xs'><a href='/'>{{ shop.name }}</a></div>
+{% if template contains 'index' %}
+  <div id='free-shipping-banner-index'>
+      <p>Free Worldwide Shipping on All Orders</p>  
+  </div>
+{% else %}
+  <!-- Do nothing. -->
+{% endif %}
+
+  <div id='header-ribbon' class='hidden-xs'><a href='/'>{{ shop.name }}</a></div>
     <nav class='navbar navbar-default' role='navigation'>
 		<div class='navbar-header'>
         	<button type='button' class='navbar-toggle' data-toggle='collapse' data-target='#top-menu'>
@@ -63,3 +71,28 @@
         </ul>
       </nav>
     </div>
+{% if template contains 'index' %}
+  <!-- Do nothing. -->
+{% elsif template contains 'cart' %}
+  <!-- Do nothing. -->
+{% elsif template contains 'stores' %}
+  <!-- Do nothing. -->
+{% elsif template contains 'article' %}
+  <!-- Do nothing. -->
+{% elsif template contains 'page' %}
+  {% if template contains 'lookbook' %}
+    <div id='free-shipping-banner'>
+      <p>Free Worldwide Shipping on All Orders</p>  
+    </div>
+  {% else %}
+    <!-- Do nothing. -->
+  {% endif %}
+{% elsif template contains 'collection' %}
+  <div id='free-shipping-banner-collection'>
+      <p>Free Worldwide Shipping on All Orders</p>  
+  </div>
+{% else %}
+  <div id='free-shipping-banner'>
+      <p>Free Worldwide Shipping on All Orders</p>  
+  </div>
+{% endif %}

@@ -20,9 +20,10 @@
 	{% endif %}
 {% endfor %}
 
-<a href='{{ product.url }}'>
-  <li class='product-thumb'>
+<div class='product-wrapper col-xl-3 col-lg-4 col-md-4 col-sm-6 col-xs-12 {% for tag in product.tags %}{{ tag | handleize }} {% endfor %}'>
 
+  <li class='product-thumb'>
+	<a href='{{ product.url }}' class='product-link'>
   	  <img src="{{ product.featured_image.src | product_img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}"  class='img-response'/>
       <h2>
         {% if product.type == 'Voyager' %}
@@ -104,5 +105,10 @@
         {% endif %}
 	    {% comment %}{% if on_sale %}<span class="compare-at-price"><del>{{ product.compare_at_price | money }}</del></span>{% endif %}{% endcomment %}
 	  </aside>
+    </a>
+
+    {% if product.available %}
+      <a href="https://www.westwardleaning.com/cart/add" onclick="var f = document.createElement('form'); f.style.display = 'none'; this.parentNode.appendChild(f); f.method = 'POST'; f.action = this.href; var v = document.createElement('input'); v.setAttribute('type', 'hidden'); v.setAttribute('name', 'id'); v.setAttribute('value', '{{ product.first_available_variant.id }}'); f.appendChild(v); f.submit(); return false;" class='quick-buy hidden'>BUY</a>
+    {% endif %}
   </li>
-</a>
+</div>
