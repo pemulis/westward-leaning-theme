@@ -4,11 +4,16 @@
 		{% include 'grid-nav-left' %}
       </nav>
       <section id='product-grid-container' class='col-xs-12 col-sm-8 col-md-8 col-lg-8 col-xl-6 col-xl-offset-1'>
+        {% paginate collection.products by 48 %}
         <ul id='product-grid' class='row row-no-padding'>
           {% for product in collection.products %}
               {% include 'product-grid-item' %}
 	      {% endfor %}
           </ul>
+        <p id='pagination'>
+          {{ paginate | default_pagination }}
+        </p>
+        {% endpaginate %}
       </section>
     </div>
 </div>

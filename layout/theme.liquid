@@ -25,10 +25,21 @@
 	<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
 	<![endif]-->
     <title>
-      {{ page_title }}{% if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif %}{% if current_page != 1 %} &ndash; Page {{ current_page }}{% endif %} &mdash; Westward \\ Leaning
+      {% if template contains 'index' %}
+      	Westward Leaning
+      {% elsif template contains 'collection' %}
+        Westward Leaning - {{ page_title }}
+      {% elsif template contains 'lookbook' %}
+        Westward Leaning - Street Style
+      {% else %}
+        Westward Leaning - {{ page_title }}
+      {% endif %}
     </title>
     {% if page_description %}
       <meta name="description" content="{{ page_description | escape }}" />
+    {% endif %}
+    {% if template contains 'list-collections' %}
+      <meta name="robots" content="noindex">
     {% endif %}
     <!-- Pingdom uptime tracking. -->
     {% include 'pingdom-rum' %}
@@ -96,5 +107,8 @@
   
 <!-- Lytics scripts. -->
 {% include 'lytics-bottom-scripts' %}
+  
+<!-- AdRoll pixel. -->
+{% include 'adroll-pixel' %}
 </body>
 </html>

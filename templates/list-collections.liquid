@@ -1,17 +1,16 @@
-<div id='collections-listing' class='container'>
+<div id='collections-listing' class='fluid-container'>
   {% for link in linklists.featured-collections.links %}
   {% assign collection = link.object %}
     <div class='row'>
-      <section class='col-md-10 col-md-offset-1 col-sm-12'>
-        <div>
-        <ul id='product-grid'>
+      <nav id='grid-nav-left' class='col-sm-4 col-md-3 col-lg-3 col-xl-2 hidden-xs'>
+		{% include 'grid-nav-left' %}
+      </nav>
+      <section id='product-grid-container' class='col-xs-12 col-sm-8 col-md-8 col-lg-8 col-xl-6 col-xl-offset-1'>
+        <ul id='product-grid' class='row row-no-padding'>
           {% for product in collection.products %}
-            <div class='product-wrapper {% for tag in product.tags %}{{ tag | handleize }} {% endfor %}'>
               {% include 'product-grid-item' %}
-            </div>
 	      {% endfor %}
           </ul>
-        </div>
       </section>
     </div>
   {% endfor %}
