@@ -236,7 +236,6 @@ b, strong {
 
 #free-shipping-banner-index {
   height: 25px;
-  margin-bottom: 4px;
 }
 
 #free-shipping-banner-index p {
@@ -327,7 +326,7 @@ footer {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: url({{ 'concorde_homepage.jpg' | asset_url }}) no-repeat center; 
+  background: url({{ 'homepage_lineup_vanguard.jpg' | asset_url }}) no-repeat center; 
   -webkit-background-size: contain;
   -moz-background-size: contain;
   -o-background-size: contain;
@@ -399,7 +398,7 @@ footer {
 
 @media screen and (min-width: 701px) and (max-width: 1000px) {
   #homepage #full-screen { 
-    background: url({{ 'concorde_homepage_ipad.jpg' | asset_url }}) no-repeat center center fixed;
+    background: url({{ 'homepage_ipad_vanguard.jpg' | asset_url }}) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -409,7 +408,7 @@ footer {
 
 @media screen and (max-width: 700px) {
   #homepage #full-screen { 
-    background: url({{ 'concorde_homepage_mobile.jpg' | asset_url }}) no-repeat center center fixed;
+    background: url({{ 'homepage_ipad_vanguard.jpg' | asset_url }}) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -419,7 +418,7 @@ footer {
 
 @media screen and (max-width: 700px) and (min-aspect-ratio: 1/5) and (max-aspect-ratio: 3/5)  {
   #homepage #full-screen { 
-    background: url({{ 'concorde_homepage_mobile_notext.jpg' | asset_url }}) no-repeat center center fixed;
+    background: url({{ 'homepage_ipad_vanguard.jpg' | asset_url }}) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -427,9 +426,9 @@ footer {
   }
 }
 
-@media screen and (min-width: 1001px) and (min-aspect-ratio: 18/9)  {
+@media screen and (min-width: 1001px) and (min-aspect-ratio: 13/9)  {
   #homepage #full-screen { 
-    background: url({{ 'concorde_homepage_notext.jpg' | asset_url }}) no-repeat center center fixed;
+    background: url({{ 'homepage_desktop_wide_vanguard.jpg' | asset_url }}) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -860,8 +859,8 @@ a.product-link:hover {
     margin-right: auto;
   }
   #product-grid {
-    margin-top: 16px;
-    margin-bottom: 16px;
+    margin-top: 8px;
+    margin-bottom: 8px;
   }
 }
 
@@ -882,7 +881,9 @@ a.quick-buy {
 }
 
 #pagination {
-  font-size: 16px;
+  font-size: 24px;
+  margin-top: 0;
+  padding-top: 0;
   width: 100%;
   text-align: right;
   text-transform: uppercase;
