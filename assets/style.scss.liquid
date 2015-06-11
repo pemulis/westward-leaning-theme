@@ -151,9 +151,11 @@ b, strong {
 #top-menu {
   position: relative;
   text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 #sticky-mini-menu {
+  letter-spacing: 1px;
   position: fixed;
   top: 0px;
   left: 0px;
@@ -883,21 +885,38 @@ a.quick-buy {
 #pagination {
   font-size: 24px;
   margin-top: 0;
-  padding-top: 0;
   width: 100%;
   text-align: right;
   text-transform: uppercase;
   .page {
     display: none;
+    a {
+      padding-top: 6px;
+      padding-left: 2px;
+      padding-right: 2px;
+      margin: 0;
+    }
   }
   .deco {
     display: none;
   }
   .next {
     text-align: right;
+    a {
+      padding-top: 6px;
+      padding-left: 2px;
+      padding-right: 2px;
+      margin: 0;
+    }
   }
   .prev {
     text-align: left;
+    a {
+      padding-top: 6px;
+      padding-left: 2px;
+      padding-right: 2px;
+      margin: 0;
+    }
   }
 }
 
@@ -992,6 +1011,7 @@ a.quick-buy {
     text-decoration: none;
   }
   li {
+    letter-spacing: 1px;
     max-width: 100%;
     list-style-type: none;
     text-align: right;
@@ -1012,7 +1032,7 @@ a.quick-buy {
     }
     &.frame-select {
       text-align: center;
-      width: 160px;
+      width: 200px;
       float: right;
       clear: right;
       opacity: 0.6;
@@ -1028,12 +1048,13 @@ a.quick-buy {
 }
 
 .grid-nav-left-divider {
+  letter-spacing: 1px;
   text-transform: uppercase;
   text-align: center;
   font-style: italic;
   font-family: 'WWLstandard';
   color: #777;
-  width: 160px;
+  width: 200px;
   float: right;
   clear: right;
   margin-top: 12px;
