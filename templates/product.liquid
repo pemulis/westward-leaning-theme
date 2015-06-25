@@ -51,6 +51,18 @@
           <!-- No model number. -->
         {% elsif product.type contains 'WL X' %}
           <!-- No model number. -->
+        {% elsif product.title contains 'Gift Card' %}
+          <!-- No model number. -->
+        {% elsif product.title contains 'The Pencil Set' %}
+          <!-- No model number. -->
+        {% elsif product.title contains 'Pocket-Sized Case' %}
+          <!-- No model number. -->
+        {% elsif product.title contains 'Bridge Fit' %}
+          <!-- No model number. -->
+        {% elsif product.title contains 'Playing Cards' %}
+          <!-- No model number. -->
+        {% elsif product.title contains 'Small and Large Size' %}
+          <!-- No model number. -->
         {% elsif product.type contains 'Pioneer X' %}
           <em>{{ collab }}</em>
         {% elsif product.type contains 'Voyager X' %}
@@ -97,7 +109,7 @@
       	  {% if product.compare_at_price > product.price %}
           <span class="product-price on-sale">{{ product.price | money }}</span> <span class="product-compare-price"><del>{{ product.compare_at_price_max | money }}</del></span>
       	  {% elsif product.type == 'W\\L Gift Card' %}
-          <span class="product-price">$50 - $200</span>
+          <span class="product-price">$50 - $300</span>
           {% else %}
           <span class="product-price">{{ product.price | money | remove: '.00' }}</span>
           {% endif %}

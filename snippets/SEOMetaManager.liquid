@@ -1,4 +1,4 @@
-{% comment %} SEO Meta Manager - v3.0 {% endcomment %}
+{% comment %} SEO Meta Manager - v3.1 {% endcomment %}
 {% assign maxmeta = 155 %}
 {% assign metaControl = false %}
 {% if template contains 'product' %}
@@ -12,10 +12,18 @@
 	{% assign defaultTitle = page_title %}
 	{% assign defaultDescription = page_description %}
 {% elsif template contains 'collection' %}
-	{% assign metaControl = true %}
-	{% assign metaArray = collection.metafields.SEOMetaManager %}
-	{% assign defaultTitle = page_title %}
-	{% assign defaultDescription = page_description %}
+	{% comment %} condition for 'collections/all' {% endcomment %}
+	{% if collection.title == 'Products' %}
+		{% assign metaControl = true %}
+		{% assign metaArray = shop.metafields.SEOMetaManager %}
+		{% assign defaultTitle = shop.name %}
+		{% assign defaultDescription = shop.description %}
+	{% else %}
+		{% assign metaControl = true %}
+		{% assign metaArray = collection.metafields.SEOMetaManager %}
+		{% assign defaultTitle = page_title %}
+		{% assign defaultDescription = page_description %}
+	{% endif %}	
 {% elsif template contains 'article' %}
 	{% assign metaControl = true %}
 	{% assign metaArray = article.metafields.SEOMetaManager %}
@@ -39,8 +47,8 @@
 {% endif %}
 
 {% if metaControl == true %}	    
-	{% if metaArray == empty || metaArray == nil %}
-		<!-- SEO Meta Manager 3.0 (default data mode) -->
+	{% if metaArray == empty or metaArray == nil %}
+		<!-- SEO Meta Manager 3.1 (default data mode) -->
 		{% if page_title != '' %}
 			<title>{{ page_title | escape }}</title>
 		{% else %}
@@ -48,7 +56,7 @@
 		{% endif %}
 			<meta name='description' content='{{defaultDescription | strip_html | strip_newlines | truncate: maxmeta | escape}}' />
 	{% else %}
-        <!-- SEO Meta Manager 3.0 -->
+        <!-- SEO Meta Manager 3.1 -->
 		{% for keyVal in metaArray %}
 			{% capture key%}{{keyVal | first}}{%endcapture%}
 			{% capture value %}{{keyVal | last}}{% endcapture %}
@@ -59,4 +67,9 @@
 			{% endcase %}
 		{% endfor %}
 	{% endif %}	
+
+{% else %}	
+	<!-- SEO Meta Manager 3.1 (default data mode - non controlled page) -->
+	<title>{{shop.name}}</title>
+	<meta name='description' content='{{shop.description | strip_html | strip_newlines | truncate: maxmeta | escape}}' />
 {% endif %}

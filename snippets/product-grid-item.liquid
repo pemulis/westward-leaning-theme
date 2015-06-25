@@ -59,6 +59,8 @@
           <!-- No model number. -->
         {% elsif product.type contains 'Voyager X' %}
           <!-- No model number. -->
+        {% elsif model == '\\' %}
+          <!-- No model number. -->
         {% elsif set %}
           {{ set }}
         {% elsif special_project %}
@@ -95,10 +97,8 @@
       <aside>
         {% comment %}{% if product.price_varies %}From {% endif %}{% endcomment %}
         {% if product.title == "Gift Card" %}
-          $50 - $200
+          $50 - $300
         {% elsif product.available %}
-          {{ product.price | money | remove: '.00' }}
-        {% elsif launch_collection %}
           {{ product.price | money | remove: '.00' }}
         {% else %}
           {{ product.price | money | remove: '.00' }} - SOLD OUT
