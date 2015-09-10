@@ -11,6 +11,8 @@ $screen-lg-min: 1200px;
 $screen-md-max: ($screen-lg-min - 1);
 $screen-xl-min: 1600px;
 $screen-lg-max: ($screen-xl-min - 1);
+$screen-xxl-min: 2200px;
+$screen-xl-max: ($screen-xxl-min - 1);
 
 
 /* A few high-level styles, mostly having to do with fonts. */ 
@@ -22,7 +24,7 @@ body {
 
 h1 {
   font-family: 'WWLheavy', sans-serif;
-  font-size: 26px;
+  font-size: 16px;
 }
 
 h2 {
@@ -30,7 +32,7 @@ h2 {
   border-bottom: 1px solid #777;
   padding-left: 0px;
   padding-top: 10px;
-  padding-bottom: 10px;
+  padding-bottom: 0px;
   font-family: 'WWLheavy';
   font-size: 18px;
   color: #777;
@@ -80,7 +82,7 @@ b, strong {
 }
 
 
-/* Styles for two-column pages. NOTE: THIS IS USED ONLY IN PDPs, I THINK. SHOULD BE REFACTORED TO REFLECT THAT. */
+/* Styles for two-column pages, used primarily for product pages. */
 
 .left-col {
   padding-top: 50px;
@@ -101,7 +103,7 @@ b, strong {
 }
 
 /* Styles for the top navigation menu. */
-
+ 
 .navbar {
   border: none;
 }
@@ -127,6 +129,7 @@ b, strong {
 .navbar-brand {
   font-family: 'WWLlogo';
   text-decoration: none;
+  text-transform: uppercase;
   color: white;
 }
 
@@ -218,7 +221,6 @@ b, strong {
   }
 }
 
-
 #free-shipping-banner, #free-shipping-banner-collection , #free-shipping-banner-index {
   background-color: white;
   width: 100%;
@@ -243,15 +245,41 @@ b, strong {
 #free-shipping-banner-index p {
   padding-top: 7px;
 }
+
+#collection-banner {
+  width: 100%;
+  height: 100px;
+  margin-top: -20px;
+  padding: 0;
+  text-align: center;
+  overflow: hidden;
+  img {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%,0);
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+  }
+}
  
 @media screen and (max-width: $screen-xs-max) {
   #free-shipping-banner-index { 
     display: none; 
   }
   
-  #free-shipping-banner, #free-shipping-banner-collection {
+  #free-shipping-banner, #free-shipping-banner-collection, #collection-banner {
     display: none;
   }
+}
+
+@media screen and (max-width: $screen-sm-max) {
+  #collection-banner {
+    display: none;
+  }
+}
+
+.shop-name {
+  text-transform: uppercase;
 }
 
 /* Styles for the footer. */
@@ -262,6 +290,7 @@ footer {
   width: 100%;
   position: fixed;
   z-index: 4;
+  text-transform: uppercase;
   li {
     list-style-type: none;
     float: right;
@@ -323,17 +352,27 @@ footer {
 
 
 #full-screen {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: url({{ 'homepage_lineup_vanguard.jpg' | asset_url }}) no-repeat center; 
-  -webkit-background-size: contain;
-  -moz-background-size: contain;
-  -o-background-size: contain;
-  background-size: contain;
-  z-index: -1;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  z-index: -100;
+}
+
+video#bgvid {
+  position: absolute;
+  top: 50%; 
+  left: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  min-width: 100vw;
+  min-height: 100vh;
+  z-index: -10;
 }
 
 
@@ -365,6 +404,8 @@ footer {
   margin-left: auto;
   margin-right: auto;
   padding-bottom: 24px;
+  margin-top: 76vh;
+  padding-top: 0;
   max-width: 475px;
 }
 
@@ -398,52 +439,33 @@ footer {
   }
 }
 
-@media screen and (min-width: 701px) and (max-width: 1000px) {
+@media screen and (max-device-width: 800px) {
   #homepage #full-screen { 
-    background: url({{ 'homepage_ipad_vanguard.jpg' | asset_url }}) no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
+    background-image: url({{ 'fall_2015_mobile_vertical.jpg' | asset_url }});
     background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
   }
+  #bgvid { display: none; }
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 800px) {
   #homepage #full-screen { 
-    background: url({{ 'homepage_ipad_vanguard.jpg' | asset_url }}) no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
+    background-image: url({{ 'fall_2015_mobile_vertical.jpg' | asset_url }});
     background-size: cover;
-  }
+    background-repeat: no-repeat;
+    background-position: center center;
+    /*background: url({{ 'fall_2015_mobile_vertical.jpg' | asset_url }}) #000 no-repeat center center cover;  */
+  } 
+  #bgvid { display: none; }
 }
-
-@media screen and (max-width: 700px) and (min-aspect-ratio: 1/5) and (max-aspect-ratio: 3/5)  {
-  #homepage #full-screen { 
-    background: url({{ 'homepage_ipad_vanguard.jpg' | asset_url }}) no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-  }
-}
-
-@media screen and (min-width: 1001px) and (min-aspect-ratio: 13/9)  {
-  #homepage #full-screen { 
-    background: url({{ 'homepage_desktop_wide_vanguard.jpg' | asset_url }}) no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-  }
-}
-
 
 
 /* Styles for the individual product pages. */
 
 #product h1 {
-  font-size: 26px;
+  font-size: 24px;
+  letter-spacing: 1px;
   clear: both;
 }
 
@@ -544,7 +566,7 @@ footer {
 
 .model-details {
   font-family: 'WWLheavy';
-  font-size: 18px;
+  font-size: 16px;
 }
 
 #converted-currency {
@@ -596,6 +618,7 @@ footer {
   padding-bottom: 3px;
   padding-top: 6px;
   font-size: 18px;
+  letter-spacing: 1px;
 }
 
 .disabled {
@@ -616,6 +639,7 @@ footer {
   margin-left: auto;
   margin-right: auto;
   font-size: 18px;
+  letter-spacing: 1px;
 }
 
 #exclusive {
@@ -693,6 +717,10 @@ footer {
 
 .nav-tabs>li>a {
   color: #444;
+}
+
+p.product-note {
+  
 }
 
 @media screen and (max-width: $screen-xs-max) {
@@ -816,7 +844,8 @@ ul.cross-sell > li > a { margin: 0px; display: block; width: 100%; height: 100%;
     width: 100%;
   }
   h2 {
-    font-size: 14px;
+    font-size: 20px;
+    letter-spacing: 1px;
     font-family: 'WWLstandard';
     border: none;
     margin-left: auto;
@@ -827,7 +856,7 @@ ul.cross-sell > li > a { margin: 0px; display: block; width: 100%; height: 100%;
     padding-bottom: 4px;
   }
   aside {
-    font-size: 13px;
+    font-size: 16px;
     font-family: 'WWLheavy';
     &.material, &.model {
       font-family: 'WWLstandard';
@@ -838,11 +867,20 @@ ul.cross-sell > li > a { margin: 0px; display: block; width: 100%; height: 100%;
     width: 190px;
     height: 182px;
     h2 {
-      font-size: 13px;
+      font-size: 18px;
+    }
+    aside {
+      font-size: 14px;
     }
     img {
       min-height: 0px;
     }
+  }
+  @media only screen and (min-width: $screen-xl-min) and (max-width: $screen-xl-max) {
+    height: 228px;
+  }
+  @media only screen and (min-width: $screen-xxl-min) {
+    height: 256px;
   }
 }
 
@@ -876,10 +914,12 @@ a.quick-buy {
   text-align: center;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 12px;
-  padding-top: 6px;
-  padding-bottom: 3px;
-  font-size: 12px;
+  margin-top: 4px;
+  padding-top: 4px;
+  padding-bottom: 2px;
+  font-size: 13px;
+  letter-spacing: 1px;
+  display: none; // hiding this feature now
 }
 
 #pagination {
@@ -925,7 +965,7 @@ a.quick-buy {
 
 #collections-listing-navigation-mobile {
   position: relative;
-  margin-top: -8px;
+  margin-top: -32px;
   margin-left: -38px;
   background-color: #c8c8c8;
   height: 48px;
@@ -1005,7 +1045,8 @@ a.quick-buy {
   display: block;
   height: 100%;
   border-right: 1px solid #CCC;
-  padding-right: 48px;
+  padding-right: 36px;
+  padding-left: 12px;
   margin-top: 24px;
   a {
     text-decoration: none;
@@ -1016,9 +1057,9 @@ a.quick-buy {
     list-style-type: none;
     text-align: right;
     text-transform: uppercase;
-    font-size: 14px;
+    font-size: 16px;//14px;
     font-family: 'WWLstandard';
-    margin-bottom: 4px;
+    margin-bottom: 8px;
     color: #777;
     img {
       max-width: 54%;
@@ -1026,16 +1067,18 @@ a.quick-buy {
       margin-right: auto;
       margin-top: 14px;
       margin-bottom: 4px;
+      -ms-interpolation-mode: bicubic;
     }
     &.special-collection-link {
       margin-right: 12px;
     }
     &.frame-select {
-      text-align: center;
+      text-align: right;
+      margin-right: 12px;
       width: 200px;
+      height: 40px;
       float: right;
       clear: right;
-      opacity: 0.6;
       &.active {
         opacity: 1;
       }
@@ -1045,6 +1088,11 @@ a.quick-buy {
       font-family: 'WWLheavy';
     }
   }
+  img.silhouette {
+    height: 28px;
+    margin-bottom: 16px;
+    margin-left: 8px;
+  }
 }
 
 .grid-nav-left-divider {
@@ -1053,6 +1101,7 @@ a.quick-buy {
   text-align: center;
   font-style: italic;
   font-family: 'WWLstandard';
+  font-size: 16px;
   color: #777;
   width: 200px;
   float: right;
@@ -1062,198 +1111,6 @@ a.quick-buy {
   border-top: 1px solid #CCC;
 }
 
-
-/* Styles for the stockists page. */
-/*
-#stores{
-  padding-top: 30px;
-}
-
-#stores h2 {
-  border-top: none; 
-  border-bottom: none;
-  font-size: 25px;
-  font-weight: 100px;
-  color: #000000;
-  font-family: 'WWLstandard', sans-serif;
-}
-
-#stores h3 {
-  border-top: none; 
-  border-bottom: none;
-  font-size: 25px;
-  color: #000000;
-  font-family: 'WWLHEAVY', sans-serif;
-  margin-top: 4%;
-  margin-left: 1%;
-}
-
-#stores #header-row {
-  border-top: 1px solid black;
-  border-bottom: 1px solid black;
-}
-
-@media screen and (max-width: $screen-xs-max) {
-  #stores #header-row {
-    border-top: 0;
-    border-bottom: 0;
-  }
-}
-
-#stores #header {
-  margin-top: 24px;
-  margin-bottom: 24px;
-  padding-left: 0;
-  padding-right: 0;
-  h1 {
-    font-size: 20px;
-    font-family: 'WWLstandard', sans-serif;
-  }
-}
-
-#stores .dropdown {
-  float: right;
-  min-width: 224px;
-  max-width: 100%;
-  display: block;
-  padding-left: 0;
-  padding-right: 0;
-  height: 42px;
-  width: 224px;
-  background: url({{ 'arrow_dark_down.jpg' | asset_url }}) no-repeat right;
-}
-
-#stores .dropdown h1 {
-  font-family: 'WWLheavy', sans-serif;
-  font-size: 14px;
-  color: #000000;
-  font-weight: 200;
-  text-align: center;
-  padding-bottom: 0;
-}
-
-#stores .dropdown select {
-  display: block;
-  background: transparent;
-  width: 230px;
-  max-width: 100%;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  padding-left: 10px;
-  padding-right: 5px;
-  font-size: 12px;
-  line-height: 1;
-  border: 1px solid black;
-  border-radius: 0;
-  font-family: 'WWLheavy', sans-serif;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  &:hover {
-    cursor: pointer;
-  }
-}
-
-#stores .dropdown select::-ms-expand {
-    display: none;
-}
-
-@media screen and (max-width: $screen-xs-max) {
-  #stores .dropdown {
-    float: none;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-  }
-  
-  #stores .dropdown h1 {
-    text-align: center;
-  }
-  
-  #stores .dropdown select {
-    text-align: center;
-  }
-}
-
-#stores .barneys {
-  margin-top: 48px;
-}
-
-#stores .barneys img {
-  width: 100%;
-  margin-bottom: 3%;
-  margin-right: 0;
-  padding-right: 0;
-}
-
-@media screen and (max-width: $screen-sm-max) {
-  #stores .barneys {
-    display: block;
-    width: 64%;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-  }
-}
-
-#stores .barneys h1 {
-  font-size: 30px;
-  margin-bottom: 0;
-  margin-top: 1px;
-  font-weight: normal;
-  color: #000000;    
-  font-family: 'WWLstandard', sans-serif;
-
-}
-
-#stores .barneys h2 {
-  font-size: 25px;
-  font-weight: 100px;
-  margin-top: 1px;
-  color: #000000;
-  font-family: 'WWLstandard', sans-serif;
-}
-
-#stores .location {
-  //display: inline-block;
-  //margin-right: 7%;
-  //width: 13%;
-}
-
-#stores .location h2{
-  font-size: 18px;
-  color: #000000;
-  font-family: 'WWLheavy', sans-serif;
-  padding-bottom: 0;
-  font-weight: 50px;
-}
-
-#stores .location p {
-  padding-top:0;
-  color: #000000;
-  margin-bottom: 36px;
-  
-}
-
-@media screen and (max-width: $screen-sm-max) {
-  #stores h3 {
-    text-align: center;
-  }
-  
-  #stores .location {
-    text-align: center;
-  }
-}
-
-@media screen and (max-width: $screen-xs-max) {
-  #stores .region {
-    margin-top: 48px;
-  }
-  
-  #stores .barneys {
-    margin-top: 0px;
-  }
-}
-*/
 
 /* Styles for the help page. */
 
@@ -1535,43 +1392,7 @@ input.quantity:parent {
   padding-left: 0px;
 }
 
-/* Styles for the press page. */
 
-@media (min-width: $screen-md-min) {
-  .press-box {
-    height: 200px;
-  }
-}
-
-@media (max-width: $screen-sm-max) {
-  .press-box {
-    height: 110px;
-  }
-}
-
-.press-box img {
-  height: 50px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 36px;
-}
-
-.press-box p {
-  text-align: center;
-  margin-top: 14px;
-    
-}
-.press-box a {
-  text-decoration: none;
-}
-.press-box a:hover {
-  text-decoration: none;
-  color: #111;
-}
-.press-box a:visited {
-  color: #111;
-}
 
 /* Styles for the celebrity lookbook. */
 
@@ -1669,152 +1490,6 @@ input.quantity:parent {
   }
 }
 
-/* Styles for the concept page. */
-
-#concept {
-  padding-left: 24px;
-  padding-right: 24px;
-}
-
-#concept h1 {
-  margin-bottom: 4px;
-  text-align: center;
-}
-
-#concept .subtitle {
-  font-size: 12px;
-  margin-bottom: 4px;
-  text-align: center;
-  @media screen and (min-width: $screen-sm-min) {
-    margin-bottom: 0px;
-    font-size: 14px;
-  }
-}
-
-#concept img {
-  width: 1200px;
-  max-width: 100%;
-  margin-top: 14px;
-}
-
-#concept-description h2 {
-  font-family: 'WWLheavy';
-  margin-bottom: 4px;
-  font-size: 18px;
-}
-
-.concept-modal {
-  background-color: #222;
-  color: #DDD;
-  opacity: .90;
-  padding-left: 15px;
-  padding-right: 15px;
-  padding-bottom: 10px;
-  padding-top: 2px;
-  margin-top: 180px;
-  width: 600px;
-}
-
-.concept-modal h2 {
-  font-family: 'WWLheavy';
-  padding-bottom: 10px;
-  border-bottom: 1px solid white;
-  border-top: none;
-  font-size: 14px;
-}
-
-.concept-modal p {
-  text-align: justify;
-}
-
-.concept-modal button {
-  color: #DDD;
-  margin-top: 27px;
-  opacity: .90;
-}
-
-.concept-modal button:hover {
-  color: #DDD;
-}
-
-#concept span.concept-link {
-  float: right;
-}
-
-@media (max-width: 640px) {
-  #concept span.concept-link {
-    visibility: hidden;
-  }
-}
-
-.concept-link {
-  text-align: right;
-}
-
-.concept-link a {
-  min-width: 146px;
-  font-family: 'WWLheavy';
-  font-size: 14px;
-  color: #111;
-  background-color: #ddd;
-  border: none;
-  padding-top: 8px;
-  padding-right: 8px;
-  padding-left: 8px;
-  padding-bottom: 7px;
-  text-decoration: none;
-  text-align: center;
-}
-
-.concept-link a:hover {
-  text-decoration: none;
-  background-color: #111;
-  color: #ccc;
-}
-
-.concept-link-mobile {
-  width: 100%;
-  text-align: center;
-  margin-top: 30px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.concept-link-mobile a {
-  min-width: 146px;
-  font-family: 'WWLheavy';
-  display: block;
-  color: #111;
-  background-color: #ddd;
-  border: none;
-  padding-top: 8px;
-  padding-right: 8px;
-  padding-left: 8px;
-  padding-bottom: 7px;
-  margin-bottom: 24px;
-  margin-left: 8%;
-  margin-right: 8%;
-  text-decoration: none;
-  text-align: center;
-}
-
-.concept-link-mobile a:hover {
-  text-decoration: none;
-  background-color: #ccc;
-}
-
-@media (min-width: 640px) {
-  .concept-link-mobile {
-    display: none;
-  }
-}
-
-.buttons-image {
-  width: 100%;
-  padding-top: 18px;
-  padding-bottom: 18px;
-}
-
 /* Styles for the official lookbook. */
 
 #viewer-columns a:hover {
@@ -1880,76 +1555,6 @@ iframe {
   display: none;
 }
 
-/* Styles for the recommendations page. */
-
-#westward-leaning-recommends h1 {
-  text-align: center;
-  margin-bottom: 36px;
-}
-
-#westward-leaning-recommends h2 {
-  text-align: center;
-  font-size: 18px;
-  border: none;
-  padding-bottom: 4px;
-  margin-bottom: 0px;
-  margin-top: 0px;
-}
-
-#westward-leaning-recommends h3 {
-  font-family: 'WWLheavy', sans-serif;
-  font-weight: normal;
-  text-align: center;
-  font-size: 16px;
-  color: #777;
-  line-height: 1.3em;
-  @media screen and (max-width: 479px) {
-    font-size: 14px;
-  }
-}
-
-#westward-leaning-recommends p {
-  text-align: center;
-  font-size: 14px;
-  margin-top: 0px;
-  margin-bottom: 4px;
-}
-
-#westward-leaning-recommends a {
-  color: inherit;
-  text-decoration: none;
-  display: block;
-  &:hover {
-    background-color: inherit;
-    p.price {
-      text-decoration: underline;
-    }
-  }
-}
-
-#westward-leaning-recommends img {
-  width: 100%;
-  margin-top: 0px;
-  margin-bottom: 16px;
-  @media screen and (min-width: $screen-sm-min) {
-    width: 70%;
-    margin-left: 15%;
-  }
-}
-
-#westward-leaning-recommends p.price {
-  color: #777;
-  margin-top: 0px;
-  margin-bottom: 2px;
-}
-
-#westward-leaning-recommends .gift {
-  display: block;
-  min-height: 320px;
-  margin-bottom: 6px;
-  margin-top: 6px;
-}
-
 
 /* Styles for the 404 page. */
 
@@ -2008,50 +1613,6 @@ iframe {
   #error-page li {
     width: 100%;
   }
-}
-
-/* Styles for click-through arrows on the PDP. */
-
-.left-click-through, .right-click-through {
-  display: none;
-}
-
-@media screen and (min-width: 1800px) {
-  .left-click-through, .right-click-through {
-    position: absolute;
-    display: block;
-    top: 320px;
-    height: 120px;
-    img {
-      max-height: 120px;
-    }
-  }
-  .left-click-through {
-    left: 20px;
-  }
-  .right-click-through {
-    right: 20px;
-  }
-}
-
-.dark-left-arrow, .dark-right-arrow {
-  display: none;
-}
-
-#left-click-through-wrapper:hover .light-left-arrow {
-   display: none;
-}
-
-#left-click-through-wrapper:hover .dark-left-arrow {
-   display: block;
-}
-
-#right-click-through-wrapper:hover .light-right-arrow {
-   display: none;
-}
-
-#right-click-through-wrapper:hover .dark-right-arrow {
-   display: block;
 }
 
 /* Styles for the FAQ. */
@@ -2130,34 +1691,14 @@ a.faq-header-link {
   }
 }
 
-/* Styles for the behind-the-scenes page. */
-
-#behind-the-scenes {
-  text-align: center;
-  h1 {
-    margin-bottom: 12px;
-    margin-top: 0;
-  }
-  p {
-    line-height: 1.5;
-    color: #555;
-    margin-bottom: 24px;
-  }
-}
-
-#bts-grid {
-  img {
-    max-width: 100%;
-    margin-bottom: 24px;
-  }
-}
+/* Styles for image galleries. */
 
 #bts-gallery {
   .gallery-arrow {
     img {
       max-width: 66%;
-      padding-top: 80px;
-      padding-bottom: 80px;
+      padding-top: 140px;
+      padding-bottom: 140px;
     }
     &.left { 
       float: left; 
@@ -2181,52 +1722,7 @@ a.faq-header-link {
       display: block;
     }
   }
-} // See unique materials gallery for additional gallery styles.
-
-/* Styles for the Our Story page. */
-
-.our-story-header {
-  max-width: 100%;
-  padding-left: 15px;
-  padding-right: 15px;
-}
-
-/* Styles for the unique materials gallery (and some for other galleries as well). */
-
-.gallery-images img {
-  max-width: 100%;
-}
-
-.gallery-item {
-  max-width: 100%;
-  margin-bottom: 24px;
-  opacity: 0;
-  display: none;
-  text-align: center;
-  &.first {
-    opacity: 1;
-  }
-  &.active {
-    display: block;
-  }
-  h3, h4 {
-    font-size: 18px;
-    color: #555;
-  }
-  p {
-    color: #555;
-    font-size: 12px;
-    margin: 0;
-    padding-top: 3px;
-  }
-  a {
-    color: inherit;
-    &:hover {
-      color: inherit;
-      background-color: inherit;
-    }
-  }
-}
+} 
 
 .gallery-arrow {
   img {
@@ -2257,13 +1753,6 @@ a.faq-header-link {
 
 .dark-arrow {
   display: none;
-}
-
-@media screen and (max-width: $screen-sm-max) {
-  .gallery-item {
-    display: block;
-    opacity: 1;
-  }
 }
 
 /* Styles for the careers page. */
@@ -2338,63 +1827,6 @@ a.faq-header-link {
 }
 
 
-/* Style for the Introducing Voyager page. */
-
-#introducing-voyager {
-  img {
-    width: 100%;
-  }
-  h1 {
-    text-align: center;
-    color: #999;
-    font-size: 18px;
-    line-height: 1.4em;
-    letter-spacing: 0.1em;
-    &.the-collection {
-      background-color: black;
-      margin-top: 0;
-      margin-bottom: 0;
-      padding-top: 14px;
-      padding-bottom: 14px;
-    }
-    &.full-range {
-      @media screen and (min-width: $screen-md-min) {
-        width: 80%;
-        margin-left: 10%;
-        margin-right: 10%;
-      }
-    }
-  }
-  a {
-    text-decoration: none;
-  }
-  .row {
-    padding: 0;
-  }
-  .inspiration {
-    background-color: black;
-    color: #eee;
-    text-align: center;
-    p {
-      margin-bottom: 0;
-      padding-bottom: 11px;
-      padding-top: 11px;
-      padding-right: 14px;
-      padding-left: 14px;
-    }
-  }
-  .shape {
-    p {
-      text-align: justify;
-      margin-bottom: 0;
-      padding-bottom: 18px;
-      padding-top: 0px;
-      padding-right: 14px;
-      padding-left: 14px;
-    }
-  }
-}
-
 /* Styles for the gift wrapping popup. */
 
 #gift-wrap {
@@ -2468,7 +1900,7 @@ a.faq-header-link {
 }
 
 
-/* Styles for new about page. */
+/* Styles for about page. */
 
 #new-about.fluid-container {
   padding-right: 15px;
@@ -2477,348 +1909,321 @@ a.faq-header-link {
   margin-left: auto;
   margin-bottom: 0;
 }
-#new-about .our-sunglasses-container {
-  padding-right: 8%;
-  padding-left: 8%;
-  padding-top: 4px;
-  padding-bottom: 4px;
-}
 
-#new-about .our-sunglasses {
-  padding-left: 0;
-  padding-right: 0;
-}
-
-#new-about .our-sunglasses h1 {
-  padding-top: 105px;
-  font-size: 35px;
-  text-align: justify;
-}
-
-#new-about .our-sunglasses p {
-  text-align: justify;
-  width: 310px;
-}
-
-#new-about .frame-row {
-  padding-top: 36px;
-}
-  
-#new-about .frame img {
-  width: 64%;
-  align: center;
-  margin-right: 18%;
-  margin-left: 18%;
-}
-
-#new-about .frame h1 {
-  text-align: center;
-}
-
-#new-about .frame p {
-  padding-bottom: 8%;
-  padding-right: 8%;
-  padding-left: 8%;
-  text-align: justify;
-}
-
-#new-about .frame a:hover {
-  background-color: inherit;
-}
-
-#new-about .about {
-  background-color: #000000;
-  color: #FFFFFF;
-  padding-top: 88px;
-  padding-bottom: 88px;
-  padding-right: 8%;
-  padding-left: 8%;
-}
-
-
-#new-about .about h1 {
-  text-align: justify;
-  font-size: 35px;
-  padding-top: 0;
-}
-
-#new-about .about p {
-  text-align: justify;
-  padding-left: 0;
-  padding-right: 0;
-}
-  
-#new-about .craftsmanship-container {
-  padding-top: 44px;
-  padding-bottom: 44px;
-  padding-right: 8%;
-  padding-left: 8%;
-}
-
-#new-about .craftsmanship-container h1 {
-  padding-left: 0;
-  padding-right: 0;
-  font-size: 35px;
-  text-align: justify;
-}
-
-#new-about .craftsmanship-container p {
-  padding-left: 0;
-  padding-right: 0;
-  width: 290px;
-  text-align: justify;
-  padding-left: 0;
-  margin-left: 0;
-}
-
-#new-about .craftsmanship {
-  padding-left: 0;
-  padding-right: 0;
-}
-
-#new-about #bts-gallery {
-  margin-top: 3%;
-}
-
-#new-about .press {
-  background-color: #000000;
-  text-align: center;
-  padding-top: 88px;
-  padding-bottom: 44px;
-  padding-left: 8%;
-  padding-right: 8%;
-  margin-bottom: 0;
-}
-
-#new-about .press p {
-  text-align: center;
-  color: #BBB
-}
-
-#new-about .press h1 {
-  text-align: center;
-  font-size: 35px;
-  color: #FFFFFF;
-}
-
-#new-about .press a {
-  background-color: #000000;
-  color: #BBB;
-  text-decoration: none;
-  text-align: center;
-} 
-
-#new-about .press a visited {
-  background-color: #000000;
-  color: #BBB;
-  text-decoration: none;
-}
-
-@media screen and (max-width: $screen-md-max) {
-
-  #new-about .our-sunglasses h1 {
-    text-align: left;
-    padding-top: 0;
-    padding-left: 0;
-    margin-right: auto;
-    margin-left: auto;
-    text-align: center;
-    font-size: 32px;
-  }
-
-  #new-about .our-sunglasses p {
-    width: 100%;
-  }
-  
-  #new-about .frame-row {
-    padding-top: 36px;
-  }
-  
-  #new-about .frame {
-    text-align: center;
-  }
-  
-  #new-about .frame p {
-    text-align: center;
-  }
-  
-  #new-about .about {
-    padding-top: 36px;
-    padding-bottom: 36px;
-  }
-  
-  #new-about .about p {
-  	text-align: justify;
-  	width: 100%;
-  }
-
-  #new-about .about h1 {
-  	text-align: center;
-  	padding-bottom: 1%;
-    font-size: 32px;
-  }
-  
-  #new-about .craftsmanship-container h1 {
-    padding-right: 0%;
-    text-align: center;
-    font-size: 32px;
-  }
-  
-  #new-about .craftsmanship-container p {
-    padding-right: 0%;
-    width: 100%;
-    padding-bottom: 1%;
-  }
-  
-  #new-about .press {
-    padding-top: 36px;
-    padding-bottom: 36px;
-  }
-  
-}
-
-@media screen and (min-width: $screen-xl-min) {
-  
-  #new-about .our-sunglasses p {
-    width: 424px;
-  }
-  
-  #new-about .frame img {
-    width: 50%;
-    margin-right: 25%;
-    margin-left: 25%;
-  }
-  
-  #new-about .craftsmanship p {
-    width: 400px;
-  }
-  
-  #new-about .about h1,  #new-about .our-sunglasses h1, #new-about .press h1, #new-about .craftsmanship h1 {
-    font-size: 48px;
-  }
-  
-}
-
-@media screen and (min-width: $screen-lg-min) {
-
-  #new-about .about h1 {
-    text-align: right;
-    margin-top: 0;
-  }
-  
-  #new-about .press h1 {
-    text-align: right;
-  }
-  
-}
-
-/* Styles for the new design page. */
-
-#design {
+#new-about { 
   h1 {
-    text-align: center;
-  }
-  h2 {
-    font-family: 'WWLheavy', sans-serif;
-    font-size: 26px;
-    color: black;
-    text-align: right;
-    border-top: none;
-    border-bottom: none;
-    border-right: 2px solid #333;
-    padding-right: 26px;
-    padding-top: 8px;
-    padding-bottom: 6px;
-    margin-top: 16px;
-  }
-  .frame-popups h2 {
-    font-family: 'WWLheavy';
-    padding-bottom: 10px;
-    border-bottom: 1px solid white;
-    border-right: none;
-    font-size: 14px;
-    color: #CCC;
-    text-align: left;
-  }
-  h3 {
-    text-align: center;
-    clear: left;
-  }
-  p {
-    margin-top: 16px;
+    font-size: 36px;
+    margin-top: 0px;
+    padding-top: 20px;
     margin-bottom: 24px;
-    vertical-align: center;
-    text-align: justify;
-   
-  }
-  #design-header-row p {
-    padding-right: 16px;
-    padding-left: 16px;
+    letter-spacing: .05em;
     text-align: center;
   }
   
-  #design-header-row img {
-    width: 30%;
-    margin-right: 35%;
-    margin-left:35%;
+  h3 {
+    letter-spacing: 1px;
+    color: black;
+    font-family: 'WWLheavy';
+    text-align: center;
+    margin: 0 auto;
   }
-  hr {
-    border: 0;
-    height: 2px;
-    background-color: #333;
+
+  p {
+    font-size: 16px;
+    line-height: 22px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    margin-bottom: 0px;
+    text-align: justify;
+    max-width: 900px;
+    margin: 0 auto;
+    &:first-of-type {
+      padding-top: 0px;
+    }
+    &:last-of-type {
+      padding-bottom: 0px;
+    }
+    
+  }
+  
+  .back.to.top a:hover {
+   background-color: white;
+   text-decoration: none;
+   color: grey;
+  }
+
+  
+ .back.to.top a {
+   position: relative;
+   float: right;
+   font-size: 60px;
+   padding-bottom: 50px;
+   padding-right: 20px;
+   text-decoration: none;
+   color: black;
+  }
+  
+  
+ a:visited {
+    color: black;
+ }
+ a:hover {
+    color: white;
+ }
+  
+  .row {
+    padding-top: 24px;
+    padding-bottom: 24px;
+    padding-left: 280px;
+    padding-right: 280px;
+    &.divider, &#bts-gallery {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+  }
+
+  .about-block {
+    padding-top: 0px;
+  }
+
+  .about-block h1 {
+    color: #000000;
+  }
+
+
+  
+  .craftsmanship-block {
+    background-color: #ffffff;
+    color: #000000;
+  }
+  
+  .inspiration-block h1 {
+    color: #000000;
+  }
+  
+  
+  .glasses-block {
+/*     display: inline-block; */
+    margin-bottom: 120px;
+    text-align: center;
+    margin: 0 auto;
+    p {
+      margin-top: 0;
+    }
+    h3 {
+      text-align: center;
+      margin: 0 auto;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+  }
+  
+  .glasses, .inspiration {
     padding-left: 0;
     padding-right: 0;
   }
-  img {
-    width: 90%;
-    margin-left: 10%;
-    margin-right: 10%;
+  
+  .frame {
+    img {
+      width: 80%;
+      float: right;
+      margin-right: 10%;
+      margin-left: 10%;
+      margin-top: 20px;
+      margin-bottom: 24px;
+    }
   }
-  ol {
-    width: 90%;
+  
+  @media screen and (min-width: $screen-md-min) {
+    .frame {
+      img {
+        margin-top: 40px;
+      }
+    }
+    .glasses-block h3 {
+      font-size: 28px;
+      text-align: center;
+    }
+  }
+
+  #bts-gallery {
+    background-color: #ffffff;
+    .gallery-arrow {
+      background-color: #ffffff;
+    }
+  }
+
+  .press-block {
+    padding-bottom: 0px;
+    background-color: #ffffff;
+    h1 {
+      color: #000000;
+    }
+    p {
+      color: #000000;
+      width: 100%;
+      margin: auto;
+      margin-top: 0;
+      padding-left: 0;
+      padding-right: 0;
+    }
+    a {
+      color: #000000;
+    }
+  }
+  
+  .press-box img {
+    height: 50px;
+    display: block;
     margin-left: auto;
     margin-right: auto;
-    text-align: justify;
+    margin-top: 36px;
   }
-  li {
-    margin-top: 12px;
+
+  .press-box p {
+    text-align: center;
+    margin-top: 14px;
+
+  }
+  .press-box a {
+    text-decoration: none;
+  }
+  .press-box a:hover {
+    text-decoration: none;
+    color: #111;
+  }
+  .press-box a:visited {
+    color: #111;
+  }
+  
+  .press-box {
+    height: 220px;
+    p {
+      text-align: center;
+      padding-top: 24px;
+    }
+  }
+  
+  .divider {
+    img {
+      width: 100%;
+    }
   }
 }
 
-@media screen and (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
-  #design p {
-    text-align: center;
+@media screen and (min-width: $screen-xxl-min) {
+  #new-about {
+    p {
+      font-size: 28px;
+      line-height: 36px;
+    }
+   
+    
+    .press-block {
+      padding-bottom: 50px;
+    }
+    .press-box {
+      height: 320px;
+      img {
+        min-height: 60px;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: $screen-xl-min) {
+  #new-about {
+      .glasses-block {
+      text-align: center;
+      margin: 0 auto;
+    }
+    
+    .frame img {
+      width: 50%;
+      margin-left: 25%;
+      margin-right: 25%;
+    }
+  }
+}
+
+@media screen and (min-width: $screen-md-min) and (max-width: $screen-lg-max) {
+  #new-about {
+    .press-box {
+      height: 254px;
+    }
+    .row {
+      padding-left: 300px;
+      padding-right: 300px;
+    }
   }
 }
 
 @media screen and (max-width: $screen-sm-max) {
-  #design h2 {
-    text-align: center;
-    border-right: none;
-    margin-top: 0;
-  }
-  #design img {
-    width: 96%;
-    margin-left: 2%;
-    margin-right: 2%;
-  }
-  #design #design-header-row p {
-    text-align: justify;
+  #new-about {
+    .row {
+      padding-right: 24px;
+      padding-left: 24px;
+    }
+    
+    #bts-gallery {
+      display: none;
+    }
+    .glasses-block {
+      margin-bottom: 48px;
+      align: center;
+    }
+
+    .frame img {
+      width: 80%;
+      align: center;
+      margin-right: 10%;
+      margin-left: 10%;
+      margin-top: 20px;
+      margin-bottom: 24px;
+    }
   }
 }
 
-@media screen and (min-width: $screen-xl-min) {
-  #design p.frame-description {
-    margin-top: 12px;
-    line-height: 56px;
-  }
-  #design #cases-row p.frame-description {
-    line-height: 28px;
+@media screen and (max-width: $screen-xs-max ) {
+  
+  #new-about {
+    h1 {
+      font-size: 25px;
+      text-align: center;
+    }
+    
+    p {
+      margin-left: auto;
+      margin-right: auto;
+      text-align: justify;
+      font-size: 14px;
+      line-height: 18px;
+    }
+    
+    .about-block {
+      padding-top: 0px;
+    }
+    
+    .press-block {
+      padding-bottom: 0px;
+      p {
+        text-align: center;
+      }
+    }
+    
+    .press-box {
+      height: 176px;
+    }
+    
+    .divider {
+      display: none;
+    }
   }
 }
 
 
-/* Styles for the new stores page. */
+/* Styles for the stores page. */
 
 #stores{
   padding-top: 30px;
@@ -2968,12 +2373,6 @@ a.faq-header-link {
   font-family: 'WWLstandard', sans-serif;
 }
 
-#stores .location {
-  //display: inline-block;
-  //margin-right: 7%;
-  //width: 13%;
-}
-
 #stores .location h2{
   font-size: 18px;
   color: #000000;
@@ -3009,3 +2408,494 @@ a.faq-header-link {
     margin-top: 0px;
   }
 }
+
+/*Styles For Commitment Page*/
+
+#commitment { 
+  &.fluid-container {
+    padding-right: 15px;
+    padding-left: 15px;
+    padding-bottom: 50px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: auto;
+  }
+  
+  h1 {
+    font-size: 36px;
+    margin-top: 0px;
+    padding-top: 30px;
+    margin-bottom: 24px;
+    text-align: center;
+    color: #000000;
+    letter-spacing: .05em;
+  }
+  
+  h2 {
+    font-size: 22px;
+    text-align: center;
+    color: #000000;
+    border: none;
+    letter-spacing: .08em;
+  }
+  
+ p{
+   max-width: 900px;
+   margin: 0 auto;
+  
+}
+ .charity-block p{
+    max-width: 600px;
+  }
+  
+ .back.to.top a:hover {
+   background-color: white;
+   text-decoration: none;
+   color: grey;
+  }
+
+  
+ .back.to.top a {
+   position: relative;
+   float: right;
+   font-size: 60px;
+   padding-bottom: 50px;
+   padding-right: 20px;
+   text-decoration: none;
+   color: black;
+  }
+
+
+  @media screen and (max-width: $screen-sm-max) {
+    h2 {
+      font-size: 24px;
+    }
+  }
+  
+  p {
+    font-size: 16px;
+    line-height: 22px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    margin-bottom: 0px;
+    text-align: justify;
+    &:first-of-type {
+      padding-top: 0px;
+    }
+    &:last-of-type {
+      padding-bottom: 0px;
+    }
+  }
+  
+  .row {
+    padding-top: 48px;
+    padding-bottom: 0px;
+    padding-left: 280px;
+    padding-right: 280px;
+    &:first-of-type {
+      padding-top: 0px;
+      &.charity-block {
+        padding-top: 48px;
+      }
+    }
+    &:last-of-type {
+      padding-bottom: 0px;
+    }
+    &.commitment-block {
+      padding-top: 50;
+      padding-bottom: 50;
+    }
+    &.element {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+    @media screen and (max-width: $screen-md-max) {
+      &.element {
+        border-bottom: solid 3px #000000;
+        padding-bottom: 14px;
+        margin-bottom: 14px;
+      }
+    }
+    @media screen and (max-width: $screen-xs-max) {
+      &.charity-block {
+        padding-top: 0;
+      }
+    }
+  }
+  
+  li {
+    list-style-type: none;
+    font-size: 17px;
+    line-height: 25px;
+    text-align: center;
+      }
+  
+  .element a {
+    text-decoration: none;
+    color: #404040;
+  }
+  
+  .element-block {
+    padding-top: 20px;
+    padding-bottom: 0px;
+    h3 {
+      padding:0;
+      text-align: center;
+    }
+    img {
+       height: 70px;
+       display: block;
+       margin-left: auto;
+       margin-right: auto;
+    }
+    ul {
+       text-align: center;
+       margin-top: 0;
+       padding: 0;
+    }
+    li {
+       line-spacing: 1px;
+       font-family: 'WWLheavy';
+    }
+    
+    @media screen and (max-width: $screen-sm-max) {
+      li {
+        font-size: 14px;
+      }
+    }
+    @media screen and (min-width: $screen-lg-min) {
+      height: 270px;
+      border-bottom: solid 3px #000000;
+    }
+  }	
+
+  
+  .charity-block{  
+    margin: auto;
+    padding-top: 0px;
+    img {
+      height: 70px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    h3 {
+      padding-bottom: 10px;
+      text-transform: uppercase;
+    }
+    ul {
+      text-align: center;
+      font-size: 18px;
+      padding: 0;
+      line-height: 1px;
+    }
+    p {
+/*       text-transform: uppercase; */
+      text-align: justify;
+      text-align-last: center;
+      padding-bottom: 50px;
+      
+    }
+    
+   
+    
+    @media screen and (min-width: $screen-md-min) { 
+      p {
+        width: 100%;
+/*         margin-left: 10%;
+        margin-right: 10%; */
+        margin: 0 auto;
+        align: center;
+      }
+    }
+  }
+
+  hr.fancy-line{
+  border-top: solid 3px #000000;
+  padding-bottom: 20px;
+  }
+  
+  
+  .inlay { 
+    padding-bottom: 10px;
+    h3{
+      color: #000000;
+      font-size: 14px;
+      text-align: center;
+      letter-spacing: .05em;
+      border-bottom: 3px solid #000000;
+    }
+    a {
+      text-decoration: none;
+      background-color: #ffffff;
+      color: #000000;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+    img {
+      height: 30px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 36px;
+    }
+    li {
+      font-size: 14px;
+      font-family: 'WWLstandard';
+      letter-spacing: .05em;
+    }
+  }
+}
+
+
+@media screen and (min-width: $screen-xxl-min) {
+  #commitment {
+    p {
+      font-size: 28px;
+      line-height: 36px;
+    }
+  }
+}
+
+@media screen and (min-width: $screen-md-min) and (max-width: $screen-lg-max) {
+  #commitment {
+    .row {
+      padding-left: 250px;
+      padding-right: 250px;
+    }
+  }
+}
+
+@media screen and (max-width: $screen-sm-max) {
+  #commitment {
+    .row {
+      padding-right: 24px;
+      padding-left: 24px;
+    }
+  }
+}
+
+@media screen and (max-width: $screen-xs-max ) { 
+  #commitment {
+    h1 {
+      font-size: 25px;
+      text-align: center;
+    }
+    
+    p {
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    img {
+      height: 50px;
+    }
+  }
+}
+
+/*Styles for Fit page */
+
+#fit {
+  &.fluid-container {
+    padding-right: 15px;
+    padding-left: 15px;
+    padding-bottom: 50px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: auto;
+  }
+  
+  .row {
+    padding-bottom: 48px;
+    padding-left: 280px;
+    padding-right: 280px;
+    &:last-of-type {
+      padding-bottom: 24px;
+    }
+  }
+  
+  @media screen and (min-width: $screen-md-min) {
+    .row.diagram-container {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+    }
+  }
+  
+  h1 {
+    font-size: 36px;
+    margin-top: 0px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-bottom: 24px;
+    text-align: center;
+    color: #000000;
+    text-transform: uppercase;
+  }
+  
+  h2 {
+    font-size: 24px;
+    text-align: center;
+    color: #404040;
+    border: none;
+    letter-spacing: .05px;
+/*     text-transform: uppercase; */
+  }
+  
+  p {
+    font-size: 16px;
+    line-height: 22px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    margin-bottom: 0px;
+    margin: 0 auto;
+    text-align: justify;
+    max-width: 900px;
+    &:first-of-type {
+      padding-top: 0px;
+    }
+    &:last-of-type {
+      padding-bottom: 0px;
+    }
+  }
+ 
+  @media screen and (max-width: $screen-sm-max) {
+    h2 {
+      font-size: 20px;
+    }
+  }
+  
+  .diagram {
+    display: block;
+    background-color: #EEE;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    p {
+      text-align: center;
+      text-transform: uppercase;
+      font-size: 12px;
+      line-height: 15px;
+      letter-spacing: 1px;
+      font-family: 'WWLheavy';
+    }
+    img {
+      width: 94%;
+      margin-right: 3%;
+      margin-left: 3%;
+      margin-top: 14px;
+    }
+  }
+  
+  @media screen and (min-width: $screen-md-min) {
+    .diagram {
+      padding-left: 10px;
+      padding-right: 10px;
+      padding-top: 34px;
+      margin-left: 5px;
+      margin-right: 5px;
+    }
+  }
+  
+  @media screen and (max-width: $screen-sm-max) {
+    .diagram {
+      background-color: #FFF;
+    }
+  }
+}
+
+@media screen and (min-width: $screen-xxl-min) {
+  #fit {
+    p {
+      font-size: 28px;
+      line-height: 36px;
+    }
+    .row {
+      padding-top: 24px;
+      padding-bottom: 24px;
+      padding-right: 168px;
+      padding-left: 168px;
+    }
+  }
+}
+
+@media screen and (min-width: $screen-md-min) and (max-width: $screen-lg-max) {
+  #fit {
+    .row {
+      padding-left: 148px;
+      padding-right: 148px;
+    }
+  }
+}
+
+@media screen and (max-width: $screen-sm-max) {
+  #fit {
+    .row {
+      padding-right: 24px;
+      padding-left: 24px;
+    }
+  }
+}
+
+@media screen and (max-width: $screen-xs-max ) { 
+  #fit {
+    h1 {
+      font-size: 25px;
+      text-align: center;
+    }
+    p {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+}
+
+
+/* Styles for the Campaigns page. */
+
+#campaigns {
+  padding-left: 0px;
+  padding-right: 0px;
+  margin-top: -20px;
+  @media screen and (min-width: $screen-md-min) and (max-width: $screen-xl-max) {
+    .fotorama__nav, .fotorama__nav-wrap
+    {
+      bottom: 64px;
+    }
+    .fotorama__nav-wrap {
+      height: 0px;
+    }
+  }
+  @media screen and (max-width: $screen-xs-max) {
+    .fotorama__arr {
+      visibility: hidden;
+    }
+  }
+  .fotorama__thumb-border {
+    border-color: black;
+  }
+  .fotorama {
+    aside {
+      position: absolute;
+      top: 2vh;
+      left: 1vw;
+      color: black;
+      font-size: 14px;
+      padding-bottom: 4px;
+      padding-left: 8px;
+      padding-right: 8px;
+      padding-top: 8px;
+/*       background:rgba(0,0,0,0.5); */
+      display: inline;
+      @media screen and (max-width: $screen-sm-max) {
+        display: none;
+      }
+    }
+  }
+  .fotorama--fullscreen aside {
+    display: none;
+  }
+}
+
+

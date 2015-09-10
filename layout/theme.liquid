@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html>
 <head>
     <!-- Meta tags. -->
@@ -7,18 +7,27 @@
     <meta name="google-site-verification" content="ll4dl8u1x1LgWIHp7zNiYTDuitX5_AT6v1d-cFwY2cM" />
     <meta name="p:domain_verify" content="2fb8a8d9fdc18ffbd4f552a7ea6bc267"/>
     {% if template contains 'collection' %}<meta name="google" value="notranslate">{% endif %}
+    
     <!-- Icons. -->
     <link rel="icon" href="{{ 'favicon.ico' | asset_url}}" />
     <link rel="shortcut icon" href="{{'favicon.ico' | asset_url™}}" />
     <link rel="favicon" href="{{'favicon.ico' | asset_url}}" />
     {{ content_for_header }}
     <link rel="canonical" href="{{ canonical_url }}" />
+    
     {% include 'open-graph-tags' %}
+  
 	<!-- Bootstrap -->
 	{{ 'bootstrap.scss' | asset_url | stylesheet_tag }}
 	{{ 'fonts.scss' | asset_url | stylesheet_tag }}
 	{{ 'style.scss.css' | asset_url | stylesheet_tag }}
-	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  
+    <!-- Fotorama image gallery styles. -->
+    {% if template contains 'campaigns' %}
+      <link  href="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet"> <!-- 3 KB -->
+    {% endif %}
+	
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 	<!--[if lt IE 9]>
 	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -50,13 +59,6 @@
   
 
   {% include 'top-nav' %}
-   
-    {% if template contains 'collection' %}
-      {% include 'grid-navbar' %}
-    {% endif %}
-    {% if template contains 'gift-guide' %}
-      {% include 'grid-navbar' %}
-    {% endif %} 
   
 	{{ content_for_layout }}
    
@@ -84,20 +86,15 @@
 {% include 'adwords-retargeting-tag' %}
   
 {% if template contains 'index' %}{% include 'index-scripts' %}{% endif %}
-{% if template contains 'concept' %}{% include 'concept-page-scripts' %}{% endif %}
 {% if template contains 'stores' %}{% include 'stores-map-scripts' %}{% endif %}
 {% if template contains 'faq' %}{% include 'faq-scripts' %}{% endif %}
 {% if template contains 'product' %}{% include 'product-page-scripts' %}{% endif %}
 {% if template contains 'product' and product.available %}{% include 'product-available-scripts' %}{% endif %}
 {% if template contains 'collection' %}{% include 'collection-scripts' %}{% endif %}
-{% if template contains 'gift-guide' %}{% include 'gift-guide-scripts' %}{% endif %}
-{% if template contains 'bts' %}{% include 'bts-scripts' %}{% endif %}
-{% if template contains 'our-story' %}{% include 'our-story-scripts' %}{% endif %}
-{% if template contains 'introducing-voyager' %}{% include 'introducing-voyager-scripts' %}{% endif %}
 {% if template contains 'article' %}{% include 'article-scripts' %}{% endif %}
 {% if template contains 'cart' %}{% include 'cart-scripts' %}{% endif %} 
 {% if template contains 'about-new' %}{% include 'bts-scripts' %}{% endif %}
-{% if template contains 'design' %}{% include 'design-scripts' %}{% endif %}
+{% if template contains 'campaigns' %}{% include 'campaigns-scripts' %}{% endif %}
 
 <!-- Retargeter burn pixel for people referred from email. -->
 {% include 'retargeter-burn-script' %}

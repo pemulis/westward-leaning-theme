@@ -1,0 +1,58 @@
+<div id='campaigns' class='fluid-container'>
+  <div class="fotorama" data-width="100%" data-minheight="84%" data-maxheight="88%" data-allowfullscreen="true" data-nav="thumbs" data-loop="true" data-arrows="always" data-fit="cover" data-thumbfit="cover" data-thumbheight="48px">
+  {% for i in (1..16) %}
+    {% capture url %}campaigns_{{i}}.jpg {% endcapture %}
+    {% case i %}
+      {% when 1 %}
+        {% capture aside %}<a href="http://www.westwardleaning.com/products/concorde-6">Concorde 6</a>{% endcapture %}
+      {% when 2 %}
+        {% capture aside %}<a href="http://www.westwardleaning.com/products/pioneer-17">Pioneer 17</a>{% endcapture %}
+      {% when 3 %}
+        {% capture aside %}<a href="http://www.westwardleaning.com/products/voyager-11">Voyager 11</a>{% endcapture %}
+      {% when 4 %}
+        {% capture aside %}<a href="http://www.westwardleaning.com/products/voyager-8">Voyager 8</a> and <a href="http://www.westwardleaning.com/products/voyager-9">Voyager 9</a>{% endcapture %}
+      {% when 5 %}
+        {% capture aside %}<a href="http://www.westwardleaning.com/products/flower-4">Flower 4</a>{% endcapture %}
+      {% when 6 %}
+        {% capture aside %}<a href="http://www.westwardleaning.com/products/concorde-5">Concorde 5</a>{% endcapture %}
+      {% when 7 %}
+        {% capture aside %}<a href="http://www.westwardleaning.com/products/voyager-4">Voyager 4,</a><a href="http://www.westwardleaning.com/products/flower-1"> Flower 1,</a><a href="http://www.westwardleaning.com/products/atlas-2">Atlas 2,</a> and <a href="http://www.westwardleaning.com/products/pioneer-12">Pioneer 12</a>{% endcapture %}
+      {% when 8 %}
+        {% capture aside %}<a href="http://www.westwardleaning.com/products/concorde-7">Concorde 7, </a> <a href="http://www.westwardleaning.com/products/concorde-8">Concorde 8, </a>and <a href="http://www.westwardleaning.com/products/concorde-9">Concorde 9</a>{% endcapture %}
+      {% when 9 %}
+        {% capture aside %}<a href="http://www.westwardleaning.com/products/flower-5">Flower 5,</a> <a href="http://www.westwardleaning.com/products/flower-6">Flower 6,</a> <a href="http://www.westwardleaning.com/products/flower-7">Flower 7,</a> and <a href="http://www.westwardleaning.com/products/flower-8">Flower 8</a>{% endcapture %}
+      {% when 10 %}
+        {% capture aside %}<a href="http://www.westwardleaning.com/products/pioneer-15">Pioneer 15,</a> <a href="http://www.westwardleaning.com/products/pioneer-22">Pioneer 22</a>{% endcapture %}
+      {% when 11 %}
+        {% capture aside %}<a href="http://www.westwardleaning.com/products/vanguard-2">Vanguard 2</a>{% endcapture %}
+      {% when 12 %}
+        {% capture aside %}<a href="http://www.westwardleaning.com/products/atlas-1">Atlas 1</a>{% endcapture %}
+      {% when 13 %}
+        {% capture aside %}<a href="http://www.westwardleaning.com/products/concorde-2">Concorde 2</a>{% endcapture %}
+      {% when 14 %}
+        {% capture aside %}<a href="http://www.westwardleaning.com/products/flower-8">Flower 8</a>{% endcapture %}
+      {% when 15 %}
+        {% capture aside %}<a href="http://www.westwardleaning.com/products/galileo-6">Galileo 6</a>{% endcapture %}
+      {% when 16 %}
+        {% capture aside %}<a href="http://www.westwardleaning.com/products/pioneer-14">Pioneer 14</a>{% endcapture %}
+    {% endcase %}
+    <div data-img="{{ url | asset_url }}"><aside>{{ aside }}</aside></div>
+  {% endfor %}
+  {% for i in (18..22) %}
+    {% capture url %}campaigns_{{i}}.jpg {% endcapture %}
+    {% case i %}
+      {% when 18 %}
+        {% capture aside %}<a href="http://www.westwardleaning.com/products/voyager-8">Voyager 8</a>{% endcapture %}
+      {% when 19 %}
+        {% capture aside %}<a href="http://www.westwardleaning.com/products/voyager-13">Voyager 13</a>{% endcapture %}
+      {% when 20 %}
+        {% capture aside %}<a href="http://www.westwardleaning.com/products/voyager-11">Voyager 11,</a> <a href="http://www.westwardleaning.com/products/vanguard-6">Vanguard 6,</a> <a href="http://www.westwardleaning.com/products/pioneer-18">Pioneer 18,</a> <a href="http://www.westwardleaning.com/products/atlas-11">Atlas 11,</a> <a href="http://www.westwardleaning.com/products/concorde-6">Concorde 6,</a> <a href="http://www.westwardleaning.com/products/flower-1">Flower 1,</a> and <a href="http://www.westwardleaning.com/products/galileo-7">Galileo 7</a>{% endcapture %}
+      {% when 21 %}
+        {% capture aside %}<a href="http://www.westwardleaning.com/products/galileo-4">Galileo 4,</a> <a href="http://www.westwardleaning.com/products/galileo-11">Galileo 11,</a> and <a href="http://www.westwardleaning.com/products/galileo-12">Galileo 12</a>{% endcapture %}
+      {% when 22 %}
+        {% capture aside %}<a href="http://www.westwardleaning.com/products/atlas-5">Atlas 5</a> and <a href="http://www.westwardleaning.com/products/atlas-12">Atlas 12</a>{% endcapture %}
+    {% endcase %}
+    <div data-img="{{ url | asset_url }}"><aside>{{ aside }}</aside></div>
+  {% endfor %}
+  </div>
+</div>

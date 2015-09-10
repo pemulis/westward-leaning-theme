@@ -72,8 +72,6 @@
     if (crosssell.length && crosssell[0] !== '')
     { 
       var list = jQuery('ul.cross-sell');
-      var leftClickThroughWrapper = jQuery('#left-click-through-wrapper'); // click-through arrows code!
-      var rightClickThroughWrapper = jQuery('#right-click-through-wrapper');
       for (var j=0; j<crosssell.length; j++)
       {
         jQuery.ajax({
@@ -92,14 +90,10 @@
            {% else %}
              list.append('<li><a href="' + product.url +'"><div class="image"><img src="' + product.images[0].replace(/(.JPG|.jpg|.PNG|.png|.JPEG|.jpeg|.GIF|.gif)/, '_medium$1') + '" /></div><div class="producttitle">' + product.type + '</div><div class="model_no">' + product.title + '</div></a></li>');
            {% endif %}
-           if (j==0) { leftClickThroughWrapper.append('<a href="' + product.url + '" id="left-arrow-link"><div class="left-click-through">{{ "arrow_light_left.jpg" | asset_url | img_tag: 'Light Left Arrow', 'light-left-arrow' }}{{ "arrow_dark_left.jpg" | asset_url | img_tag: 'Dark Left Arrow', 'dark-left-arrow' }}</div></a>'); } // some more click-through arrows code
-           if (j==3) { rightClickThroughWrapper.append('<a href="' + product.url + '" id="right-arrow-link"><div class="right-click-through">{{ "arrow_light_right.jpg" | asset_url | img_tag: 'Light Right Arrow', 'light-right-arrow' }}{{ "arrow_dark_right.jpg" | asset_url | img_tag: 'Dark Right Arrow', 'dark-right-arrow' }}</div></a>'); } 
           }
           else
           {
             list.append('<li><div class="image"><a href="' + product.url +'"><img src="https://cdn.shopify.com/s/images/admin/no-image-large.gif" /></a></div><div class="producttitle"><a href="' + product.url + '">' + product.title + ' {{ model_name.first }}</a></div><div class="money"><a href="' + product.url + '">' + Shopify.formatMoney(product.price, '{{ shop.money_format }}') + '</a></div></li>'); 
-           if (j==0) { leftClickThroughWrapper.append('<a href="' + product.url + '" id="left-arrow-link"><div class="left-click-through">{{ "arrow_light_left.jpg" | asset_url | img_tag: 'Light Left Arrow', 'light-left-arrow' }}{{ "arrow_dark_left.jpg" | asset_url | img_tag: 'Dark Left Arrow', 'dark-left-arrow' }}</div></a>'); } // some more click-through arrows code
-           if (j==3) { rightClickThroughWrapper.append('<a href="' + product.url + '" id="right-arrow-link"><div class="right-click-through">{{ "arrow_light_right.jpg" | asset_url | img_tag: 'Light Right Arrow', 'light-right-arrow' }}{{ "arrow_dark_right.jpg" | asset_url | img_tag: 'Dark Right Arrow', 'dark-right-arrow' }}</div></a>'); }
           }
         },
         url: '/products/' + crosssell[j] + '.js?'
@@ -292,33 +286,3 @@ jQuery('#cross-sell').append(settingsoutput);
       identifyCountry(currencyCallback);
       
     </script>
-
-<script>
-var tags = [];
-{% for tag in product.tags %}
-  tags.push("{{tag}}");
-{% endfor %}
-assignBucket(tags);
-              
-function assignBucket(tags) {
-  if (tags.indexOf("wayfarer classics") > -1 ) {
-    if(!_rt_calls){ var _rt_calls = []; }
-    _rt_calls.push({"type":"segment", "id":[9866]});
-  } else if (tags.indexOf("mirrorshades") > -1 ) {
-    if(!_rt_calls){ var _rt_calls = []; }
-    _rt_calls.push({"type":"segment", "id":[9864]});
-  } else if (tags.indexOf("wayfarer neons") > -1 ) {
-    if(!_rt_calls){ var _rt_calls = []; }
-    _rt_calls.push({"type":"segment", "id":[9865]});
-  } else if (tags.indexOf("voyager classics") > -1 ) {
-    if(!_rt_calls){ var _rt_calls = []; }
-    _rt_calls.push({"type":"segment", "id":[9863]});
-  } else if (tags.indexOf("voyager neons") > -1 ) {
-    if(!_rt_calls){ var _rt_calls = []; }
-    _rt_calls.push({"type":"segment", "id":[9862]});
-  } else {
-    if(!_rt_calls){ var _rt_calls = []; }
-    _rt_calls.push({"type":"segment", "id":[9861]});
-  }
-}
-</script>

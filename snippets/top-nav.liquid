@@ -1,12 +1,4 @@
-{% if template contains 'index' %}
-  <div id='free-shipping-banner-index'>
-      <p>FREE WORLDWIDE SHIPPING ON ALL ORDERS</p>  
-  </div>
-{% else %}
-  <!-- Do nothing. -->
-{% endif %}
-
-  <div id='header-ribbon' class='hidden-xs'><a href='/'>{{ shop.name }}</a></div>
+  <div id='header-ribbon' class='hidden-xs'><a href='/' class='shop-name'>{{ shop.name }}</a></div>
     <nav class='navbar navbar-default' role='navigation'>
 		<div class='navbar-header'>
         	<button type='button' class='navbar-toggle' data-toggle='collapse' data-target='#top-menu'>
@@ -15,16 +7,16 @@
           		<span class='icon-bar'></span>
           		<span class='icon-bar'></span>
         	</button>
-          	<a class='navbar-brand visible-xs' href='/'>{{ shop.name }}</a>
+          	<a class='navbar-brand visible-xs' href='/' class='shop-name'>{{ shop.name }}</a>
 		</div>
 		<div id='top-menu' class='collapse navbar-collapse'>
         	<ul class='nav navbar-nav'>
-				{% for link in linklists.main-menu-summer-2015.links %}
+				{% for link in linklists.main-menu-fall-2015.links %}
                 <li {% if link.title contains 'About' %}class='dropdown'{% elsif link.title contains 'As Seen On' %}class='dropdown'{% endif %}>
                   <a href='{{ link.url }}' {% if link.title contains 'About' %}data-toggle='dropdown' class='dropdown-toggle'{% elsif link.title contains 'As Seen On' %}data-toggle='dropdown' class='dropdown-toggle'{% endif %}>{{ link.title }}</a>
                   {% if link.title contains 'About' %}
                     <ul class='dropdown-menu'>
-                      {% for dropdownlink in linklists.summer-2015-about.links %}
+                      {% for dropdownlink in linklists.fall-2015-about.links %}
                         <li><a href='{{dropdownlink.url}}'>{{dropdownlink.title|upcase}}</a></li>
                       {% endfor %}
                     </ul>
@@ -48,12 +40,12 @@
     <div id='sticky-mini-menu' class='hidden hidden-xs'>
       <nav class='navbar navbar-default' role='navigation'>
         <ul class='nav navbar-nav'>
-				{% for link in linklists.main-menu-summer-2015.links %}
+				{% for link in linklists.main-menu-fall-2015.links %}
                 <li {% if link.title contains 'About' %}class='dropdown'{% elsif link.title contains 'As Seen On' %}class='dropdown'{% endif %}>
                   <a href='{{ link.url }}' {% if link.title contains 'About' %}data-toggle='dropdown' class='dropdown-toggle'{% elsif link.title contains 'As Seen On' %}data-toggle='dropdown' class='dropdown-toggle'{% endif %}>{{ link.title }}</a>
                   {% if link.title contains 'About' %}
                     <ul class='dropdown-menu'>
-                      {% for dropdownlink in linklists.summer-2015-about.links %}
+                      {% for dropdownlink in linklists.fall-2015-about.links %}
                         <li><a href='{{dropdownlink.url}}'>{{dropdownlink.title|upcase}}</a></li>
                       {% endfor %}
                     </ul>
@@ -71,28 +63,38 @@
         </ul>
       </nav>
     </div>
-{% if template contains 'index' %}
-  <!-- Do nothing. -->
-{% elsif template contains 'cart' %}
-  <!-- Do nothing. -->
-{% elsif template contains 'stores' %}
-  <!-- Do nothing. -->
-{% elsif template contains 'article' %}
-  <!-- Do nothing. -->
-{% elsif template contains 'page' %}
-  {% if template contains 'lookbook' %}
-    <div id='free-shipping-banner'>
-      <p>FREE WORLDWIDE SHIPPING ON ALL ORDERS</p>  
+
+{% if template contains 'collection' %}
+  {% if collection.title contains 'Atlas' %}
+    <div id='collection-banner'>
+      {{ 'Atlas_Banner.jpg' | asset_url | img_tag }}
+    </div>
+  {% elsif collection.title contains 'Concorde' %}
+    <div id='collection-banner'>
+      {{ 'Concorde_Banner.jpg' | asset_url | img_tag }}
+    </div>
+  {% elsif collection.title contains 'Flower' %}
+    <div id='collection-banner'>
+      {{ 'Flower_Banner.jpg' | asset_url | img_tag }}
+    </div>
+  {% elsif collection.title contains 'Galileo' %}
+    <div id='collection-banner'>
+      {{ 'Galileo_Banner.jpg' | asset_url | img_tag }}
+    </div>
+  {% elsif collection.title contains 'Pioneer' %}
+    <div id='collection-banner'>
+      {{ 'Pioneer_Banner.jpg' | asset_url | img_tag }}
+    </div>
+  {% elsif collection.title contains 'Vanguard' %}
+    <div id='collection-banner'>
+      {{ 'Vanguard_Banner.jpg' | asset_url | img_tag }}
+    </div>
+  {% elsif collection.title contains 'Voyager' %}
+    <div id='collection-banner'>
+      {{ 'Voyager_Banner.jpg' | asset_url | img_tag }}
     </div>
   {% else %}
-    <!-- Do nothing. -->
   {% endif %}
-{% elsif template contains 'collection' %}
-  <div id='free-shipping-banner-collection'>
-      <p>FREE WORLDWIDE SHIPPING ON ALL ORDERS</p>  
-  </div>
 {% else %}
-  <div id='free-shipping-banner'>
-      <p>FREE WORLDWIDE SHIPPING ON ALL ORDERS</p>  
-  </div>
+  <!-- Do nothing. -->
 {% endif %}

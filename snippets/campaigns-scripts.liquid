@@ -1,0 +1,26 @@
+<script src="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script> <!-- 16 KB -->
+
+<script>
+  $(function () {
+    $('.fotorama')
+        // Listen to the events
+        .on('fotorama:fullscreenenter ',
+            function (e, fotorama, extra) {
+              $('.fotorama aside').addClass('hidden');
+            }
+        )
+        // Initialize fotorama manually
+        .fotorama();
+  });
+  $(function () {
+    $('.fotorama')
+        // Listen to the events
+        .on('fotorama:fullscreenexit ',
+            function (e, fotorama, extra) {
+              $('.fotorama aside').removeClass('hidden');
+            }
+        )
+        // Initialize fotorama manually
+        .fotorama();
+  });
+</script>

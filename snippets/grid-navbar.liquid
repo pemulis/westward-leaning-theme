@@ -1,21 +1,21 @@
-  <nav id='collections-listing-navigation-mobile' class='hidden-sm hidden-md hidden-lg hidden-xl'>
+  <nav id='collections-listing-navigation-mobile' class='hidden-md hidden-lg hidden-xl'>
     <ul>
       <a href="javascript:void(0)" data-toggle='dropdown' class='dropdown-toggle'>
         <li>
         {{ 'morearrow.png' | asset_url | img_tag: 'More Options', 'more-arrow'}}
         <ul id='mobile-grid-dropdown' class='dropdown-menu'>
-        {% for link in linklists.summer-2015-mobile-collection-grids.links %}
-          {% if link.url == '/collections/pioneer' %}
-            <a href="{{link.url}}"><li id='{{link.handle}}' class='frame-select first'><span class='frame-shape'>{{link.title | upcase}}</span><span class='silhouette'>{{ 'wayfarer_silhouette.png' | asset_url | img_tag}}</span></li></a>
-          {% elsif link.url == '/collections/circle' %}
-            <a href="{{link.url}}"><li id='{{link.handle}}' class='frame-select'><span class='frame-shape'>{{link.title | upcase}}</span><span class='silhouette'>{{ 'voyager_silhouette.png' | asset_url | img_tag}}</span></li></a>
-          {% elsif link.url == '/collections/project-vanguard' %}
-            <a href="{{link.url}}"><li id='{{link.handle}}' class='frame-select'><span class='frame-shape'>{{link.title | upcase}}</span><span class='silhouette'>{{ 'vanguard_silhouette.png' | asset_url | img_tag}}</span></li></a>
-          {% elsif link.url == '/collections/concorde' %}
-            <a href="{{link.url}}"><li id='{{link.handle}}' class='frame-select'><span class='frame-shape'>{{link.title | upcase}}</span><span class='silhouette'>{{ 'concorde_silhouette.png' | asset_url | img_tag}}</span></li></a>
-          {% else %}
-            <a href="{{link.url}}"><li id='{{link.handle}}'><span>{{link.title | upcase}}</span></li></a>
-          {% endif %}
+        {% for link in linklists.collection-grids-mobile-fall-2015.links %}
+            {% assign frame_shape = false %}
+            {% if link.handle == 'atlas' or link.handle == 'concorde' or link.handle == 'flower' or link.handle == 'galileo' or link.handle == 'pioneer' or link.handle == 'vanguard' or link.handle == 'voyager' %}
+              {% assign frame_shape = true %}
+              {% capture silhouette_img %}{{link.handle}}_silhouette.png{% endcapture %}
+            {% endif %}
+          
+            {% if frame_shape %}
+              <a href="{{link.url}}"><li id='{{link.handle}}' class='frame-select'><span class='frame-shape'>{{link.title | upcase}}</span><span class='silhouette'><img src='{{ silhouette_img | asset_url }}' alt='{{link.title Silhouette}}' class='silhouette'></span></li></a>          
+            {% else %}
+              <a href="{{link.url}}"><li id='{{link.handle}}'><span>{{link.title | upcase}}</span></li></a>
+            {% endif %}
         {% endfor %}
         </ul>
       </li>

@@ -1,23 +1,16 @@
-        <ul>
+	<nav id='grid-nav-left' class='col-md-4 col-lg-3 col-xl-2 hidden-xs hidden-sm'>
+		<ul>
           
-          {% for link in linklists.summer-2015-special-collection-grids.links %}
+          {% for link in linklists.collection-grids-special-fall-2015.links %}
             <a href="{{link.url}}"><li id='{{link.handle}}' class='special-collection-link'><span>{{link.title}}</span></li></a>
           {% endfor %}
           
           <p class='grid-nav-left-divider'>See styles by shape:</p>
           
-          {% for link in linklists.summer-2015-frame-type-collection-grids.links %}
-          {% if link.url == '/collections/pioneer' %}
-            <a href="{{link.url}}"><li id='{{link.handle}}' class='frame-select first'><span>{{ 'wayfarer_silhouette.jpg' | asset_url | img_tag}}<br>{{link.title}}</span></li></a>
-          {% elsif link.url == '/collections/circle' %}
-            <a href="{{link.url}}"><li id='{{link.handle}}' class='frame-select'><span>{{ 'voyager_silhouette.jpg' | asset_url | img_tag}}<br>{{link.title}}</span></li></a>
-          {% elsif link.url == '/collections/project-vanguard' %}
-            <a href="{{link.url}}"><li id='{{link.handle}}' class='frame-select'><span>{{ 'vanguard_silhouette.jpg' | asset_url | img_tag}}<br>{{link.title}}</span></li></a>
-          {% elsif link.url == '/collections/concorde' %}
-            <a href="{{link.url}}"><li id='{{link.handle}}' class='frame-select'><span>{{ 'concorde_silhouette.jpg' | asset_url | img_tag}}<br>{{link.title}}</span></li></a>
-          {% else %}
-            <a href="{{link.url}}"><li id='{{link.handle}}'><span>{{link.title}}</span></li></a>
-          {% endif %}
+          {% for link in linklists.collection-grids-frame-type-fall-2015.links %}
+            {% capture silhouette_img %}{{link.handle}}_silhouette.png{% endcapture %}
+            <a href="{{link.url}}"><li id='{{link.handle}}' class='frame-select'><span>{{link.title}}<img src='{{ silhouette_img | asset_url }}' alt='{{link.title Silhouette}}' class='silhouette'></span></li></a>
           {% endfor %}
         
         </ul>
+	</nav>

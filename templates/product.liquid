@@ -11,11 +11,12 @@
   {% elsif tag contains 'show variants' %}{% assign hide_variants = false %}
   {% elsif tag contains 'wayfarer spring 2015' %}{% assign wayfarer_spring_2015 = true %}
   {% elsif tag contains 'launch collection' %}{% assign launch_collection = true %}
+  {% elsif tag contains 'no side material' %}{% assign no_side_material = true %}
+  {% elsif tag contains 'preorder' %}{% assign preorder = true %}
+  {% elsif tag contains 'Gift Card' %}{% assign gift_card = true %}
   {% endif %}
 {% endfor %}
 {% if model == 'model = \\' %}{% assign model = '' %}{% endif %}
-<div id='left-click-through-wrapper'></div>
-<div id='right-click-through-wrapper'></div>
 <div id='product' class='container'>
   <div class='row'>
     <section class='col-md-9 col-xs-12 left-col'>
@@ -32,38 +33,10 @@
     </section>
     <section class='col-md-3 col-xs-12 right-col'>
       <h1>
-        {% if product.type == 'Voyager' %}
-          {{ product.title | upcase }}
-        {% elsif product.type == 'Concorde' %}
-          {{ product.title | upcase }}
-        {% elsif product.type == 'Project Vanguard' %}
-          {{ model | upcase }}
-        {% else %}
-          {{ product.type | upcase }}
-        {% endif %}
+        {{ product.title | upcase }}
       </h1>
       <p class='model-details'>
-        {% if product.type == 'Voyager' %}
-          <!-- No model number. -->
-        {% elsif product.type == 'Concorde' %}
-          <!-- No model number. -->
-        {% elsif product.type == 'Project Vanguard' %}
-          <!-- No model number. -->
-        {% elsif product.type contains 'WL X' %}
-          <!-- No model number. -->
-        {% elsif product.title contains 'Gift Card' %}
-          <!-- No model number. -->
-        {% elsif product.title contains 'The Pencil Set' %}
-          <!-- No model number. -->
-        {% elsif product.title contains 'Pocket-Sized Case' %}
-          <!-- No model number. -->
-        {% elsif product.title contains 'Bridge Fit' %}
-          <!-- No model number. -->
-        {% elsif product.title contains 'Playing Cards' %}
-          <!-- No model number. -->
-        {% elsif product.title contains 'Small and Large Size' %}
-          <!-- No model number. -->
-        {% elsif product.type contains 'Pioneer X' %}
+        {% if product.type contains 'Pioneer X' %}
           <em>{{ collab }}</em>
         {% elsif product.type contains 'Voyager X' %}
           <em>{{ collab }}</em>
@@ -71,54 +44,41 @@
           <em>{{ model }}</em>
         {% elsif set %}
           <em>{{ set }}</em>
-        {% elsif model %}
-          <em>in {{ model }}</em>
         {% else %}
           <!-- No model number. -->
         {% endif %}
       </p>
-      {% if wayfarer_spring_2015 %}
-        <!-- No model details. -->
-      {% else %}
-        <p class='model-details'>{{ primary_mat }}</p>
-        {% if product.type == 'Voyager' %}
-          {% if lens %}
-            <p class='model-details'>{{ lens }} Lenses</p>
-          {% endif %}
-        {% elsif product.type == 'Concorde' %}
-          {% if lens %}
-            <p class='model-details'>{{ lens }} Lenses</p>
-          {% endif %}
-          {% if nosepads %}
-            <p class='model-details'>{{ nosepads }} Nose Pads</p>
-          {% endif %}
-        {% elsif product.type == 'Project Vanguard' %}
-          {% if lens %}
-            <p class='model-details'>{{ lens }} Lenses</p>
-          {% endif %}
-          {% if nosepads %}
-            <p class='model-details'>{{ nosepads }} Nose Pads</p>
-          {% endif %}
+      {% if lens %}
+        <p class='model-details'>with {{ lens }} Lenses</p>
+      {% endif %}
+      {% if primary_mat %}
+        {% if no_side_material %}
+          <p class='model-details'>{{ primary_mat }}</p>
+        {% elsif gift_card %}
+          <!-- No side material. -->
         {% else %}
-          {% if frame_color %}
-            <p class='model-details'>{{ frame_color }} Frame</p>
-          {% endif %}
+          <p class='model-details'>and {{ primary_mat }}</p>
         {% endif %}
       {% endif %}
       <p id="product-price" class='model-details'>
       	  {% if product.compare_at_price > product.price %}
-          <span class="product-price on-sale">{{ product.price | money }}</span> <span class="product-compare-price"><del>{{ product.compare_at_price_max | money }}</del></span>
-      	  {% elsif product.type == 'W\\L Gift Card' %}
+          <span class="product-price on-sale">{{ product.price | money_without_trailing_zeros | remove: ' ' }}</span> <span class="product-compare-price"><del>{{ product.compare_at_price_max | money_without_trailing_zeros | remove: ' ' }}</del></span>
+      	  {% elsif gift_card %}
           <span class="product-price">$50 - $300</span>
           {% else %}
-          <span class="product-price">{{ product.price | money | remove: '.00' }}</span>
+          <span class="product-price">{{ product.price | money_without_trailing_zeros | remove: ' ' }}</span>
           {% endif %}
       </p>
       <p id='converted-currency'></p>
       {% if quantity_note %}
         <p id='finish-and-quantity'>{{ quantity_note }}</p>
+      {% elsif gift_card %}
+        <p id="finish-and-quantity" class="{% if hide_variants %}hidden{% endif %}">Select amount and quantity:</p>      
       {% else %}
         <p id="finish-and-quantity" class="{% if hide_variants %}hidden{% endif %}">Select finish and quantity:</p>
+      {% endif %}
+      {% if preorder %}
+        <p class='product-note'><em>{{ product.title }} is available for pre-order, and will ship on Sept. 1st.</em></p>
       {% endif %}
       <form action="/cart/add" method="post" enctype="multipart/form-data">
 	  	  {% assign hide_default_title = false %}
@@ -141,7 +101,11 @@
         </fieldset>
         <br>
         {% if product.available %}
-          <button id='buy' type='submit'>BUY</button>
+          {% if preorder %}
+            <button id='buy' type='submit'>PRE-ORDER</button>
+          {% else %}
+            <button id='buy' type='submit'>BUY</button>
+          {% endif %}
         {% elsif product.title == "Voyager 15" %}
           <p><em>{{ product.title }} is currently unavailable on our website, but still available at <a href='http://www.barneys.com/on/demandware.store/Sites-BNY-Site/default/Product-Show?pid=00505038012686'>Barneys New York</a>.</em></p>
         {% elsif model == "N°3.10" %}
