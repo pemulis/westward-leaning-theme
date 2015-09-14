@@ -403,10 +403,8 @@ video#bgvid {
   width: 90vw;
   margin-left: auto;
   margin-right: auto;
-  padding-bottom: 24px;
-  margin-top: 76vh;
-  padding-top: 0;
-  max-width: 475px;
+  padding-bottom: 0px;
+  padding-top: 56vh;
 }
 
 @media only screen and (min-width: 768px) {
@@ -416,28 +414,8 @@ video#bgvid {
   #homepage aside {
     font-size: 24px;
   }
-  #homepage .content-box {
-    width: 60vw;
-    margin-left: auto;
-    margin-right: auto;
-  }
 }
 
-@media only screen and (min-width: 992px) {
-  #homepage .content-box {
-    width: 50vw;
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
-
-@media only screen and (min-width: 1200px) {
-  #homepage .content-box {
-    width: 50vw;
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
 
 @media screen and (max-device-width: 800px) {
   #homepage #full-screen { 
@@ -460,6 +438,11 @@ video#bgvid {
   #bgvid { display: none; }
 }
 
+@media screen and (max-width: $screen-sm-max) {
+  #homepage .content-box h1 {
+    display: none;
+  }
+}
 
 /* Styles for the individual product pages. */
 
@@ -1946,14 +1929,14 @@ a.faq-header-link {
     
   }
   
-  .back.to.top a:hover {
+  .back-to-top a:hover {
    background-color: white;
    text-decoration: none;
    color: grey;
   }
 
   
- .back.to.top a {
+ .back-to-top a {
    position: relative;
    float: right;
    font-size: 60px;
@@ -2448,14 +2431,14 @@ a.faq-header-link {
     max-width: 600px;
   }
   
- .back.to.top a:hover {
+ .back-to-top a:hover {
    background-color: white;
    text-decoration: none;
    color: grey;
   }
 
   
- .back.to.top a {
+ .back-to-top a {
    position: relative;
    float: right;
    font-size: 60px;
