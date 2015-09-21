@@ -82,6 +82,15 @@
 
     // empty container, change container's width, append the <img>
     $activeWrapper.empty().height(wrapperHeight).append(image.tag);
+      
+    // make the active image zoomable
+    if ($(window).width() > 400) {
+      $('#active-wrapper img')
+      .wrap('<span style="display:inline-block"></span>')
+      .css('display', 'block')
+      .parent()
+      .zoom();
+    }
   }
 
 
