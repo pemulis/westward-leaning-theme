@@ -2692,6 +2692,7 @@ a.faq-header-link {
 /*Styles for Fit page */
 
 #fit {
+  
   &.fluid-container {
     padding-right: 15px;
     padding-left: 15px;
@@ -2706,6 +2707,9 @@ a.faq-header-link {
     padding-left: 280px;
     padding-right: 280px;
     &:last-of-type {
+      padding-bottom: 24px;
+    }
+    &.sizing {
       padding-bottom: 24px;
     }
   }
@@ -2723,7 +2727,6 @@ a.faq-header-link {
     font-size: 36px;
     margin-top: 0px;
     padding-top: 20px;
-    padding-bottom: 20px;
     margin-bottom: 24px;
     text-align: center;
     color: #000000;
@@ -2731,12 +2734,12 @@ a.faq-header-link {
   }
   
   h2 {
-    font-size: 24px;
+    font-size: 28px;
     text-align: center;
-    color: #404040;
+    color: #000000;
     border: none;
-    letter-spacing: .05px;
-/*     text-transform: uppercase; */
+    text-transform: uppercase;
+    margin-top: 0;
   }
   
   p {
@@ -2745,9 +2748,7 @@ a.faq-header-link {
     padding-top: 8px;
     padding-bottom: 8px;
     margin-bottom: 0px;
-    margin: 0 auto;
     text-align: justify;
-    max-width: 900px;
     &:first-of-type {
       padding-top: 0px;
     }
@@ -2755,7 +2756,16 @@ a.faq-header-link {
       padding-bottom: 0px;
     }
   }
- 
+  
+  aside {
+    text-transform: uppercase;
+    font-style: italic;
+    text-align: center;
+    margin-top: -8px;
+    margin-bottom: 14px;
+    font-size: 18px;
+  }
+  
   @media screen and (max-width: $screen-sm-max) {
     h2 {
       font-size: 20px;
@@ -2764,16 +2774,85 @@ a.faq-header-link {
   
   .diagram {
     display: block;
-    background-color: #EEE;
     padding-top: 14px;
     padding-bottom: 14px;
+    position: relative;
+    img {
+      padding-bottom: 62px;
+    }
     p {
-      text-align: center;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      padding-bottom: 14px;
       text-transform: uppercase;
-      font-size: 12px;
-      line-height: 15px;
+      padding-left: 14px;
+      padding-right: 14px;
+      font-size: 14px;
+      line-height: 18px;
       letter-spacing: 1px;
       font-family: 'WWLheavy';
+    }
+    img {
+      width: 94%;
+      margin-right: 3%;
+      margin-left: 3%;
+      margin-top: 14px;
+    }
+    @media screen and (min-width: $screen-md-min) {
+      background-color: #EEE;
+      img.extra-top-padding {
+        padding-top: 48px;
+      }
+      img.extra-bottom-padding {
+        padding-bottom: 96px;
+      }
+    }
+  }
+  
+  .sizing {
+    h3 {
+      text-align: center;
+      text-transform: uppercase;
+      margin-top: 36px;
+      margin-bottom: 0;
+      width: 94%;
+      margin-right: 3%;
+      margin-left: 3%;
+      padding-top: 14px;
+      padding-bottom: 14px;
+      @media screen and (min-width: $screen-md-min) {
+        background-color: #EEE;
+      }
+    }
+    img {
+      width: 94%;
+      margin-right: 3%;
+      margin-left: 3%;
+      @media screen and (min-width: $screen-md-min) {
+        background-color: #EEE;
+      }
+    }
+  }
+  
+  .centered { text-align: center; }
+  
+  .dimensions {
+    margin-bottom: 24px;
+    padding-top: 14px;
+    @media screen and (min-width: $screen-md-min) {
+      background-color: #EEE;
+    }
+    h3, p {
+      text-align: center;
+    }
+    h3 {
+      margin-top: 0;
+      text-transform: uppercase;
+    }
+    p {
+      padding-bottom: 0;
+      padding-top: 0;
     }
     img {
       width: 94%;
@@ -2790,12 +2869,9 @@ a.faq-header-link {
       padding-top: 34px;
       margin-left: 5px;
       margin-right: 5px;
-    }
-  }
-  
-  @media screen and (max-width: $screen-sm-max) {
-    .diagram {
-      background-color: #FFF;
+      &.col-md-offset-2 {
+        margin-left: 16.66666%;
+      }
     }
   }
 }
