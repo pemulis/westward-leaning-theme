@@ -2,6 +2,15 @@
 
 $('a.popup-footer-toggle').on('click', function () {
   $( ".popup-footer" ).toggle();
+  $('#mc_embed_signup.mc_popup').addClass('hidden');
+});
+
+/* Closing the Mailchimp popup. */
+
+$('#mc_embed_signup a.close').on('click', function() {
+  $('#mc_embed_signup.mc-popup').addClass('hidden');
+  Cookies.set('WestwardLeaningNewsletterClosed', 'true');
+  //document.cookie = "WestwardLeaningNewsletterClosed=true;";
 });
 
 

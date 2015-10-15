@@ -1,0 +1,172 @@
+<!-- Begin MailChimp Signup Form -->
+
+<style type="text/css">
+  #mc_embed_signup.mc-popup #mce-error-response {
+    color: white;
+  }
+  #mc_embed_signup.mc-popup div.response {
+    margin: 0;
+    margin-bottom: 10px;
+    padding: 0;
+    width: 100%;
+    font-weight: normal;
+    text-align: center;
+  }
+  #mc_embed_signup.mc-popup #mce-success-response {
+    color: white;
+  }
+  
+	#mc_embed_signup.mc-popup {
+      background:#fff; 
+      clear:none;
+      z-index: 1000;
+      font-size: 14px;  
+      width:300px;
+      margin-bottom: 60px;
+      margin-right: 24px;
+      float: right;
+      background-color:rgba(0,0,0,0.8);
+      color: white;
+      padding: 24px;
+      {% if template contains 'index' %}
+        visibility: hidden;
+      {% endif %}
+    }
+  #mc_embed_signup.mc-popup p {
+    text-align: center;
+  }
+  #mc_embed_signup.mc-popup input.email {
+    width: 70%;
+    float: left;
+  }
+  #mc_embed_signup.mc-popup input.button {
+    float: left;
+    clear: none;
+    width: 28%;
+    margin-left: 2%;
+    height: 26px;
+    -moz-border-radius: 0px;
+    -webkit-border-radius: 0px;
+    border-radius: 0px;
+    padding: 3px 6px 0px;
+    font-family: 'WWLheavy';
+  }
+  #mc_embed_signup.mc-popup label {
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 24px;
+  }
+  #mc_embed_signup.mc-popup a.close {
+    color: white;
+    text-decoration: none;
+    margin-top: -20px;
+    opacity: 1;
+  }
+  #mc_embed_signup.mc-popup a.close:hover {
+    background-color: inherit;
+  }
+  #mc_embed_signup.mc-popup label[for=mce-EMAIL] {
+    text-align: center;
+    clear: both;
+    width: 100%;
+    letter-spacing: 3px;
+    margin-top: 8px;
+  }
+  #mc_embed_signup.mc-popup img.newsletter-icon {
+    height: 50px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  /* Style for small screens. */
+  @media screen and (max-width: 499px) {
+    #mc_embed_signup.mc-popup {
+      position: fixed;
+      top: 15vh;
+      width: 86vw;
+      margin-left: 7vw;
+      margin-right: 7vw;
+    }
+  }
+  @media screen and (min-width: 500px) and (max-width: 767px) {
+    #mc_embed_signup.mc-popup {
+      position: fixed;
+      top: 15vh;
+      width: 60vw;
+      margin-left: 20vw;
+      margin-right: 20vw;
+    }
+  }
+  @media screen and (min-width: 768px) {
+    #mc_embed_signup.mc-popup {
+      position: fixed;
+      bottom: 10px;
+      right: 0px;
+    }
+  }
+</style>
+<div id="mc_embed_signup" class='mc-popup hidden'>
+<form action="//westwardleaning.us4.list-manage.com/subscribe/post?u=5a6457318504733f71a995ad7&amp;id=3607cdd895" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank">
+    <div id="mc_embed_signup_scroll">
+    <a class='close' href='javascript:void(0)'>x</a>
+    {{ 'newsletter-icon.png' | asset_url | img_tag: 'Sign up to our newsletter!', 'newsletter-icon' }}
+	<label for="mce-EMAIL">Newsletter</label>
+    <p>Subscribe to our Newsletter and you will get exclusive information on new trends and sales.</p>
+	<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Email Address" required>
+    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+    <div style="position: absolute; left: -5000px;"><input type="text" name="b_5a6457318504733f71a995ad7_3607cdd895" tabindex="-1" value=""></div>
+    <input type="submit" value="Join" name="subscribe" id="mc-embedded-subscribe" class="button">
+    <div id="mce-responses" class="clear">
+	  <div class="response" id="mce-error-response" style="display:none"></div>
+	  <div class="response" id="mce-success-response" style="display:none"></div>
+	</div>
+    </div>
+</form>
+</div>
+{{ 'js.cookie.js' | asset_url | script_tag }}
+<script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script>
+<script type='text/javascript'>
+  (function($) {
+    if (document.cookie.indexOf('WestwardLeaningNewsletter=subscribed') == -1) {
+      if (document.cookie.indexOf('WestwardLeaningNewsletterClosed=true') == -1) {
+        $('#mc_embed_signup').removeClass('hidden');
+      }
+    }
+    window.fnames = new Array(); 
+    window.ftypes = new Array();
+    fnames[0]='EMAIL';
+    ftypes[0]='email';
+    fnames[1]='FNAME';
+    ftypes[1]='text';
+    fnames[2]='LNAME';
+    ftypes[2]='text';
+    fnames[3]='COMPANY';
+    ftypes[3]='text';
+    fnames[4]='PHONE';
+    ftypes[4]='phone';
+    fnames[5]='ADDRESS';
+    ftypes[5]='address';
+    fnames[6]='LAST_ORDER';
+    ftypes[6]='date';
+    fnames[7]='SOURCE';
+    ftypes[7]='text';
+    fnames[8]='TAGS';
+    ftypes[8]='text';
+    fnames[9]='MMERGE9';
+    ftypes[9]='address';
+    fnames[10]='100DAY';
+    ftypes[10]='text';    
+    window.mc.ajaxOptions.complete = function() {
+      // Only hide the input boxes if there are no errors
+      if($('.mc-popup #mce-success-response').is(':visible')) {
+        $('.mc-popup p').hide();
+        $('.mc-popup input').hide();
+        $('.mc-popup label').hide();
+        Cookies.set('WestwardLeaningNewsletter', 'subscribed', { expires: 365 });
+      }
+    };
+  }(jQuery));
+  var $mcj = jQuery.noConflict(true);
+</script>
+<!--End mc_embed_signup-->

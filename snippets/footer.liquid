@@ -1,3 +1,4 @@
+{% include 'mailchimp-form' %}
 	<footer>
 		<nav>
 			<ul id='bottom-nav' class='nav'>
@@ -16,6 +17,7 @@
         	</ul>
  		</nav>
 	</footer>
+
     <footer class='popup-footer' style="display: none;">
 		<nav>
 			<ul id='bottom-nav' class='nav'>
@@ -55,66 +57,5 @@
             <li><a target="_blank" href='http://pinterest.com/westwardleaning/'>Pinterest</a></li>
             <li><a target="_blank" href='http://instagram.com/westwardleaning'>Instagram</a></li>
           </ul>
-          <!-- Begin MailChimp Signup Form -->
-          <div id="mc_embed_signup" class='pull-right mc-footer'>
-          <form action="//westwardleaning.us4.list-manage.com/subscribe/post?u=5a6457318504733f71a995ad7&amp;id=3607cdd895" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-              <div id="mc_embed_signup_scroll">
-          <div class="mc-field-group">
-              <label for="mce-EMAIL">Subscribe to our Newsletter</label>
-              <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
-          </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-              <div style="position: absolute; left: -5000px;"><input type="text" name="b_5a6457318504733f71a995ad7_3607cdd895" tabindex="-1" value=""></div>
-              <input type="submit" value="Join" name="subscribe" id="mc-embedded-subscribe" class="button">
-              <div id="mce-responses" class="clear">
-                  <div class="response" id="mce-error-response" style="display:none"></div>
-                  <div class="response" id="mce-success-response" style="display:none"></div>
-              </div>
-            </div>
-          </form>
-          </div>
-          <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script>
-          <script type='text/javascript'>
-            (function($) {            
-              if (document.cookie.indexOf('WestwardLeaningNewsletter=subscribed') >= 0) {
-                //$('#mc_embed_signup').addClass('hidden');
-                //hide the popup
-              }
-              window.fnames = new Array(); 
-              window.ftypes = new Array();
-              fnames[0]='EMAIL';
-              ftypes[0]='email';
-              fnames[1]='FNAME';
-              ftypes[1]='text';
-              fnames[2]='LNAME';
-              ftypes[2]='text';
-              fnames[3]='COMPANY';
-              ftypes[3]='text';
-              fnames[4]='PHONE';
-              ftypes[4]='phone';
-              fnames[5]='ADDRESS';
-              ftypes[5]='address';
-              fnames[6]='LAST_ORDER';
-              ftypes[6]='date';
-              fnames[7]='SOURCE';
-              ftypes[7]='text';
-              fnames[8]='TAGS';
-              ftypes[8]='text';
-              fnames[9]='MMERGE9';
-              ftypes[9]='address';
-              fnames[10]='100DAY';
-              ftypes[10]='text';    
-              window.mc.ajaxOptions.complete = function() {
-                // Only hide the input boxes if there are no errors
-                if($('#mce-error-response').is(':hidden')) {
-                  $('#mc_embed_signup input').hide();
-                  $('#mc_embed_signup label').hide();
-                  document.cookie = "WestwardLeaningNewsletter=subscribed; expires=Fri, 31 Dec 9999 23:59:59 GMT;";
-                }
-              };
-            }(jQuery));
-            var $mcj = jQuery.noConflict(true);
-          </script>
-          <!--End mc_embed_signup-->
-
         </div>
     </footer>
