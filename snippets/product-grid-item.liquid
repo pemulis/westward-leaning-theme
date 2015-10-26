@@ -63,7 +63,11 @@
         {% if gift_card %}
           $50 - $300
         {% elsif product.available %}
-          {{ product.price | money_without_trailing_zeros | remove: ' ' }}
+          {% if product.compare_at_price > product.price %}
+            <span class="product-price on-sale">{{ product.price | money_without_trailing_zeros | remove: ' ' }}</span> <span class="product-compare-price"><del>{{ product.compare_at_price_max | money_without_trailing_zeros | remove: ' ' }}</del></span>
+          {% else %}
+            {{ product.price | money_without_trailing_zeros | remove: ' ' }}
+          {% endif %}
         {% else %}
           {{ product.price | money_without_trailing_zeros | remove: ' ' }} - SOLD OUT
         {% endif %}

@@ -14,7 +14,7 @@
             {% if frame_shape %}
               <a href="{{link.url}}"><li id='{{link.handle}}' class='frame-select'><span class='frame-shape'>{{link.title | upcase}}</span><span class='silhouette'><img src='{{ silhouette_img | asset_url }}' alt='{{link.title Silhouette}}' class='silhouette'></span></li></a>          
             {% else %}
-              <a href="{{link.url}}"><li id='{{link.handle}}'><span>{{link.title | upcase}}</span></li></a>
+              <a href="{{link.url}}"><li id='{{link.handle}}' {% if link.handle == 'sale' %}class='sale'{% endif %} ><span>{{link.title | upcase}}</span></li></a>
             {% endif %}
         {% endfor %}
         </ul>

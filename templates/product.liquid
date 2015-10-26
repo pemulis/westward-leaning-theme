@@ -14,6 +14,7 @@
   {% elsif tag contains 'no side material' %}{% assign no_side_material = true %}
   {% elsif tag contains 'preorder' %}{% assign preorder = true %}
   {% elsif tag contains 'Gift Card' %}{% assign gift_card = true %}
+  {% elsif tag contains 'Sale' %}{% assign on_sale = true %}
   {% endif %}
 {% endfor %}
 {% if model == 'model = \\' %}{% assign model = '' %}{% endif %}
@@ -22,7 +23,7 @@
     <section class='col-md-9 col-xs-12 left-col'>
       <div id='gallery'>
         <div id='active-wrapper'>
-  		  <img src="{{ '' | product_img_url: 'grande' }}" alt="{{ product.featured_image.alt | escape }}" />
+  		  <img src="{{ '' | product_img_url: 'master' }}" alt="{{ product.featured_image.alt | escape }}" />
         </div>
 	    {% if product.images.size > 1 %}
         <ul id='thumbs'>
@@ -99,6 +100,7 @@
 		   </select>
 	      </div>
         </fieldset>
+        {% if on_sale %}<div id='sale-message'>Final Sale</div>{% endif %}
         <br>
         {% if product.available %}
           {% if preorder %}

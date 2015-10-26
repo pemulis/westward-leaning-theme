@@ -13,7 +13,7 @@
         	<ul class='nav navbar-nav'>
 				{% for link in linklists.main-menu-fall-2015.links %}
                 <li {% if link.title contains 'About' %}class='dropdown'{% elsif link.title contains 'As Seen On' %}class='dropdown'{% endif %}>
-                  <a href='{{ link.url }}' {% if link.title contains 'About' %}data-toggle='dropdown' class='dropdown-toggle'{% elsif link.title contains 'As Seen On' %}data-toggle='dropdown' class='dropdown-toggle'{% endif %}>{{ link.title }}</a>
+                  <a href='{{ link.url }}' {% if link.title contains 'About' %}data-toggle='dropdown' class='dropdown-toggle'{% elsif link.title contains 'As Seen On' %}data-toggle='dropdown' class='dropdown-toggle'{% elsif link.title contains 'Sale' %}class='sale'{% endif %}>{{ link.title }}</a>
                   {% if link.title contains 'About' %}
                     <ul class='dropdown-menu'>
                       {% for dropdownlink in linklists.fall-2015-about.links %}
@@ -92,6 +92,10 @@
   {% elsif collection.title contains 'Voyager' %}
     <div id='collection-banner'>
       {{ 'Voyager_Banner.jpg' | asset_url | img_tag }}
+    </div>
+  {% elsif collection.title contains 'Sale' %}
+    <div id='collection-banner'>
+      {{ 'Sale_Banner.jpg' | asset_url | img_tag }}
     </div>
   {% else %}
   {% endif %}

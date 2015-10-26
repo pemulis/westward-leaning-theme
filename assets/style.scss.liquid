@@ -148,6 +148,9 @@ b, strong {
       color: black;
       background-color: #DDD;
     }
+    &.sale {
+      color: red;
+    }
   }
 }
 
@@ -344,6 +347,7 @@ footer {
   margin-right: 14px;
   text-decoration: none;
   color: #fff;
+  font-size: 12px;
 }
 
 
@@ -549,6 +553,9 @@ video#bgvid {
 .model-details {
   font-family: 'WWLheavy';
   font-size: 16px;
+  .on-sale {
+    color: red;
+  }
 }
 
 #converted-currency {
@@ -717,6 +724,13 @@ p.product-note {
   }
 }
 
+#sale-message {
+  font-style: italic;
+  text-align: center;
+  color: red;
+  font-size: 16px;
+}
+
 @media screen and (max-width: $screen-xs-max) {
   #product .nav-tabs {
     display: none;
@@ -802,7 +816,8 @@ ul.cross-sell > li > a { margin: 0px; display: block; width: 100%; height: 100%;
   #product section.right-col h1,
   #product section.right-col p,
   #product section.right-col button,
-  #product section.right-col #shipping-message {
+  #product section.right-col #shipping-message,
+  #product section.right-col #sale-message {
     margin-right: -60px;
   }
 
@@ -857,6 +872,9 @@ ul.cross-sell > li > a { margin: 0px; display: block; width: 100%; height: 100%;
       font-family: 'WWLstandard';
       font-weight: normal;
     }
+    span.on-sale {
+      color: red;
+    }
   }
   @media only screen and (max-width: $screen-sm-max) {
     //width: 190px;
@@ -887,6 +905,12 @@ ul.cross-sell > li > a { margin: 0px; display: block; width: 100%; height: 100%;
   @media only screen and (min-width: $screen-xxl-min) {
     height: 256px;
   }
+}
+
+body.sale .product-thumb h2 {
+  // smaller font size for the Sale class, to keep h2 from becoming two lines and breaking the grid
+  font-size: 14px;
+  padding-bottom: 0;
 }
 
 a.product-link:hover {
@@ -1040,6 +1064,9 @@ a.quick-buy {
       float: left;
       margin-left: 0;
     }
+    &.sale {
+      color: red;
+    }
   }
   a:first-child > li {
     border-top: none;
@@ -1076,6 +1103,9 @@ a.quick-buy {
     }
     &.special-collection-link {
       margin-right: 12px;
+    }
+    &.sale {
+      color: red;
     }
     &.frame-select {
       text-align: right;
@@ -3015,6 +3045,7 @@ a.faq-header-link {
   -moz-border-radius: 0px;
   -webkit-border-radius: 0px;
   border-radius: 0px;
+  background-color: rgb(192, 192, 192);
 }
 #mc_embed_signup.mc-footer {
   color: white;

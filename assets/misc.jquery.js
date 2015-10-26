@@ -2,7 +2,7 @@
 
 $('a.popup-footer-toggle').on('click', function () {
   $( ".popup-footer" ).toggle();
-  $('#mc_embed_signup.mc_popup').addClass('hidden');
+  $('#mc_embed_signup.mc-popup').addClass('hidden');
 });
 
 /* Closing the Mailchimp popup. */
@@ -35,7 +35,9 @@ $('.dropdown-menu').hover(function() {
 /* Newsletter popup in footer. */
 
 $('a.newsletter').on('click', function(e) {
-  mcEvilPopupReopen();
+  Cookies.remove('WestwardLeaningNewsletterClosed');
+  Cookies.remove('WestwardLeaningNewsletter');
+  $('#mc_embed_signup.mc-popup').removeClass('hidden');
   $(".popup-footer").toggle();
 });
 

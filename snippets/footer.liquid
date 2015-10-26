@@ -51,11 +51,14 @@
             <li><a href='/pages/privacy-policy'>Privacy Policy</a></li>
             <li><a href='/pages/terms-of-use'>Terms of Use</a></li>
           </ul>
-          <ul class='hidden-sm hidden-xs'>
+          <ul>
             <li><a target="_blank" href='https://www.facebook.com/westwardleaning'>Facebook</a></li>
             <li><a target="_blank" href='https://twitter.com/#!/westwardleaning'>Twitter</a></li>
             <li><a target="_blank" href='http://pinterest.com/westwardleaning/'>Pinterest</a></li>
             <li><a target="_blank" href='http://instagram.com/westwardleaning'>Instagram</a></li>
           </ul>
+          {% unless template contains 'index' %}
+            <p class='pull-right'><a class='newsletter' href='javascript:void(0)'>Subscribe to our Newsletter</a></p>
+          {% endunless %}
         </div>
     </footer>
