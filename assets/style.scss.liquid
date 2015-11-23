@@ -15,6 +15,9 @@ $screen-xxl-min: 2200px;
 $screen-xl-max: ($screen-xxl-min - 1);
 
 
+.rose-gold { color: #daa39f; }
+
+
 /* A few high-level styles, mostly having to do with fonts. */ 
  
 body {
@@ -263,8 +266,21 @@ b, strong {
     -webkit-transform: translateX(-50%);
     -ms-transform: translateX(-50%);
   }
+  &.large {
+    height: 300px;
+  }
 }
- 
+
+#collection-banner-mobile {
+  margin-top: -20px;
+  width: 100%;
+  height: 100%;
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
 @media screen and (max-width: $screen-xs-max) {
   #free-shipping-banner-index { 
     display: none; 
@@ -300,6 +316,9 @@ footer {
     margin-left: 12px;
     a {
       color: #BBB;
+      span.red {
+        color: red;
+      }
     }
     img {
       height: 30px;
@@ -1214,6 +1233,14 @@ a.quick-buy {
 #cart td a:hover {
   color: black;
   background-color: white;
+}
+
+
+#cart a.no-background-hover{
+  display: block;
+  &:hover {
+    background-color: white;
+  }
 }
 
 .cart-banner {

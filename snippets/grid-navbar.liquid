@@ -22,3 +22,10 @@
       </a>
     </ul>
   </nav>
+  {% if collection.title contains 'Olivia' %}
+    <div id='collection-banner-mobile' class='visible-xs'>
+      <a href='#product-grid-container'>
+      {{ 'op_banner_mobile.jpg' | asset_url | img_tag }}
+      </a>
+    </div>
+  {% endif %}

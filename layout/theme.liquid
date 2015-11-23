@@ -75,7 +75,6 @@
 {{ 'misc.jquery.js' | asset_url | script_tag }}
 
 <!-- Tracking and retargeting code. -->
-{% include 'retargeter-tag' %}
 {% include 'google-analytics-tracking-code' %}
 {% if template contains 'index' %}
   <!-- No Retargeter pixel. -->
@@ -95,9 +94,6 @@
 {% if template contains 'cart' %}{% include 'cart-scripts' %}{% endif %} 
 {% if template contains 'about-new' %}{% include 'bts-scripts' %}{% endif %}
 {% if template contains 'campaigns' %}{% include 'campaigns-scripts' %}{% endif %}
-
-<!-- Retargeter burn pixel for people referred from email. -->
-{% include 'retargeter-burn-script' %}
 
 <!-- Crazy Egg script. -->
 {% include 'crazy-egg' %}

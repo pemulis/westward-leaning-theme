@@ -2,7 +2,7 @@
 		<ul>
           
           {% for link in linklists.collection-grids-special-fall-2015.links %}
-            <a href="{{link.url}}"><li id='{{link.handle}}' class='{% if link.handle == 'sale' %}sale{% endif %} special-collection-link'><span>{{link.title}}</span></li></a>
+            <a href="{{link.url}}"><li id='{{link.handle}}' class='{% if link.handle == 'sale' %}sale{% endif %} {%if link.handle contains 'olivia' %}rose-gold{% endif %} special-collection-link'><span>{{link.title}}</span></li></a>
           {% endfor %}
           
           <p class='grid-nav-left-divider'>See styles by shape:</p>

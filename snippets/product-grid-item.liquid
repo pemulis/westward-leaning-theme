@@ -10,6 +10,7 @@
 {% assign lens = false %}
 {% assign collab = false %}
 {% assign gift_card = false %}
+{% assign olivia = false %}
 {% for tag in product.tags %}
 	{% if tag contains "primary mat = " %}{% assign product_material = tag | remove: 'primary mat = ' %}
 	{% elsif tag contains "model = " %}{% assign model = tag | remove: 'model = ' %}
@@ -19,6 +20,7 @@
 	{% elsif tag contains "special projects" %}{% assign special_project = true %}
 	{% elsif tag contains "launch collection" %}{% assign launch_collection = true %}
     {% elsif tag contains 'Gift Card' %}{% assign gift_card = true %}
+    {% elsif tag contains 'Olivia Palermo' %}{% assign olivia = true %}
 	{% endif %}
 {% endfor %}
 
@@ -52,6 +54,8 @@
           {{ collab }}
         {% elsif special_project %}
           {{ product_material }}
+        {% elsif olivia %}
+          Olivia Palermo x WL
         {% else %}
           {% if lens %}
             {{ lens }} Lenses

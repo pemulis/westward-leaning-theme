@@ -2,14 +2,14 @@
 	<footer>
 		<nav>
 			<ul id='bottom-nav' class='nav'>
-              <li class='pull-left'><a href='/pages/contact' class='shipping-link'><span class='hidden-xs'>Free Worldwide Shipping</span><span class='visible-xs'>Free Worldwide Shipping</span></a></li>
+              <li class='pull-left'><a href='/pages/contact' class='shipping-link'><span class='hidden-xs red'>Free 2–Day Shipping*</span><span class='visible-xs'>Free Worldwide Shipping</span></a></li>
               <li class='pull-left hidden-xs hidden-sm'><a href='/pages/contact' class='shipping-link'>Contact</a></li>
               <li class='pull-left hidden-xs hidden-sm'><a href='/pages/sizing' class='shipping-link'>Fit Guide</a></li>
               <li class='centered hidden-xs'><a href="javascript:void(0)" class='popup-footer-toggle'>{{ 'footer-more.jpg' | asset_url | img_tag }}</a></li>
 				{% for link in linklists.footer.links %}
 				  {% capture socialImg %}{{ link.title | downcase | handleize }}.jpg{% endcapture %}
                   {% if link.url == 'http://instagram.com/westwardleaning' %}
-				    <li class='hidden-xs'><a target="_blank" href='{{ link.url }}'><img src='{{ socialImg | asset_url }}' alt='{{ link.title }}' /></a></li>
+				    <li><a target="_blank" href='{{ link.url }}'><img src='{{ socialImg | asset_url }}' alt='{{ link.title }}' /></a></li>
                   {% else %}
 				    <li class='hidden-xs'><a target="_blank" href='{{ link.url }}'><img src='{{ socialImg | asset_url }}' alt='{{ link.title }}' /></a></li>
                   {% endif %}
@@ -21,7 +21,7 @@
     <footer class='popup-footer' style="display: none;">
 		<nav>
 			<ul id='bottom-nav' class='nav'>
-              <li class='pull-left'><a href='/pages/contact' class='shipping-link'><span class='shipping-message hidden-xs'>Free Worldwide Shipping</span><span class='shipping-message visible-xs'>Free Worldwide Shipping</span></a></li>
+              <li class='pull-left'><a href='/pages/contact' class='shipping-link'><span class='shipping-message hidden-xs red'>Free 2–Day Shipping*</span><span class='shipping-message visible-xs'>Free Worldwide Shipping</span></a></li>
               <li class='pull-left hidden-xs hidden-sm'><a href='/pages/contact' class='shipping-link'>Contact</a></li>
               <li class='pull-left hidden-xs hidden-sm'><a href='/pages/sizing' class='shipping-link'>Fit Guide</a></li>
               <li class='centered'><a href="javascript:void(0)" class='popup-footer-toggle'>{{ 'footer-close.jpg' | asset_url | img_tag }}</a></li>

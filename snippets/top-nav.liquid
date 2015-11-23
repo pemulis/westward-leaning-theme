@@ -65,7 +65,11 @@
     </div>
 
 {% if template contains 'collection' %}
-  {% if collection.title contains 'Atlas' %}
+  {% if collection.title contains 'Olivia' %}
+    <div id='collection-banner' class='large'>
+      {{ 'op_banner_large.jpg' | asset_url | img_tag }}
+    </div>
+  {% elsif collection.title contains 'Atlas' %}
     <div id='collection-banner'>
       {{ 'Atlas_Banner.jpg' | asset_url | img_tag }}
     </div>
@@ -97,7 +101,14 @@
     <div id='collection-banner'>
       {{ 'Sale_Banner.jpg' | asset_url | img_tag }}
     </div>
+  {% elsif collection.title contains 'Best Sellers' %}
+  {% elsif collection.title contains 'Editor' %}
   {% else %}
+    <div id='collection-banner'>
+      <a href='/collections/olivia-palermo'>
+        {{ 'op_banner_normal.jpg' | asset_url | img_tag }}
+      </a>
+    </div>
   {% endif %}
 {% else %}
   <!-- Do nothing. -->
