@@ -100,7 +100,9 @@
 		   </select>
 	      </div>
         </fieldset>
-        {% if on_sale %}<div id='sale-message'>Final Sale</div>{% endif %}
+        {% if on_sale %}
+          <div id='sale-message'>Final Sale</div>
+        {% endif %}
         <br>
         {% if product.available %}
           {% if preorder %}
@@ -117,6 +119,11 @@
         {% endif %}
 		<div id="quantity-message"></div>
         <div id="shipping-message"><a href='/pages/contact'>Free worldwide FedEx<br>shipping on all orders.</a></div>
+        {% if on_sale %}
+          {% if product.variants.first.inventory_management == "shopify" and product.variants.first.inventory_quantity > 0 and product.variants.first.inventory_quantity < 6 %}
+            <div id='sale-message'>Only {{ product.variants.first.inventory_quantity }} left!</div>
+          {% endif %}
+        {% endif %}
       </form>
     </section>
   </div>

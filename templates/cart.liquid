@@ -1,3 +1,5 @@
+<!-- BeginApplePayLiquid -->{% if additional_checkout_buttons == false %}{% assign additional_checkout_buttons = true %}{% endif %}{% if customer %}<script>Shopify.customer_tax_exempt = {{ customer.tax_exempt }}</script>{% else %}<script>Shopify.customer_tax_exempt = false</script>{% endif %}{% capture content_for_additional_checkout_buttons %}<img id="applePayButton" style="display: none" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" onload="typeof createApplyPayButton === 'function' ? createApplyPayButton(this) : window.addEventListener('applePayReady', (function(){createApplyPayButton(this)}).bind(this))" />{{content_for_additional_checkout_buttons}}{% endcapture %}<!-- EndApplePayLiquid -->
+{% assign sale = false %}
 <div id='cart' class='container'>
   <div class='col-xs-12 col-lg-10 col-lg-offset-1'>
 	{% if cart.item_count > 0 %}
@@ -14,6 +16,9 @@
 	          <th class="hidden-xs">TOTAL</th>
 	        </tr>
 			{% for item in cart.items %} 
+              {% for tag in item.product.tags %}
+                {% if tag contains 'Sale' %}{% assign sale = true %}{% endif %}
+              {% endfor %}
 	        <tr>
               <td><a href='{{ item.product.url }}'><img class='cart-item' src="{{ item.product.featured_image.src | product_img_url: 'compact' }}" alt="{{ item.title | escape }}"> <br> {{ item.product.title | escape }} \\ {{ item.variant.option3 | escape }}</a></td>
 	          <td>{{ item.price | money_without_trailing_zeros | remove: ' ' }}</td>
@@ -34,17 +39,21 @@
 	    <div class='row'>
 	      <div class='cart-buttons'>
             <a href='/collections/new-releases'><span class='cart-button keep-shopping'>KEEP SHOPPING</span></a>
+            {% if sale %}
+              <!-- No gift wrap available for sale items. -->
+            {% else %}
             <span class='cart-button gift-wrapping'>GIFT WRAP <input id="wrapping" type="checkbox" name="attributes[wrapping]" value="yes" /></span> 
+            {% endif %}
 	        <button class='cart-button checkout-button' name="checkout">CHECKOUT</button>
           </div>
 	    </div>
         <div id='gift-wrap' class='row'>
           <h3>Select your gift wrap</h3>
         {% assign attribute = 'type-of-wrap' %}
-        {% for i in (1..3) %}
-          {% capture option %}{% cycle 'waves', 'clouds', 'mountain' %}{% endcapture %}
+        {% for i in (1..4) %}
+          {% capture option %}{% cycle 'holiday', 'waves', 'clouds', 'mountain' %}{% endcapture %}
           {% capture option_jpg %}2{{option}}.jpg{% endcapture %}
-          <div class='col-xs-12 col-sm-4 gift-wrap-option'>
+          <div class='col-xs-12 col-sm-6 gift-wrap-option'>
             <img src="{{ option_jpg | asset_url }}" alt='{{option}}'>
             <input type="radio" id="{{ option }}" name="attributes[{{ attribute }}]" value="{{ option }}" />
             <label for="{{ option }}"><span></span></label>

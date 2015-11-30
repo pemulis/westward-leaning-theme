@@ -54,6 +54,7 @@
     {% include 'pingdom-rum' %}
     <!-- Lytics scripts. -->
     {% include 'lytics-top-scripts' %}
+<!-- BeginApplePayHeader -->{% if customer %}<script>Shopify.slick_logged_in = true ; Shopify.slick_tax_exempt = {{ customer.tax_exempt }} ;Shopify.slick_email = "{{ customer.email }}" ;</script>{% else %}<script>Shopify.slick_logged_in = false;Shopify.slick_tax_exempt = false;Shopify.slick_email = undefined;</script>{% endif %}<!-- EndApplePayHeader -->
 </head>
 <body class="{{ collection.title | downcase}}">
   
