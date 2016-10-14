@@ -1,3 +1,3 @@
 # Westward Leaning Production Theme
 
-I worked at Westward Leaning from October 2013 through November 2015, and continuously revamped their Shopify theme along with coding internal products from scratch. This is the final Shopify theme I wrote for them, based on designs from Eliot Jungers.
+I worked at [Westward Leaning](http://westwardleaning.com/) from October 2013 through November 2015, coding Shopify themes and internal products. This was the final Shopify theme I built for them, with coding support by the outstanding [Janet Douglass](https://github.com/Janetyyy) and awesome designs by [Eliot Jungers](https://www.linkedin.com/in/eliotjungers) and [Jacqueline Wallace](https://www.linkedin.com/in/jacqueline-wallace-3ab93176).
