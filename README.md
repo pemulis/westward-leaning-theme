@@ -4,10 +4,6 @@ I worked at [Westward Leaning](http://westwardleaning.com/) from October 2013 th
 
 ## A Beautiful, Responsive Shopify Theme
 
-![Screengrab of the Westward Leaning theme](docs/screencap1.png)
-![Screengrab of the Westward Leaning theme](docs/screencap2.png)
-![Screengrab of the Westward Leaning theme](docs/screencap3.png)
-![Screengrab of the Westward Leaning theme](docs/screencap4.png)
 ![Screengrab of the Westward Leaning theme](docs/screencap5.png)
 ![Screengrab of the Westward Leaning theme](docs/screencap6.png)
 ![Screengrab of the Westward Leaning theme](docs/screencap7.png)
@@ -16,4 +12,3 @@ I worked at [Westward Leaning](http://westwardleaning.com/) from October 2013 th
 ![Screengrab of the Westward Leaning theme](docs/screencap10.png)
 ![Screengrab of the Westward Leaning theme](docs/screencap11.png)
 ![Screengrab of the Westward Leaning theme](docs/screencap12.png)
-![Screengrab of the Westward Leaning theme](docs/screencap13.png)
