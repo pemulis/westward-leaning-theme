@@ -8,7 +8,6 @@ I worked at [Westward Leaning](http://westwardleaning.com/) from October 2013 th
 ![Screengrab of the Westward Leaning theme](docs/screencap6.png)
 ![Screengrab of the Westward Leaning theme](docs/screencap7.png)
 ![Screengrab of the Westward Leaning theme](docs/screencap8.png)
-![Screengrab of the Westward Leaning theme](docs/screencap9.png)
 ![Screengrab of the Westward Leaning theme](docs/screencap10.png)
 ![Screengrab of the Westward Leaning theme](docs/screencap11.png)
 ![Screengrab of the Westward Leaning theme](docs/screencap12.png)
